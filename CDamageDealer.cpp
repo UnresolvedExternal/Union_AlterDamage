@@ -280,6 +280,8 @@ namespace NAMESPACE
 
 	void CDamageDealer::SetRealDamage(TDamageInfo& info)
 	{
+		static const zSTRING minDamageVarName = zoptions->ReadString("ALTERDAMAGE", "MinDamageVarName", "#");
+
 		if (info.target->HasFlag(NPC_FLAG_IMMORTAL) || info.target->IsSelfPlayer() && oCNpc::godmode)
 		{
 			info.realDamage = 0;
@@ -303,7 +305,11 @@ namespace NAMESPACE
 			maxDamage -= 1;
 		}
 
-		info.realDamage = min(maxDamage, (int)(info.totalDamage + 0.5f));
+		zCPar_Symbol* minDamageVar = parser->GetSymbol(minDamageVarName);
+		int minDamage = minDamageVar ? minDamageVar->single_intdata : 0;
+
+		info.realDamage = max(minDamage, (int)(info.totalDamage + 0.5f));
+		info.realDamage = min(maxDamage, info.realDamage);
 	}
 
 	void CDamageDealer::ApplyDamage(const TDamageInfo& info)

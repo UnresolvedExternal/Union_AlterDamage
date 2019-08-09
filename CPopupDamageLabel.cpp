@@ -126,7 +126,7 @@ namespace NAMESPACE
 			return;
 		}
 
-		zSTRING text = (int)(info->totalDamage + 0.5f);
+		zSTRING text = info->realDamage;
 		float width = view->FontSize(text) * scaling[0];
 		float height = view->FontY() * scaling[1];
 		x -= width / 2;
