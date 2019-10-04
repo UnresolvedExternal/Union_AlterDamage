@@ -368,7 +368,11 @@ namespace NAMESPACE
 
 	void CDamageDealer::UpdateDescriptor(const TDamageInfo& info, oCNpc::oSDamageDescriptor& desc)
 	{
-		// dont care
+		// stagger
+		desc.fDamageReal = info.realDamage ? max(info.realDamage, 2) : 0;
+
+		// blood
+		desc.fDamageEffective = info.realDamage;
 	}
 
 	CDamageDealer::CDamageDealer(const std::shared_ptr<CKarma>& karma):
