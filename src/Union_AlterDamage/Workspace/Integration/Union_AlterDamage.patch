@@ -1,0 +1,23 @@
+#engine [0x02648DED, 0xBCA27323, 0xC3FBCEFE, 0x6122E28F] GOTHIC Sequel	Gothic.exe	1.12f	leak, bin
+    #patch [Fix]
+        LoadPlugins("Union_AlterDamage.dll")
+    #/patch
+#/engine
+
+#engine [0x225BA11E, 0xA3496B67] GOTHIC I	GothicMOD.exe	1.08k (mod)
+    #patch [Fix]
+        LoadPlugins("Union_AlterDamage.dll")
+    #/patch
+#/engine
+
+#engine [0xA2EE682C, 0xFFB8118B] GOTHIC II Classic	Gothic2.exe	1.30 (fix)
+    #patch [Fix]
+        LoadPlugins("Union_AlterDamage.dll")
+    #/patch
+#/engine
+
+#engine [0x2BCD7E30, 0x00D32D21] GOTHIC II NOTR		Gothic2.exe 2.6 (fix)
+    #patch [Fix]
+        LoadPlugins("Union_AlterDamage.dll")
+    #/patch
+#/engine
