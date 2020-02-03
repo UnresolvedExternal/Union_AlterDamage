@@ -133,7 +133,7 @@ namespace NAMESPACE
 			if (i == oEDamageIndex::oEDamageIndex_Edge && isMelee)
 			{
 				int attrValue;
-				if (TGlobals::pluginSettings.switchAttribute && bestScalingAttr != -1)
+				if (TGlobals::pluginSettings.requiredAttrScaling && bestScalingAttr != -1)
 				{
 					info.scalingAttr = bestScalingAttr;
 					attrValue = info.npcAttacker->GetAttribute(info.scalingAttr);
@@ -152,7 +152,7 @@ namespace NAMESPACE
 			if (i == oEDamageIndex::oEDamageIndex_Point && !isMelee)
 			{
 				int attrValue;
-				if (TGlobals::pluginSettings.switchAttribute)
+				if (TGlobals::pluginSettings.requiredAttrScaling)
 				{
 					info.scalingAttr = (info.enuModeWeapon == NPC_WEAPON_BOW) ? NPC_ATR_DEXTERITY : NPC_ATR_STRENGTH;
 					attrValue = info.npcAttacker->GetAttribute(info.scalingAttr);
@@ -191,7 +191,7 @@ namespace NAMESPACE
 		return CoerceInRange(chance, 0.0f, 0.0f, 1.0f);
 	}
 
-	void CDamageDealer::InitInfo(oCNpc * target, const oCNpc::oSDamageDescriptor & desc, TDamageInfo & info)
+	void CDamageDealer::InitInfo(oCNpc* target, const oCNpc::oSDamageDescriptor& desc, TDamageInfo& info)
 	{
 		info.vobAttacker = desc.pVobAttacker;
 		info.npcAttacker = desc.pNpcAttacker;
@@ -406,13 +406,16 @@ namespace NAMESPACE
 			new CDotDamage(info, oEDamageIndex::oEDamageIndex_Fire, (int)(dotDamage + 0.5f), fireDotDuration);
 	}
 
-	void CDamageDealer::UpdateDescriptor(const TDamageInfo & info, oCNpc::oSDamageDescriptor & desc)
+	void CDamageDealer::UpdateDescriptor(const TDamageInfo& info, oCNpc::oSDamageDescriptor& desc)
 	{
 		// stagger
 		desc.fDamageReal = info.realDamage ? max(info.realDamage, 2) : 0;
 
 		// blood
 		desc.fDamageEffective = info.realDamage;
+
+		for (int i = 0; i < oEDamageIndex::oEDamageIndex_MAX; i++)
+			desc.aryDamageEffective[i] = info.effectiveDamage[i];
 	}
 
 	CDamageDealer::CDamageDealer(CHitGenContainer* hitGen) :

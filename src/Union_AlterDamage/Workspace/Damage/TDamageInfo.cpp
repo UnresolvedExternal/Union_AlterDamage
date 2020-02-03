@@ -8,6 +8,35 @@ namespace NAMESPACE
 
 	CArray<TDamageInfo*> TDamageInfo::infos;
 
+	void TDamageInfo::HandleFightSounds()
+	{
+		if (!infos.GetNum())
+			return;
+
+		static int index = 0;
+		if (index >= (int)infos.GetNum())
+			index = 0;
+
+		int startIndex = index;
+		int needHandle = 1;
+		
+		while (true)
+		{
+			while (needHandle && infos[index]->fightSoundsQueue.Size())
+			{
+				oCNpc* npc = infos[index]->fightSoundsQueue.Dequeu(ztimer->totalTimeFloat / 1000.0f);
+				if (npc == infos[index]->target || npc == infos[index]->npcAttacker || !npc->globalVobTreeNode || !infos[index]->target || !infos[index]->npcAttacker)
+					continue;
+				npc->AssessFightSound_S(infos[index]->npcAttacker, infos[index]->target->GetPositionWorld(), infos[index]->target);
+				needHandle -= 1;
+			}
+
+			index = (index + 1) % infos.GetNum();
+			if (index == startIndex || !needHandle)
+				break;
+		}
+	}
+
 	void TDamageInfo::HandleVobRemoved(zCVob* vob)
 	{
 		for (int i = infos.GetNum() - 1; i >= 0; i--)
@@ -43,45 +72,50 @@ namespace NAMESPACE
 		(*it)->lastUpdate = ztimer->totalTimeFloat / 1000.0f;
 	}
 
-	TDamageInfo::TDamageInfo()
+	TDamageInfo::TDamageInfo() :
+		fightSoundsQueue(5.0f)
 	{
 		infos.Insert(this);
 	}
 
-	void TDamageInfo::DoDamageUnhooked(int damage)
+	void TDamageInfo::AssessDamage(int damage)
 	{
-		oCNpc::oSDamageDescriptor desc;
-		ZeroMemory(&desc, sizeof(desc));
+		target->AssessDamage_S(npcAttacker, damage);
+	}
 
-		desc.pVobAttacker = npcAttacker;
-		desc.pNpcAttacker = npcAttacker;
-		desc.aryDamage[oEDamageIndex::oEDamageIndex_Fall] = damage + target->protection[oEDamageIndex::oEDamageIndex_Fall];
-		desc.fDamageTotal = damage;
-		desc.enuModeWeapon = NPC_WEAPON_MAX;
-		desc.bFinished = 1;
-		desc.fDamageMultiplier = 1;
-		desc.enuModeDamage = 128;
-		desc.bIsDead = 1;
+	void TDamageInfo::AssessFightSound()
+	{
+		zCArray<zCVob*>& vobs = ogame->GetWorld()->activeVobList;
+		for (int i = 0; i < vobs.GetNum(); i++)
+			if (vobs[i]->GetVobType() == zVOB_TYPE_NSC)
+				fightSoundsQueue.Enqueu(vobs[i]->CastTo<oCNpc>(), ztimer->totalTimeFloat / 1000.0f);
+	}
 
-#if (CurrentEngine == Engine_G2) || (CurrentEngine == Engine_G2A)
-		desc.bDamageDontKill = mustNotKill;
-#endif
+	void TDamageInfo::Kill()
+	{
+		target->DropUnconscious(0, npcAttacker);
+		target->SetAttribute(NPC_ATR_HITPOINTS, 0);
+		target->GetModel()->StopAnisLayerRange(0, zMDL_MAX_ANIS_PARALLEL);
+		target->DoDie(npcAttacker);
+		
+		oCSVMManager man;
 
-		desc.dwFieldsValid |= oCNpc::oEDescDamageFlags::oEDamageDescFlag_Attacker;
-		desc.dwFieldsValid |= oCNpc::oEDescDamageFlags::oEDamageDescFlag_Damage;
+		if (target->voice < 0 || target->voice >= man.svm_max)
+			return;
+		int ou = man.sv_module[target->voice].GetOU("DEAD");
 
+		if (ou != -1)
 		{
-			auto scope = AssignTemp(TGlobals::disableOnHitHook, true);
-			target->OnDamage(desc);
+			zCCSBlock* block = ogame->GetCutsceneManager()->LibGet(ou);
+			zCSoundSystem::zTSound3DParams params;
+			zsound->GetSound3DProps(0, params);
+			zsound->PlaySound3D(block->GetRoleName(), target, 0, &params);
 		}
+	}
 
-		int health = target->GetAttribute(NPC_ATR_HITPOINTS);
-
-		if (health <= 0)
-		{
-			target->ResetPos(target->GetPositionWorld());
-			target->SetAttribute(NPC_ATR_HITPOINTS, health);
-		}
+	void TDamageInfo::DropUnconscious()
+	{
+		target->DropUnconscious(0, npcAttacker);
 	}
 
 	TDamageInfo::~TDamageInfo()

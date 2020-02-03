@@ -14,6 +14,8 @@ namespace NAMESPACE
 			TGlobals::hitGens.clear();
 		}, SubEnabled(CurrentEngine));
 
+	CSubscription handleFightSounds(TGameEvent::Loop, &TDamageInfo::HandleFightSounds, SubEnabled(CurrentEngine));
+
 	void __fastcall Hook_oCNpc_Archive(oCNpc*, void*, zCArchiver&);
 	CInvoke<void(__thiscall*)(oCNpc*, zCArchiver&)> Ivk_oCNpc_Archive(ZenDef<TInstance>(0x006A2680, 0x006D4EE0, 0x006E79D0, 0x00746470), &Hook_oCNpc_Archive, IvkEnabled(CurrentEngine));
 	void __fastcall Hook_oCNpc_Archive(oCNpc* _this, void* vtable, zCArchiver& arc)

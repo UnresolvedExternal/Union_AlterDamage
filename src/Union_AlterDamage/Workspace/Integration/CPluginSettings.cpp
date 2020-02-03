@@ -3,7 +3,7 @@ namespace NAMESPACE
 	void CPluginSettings::Load()
 	{
 		enablePopupDamage = zoptions->ReadBool(pluginName.GetVector(), Z"EnablePopupDamage", true);
-		switchAttribute = zoptions->ReadBool(pluginName.GetVector(), Z"SwitchAttribute", true);
+		requiredAttrScaling = zoptions->ReadBool(pluginName.GetVector(), Z"RequiredAttrScaling", false);
 		humanFistDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"HumanFistDamageMult", 0.5f);
 		meleeRawDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"MeleeRawDamageMult", ZenDef(2.0f, 2.0f, 1.0f, 1.0f));
 		meleeMissMult = zoptions->ReadReal(pluginName.GetVector(), Z"MeleeMissMult", 0.5f);

@@ -1,6 +1,6 @@
-#include <vector>
 #include <algorithm>
 #include "Workspace\Memory\CMemPool.h"
+#include "Workspace\Utility\CThrottledQueue.h"
 
 namespace NAMESPACE
 {
@@ -32,12 +32,17 @@ namespace NAMESPACE
 		bool IsCrit;
 		zSTRING strVisualFX;
 		CArray<CDotDamage*> dots;
+		CThrottledQueue<oCNpc*> fightSoundsQueue;
 
+		static void HandleFightSounds();
 		static void HandleVobRemoved(zCVob* vob);
 		static void NotifyDamage(oCNpc* target, int damage);
 
 		TDamageInfo();
-		void DoDamageUnhooked(int damage);
+		void AssessDamage(int damage);
+		void AssessFightSound();
+		void Kill();
+		void DropUnconscious();
 		~TDamageInfo();
 	};
 }

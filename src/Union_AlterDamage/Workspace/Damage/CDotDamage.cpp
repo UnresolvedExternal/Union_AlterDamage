@@ -6,28 +6,20 @@ namespace NAMESPACE
 
 	void CDotDamage::OnLoop()
 	{
+		timer.Attach();
+		timer.Suspend(0, ogame->singleStep);
+		sendMessages = timer(0, 200);
+
 		if (ogame->singleStep)
-		{
 			return;
-		}
-
 		if (!info->target || !info->target->globalVobTreeNode)
-		{
-			delete this;
-			return;
-		}
-
+			return delete this;
 		if (info->target->GetAttribute(NPC_ATR_HITPOINTS) <= 0)
-		{
-			delete this;
-			return;
-		}
-
-		if (info->mustNotKill || info->target->IsUnconscious())
-		{
-			delete this;
-			return;
-		}
+			return delete this;
+		if (info->mustNotKill && info->target->IsUnconscious())
+			return delete this;
+		if (sendMessages)
+			info->AssessFightSound();
 
 		float currentTime = ztimer->totalTimeFloat / 1000.0f;
 		info->lastUpdate = currentTime;
@@ -41,10 +33,7 @@ namespace NAMESPACE
 		}
 
 		if (damageDone >= damage)
-		{
-			delete this;
-			return;
-		}
+			return delete this;
 	}
 
 	void CDotDamage::DoDamage(int debt)
@@ -52,7 +41,7 @@ namespace NAMESPACE
 		if (info->target->HasFlag(NPC_FLAG_IMMORTAL) || info->target->IsSelfPlayer() && oCNpc::godmode)
 			return;
 		
-		int maxDamage = info->target->GetAttribute(NPC_ATR_HITPOINTS) - 1;
+		int maxDamage = info->target->GetAttribute(NPC_ATR_HITPOINTS);
 		if (info->mustNotKill && maxDamage > 0)
 			maxDamage -= 1;
 
@@ -63,11 +52,21 @@ namespace NAMESPACE
 		info->effectiveDamage[(int)damageIndex] += debt;
 		info->totalDamage += debt;
 		info->realDamage += realDamage;
+		assessDamageDebt += realDamage;
 
-		if (realDamage < debt)
+		if (sendMessages)
 		{
-			info->realDamage += 1;
-			info->DoDamageUnhooked(1);
+			info->AssessDamage(assessDamageDebt);
+			assessDamageDebt = 0;
+		}
+
+		if (info->target->GetAttribute(NPC_ATR_HITPOINTS) <= 1)
+		{
+			if (info->mustNotKill)
+				info->DropUnconscious();
+			else
+				info->Kill();
+			return delete this;
 		}
 	}
 
@@ -76,7 +75,8 @@ namespace NAMESPACE
 		damageIndex(damageIndex),
 		damage(damage),
 		durationInSecs(durationInSecs),
-		damageDone(0)
+		damageDone(0),
+		assessDamageDebt(0)
 	{
 		onLoop.Reset(TGameEvent::Loop, std::bind(&CDotDamage::OnLoop, this));
 		creationTimeInSecs = ztimer->totalTimeFloat / 1000.0f;

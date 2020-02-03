@@ -532,6 +532,7 @@
     <ClInclude Include="Workspace\Logging\Serializing.h" />
     <ClInclude Include="Workspace\Memory\CMemPool.h" />
     <ClInclude Include="Workspace\Utility\CBinSeqGen.h" />
+    <ClInclude Include="Workspace\Utility\CThrottledQueue.h" />
     <ClInclude Include="Workspace\Utility\Misc.h" />
     <ClInclude Include="Workspace\Utility\TScope.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\oAiHuman.h" />

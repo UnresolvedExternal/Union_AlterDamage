@@ -2678,6 +2678,9 @@
     <ClInclude Include="Workspace\Utility\Misc.h">
       <Filter>Plugin\Workspace\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Workspace\Utility\CThrottledQueue.h">
+      <Filter>Plugin\Workspace\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".build_settings.inl">

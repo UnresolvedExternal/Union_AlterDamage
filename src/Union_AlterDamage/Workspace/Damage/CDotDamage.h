@@ -12,11 +12,14 @@ namespace NAMESPACE
 		CSubscription onLoop;
 
 		std::shared_ptr<TDamageInfo> info;
+		CTimer timer;
+		bool sendMessages;
 		float creationTimeInSecs;
 		const float durationInSecs;
 		const int damage;
 		oEDamageIndex damageIndex;
 		int damageDone;
+		int assessDamageDebt;
 
 		void OnLoop();
 		void DoDamage(int debt);

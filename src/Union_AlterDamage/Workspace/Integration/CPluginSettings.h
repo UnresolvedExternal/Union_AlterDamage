@@ -5,7 +5,7 @@ namespace NAMESPACE
 	public:
 		const string pluginName = "Union_AlterDamage";
 		bool enablePopupDamage;
-		bool switchAttribute;
+		bool requiredAttrScaling;
 		float humanFistDamageMult;
 		float meleeRawDamageMult;
 		float meleeMissMult;
