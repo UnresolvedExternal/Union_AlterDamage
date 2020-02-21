@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_AlterDamage", "Union_AlterDamage\Union_AlterDamage.vcxproj", "{464C8B85-FC34-4A1D-A3BD-20A42CA31731}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_SpellFix", "Union_SpellFix\Union_SpellFix.vcxproj", "{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -39,6 +41,26 @@ Global
 		{464C8B85-FC34-4A1D-A3BD-20A42CA31731}.G2A Release|x86.Build.0 = G2A Release|Win32
 		{464C8B85-FC34-4A1D-A3BD-20A42CA31731}.Release|x86.ActiveCfg = Release|Win32
 		{464C8B85-FC34-4A1D-A3BD-20A42CA31731}.Release|x86.Build.0 = Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.Debug|x86.ActiveCfg = Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.Debug|x86.Build.0 = Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1 Debug|x86.ActiveCfg = G1 Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1 Debug|x86.Build.0 = G1 Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1 Release|x86.ActiveCfg = G1 Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1 Release|x86.Build.0 = G1 Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1A Debug|x86.ActiveCfg = G1A Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1A Debug|x86.Build.0 = G1A Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1A Release|x86.ActiveCfg = G1A Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G1A Release|x86.Build.0 = G1A Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2 Debug|x86.ActiveCfg = G2 Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2 Debug|x86.Build.0 = G2 Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2 Release|x86.ActiveCfg = G2 Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2 Release|x86.Build.0 = G2 Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2A Debug|x86.ActiveCfg = G2A Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2A Debug|x86.Build.0 = G2A Debug|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2A Release|x86.ActiveCfg = G2A Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.G2A Release|x86.Build.0 = G2A Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.Release|x86.ActiveCfg = Release|Win32
+		{FDB9FEE9-B601-4F8F-B81E-740871FBEE53}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
