@@ -11,6 +11,21 @@ namespace NAMESPACE
 		for (size_t i = 0; i < effects.GetNum(); i++)
 			if (!effects[i]->GetObjectName().HasWordI(Z"TRANSFORM"))
 				effects[i]->RemoveVobFromWorld();
+
+		oCNpc* npc = vob->CastTo<oCNpc>();
+		if (!npc)
+			return;
+
+		zCArray<zCEventMessage*>& messages = npc->GetEM(false)->messageList;
+		for (int i = 0; i < messages.GetNum(); i++)
+		{
+			oCMsgDamage* message = messages[i]->CastTo<oCMsgDamage>();
+			oCVisualFX* fx = message->descDamage.pVisualFX;
+			if (!message || message->subType != oCMsgDamage::EV_DAMAGE_PER_FRAME || !fx)
+				continue;
+			npc->OnDamage_Effects_End(message->descDamage);
+		}
+		npc->GetEM(false)->KillMessages();
 	}
 
 	void SwitchNpcAgro(oCNpc* from, oCNpc* to)
