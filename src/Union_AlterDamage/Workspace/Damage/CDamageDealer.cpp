@@ -199,14 +199,17 @@ namespace NAMESPACE
 		info.weapon = desc.pItemWeapon;
 		info.spellId = desc.nSpellID;
 		info.spellLevel = desc.nSpellLevel;
+		info.strVisualFX = desc.strVisualFX;
 
 #if (CurrentEngine == Engine_G2) || (CurrentEngine == Engine_G2A)
 		info.mustNotKill = desc.bDamageDontKill;
+		if (info.strVisualFX.IsEmpty())
+			if (desc.pFXHit)
+				info.strVisualFX = desc.pFXHit->emFXCollDynPerc_S;
 #endif
 
 		info.totalDamage = desc.fDamageTotal;
 		info.lastUpdate = ztimer->totalTimeFloat / 1000.0f;
-		info.strVisualFX = desc.strVisualFX;
 		info.IsCrit = false;
 
 		for (int i = 0; i < (int)oEDamageIndex::oEDamageIndex_MAX; i++)
