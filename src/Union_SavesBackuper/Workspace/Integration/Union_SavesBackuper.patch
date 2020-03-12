@@ -1,0 +1,23 @@
+#engine [G1] GOTHIC Sequel	Gothic.exe	1.12f	leak, bin
+    #patch [Fix]
+        LoadPlugins("Union_SavesBackuper.dll")
+    #/patch
+#/engine
+
+#engine [G1A] GOTHIC I	GothicMOD.exe	1.08k (mod)
+    #patch [Fix]
+        LoadPlugins("Union_SavesBackuper.dll")
+    #/patch
+#/engine
+
+#engine [G2] GOTHIC II Classic	Gothic2.exe	1.30 (fix)
+    #patch [Fix]
+        LoadPlugins("Union_SavesBackuper.dll")
+    #/patch
+#/engine
+
+#engine [G2A] GOTHIC II NOTR		Gothic2.exe 2.6 (fix)
+    #patch [Fix]
+        LoadPlugins("Union_SavesBackuper.dll")
+    #/patch
+#/engine
