@@ -5,12 +5,16 @@ namespace NAMESPACE
 {
 	void RemoveChildEffects(zCVob* vob)
 	{
+		oCWorld* world = ogame->GetGameWorld();
+		if (!world)
+			return;
+
 		CCollector<zCEffect> effectsCollector;
 		ogame->GetWorld()->TraverseVobTree(effectsCollector, nullptr, ogame->GetWorld()->globalVobTree.Search(vob));
 		CArray<zCEffect*>& effects = effectsCollector.vobs;
 		for (size_t i = 0; i < effects.GetNum(); i++)
 			if (!effects[i]->GetObjectName().HasWordI(Z"TRANSFORM"))
-				effects[i]->RemoveVobFromWorld();
+				world->RemoveVob(effects[i]);
 
 		oCNpc* npc = vob->CastTo<oCNpc>();
 		if (!npc)
@@ -20,12 +24,16 @@ namespace NAMESPACE
 		for (int i = 0; i < messages.GetNum(); i++)
 		{
 			oCMsgDamage* message = messages[i]->CastTo<oCMsgDamage>();
-			oCVisualFX* fx = message->descDamage.pVisualFX;
-			if (!message || message->subType != oCMsgDamage::EV_DAMAGE_PER_FRAME || !fx)
+			if (!message)
 				continue;
+
+			oCVisualFX* fx = message->descDamage.pVisualFX;
+			if (message->subType != oCMsgDamage::EV_DAMAGE_PER_FRAME || !fx)
+				continue;
+
 			npc->OnDamage_Effects_End(message->descDamage);
+			message->Delete();
 		}
-		npc->GetEM(false)->KillMessages();
 	}
 
 	void SwitchNpcAgro(oCNpc* from, oCNpc* to)
@@ -64,8 +72,11 @@ namespace NAMESPACE
 	CInvoke<int(__thiscall*)(oCSpell*)> Ivk_oCSpell_DeleteCaster(ZenDef<TInstance>(0x0047FB50, 0x0048A750, 0x00485D00, 0x00487320), &Hook_oCSpell_DeleteCaster, IvkEnabled(CurrentEngine));
 	int __fastcall Hook_oCSpell_DeleteCaster(oCSpell* _this, void* vtable)
 	{
-		_this->spellCasterNpc->Disable();
-		RemoveChildEffects(_this->spellCasterNpc);
+		if (_this->spellID >= ZenDef(26, 26, 47, 47) && _this->spellID <= ZenDef(39, 39, 58, 58))
+		{
+			_this->spellCasterNpc->Disable();
+			RemoveChildEffects(_this->spellCasterNpc);
+		}
 		return Ivk_oCSpell_DeleteCaster(_this);
 	}
 
