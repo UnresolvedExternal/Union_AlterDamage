@@ -241,6 +241,7 @@ namespace NAMESPACE
 			delete file;
 			arc = zarcFactory->CreateArchiverWrite(infoPath.GetVector(), zTArchiveMode::zARC_MODE_ASCII, 0, 0);
 			arc->WriteObject(destInfo);
+			arc->Close();
 			arc->Release();
 
 			CopySaveToSlot(slot);
