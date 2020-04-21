@@ -37,6 +37,9 @@ namespace Gothic_I_Classic {
     static zCPar_TreeNode* SeekEndTree( zCPar_TreeNode* )                          zCall( 0x006EE150 );
     static zCPar_TreeNode* MakeDyadicNode( zCPar_TreeNode*, int, zCPar_TreeNode* ) zCall( 0x006EE170 );
     static zCPar_TreeNode* MakeMonadicNode( int, zCPar_TreeNode* )                 zCall( 0x006EE1F0 );
+
+    // user API
+    #include "zCPar_TreeNode.inl"
   };
 
   class zCPar_File {
@@ -71,6 +74,9 @@ namespace Gothic_I_Classic {
     zCPar_TreeNode* LoadTreeNode( zFILE* )           zCall( 0x006E4740 );
     int LoadTree( zFILE_STATS&, zCPar_SymbolTable& ) zCall( 0x006E4880 );
     void DeleteTree()                                zCall( 0x006E4C60 );
+
+    // user API
+    #include "zCPar_File.inl"
   };
 
   class zCParser {
@@ -264,6 +270,9 @@ namespace Gothic_I_Classic {
     // static properties
     static int& enableParsing;
     static zCParser*& cur_parser;
+
+    // user API
+    #include "zCParser.inl"
   };
 
 } // namespace Gothic_I_Classic

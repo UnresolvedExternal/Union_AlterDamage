@@ -27,6 +27,9 @@ namespace Gothic_I_Addon {
     virtual zSTRING MD_GetSubTypeString( int )                          zCall( 0x007484C0 );
     virtual zCEventMessage::zTTimeBehavior MD_GetTimeBehavior()         zCall( 0x007485C0 );
     virtual float MD_GetMinTime()                                       zCall( 0x007485D0 );
+
+    // user API
+    #include "zCEventMusicControler.inl"
   };
 
   class zCMusicControler : public zCEffect {
@@ -40,6 +43,9 @@ namespace Gothic_I_Addon {
     virtual ~zCMusicControler()                                         zCall( 0x00748690 );
     virtual void OnMessage( zCEventMessage*, zCVob* )                   zCall( 0x007486A0 );
     virtual void ThisVobRemovedFromWorld( zCWorld* )                    zCall( 0x00748700 );
+
+    // user API
+    #include "zCMusicControler.inl"
   };
 
 } // namespace Gothic_I_Addon

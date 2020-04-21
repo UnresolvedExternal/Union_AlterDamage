@@ -45,6 +45,9 @@ namespace Gothic_II_Addon {
 
     // static properties
     static unsigned long& masterFrameCtr;
+
+    // user API
+    #include "zCTexAniCtrl.inl"
   };
 
   class zCMaterial : public zCObject {
@@ -131,6 +134,9 @@ namespace Gothic_II_Addon {
 
     // static properties
     static unsigned char& s_matUsageDefault;
+
+    // user API
+    #include "zCMaterial.inl"
   };
 
 } // namespace Gothic_II_Addon

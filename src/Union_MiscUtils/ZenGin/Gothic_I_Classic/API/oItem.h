@@ -175,6 +175,9 @@ namespace Gothic_I_Classic {
     virtual oCAIVobMove* GetAIVobMove()                                                      zCall( 0x00673400 );
     virtual void GetSoundMaterial_AM( zCSoundManager::zTSndManMedium&, oTSndMaterial&, int ) zCall( 0x00672140 );
     virtual oTSndMaterial GetSoundMaterial()                                                 zCall( 0x00670F60 );
+
+    // user API
+    #include "oCItem.inl"
   };
 
 } // namespace Gothic_I_Classic

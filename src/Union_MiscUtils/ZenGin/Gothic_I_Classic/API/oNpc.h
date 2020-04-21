@@ -263,6 +263,9 @@ namespace Gothic_I_Classic {
     virtual void Archive( zCArchiver& )                                 zCall( 0x0068A3E0 );
     virtual void Unarchive( zCArchiver& )                               zCall( 0x0068A420 );
     virtual ~oCNpcTalent()                                              zCall( 0x0068A260 );
+
+    // user API
+    #include "oCNpcTalent.inl"
   };
 
   struct TNpcSlot {
@@ -279,6 +282,9 @@ namespace Gothic_I_Classic {
     void ClearVob()        zCall( 0x0068A530 );
     TNpcSlot()             zInit( TNpcSlot_OnInit() );
     ~TNpcSlot()            zCall( 0x0068C760 );
+
+    // user API
+    #include "TNpcSlot.inl"
   };
 
   struct TNpcPerc {
@@ -287,6 +293,9 @@ namespace Gothic_I_Classic {
     int percFunc;
 
     TNpcPerc() {}
+
+    // user API
+    #include "TNpcPerc.inl"
   };
 
   class oCNpc : public oCVob {
@@ -419,6 +428,9 @@ namespace Gothic_I_Classic {
       unsigned char checkIfClimbable    : 1;
 
       oSDirectionInfo() {}
+
+      // user API
+      #include "oCNpc_oSDirectionInfo.inl"
     };
 
     struct oTRobustTrace {
@@ -454,6 +466,9 @@ namespace Gothic_I_Classic {
 
       oTRobustTrace() {}
       ~oTRobustTrace() zCall( 0x0068BE90 );
+
+      // user API
+      #include "oCNpc_oTRobustTrace.inl"
     };
 
     class TActiveInfo {
@@ -467,6 +482,9 @@ namespace Gothic_I_Classic {
       void TActiveInfo_OnInit( oCNpc const* ) zCall( 0x0068A580 );
       TActiveInfo( oCNpc const* a0 )          zInit( TActiveInfo_OnInit( a0 ));
       ~TActiveInfo()                          zCall( 0x0068A590 );
+
+      // user API
+      #include "oCNpc_TActiveInfo.inl"
     };
 
     class oCNpcTimedOverlay {
@@ -478,6 +496,9 @@ namespace Gothic_I_Classic {
       zSTRING GetMdsName() zCall( 0x0069B290 );
       ~oCNpcTimedOverlay() zCall( 0x0069B2F0 );
       int Process()        zCall( 0x006B8B10 );
+
+      // user API
+      #include "oCNpc_oCNpcTimedOverlay.inl"
     };
 
     group {
@@ -1265,7 +1286,6 @@ namespace Gothic_I_Classic {
     virtual void ProcessNpc()                                                                    zCall( 0x0069AE50 );
     virtual int AllowDiscardingOfSubtree()                                                       zCall( 0x006A4A60 );
 
-
     // static properties
     static zSTRING*& FightAIInstances;
     static oEBloodMode& modeBlood;
@@ -1288,6 +1308,9 @@ namespace Gothic_I_Classic {
     static float& ai_scriptStateSkipTimer;
     static int& ai_baseEnabled;
     static int& isEnabledTalkBox;
+
+    // user API
+    #include "oCNpc.inl"
   };
 
 } // namespace Gothic_I_Classic

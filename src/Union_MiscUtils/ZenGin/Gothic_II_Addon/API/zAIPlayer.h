@@ -49,6 +49,9 @@ namespace Gothic_II_Addon {
       float zMV_DCUL_GROUND_ANGLE;
 
       zTConfig() {}
+
+      // user API
+      #include "zCAIPlayer_zTConfig.inl"
     };
 
     struct zTLedgeInfo {
@@ -58,6 +61,9 @@ namespace Gothic_II_Addon {
       float maxMoveForward;
 
       zTLedgeInfo() {}
+
+      // user API
+      #include "zCAIPlayer_zTLedgeInfo.inl"
     };
 
     struct zTBloodVobTrack {
@@ -65,6 +71,9 @@ namespace Gothic_II_Addon {
       float alpha;
 
       zTBloodVobTrack() {}
+
+      // user API
+      #include "zCAIPlayer_zTBloodVobTrack.inl"
     };
 
     zTConfig config;
@@ -182,6 +191,9 @@ namespace Gothic_II_Addon {
 
     // static properties
     static int& s_bShowWeaponTrails;
+
+    // user API
+    #include "zCAIPlayer.inl"
   };
 
 } // namespace Gothic_II_Addon

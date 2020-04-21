@@ -26,6 +26,9 @@ namespace Gothic_I_Addon {
     virtual int IsNetRelevant()                                         zCall( 0x006020D0 );
     virtual int MD_GetNumOfSubTypes()                                   zCall( 0x006020C0 );
     virtual zSTRING MD_GetSubTypeString( int )                          zCall( 0x00602860 );
+
+    // user API
+    #include "zCEventCommon.inl"
   };
 
   class zCTriggerBase : public zCVob {
@@ -45,6 +48,9 @@ namespace Gothic_I_Addon {
     virtual void OnTouch( zCVob* )                       zCall( 0x00602C60 );
     virtual void OnUntouch( zCVob* )                     zCall( 0x00602D00 );
     virtual zSTRING const* GetTriggerTarget( int ) const zCall( 0x00404940 );
+
+    // user API
+    #include "zCTriggerBase.inl"
   };
 
   class zCTrigger : public zCTriggerBase {
@@ -92,6 +98,9 @@ namespace Gothic_I_Addon {
     virtual void TriggerTarget( zCVob* )                                zCall( 0x006033F0 );
     virtual void UntriggerTarget( zCVob* )                              zCall( 0x006034A0 );
     virtual int CanBeActivatedNow( zCVob* )                             zCall( 0x006032D0 );
+
+    // user API
+    #include "zCTrigger.inl"
   };
 
   class zCEventMover : public zCEventMessage {
@@ -115,6 +124,9 @@ namespace Gothic_I_Addon {
     virtual int IsNetRelevant()                                         zCall( 0x006024C0 );
     virtual int MD_GetNumOfSubTypes()                                   zCall( 0x006024B0 );
     virtual zSTRING MD_GetSubTypeString( int )                          zCall( 0x006029E0 );
+
+    // user API
+    #include "zCEventMover.inl"
   };
 
   class zCMover : public zCTrigger {
@@ -167,6 +179,9 @@ namespace Gothic_I_Addon {
       zCQuat quat;
 
       zTMov_Keyframe() {}
+
+      // user API
+      #include "zCMover_zTMov_Keyframe.inl"
     };
 
     zCArray<zTMov_Keyframe> keyframeList;
@@ -236,6 +251,9 @@ namespace Gothic_I_Addon {
     virtual void PostLoad()                                             zCall( 0x00606BA0 );
     virtual int CanThisCollideWith( zCVob* )                            zCall( 0x006042F0 );
     virtual void SetVisual( zCVisual* )                                 zCall( 0x006055E0 );
+
+    // user API
+    #include "zCMover.inl"
   };
 
   class zCTriggerTeleport : public zCTrigger {
@@ -256,6 +274,9 @@ namespace Gothic_I_Addon {
     virtual void OnTrigger( zCVob*, zCVob* )                            zCall( 0x00607A50 );
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x00607A60 );
     virtual void OnTouch( zCVob* )                                      zCall( 0x00607A40 );
+
+    // user API
+    #include "zCTriggerTeleport.inl"
   };
 
   class zCTriggerList : public zCTrigger {
@@ -290,6 +311,9 @@ namespace Gothic_I_Addon {
     virtual zSTRING const* GetTriggerTarget( int ) const                zCall( 0x006082B0 );
     virtual void TriggerTarget( zCVob* )                                zCall( 0x00608820 );
     virtual void UntriggerTarget( zCVob* )                              zCall( 0x00608840 );
+
+    // user API
+    #include "zCTriggerList.inl"
   };
 
   class zCEffect : public zCVob {
@@ -299,6 +323,9 @@ namespace Gothic_I_Addon {
     zCEffect() {}
     virtual zCClassDef* _GetClassDef() const zCall( 0x0048D570 );
     virtual ~zCEffect()                      zCall( 0x0048D840 );
+
+    // user API
+    #include "zCEffect.inl"
   };
 
   class zCEarthquake : public zCEffect {
@@ -318,6 +345,9 @@ namespace Gothic_I_Addon {
     virtual ~zCEarthquake()                                             zCall( 0x00607340 );
     virtual void OnTrigger( zCVob*, zCVob* )                            zCall( 0x00607350 );
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x006073B0 );
+
+    // user API
+    #include "zCEarthquake.inl"
   };
 
   class zCPFXControler : public zCEffect {
@@ -341,6 +371,9 @@ namespace Gothic_I_Addon {
     virtual void OnTrigger( zCVob*, zCVob* )                            zCall( 0x00607C70 );
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x00607CF0 );
     virtual void PostLoad()                                             zCall( 0x00607C50 );
+
+    // user API
+    #include "zCPFXControler.inl"
   };
 
   class zCTouchDamage : public zCEffect {
@@ -375,6 +408,9 @@ namespace Gothic_I_Addon {
     virtual void OnTimer()                                              zCall( 0x00609060 );
     virtual void SetVisual( zCVisual* )                                 zCall( 0x006097E0 );
     virtual char const* GetDamageTypeArcEnum( unsigned long )           zCall( 0x006097C0 );
+
+    // user API
+    #include "zCTouchDamage.inl"
   };
 
   class zCVobStair : public zCVob {
@@ -385,6 +421,9 @@ namespace Gothic_I_Addon {
     static zCObject* _CreateNewInstance()                               zCall( 0x005FDEF0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x005FDF90 );
     virtual ~zCVobStair()                                               zCall( 0x005FDFD0 );
+
+    // user API
+    #include "zCVobStair.inl"
   };
 
   class zCTouchAnimate : public zCEffect {
@@ -411,6 +450,9 @@ namespace Gothic_I_Addon {
     virtual void OnTick()                                               zCall( 0x00609B90 );
     virtual void SetVisual( zCVisual* )                                 zCall( 0x0060A1B0 );
     virtual zSTRING GetSoundName()                                      zCall( 0x00609FA0 );
+
+    // user API
+    #include "zCTouchAnimate.inl"
   };
 
   class zCTouchAnimateSound : public zCTouchAnimate {
@@ -427,6 +469,9 @@ namespace Gothic_I_Addon {
     virtual void Unarchive( zCArchiver& )                               zCall( 0x0060A500 );
     virtual ~zCTouchAnimateSound()                                      zCall( 0x0060A3D0 );
     virtual zSTRING GetSoundName()                                      zCall( 0x0060A590 );
+
+    // user API
+    #include "zCTouchAnimateSound.inl"
   };
 
   class zCVobAnimate : public zCEffect {
@@ -448,6 +493,9 @@ namespace Gothic_I_Addon {
     virtual void OnTrigger( zCVob*, zCVob* )                            zCall( 0x0060A750 );
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x0060A7A0 );
     virtual void SetVisual( zCVisual* )                                 zCall( 0x0060A690 );
+
+    // user API
+    #include "zCVobAnimate.inl"
   };
 
   class zCVobLensFlare : public zCEffect {
@@ -465,6 +513,9 @@ namespace Gothic_I_Addon {
     virtual void Unarchive( zCArchiver& )                               zCall( 0x0060AAE0 );
     virtual ~zCVobLensFlare()                                           zCall( 0x0060A950 );
     virtual int __fastcall Render( zTRenderContext& )                   zCall( 0x0060A970 );
+
+    // user API
+    #include "zCVobLensFlare.inl"
   };
 
   class zCEventScreenFX : public zCEventMessage {
@@ -499,6 +550,9 @@ namespace Gothic_I_Addon {
     virtual float MD_GetMinTime()                                               zCall( 0x0060AEB0 );
     virtual void Pack( zCBuffer&, zCEventManager* )                             zCall( 0x0060AEC0 );
     virtual void Unpack( zCBuffer&, zCEventManager* )                           zCall( 0x0060AF00 );
+
+    // user API
+    #include "zCEventScreenFX.inl"
   };
 
   class zCVobScreenFX : public zCEffect {
@@ -513,6 +567,9 @@ namespace Gothic_I_Addon {
       int visible;
 
       zTScreenFXSet() {}
+
+      // user API
+      #include "zCVobScreenFX_zTScreenFXSet.inl"
     };
 
     zTScreenFXSet blend;
@@ -532,6 +589,9 @@ namespace Gothic_I_Addon {
     virtual ~zCVobScreenFX()                                            zCall( 0x0060B0E0 );
     virtual void OnMessage( zCEventMessage*, zCVob* )                   zCall( 0x0060B0F0 );
     virtual void OnTick()                                               zCall( 0x0060B410 );
+
+    // user API
+    #include "zCVobScreenFX.inl"
   };
 
   class zCMessageFilter : public zCTriggerBase {
@@ -565,6 +625,9 @@ namespace Gothic_I_Addon {
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x0060BD00 );
     virtual void OnTouch( zCVob* )                                      zCall( 0x005FE900 );
     virtual void OnUntouch( zCVob* )                                    zCall( 0x005FE910 );
+
+    // user API
+    #include "zCMessageFilter.inl"
   };
 
   class zCTriggerUntouch : public zCTriggerBase {
@@ -579,6 +642,9 @@ namespace Gothic_I_Addon {
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x005FE530 );
     virtual void OnTouch( zCVob* )                                      zCall( 0x005FE510 );
     virtual void OnUntouch( zCVob* )                                    zCall( 0x0060BE00 );
+
+    // user API
+    #include "zCTriggerUntouch.inl"
   };
 
   class zCTriggerWorldStart : public zCTriggerBase {
@@ -600,6 +666,9 @@ namespace Gothic_I_Addon {
     virtual void OnTouch( zCVob* )                                      zCall( 0x005FF470 );
     virtual void OnUntouch( zCVob* )                                    zCall( 0x005FF480 );
     virtual void PostLoad()                                             zCall( 0x0060D770 );
+
+    // user API
+    #include "zCTriggerWorldStart.inl"
   };
 
   class zCCodeMaster : public zCTriggerBase {
@@ -636,6 +705,9 @@ namespace Gothic_I_Addon {
     virtual void OnUntouch( zCVob* )                                    zCall( 0x005FED50 );
     virtual void OnMessage( zCEventMessage*, zCVob* )                   zCall( 0x0060C980 );
     virtual zSTRING const* GetTriggerTarget( int ) const                zCall( 0x0060D070 );
+
+    // user API
+    #include "zCCodeMaster.inl"
   };
 
   class zCMoverControler : public zCTriggerBase {
@@ -656,6 +728,9 @@ namespace Gothic_I_Addon {
     virtual void OnUntrigger( zCVob*, zCVob* )                          zCall( 0x005FF110 );
     virtual void OnTouch( zCVob* )                                      zCall( 0x005FF130 );
     virtual void OnUntouch( zCVob* )                                    zCall( 0x005FF120 );
+
+    // user API
+    #include "zCMoverControler.inl"
   };
 
   class zCVobChar : public zCVob {
@@ -663,6 +738,9 @@ namespace Gothic_I_Addon {
     zCLASS_DECLARATION( zCVobChar )
 
     zCVobChar() {}
+
+    // user API
+    #include "zCVobChar.inl"
   };
 
 } // namespace Gothic_I_Addon

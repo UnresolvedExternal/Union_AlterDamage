@@ -24,6 +24,9 @@ namespace Gothic_II_Addon {
     virtual zCWay* CreateWay()                           zCall( 0x0076FF00 );
     virtual oCNpc* CreateNpc( int )                      zCall( 0x0076FD20 );
     virtual oCItem* CreateItem( int )                    zCall( 0x0076FDE0 );
+
+    // user API
+    #include "oCObjectFactory.inl"
   };
 
 } // namespace Gothic_II_Addon

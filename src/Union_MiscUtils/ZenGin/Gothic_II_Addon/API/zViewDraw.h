@@ -37,6 +37,9 @@ namespace Gothic_II_Addon {
     virtual void __fastcall BlitTexture()                                   zCall( 0x00690490 );
     virtual void __fastcall Blit()                                          zCall( 0x00690430 );
     /* for zCViewBase num : 9*/
+
+    // user API
+    #include "zCViewDraw.inl"
   };
 
 } // namespace Gothic_II_Addon

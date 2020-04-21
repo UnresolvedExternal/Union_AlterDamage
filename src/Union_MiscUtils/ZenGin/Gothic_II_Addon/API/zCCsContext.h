@@ -88,6 +88,9 @@ namespace Gothic_II_Addon {
 
     // static properties
     static int& playDisabled;
+
+    // user API
+    #include "zCCSCutsceneContext.inl"
   };
 
   class zCCSDebugger {
@@ -105,6 +108,9 @@ namespace Gothic_II_Addon {
     virtual void CSDB_Warning( zCCSBlockBase*, zSTRING& ) zPureCall;
     virtual void CSDB_StartPlaying( zCCutscene* )         zPureCall;
     virtual void CSDB_Stop( zCCutscene* )                 zPureCall;
+
+    // user API
+    #include "zCCSDebugger.inl"
   };
 
 } // namespace Gothic_II_Addon

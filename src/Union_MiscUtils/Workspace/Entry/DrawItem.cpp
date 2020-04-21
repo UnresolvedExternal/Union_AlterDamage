@@ -23,7 +23,7 @@ namespace NAMESPACE
 	std::vector<TDrawElement> drawElements;
 
 	void __fastcall Hook_oCItemContainer_Draw(oCItemContainer*, void*);
-	CInvoke<void(__thiscall*)(oCItemContainer*)> Ivk_oCItemContainer_Draw(ZenDef<TInstance>(0x00667660, 0x00695040, 0x006A9BC0, 0x007076B0), &Hook_oCItemContainer_Draw, IvkEnabled(CurrentEngine));
+	CInvoke<void(__thiscall*)(oCItemContainer*)> Ivk_oCItemContainer_Draw(ZenDef<TInstance>(0x00667660, 0x00695040, 0x006A9BC0, 0x007076B0), &Hook_oCItemContainer_Draw, IvkEnabled(ENGINE));
 	void __fastcall Hook_oCItemContainer_Draw(oCItemContainer* _this, void* vtable)
 	{
 		auto a = AssignTemp(inContainerDraw, true);
@@ -115,7 +115,7 @@ namespace NAMESPACE
 	}
 
 	void __fastcall Hook_oCItemContainer_DrawItemInfo(oCItemContainer*, void*, oCItem*, zCWorld*);
-	CInvoke<void(__thiscall*)(oCItemContainer*, oCItem*, zCWorld*)> Ivk_oCItemContainer_DrawItemInfo(ZenDef<TInstance>(0x00667220, 0x00694AD0, 0x006A9350, 0x00706E40), &Hook_oCItemContainer_DrawItemInfo, IvkEnabled(CurrentEngine));
+	CInvoke<void(__thiscall*)(oCItemContainer*, oCItem*, zCWorld*)> Ivk_oCItemContainer_DrawItemInfo(ZenDef<TInstance>(0x00667220, 0x00694AD0, 0x006A9350, 0x00706E40), &Hook_oCItemContainer_DrawItemInfo, IvkEnabled(ENGINE));
 	void __fastcall Hook_oCItemContainer_DrawItemInfo(oCItemContainer* _this, void* vtable, oCItem* a0, zCWorld* a1)
 	{
 		auto scope = AssignTemp(inContainerDraw, false);
@@ -123,7 +123,7 @@ namespace NAMESPACE
 	}
 
 	void __fastcall Hook_oCItem_RenderItem(oCItem*, void*, zCWorld*, zCViewBase*, float);
-	CInvoke<void(__thiscall*)(oCItem*, zCWorld*, zCViewBase*, float)> Ivk_oCItem_RenderItem(ZenDef<TInstance>(0x00672F70, 0x006A0A20, 0x006B5A30, 0x00713AC0), &Hook_oCItem_RenderItem, IvkEnabled(CurrentEngine));
+	CInvoke<void(__thiscall*)(oCItem*, zCWorld*, zCViewBase*, float)> Ivk_oCItem_RenderItem(ZenDef<TInstance>(0x00672F70, 0x006A0A20, 0x006B5A30, 0x00713AC0), &Hook_oCItem_RenderItem, IvkEnabled(ENGINE));
 	void __fastcall Hook_oCItem_RenderItem(oCItem* _this, void* vtable, zCWorld* world, zCViewBase* viewBase, float time)
 	{
 		if (!drawElements.size())

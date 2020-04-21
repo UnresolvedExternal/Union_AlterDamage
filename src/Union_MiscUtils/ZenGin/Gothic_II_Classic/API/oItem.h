@@ -184,6 +184,9 @@ namespace Gothic_II_Classic {
 
     // static properties
     static float& s_fGlobalItemZBiasScale;
+
+    // user API
+    #include "oCItem.inl"
   };
 
 } // namespace Gothic_II_Classic

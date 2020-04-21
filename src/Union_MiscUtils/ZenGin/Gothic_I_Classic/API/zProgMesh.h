@@ -48,6 +48,9 @@ namespace Gothic_I_Classic {
     void zTLazyMesh_OnInit() zCall( 0x005A1B00 );
     zTLazyMesh()             zInit( zTLazyMesh_OnInit() );
     ~zTLazyMesh()            zCall( 0x005A1BD0 );
+
+    // user API
+    #include "zTLazyMesh.inl"
   };
 
   struct zTPMWedge {
@@ -56,24 +59,36 @@ namespace Gothic_I_Classic {
     unsigned short int position;
 
     zTPMWedge() {}
+
+    // user API
+    #include "zTPMWedge.inl"
   };
 
   struct zTPMTriangle {
     unsigned short int wedge[3];
 
     zTPMTriangle() {}
+
+    // user API
+    #include "zTPMTriangle.inl"
   };
 
   struct zTPMTriangleEdges {
     unsigned short int edge[3];
 
     zTPMTriangleEdges() {}
+
+    // user API
+    #include "zTPMTriangleEdges.inl"
   };
 
   struct zTPMEdge {
     unsigned short int wedge[2];
 
     zTPMEdge() {}
+
+    // user API
+    #include "zTPMEdge.inl"
   };
 
   struct zTPMVertexUpdate {
@@ -81,6 +96,9 @@ namespace Gothic_I_Classic {
     unsigned short int numNewWedge;
 
     zTPMVertexUpdate() {}
+
+    // user API
+    #include "zTPMVertexUpdate.inl"
   };
 
   class zCProgMeshProto : public zCVisual {
@@ -94,6 +112,9 @@ namespace Gothic_I_Classic {
       float morphFrac;
 
       zTLODRenderArgs() {}
+
+      // user API
+      #include "zCProgMeshProto_zTLODRenderArgs.inl"
     };
 
     struct zTLODParams {
@@ -103,6 +124,9 @@ namespace Gothic_I_Classic {
       int minVerts;
 
       zTLODParams() {}
+
+      // user API
+      #include "zCProgMeshProto_zTLODParams.inl"
     };
 
     class zCSubMesh {
@@ -123,6 +147,9 @@ namespace Gothic_I_Classic {
       void zCSubMesh_OnInit() zCall( 0x005A4BE0 );
       zCSubMesh()             zInit( zCSubMesh_OnInit() );
       ~zCSubMesh()            zCall( 0x005A4C30 );
+
+      // user API
+      #include "zCProgMeshProto_zCSubMesh.inl"
     };
 
     struct zTLODRenderArgsSubMesh {
@@ -132,6 +159,9 @@ namespace Gothic_I_Classic {
       int numSubdivEdges;
 
       zTLODRenderArgsSubMesh() {}
+
+      // user API
+      #include "zCProgMeshProto_zTLODRenderArgsSubMesh.inl"
     };
 
     zCArrayAdapt<zVEC3> posList;
@@ -209,6 +239,9 @@ namespace Gothic_I_Classic {
     static int& s_markMeshMaterials;
     static int& s_autoSubdivEnabled;
     static unsigned long& s_classCtorCtr;
+
+    // user API
+    #include "zCProgMeshProto.inl"
   };
 
   class zCProgMeshBuilder {
@@ -225,6 +258,9 @@ namespace Gothic_I_Classic {
     void CreateFinalPMData( int )                                                           zCall( 0x005A0C70 );
     void Clear()                                                                            zCall( 0x005A1DA0 );
     int BuildProgMeshProto( zCMesh*, zCProgMeshProto*, zCArray<int>*, int )                 zCall( 0x005A1F90 );
+
+    // user API
+    #include "zCProgMeshBuilder.inl"
   };
 
   class zCMeshSoftSkin : public zCProgMeshProto {
@@ -239,6 +275,9 @@ namespace Gothic_I_Classic {
 
       void zTWeightEntry_OnInit() zCall( 0x00573470 );
       zTWeightEntry()             zInit( zTWeightEntry_OnInit() );
+
+      // user API
+      #include "zCMeshSoftSkin_zTWeightEntry.inl"
     };
 #pragma pack( pop )
 
@@ -247,6 +286,9 @@ namespace Gothic_I_Classic {
       int nodeIndex;
 
       zTNodeWedgeNormal() {}
+
+      // user API
+      #include "zCMeshSoftSkin_zTNodeWedgeNormal.inl"
     };
 
     zCArray<int> nodeIndexList;
@@ -273,6 +315,9 @@ namespace Gothic_I_Classic {
     virtual ~zCMeshSoftSkin()                                                                                 zCall( 0x005A97E0 );
     virtual int Save( zCFileBIN& )                                                                            zCall( 0x005AA500 );
     virtual int Load( zCFileBIN& )                                                                            zCall( 0x005AA220 );
+
+    // user API
+    #include "zCMeshSoftSkin.inl"
   };
 
   class zCProgMeshConvertFileHandler : public zCScanDirFileHandler {
@@ -282,6 +327,9 @@ namespace Gothic_I_Classic {
     zCProgMeshConvertFileHandler()                                     zInit( zCProgMeshConvertFileHandler_OnInit() );
     virtual ~zCProgMeshConvertFileHandler()                            zCall( 0x004240B0 );
     virtual int HandleFile( zSTRING const&, char const*, _finddata_t ) zCall( 0x005AB140 );
+
+    // user API
+    #include "zCProgMeshConvertFileHandler.inl"
   };
 
 } // namespace Gothic_I_Classic

@@ -10,7 +10,7 @@ namespace Gothic_II_Addon {
 #define zNEW( obj ) new obj
 #define zDELETE( obj ) delete obj
 #ifndef SAFE_DELETE
-#define SAFE_DELETE( obj ) if( obj ) { delete obj; obj = 0; }
+#define SAFE_DELETE( obj ) if( obj ) { delete obj; obj = 0 }
 #endif
 #define zCall( address ) { XCALL( address ); }
 #define zInit( call ) { if( Union.GetEngineVersion() == Engine_G2A ) call; }
@@ -132,7 +132,8 @@ namespace Gothic_II_Addon {
 
   // class definition for union zobject classes
 #define zCLASS_UNION_DEFINITION( className, baseClassName, classFlags, archiveVersion )                                                         \
-  zCClassDef* className::classDef = new zCClassDef( #className, #baseClassName, className::_CreateNewInstance, sizeof( className ), 0, 0, "" ); \
+  zCClassDef* className::classDef = !CHECK_THIS_ENGINE ? Null :                                                                                 \
+                                    new zCClassDef( #className, #baseClassName, className::_CreateNewInstance, sizeof( className ), 0, 0, "" ); \
   zCObject* className::_CreateNewInstance( void ) {                                                                                             \
     return new className;                                                                                                                       \
   }                                                                                                                                             \

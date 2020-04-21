@@ -41,6 +41,9 @@ namespace Gothic_I_Classic {
 
       zTSound3DParams() {}
       void SetDefaults() zCall( 0x005E6020 );
+
+      // user API
+      #include "zCSoundSystem_zTSound3DParams.inl"
     };
 
     float defaultRadius;
@@ -80,6 +83,9 @@ namespace Gothic_I_Classic {
     virtual zTSpeakerType GetSpeakerType()                                   zCall( 0x004DDF30 );
     virtual void SetGlobalOcclusion( float )                                 zPureCall;
     virtual float GetCPULoad()                                               zCall( 0x004DDF40 );
+
+    // user API
+    #include "zCSoundSystem.inl"
   };
 
   class zCSoundFX : public zCResource {
@@ -104,6 +110,9 @@ namespace Gothic_I_Classic {
     virtual void SetFrequency( int )                                    zCall( 0x004E0A90 );
     virtual void SetLooping( int )                                      zCall( 0x004E0AA0 );
     virtual int IsLooping() const                                       zCall( 0x004E0AB0 );
+
+    // user API
+    #include "zCSoundFX.inl"
   };
 
   class zCSoundFXDummy : public zCSoundFX {
@@ -111,6 +120,9 @@ namespace Gothic_I_Classic {
 
     zCSoundFXDummy() {}
     virtual ~zCSoundFXDummy() zCall( 0x006037F0 );
+
+    // user API
+    #include "zCSoundFXDummy.inl"
   };
 
   class zCSoundSystemDummy : public zCSoundSystem {
@@ -127,6 +139,9 @@ namespace Gothic_I_Classic {
     virtual int UpdateSound3D( int const&, zCSoundSystem::zTSound3DParams* )                zCall( 0x00603860 );
     virtual void DoSoundUpdate()                                                            zCall( 0x00603730 );
     virtual void SetGlobalOcclusion( float )                                                zCall( 0x00603820 );
+
+    // user API
+    #include "zCSoundSystemDummy.inl"
   };
 
 } // namespace Gothic_I_Classic

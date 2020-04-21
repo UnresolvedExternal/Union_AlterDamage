@@ -66,6 +66,9 @@ namespace Gothic_II_Addon {
     public:
       zCVisual* visual;
       int nodeIndex;
+
+      // user API
+      #include "zCModelMeshLib_zTNodeMesh.inl"
     };
 
     zCArray<zTNodeMesh> meshNodeList;
@@ -92,6 +95,9 @@ namespace Gothic_II_Addon {
     static int ConvertMDM( zSTRING const&, zCModelPrototype* )                              zCall( 0x005A12E0 );
     virtual zCClassDef* _GetClassDef() const                                                zCall( 0x0057EA30 );
     virtual ~zCModelMeshLib()                                                               zCall( 0x0059EFC0 );
+
+    // user API
+    #include "zCModelMeshLib.inl"
   };
 
   class zCModelAniEvent {
@@ -113,6 +119,9 @@ namespace Gothic_II_Addon {
     ~zCModelAniEvent()            zCall( 0x00588320 );
     void Save( zCFileBIN& ) const zCall( 0x00588400 );
     void Load( zCFileBIN& )       zCall( 0x00588560 );
+
+    // user API
+    #include "zCModelAniEvent.inl"
   };
 
   class zCModelNode {
@@ -134,6 +143,9 @@ namespace Gothic_II_Addon {
     zCModelNode( zCModelNode const& a0 )          zInit( zCModelNode_OnInit( a0 ));
     ~zCModelNode()                                zCall( 0x00584C90 );
     void SetNodeVisualS( zCVisual* )              zCall( 0x00584D30 );
+
+    // user API
+    #include "zCModelNode.inl"
   };
 
 #pragma pack( push, 1 )
@@ -145,6 +157,9 @@ namespace Gothic_II_Addon {
     // static properties
     static float& samplePosScaler;
     static float& samplePosRangeMin;
+
+    // user API
+    #include "zTMdl_AniSample.inl"
   };
 #pragma pack( pop )
 
@@ -225,6 +240,9 @@ namespace Gothic_II_Addon {
     static zCObject* _CreateNewInstance()                            zCall( 0x00576980 );
     virtual zCClassDef* _GetClassDef() const                         zCall( 0x005852C0 );
     virtual ~zCModelAni()                                            zCall( 0x00585300 );
+
+    // user API
+    #include "zCModelAni.inl"
   };
 
   class zCModelPrototype {
@@ -331,6 +349,9 @@ namespace Gothic_II_Addon {
     static int& s_autoConvertAnis;
     static int& s_autoConvertMeshes;
     static zCModelPrototype*& s_modelRoot;
+
+    // user API
+    #include "zCModelPrototype.inl"
   };
 
   class zCModelAniActive {
@@ -365,6 +386,9 @@ namespace Gothic_II_Addon {
     void SetProgressPercent( float )        zCall( 0x00576CA0 );
     void SetActFrame( float )               zCall( 0x00576CF0 );
     void DoCombineAni( zCModel*, int, int ) zCall( 0x0057FDB0 );
+
+    // user API
+    #include "zCModelAniActive.inl"
   };
 
   class zCModelTexAniState {
@@ -391,6 +415,9 @@ namespace Gothic_II_Addon {
     void AddTexListFromMesh( zCMesh*, zCArray<zCTexture*>& )              zCall( 0x00577430 );
     void AddTexListFromProgMesh( zCProgMeshProto*, zCArray<zCTexture*>& ) zCall( 0x00577590 );
     void FinishTexList( zCArray<zCTexture*>& )                            zCall( 0x005776E0 );
+
+    // user API
+    #include "zCModelTexAniState.inl"
   };
 
 #pragma pack( push, 1 )
@@ -410,6 +437,9 @@ namespace Gothic_II_Addon {
       zCQuat quat;
 
       zTNodeAni() {}
+
+      // user API
+      #include "zCModelNodeInst_zTNodeAni.inl"
     };
 
     zCModelNodeInst* parentNode;
@@ -441,6 +471,9 @@ namespace Gothic_II_Addon {
     void AddToNodeAniWeight( int, float )                    zCall( 0x0057F6B0 );
     void CalcBlending( zCModel* )                            zCall( 0x0057F720 );
     int GetNodeAniListIndex( zCModelAniActive const* ) const zCall( 0x0057F8B0 );
+
+    // user API
+    #include "zCModelNodeInst.inl"
   };
 #pragma pack( pop )
 
@@ -449,6 +482,9 @@ namespace Gothic_II_Addon {
     int prob;
 
     zTRandAni() {}
+
+    // user API
+    #include "zTRandAni.inl"
   };
 
   struct zTAniAttachment {
@@ -460,6 +496,9 @@ namespace Gothic_II_Addon {
     void zTAniAttachment_OnInit() zCall( 0x00583360 );
     ~zTAniAttachment()            zCall( 0x00583340 );
     zTAniAttachment()             zInit( zTAniAttachment_OnInit() );
+
+    // user API
+    #include "zTAniAttachment.inl"
   };
 
   class zCModel : public zCVisualAnimate {
@@ -481,24 +520,36 @@ namespace Gothic_II_Addon {
     public:
       zCVob* vob;
       zCModelNodeInst* mnode;
+
+      // user API
+      #include "zCModel_zTMdl_NodeVobAttachment.inl"
     };
 
     struct zTMdl_StartedVobFX {
     public:
       zCVob* vob;
       float vobFXHandle;
+
+      // user API
+      #include "zCModel_zTMdl_StartedVobFX.inl"
     };
 
     struct zTAniMeshLibEntry {
     public:
       zCModelAniActive* ani;
       zCModelMeshLib* meshLib;
+
+      // user API
+      #include "zCModel_zTAniMeshLibEntry.inl"
     };
 
     struct zTMeshLibEntry {
     public:
       zCModelTexAniState texAniState;
       zCModelMeshLib* meshLib;
+
+      // user API
+      #include "zCModel_zTMeshLibEntry.inl"
     };
 
     int numActiveAnis;
@@ -662,6 +713,9 @@ namespace Gothic_II_Addon {
     static int& s_drawSkeleton;
     static int& s_bSmoothRootNode;
     static int*& s_iNumSoftSkinPoly;
+
+    // user API
+    #include "zCModel.inl"
   };
 
   class zCModelConvertFileHandler : public zCScanDirFileHandler {
@@ -671,6 +725,9 @@ namespace Gothic_II_Addon {
     zCModelConvertFileHandler()                                        zInit( zCModelConvertFileHandler_OnInit() );
     virtual ~zCModelConvertFileHandler()                               zCall( 0x00424C40 );
     virtual int HandleFile( zSTRING const&, char const*, _finddata_t ) zCall( 0x005A1740 );
+
+    // user API
+    #include "zCModelConvertFileHandler.inl"
   };
 
 } // namespace Gothic_II_Addon

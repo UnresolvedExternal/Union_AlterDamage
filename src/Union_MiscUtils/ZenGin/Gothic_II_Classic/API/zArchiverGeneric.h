@@ -14,6 +14,9 @@ namespace Gothic_II_Classic {
       int objectIndex;
 
       zTWriteObjectEntry() {}
+
+      // user API
+      #include "zCArchiverGeneric_zTWriteObjectEntry.inl"
     };
 
     zFILE* file;
@@ -132,6 +135,9 @@ namespace Gothic_II_Classic {
     virtual unsigned long __fastcall RestoreGetPos()                                                   zCall( 0x00522920 );
     virtual void __fastcall RestoreSeek( unsigned long )                                               zCall( 0x00522940 );
     virtual void __fastcall DeleteBuffer()                                                             zCall( 0x0051F8F0 );
+
+    // user API
+    #include "zCArchiverGeneric.inl"
   };
 
 } // namespace Gothic_II_Classic

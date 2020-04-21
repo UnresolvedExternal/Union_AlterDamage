@@ -189,6 +189,9 @@ namespace Gothic_II_Addon {
     // static properties
     static int& s_bItemEffectEnabled;
     static float& s_fGlobalItemZBiasScale;
+
+    // user API
+    #include "oCItem.inl"
   };
 
 } // namespace Gothic_II_Addon

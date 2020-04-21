@@ -25,6 +25,9 @@ namespace Gothic_II_Addon {
     virtual void __fastcall StartSelection() zCall( 0x006895C0 );
     virtual void __fastcall StopSelection()  zCall( 0x006895D0 );
     /* for zCViewBase num : 9*/
+
+    // user API
+    #include "zCViewDialog.inl"
   };
 
 } // namespace Gothic_II_Addon

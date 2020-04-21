@@ -59,6 +59,9 @@ namespace Gothic_I_Classic {
     zSTRING( char val )                   zInit( zSTRING_OnInit( val ));
     zSTRING( zSTRING const* val )         zInit( zSTRING_OnInit( val ));
     virtual ~zSTRING()                    zCall( 0x00401260 );
+    
+    // Special Union string constructor
+    zSTRING( string const& val ) { zSTRING_OnInit( (char const*)val ); }
 
     // Same as union methods
     char& operator[]( unsigned int )        zCall( 0x00441AC0 );
@@ -429,8 +432,9 @@ namespace Gothic_I_Classic {
     return zSTRING( s1 ) += s2;
   }
 
-  inline zSTRING& operator += ( zSTRING& s1, const zSTRING& s2 ) {
-    return s1 += s2.ToChar();
+  inline zSTRING& operator += (zSTRING& s1, const zSTRING& s2)
+  {
+	  return s1.Put(s2, s1.Length());
   }
 
   // case Insensitive

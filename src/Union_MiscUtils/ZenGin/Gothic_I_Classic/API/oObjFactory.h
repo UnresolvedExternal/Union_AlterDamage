@@ -22,6 +22,9 @@ namespace Gothic_I_Classic {
     virtual zCWay* CreateWay()                                          zCall( 0x006C87D0 );
     virtual oCNpc* CreateNpc( int )                                     zCall( 0x006C8560 );
     virtual oCItem* CreateItem( int )                                   zCall( 0x006C8660 );
+
+    // user API
+    #include "oCObjectFactory.inl"
   };
 
 } // namespace Gothic_I_Classic

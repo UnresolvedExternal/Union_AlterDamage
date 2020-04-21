@@ -17,5 +17,5 @@ namespace NAMESPACE
 
 			settings.Load();
 			settings.Save();
-		}, SubEnabled(CurrentEngine));
+		}, CHECK_THIS_ENGINE);
 }

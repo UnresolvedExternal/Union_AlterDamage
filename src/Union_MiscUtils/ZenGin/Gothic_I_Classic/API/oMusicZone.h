@@ -19,6 +19,9 @@ namespace Gothic_I_Classic {
     oCZoneMusicList* next;
 
     oCZoneMusicList() {}
+
+    // user API
+    #include "oCZoneMusicList.inl"
   };
 
   class oCZoneMusic : public zCZoneMusic {
@@ -83,6 +86,9 @@ namespace Gothic_I_Classic {
     static oHEROSTATUS& s_herostatus;
     static oCZoneMusic*& s_musiczone;
     static oCZoneMusic*& s_oldmusiczone;
+
+    // user API
+    #include "oCZoneMusic.inl"
   };
 
   class oCZoneMusicDefault : public oCZoneMusic {
@@ -94,6 +100,9 @@ namespace Gothic_I_Classic {
     static zCObject* _CreateNewInstance()                               zCall( 0x0070ACE0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x0070ADD0 );
     virtual ~oCZoneMusicDefault()                                       zCall( 0x0070CC30 );
+
+    // user API
+    #include "oCZoneMusicDefault.inl"
   };
 
 } // namespace Gothic_I_Classic

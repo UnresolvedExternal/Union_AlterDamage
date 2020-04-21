@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Workspace\Utility\CMemPool.h"
+#include "Workspace\Utility\Common\CMemPool.h"
 #include <functional>
 #include <vector>
 

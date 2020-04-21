@@ -33,6 +33,9 @@ namespace Gothic_I_Addon {
     virtual void Archive( zCArchiver& )                                 zCall( 0x0041A520 );
     virtual void Unarchive( zCArchiver& )                               zCall( 0x0041A700 );
     virtual ~zCCSLib()                                                  zCall( 0x0041ADE0 );
+
+    // user API
+    #include "zCCSLib.inl"
   };
 
 } // namespace Gothic_I_Addon

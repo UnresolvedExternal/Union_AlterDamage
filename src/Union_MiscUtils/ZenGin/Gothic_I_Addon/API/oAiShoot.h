@@ -26,6 +26,9 @@ namespace Gothic_I_Addon {
     virtual zCClassDef* _GetClassDef() const                        zCall( 0x0063ABD0 );
     virtual ~oCAISound()                                            zCall( 0x0063ABE0 );
     virtual void DoAI( zCVob*, int& )                               zPureCall;
+
+    // user API
+    #include "oCAISound.inl"
   };
 
   class oCAIArrowBase : public oCAISound {
@@ -56,6 +59,9 @@ namespace Gothic_I_Addon {
     virtual void ReportCollisionToAI( zCCollisionReport const& )        zCall( 0x0063C160 );
     virtual int HasAIDetectedCollision()                                zCall( 0x0063B9D0 );
     virtual void AICollisionResponseSelfDetected( zVEC3 const&, int& )  zCall( 0x0063B9E0 );
+
+    // user API
+    #include "oCAIArrowBase.inl"
   };
 
   class oCAIArrow : public oCAIArrowBase {
@@ -80,6 +86,9 @@ namespace Gothic_I_Addon {
     virtual void DoAI( zCVob*, int& )                                   zCall( 0x0063C9E0 );
     virtual int CanThisCollideWith( zCVob* )                            zCall( 0x0063CA10 );
     virtual void ReportCollisionToAI( zCCollisionReport const& )        zCall( 0x0063CAA0 );
+
+    // user API
+    #include "oCAIArrow.inl"
   };
 
   class oCAIDrop : public oCAISound {
@@ -109,6 +118,9 @@ namespace Gothic_I_Addon {
     virtual int CanThisCollideWith( zCVob* )                            zCall( 0x0063D090 );
     virtual void ReportCollisionToAI( zCCollisionReport const& )        zCall( 0x0063D5D0 );
     virtual int HasAIDetectedCollision()                                zCall( 0x0063D080 );
+
+    // user API
+    #include "oCAIDrop.inl"
   };
 
   class oCAIVobMove : public oCAISound {
@@ -132,6 +144,9 @@ namespace Gothic_I_Addon {
     virtual int CanThisCollideWith( zCVob* )                            zCall( 0x0063AA30 );
     virtual void ReportCollisionToAI( zCCollisionReport const& )        zCall( 0x0063B170 );
     virtual void Init( zCVob*, zCVob*, zVEC3&, float, float, zMAT4* )   zCall( 0x0063AC80 );
+
+    // user API
+    #include "oCAIVobMove.inl"
   };
 
   class oCAIVobMoveTorch : public oCAIVobMove {
@@ -149,6 +164,9 @@ namespace Gothic_I_Addon {
     virtual ~oCAIVobMoveTorch()                                         zCall( 0x0063B480 );
     virtual void DoAI( zCVob*, int& )                                   zCall( 0x0063B5D0 );
     virtual void Init( zCVob*, zCVob*, zVEC3&, float, float, zMAT4* )   zCall( 0x0063B5A0 );
+
+    // user API
+    #include "oCAIVobMoveTorch.inl"
   };
 
 } // namespace Gothic_I_Addon

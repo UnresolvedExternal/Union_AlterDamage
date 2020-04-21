@@ -305,6 +305,9 @@ namespace Gothic_II_Addon {
     virtual void Archive( zCArchiver& )                    zCall( 0x0072C7B0 );
     virtual void Unarchive( zCArchiver& )                  zCall( 0x0072C7F0 );
     virtual ~oCNpcTalent()                                 zCall( 0x0072C660 );
+
+    // user API
+    #include "oCNpcTalent.inl"
   };
 
   struct TNpcSlot {
@@ -321,6 +324,9 @@ namespace Gothic_II_Addon {
     void ClearVob()        zCall( 0x0072C910 );
     TNpcSlot()             zInit( TNpcSlot_OnInit() );
     ~TNpcSlot()            zCall( 0x0072ED90 );
+
+    // user API
+    #include "TNpcSlot.inl"
   };
 
   struct TNpcPerc {
@@ -329,6 +335,9 @@ namespace Gothic_II_Addon {
     int percFunc;
 
     TNpcPerc() {}
+
+    // user API
+    #include "TNpcPerc.inl"
   };
 
   class oCNpc : public oCVob {
@@ -468,6 +477,9 @@ namespace Gothic_II_Addon {
       unsigned char checkIfClimbable    : 1;
 
       oSDirectionInfo() {}
+
+      // user API
+      #include "oCNpc_oSDirectionInfo.inl"
     };
 
     struct oTRobustTrace {
@@ -503,6 +515,9 @@ namespace Gothic_II_Addon {
 
       oTRobustTrace() {}
       ~oTRobustTrace() zCall( 0x0072E3D0 );
+
+      // user API
+      #include "oCNpc_oTRobustTrace.inl"
     };
 
     class TActiveInfo {
@@ -516,6 +531,9 @@ namespace Gothic_II_Addon {
       void TActiveInfo_OnInit( oCNpc const* ) zCall( 0x0072C960 );
       TActiveInfo( oCNpc const* a0 )          zInit( TActiveInfo_OnInit( a0 ));
       ~TActiveInfo()                          zCall( 0x0072C970 );
+
+      // user API
+      #include "oCNpc_TActiveInfo.inl"
     };
 
     class oCNpcTimedOverlay {
@@ -527,6 +545,9 @@ namespace Gothic_II_Addon {
       zSTRING GetMdsName() zCall( 0x0073E8D0 );
       ~oCNpcTimedOverlay() zCall( 0x0073E930 );
       int Process()        zCall( 0x0075F4A0 );
+
+      // user API
+      #include "oCNpc_oCNpcTimedOverlay.inl"
     };
 
     group {
@@ -1360,6 +1381,9 @@ namespace Gothic_II_Addon {
     static int& isEnabledTalkBoxPlayer;
     static int& isEnabledTalkBoxAmbient;
     static int& isEnabledTalkBoxNoise;
+
+    // user API
+    #include "oCNpc.inl"
   };
 
 } // namespace Gothic_II_Addon

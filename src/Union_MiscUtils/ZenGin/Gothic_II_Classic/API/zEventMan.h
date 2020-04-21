@@ -62,6 +62,9 @@ namespace Gothic_II_Classic {
     static int& disableEventManagers;
     static zCArray<zCEventManager*>& activeEM;
     static int& showMsgCommunication;
+
+    // user API
+    #include "zCEventManager.inl"
   };
 
 } // namespace Gothic_II_Classic

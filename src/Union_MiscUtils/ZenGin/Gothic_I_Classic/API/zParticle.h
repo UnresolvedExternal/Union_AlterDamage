@@ -161,6 +161,9 @@ namespace Gothic_I_Classic {
     zCParticleEmitter& operator =( zCParticleEmitter const& )  zCall( 0x006C9050 );
     static zVEC3 String2Vec3( zSTRING const& )                 zCall( 0x005926B0 );
     static zVEC2 String2Vec2( zSTRING const& )                 zCall( 0x00592930 );
+
+    // user API
+    #include "zCParticleEmitter.inl"
   };
 
   class zCParticleEmitterVars {
@@ -174,6 +177,9 @@ namespace Gothic_I_Classic {
     float uniformDelta;
 
     zCParticleEmitterVars() {}
+
+    // user API
+    #include "zCParticleEmitterVars.inl"
   };
 
   class zCParticleFX : public zCVisual {
@@ -192,6 +198,9 @@ namespace Gothic_I_Classic {
       void TouchPfx( zCParticleFX* )      zCall( 0x0058D590 );
       void ProcessList()                  zCall( 0x0058D650 );
       int IsInList( zCParticleFX* )       zCall( 0x0058DC50 );
+
+      // user API
+      #include "zCParticleFX_zCStaticPfxList.inl"
     };
 
     zTParticle* firstPart;
@@ -268,6 +277,9 @@ namespace Gothic_I_Classic {
     static zCMesh*& s_partMeshQuad;
     static int& s_showDebugInfo;
     static zCStaticPfxList& s_pfxList;
+
+    // user API
+    #include "zCParticleFX.inl"
   };
 
 } // namespace Gothic_I_Classic

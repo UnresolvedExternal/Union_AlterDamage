@@ -26,6 +26,9 @@ namespace Gothic_I_Classic {
     virtual ~oCTriggerChangeLevel()                                          zCall( 0x004382D0 );
     virtual void TriggerTarget( zCVob* )                                     zCall( 0x00438370 );
     virtual void UntriggerTarget( zCVob* )                                   zCall( 0x004386A0 );
+
+    // user API
+    #include "oCTriggerChangeLevel.inl"
   };
 
   class oCTriggerScript : public zCTrigger {
@@ -44,6 +47,9 @@ namespace Gothic_I_Classic {
     virtual ~oCTriggerScript()                                          zCall( 0x004389D0 );
     virtual void TriggerTarget( zCVob* )                                zCall( 0x00438A30 );
     virtual void UntriggerTarget( zCVob* )                              zCall( 0x00438D90 );
+
+    // user API
+    #include "oCTriggerScript.inl"
   };
 
   class oCObjectGenerator : public zCVob {
@@ -59,6 +65,9 @@ namespace Gothic_I_Classic {
     virtual void Unarchive( zCArchiver& )    zCall( 0x00439760 );
     virtual ~oCObjectGenerator()             zCall( 0x00439280 );
     virtual void OnTrigger( zCVob*, zCVob* ) zCall( 0x00439430 );
+
+    // user API
+    #include "oCObjectGenerator.inl"
   };
 
 } // namespace Gothic_I_Classic

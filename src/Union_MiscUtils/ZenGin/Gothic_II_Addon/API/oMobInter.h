@@ -16,6 +16,9 @@ namespace Gothic_II_Addon {
     int distance;
     oCNpc* npc;
     zSTRING nodeName;
+
+    // user API
+    #include "TMobOptPos.inl"
   };
 
   class oCMOB : public oCVob {
@@ -68,6 +71,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING GetScemeName()                                                           zCall( 0x0071BD00 );
     virtual void Destroy()                                                                   zCall( 0x0071C230 );
     virtual int AllowDiscardingOfSubtree()                                                   zCall( 0x0071CCC0 );
+
+    // user API
+    #include "oCMOB.inl"
   };
 
   class oCMobInter : public oCMOB {
@@ -165,6 +171,9 @@ namespace Gothic_II_Addon {
     virtual void CallOnStateFunc( oCNpc*, int )                           zCall( 0x00720870 );
     virtual void SendCallOnStateFunc( oCNpc*, int )                       zCall( 0x00720AD0 );
     virtual TMobOptPos* SearchFreePosition( oCNpc*, float )               zCall( 0x0071DFC0 );
+
+    // user API
+    #include "oCMobInter.inl"
   };
 
   class oCMobBed : public oCMobInter {
@@ -183,6 +192,9 @@ namespace Gothic_II_Addon {
     virtual void OnBeginStateChange( oCNpc*, int, int )     zCall( 0x00723230 );
     virtual void OnEndStateChange( oCNpc*, int, int )       zCall( 0x00723240 );
     virtual TMobOptPos* SearchFreePosition( oCNpc*, float ) zCall( 0x00723350 );
+
+    // user API
+    #include "oCMobBed.inl"
   };
 
   class oCMobSwitch : public oCMobInter {
@@ -196,6 +208,9 @@ namespace Gothic_II_Addon {
     virtual void Archive( zCArchiver& )      zCall( 0x007237D0 );
     virtual void Unarchive( zCArchiver& )    zCall( 0x00723870 );
     virtual ~oCMobSwitch()                   zCall( 0x00723600 );
+
+    // user API
+    #include "oCMobSwitch.inl"
   };
 
   class oCMobItemSlot : public oCMobInter {
@@ -218,6 +233,9 @@ namespace Gothic_II_Addon {
     virtual oCItem* GetInsertedItem()        zCall( 0x00728110 );
     virtual int PlaceItem( oCItem* )         zCall( 0x00728120 );
     virtual oCItem* RemoveItem()             zCall( 0x007283C0 );
+
+    // user API
+    #include "oCMobItemSlot.inl"
   };
 
   class oCMobLockable : public oCMobInter {
@@ -250,6 +268,9 @@ namespace Gothic_II_Addon {
     virtual void Lock( oCNpc* )                              zCall( 0x007251C0 );
     virtual void Unlock( oCNpc*, int )                       zCall( 0x00724A70 );
     virtual int PickLock( oCNpc*, char )                     zCall( 0x00724800 );
+
+    // user API
+    #include "oCMobLockable.inl"
   };
 
   class oCMobContainer : public oCMobLockable {
@@ -277,6 +298,9 @@ namespace Gothic_II_Addon {
     virtual void Remove( oCItem* )                    zCall( 0x00725FF0 );
     virtual oCItem* Remove( oCItem*, int )            zCall( 0x00726080 );
     virtual void CreateContents( zSTRING const& )     zCall( 0x00726190 );
+
+    // user API
+    #include "oCMobContainer.inl"
   };
 
   class oCMobDoor : public oCMobLockable {
@@ -294,6 +318,9 @@ namespace Gothic_II_Addon {
     virtual TMobOptPos* SearchFreePosition( oCNpc*, float ) zCall( 0x00726E10 );
     virtual void Open( oCNpc* )                             zCall( 0x0071A430 );
     virtual void Close( oCNpc* )                            zCall( 0x0071A440 );
+
+    // user API
+    #include "oCMobDoor.inl"
   };
 
   class oCMobFire : public oCMobInter {
@@ -318,6 +345,9 @@ namespace Gothic_II_Addon {
     virtual void OnEndStateChange( oCNpc*, int, int )                 zCall( 0x007228F0 );
     virtual void PreSave()                                            zCall( 0x00722C00 );
     virtual void PostSave()                                           zCall( 0x00722D40 );
+
+    // user API
+    #include "oCMobFire.inl"
   };
 
   class oCMobWheel : public oCMobInter {
@@ -332,6 +362,9 @@ namespace Gothic_II_Addon {
     virtual void OnTrigger( zCVob*, zCVob* )                 zCall( 0x007270D0 );
     virtual void OnUntrigger( zCVob*, zCVob* )               zCall( 0x007271E0 );
     virtual void Interact( oCNpc*, int, int, int, int, int ) zCall( 0x007272E0 );
+
+    // user API
+    #include "oCMobWheel.inl"
   };
 
   class oCMobLadder : public oCMobInter {
@@ -353,6 +386,9 @@ namespace Gothic_II_Addon {
     virtual void StartInteraction( oCNpc* )                  zCall( 0x007277D0 );
     virtual int CanChangeState( oCNpc*, int, int )           zCall( 0x00727990 );
     virtual TMobOptPos* SearchFreePosition( oCNpc*, float )  zCall( 0x007279F0 );
+
+    // user API
+    #include "oCMobLadder.inl"
   };
 
   class oCDummyVobGenerator : public zCVob {
@@ -365,6 +401,9 @@ namespace Gothic_II_Addon {
     virtual zCClassDef* _GetClassDef() const zCall( 0x0071ADC0 );
     virtual ~oCDummyVobGenerator()           zCall( 0x0071AE00 );
     virtual void OnTrigger( zCVob*, zCVob* ) zCall( 0x00728660 );
+
+    // user API
+    #include "oCDummyVobGenerator.inl"
   };
 
   class oCMobMsg : public zCEventMessage {
@@ -399,6 +438,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING MD_GetSubTypeString( int )          zCall( 0x0071B750 );
     virtual void Pack( zCBuffer&, zCEventManager* )     zCall( 0x0071B620 );
     virtual void Unpack( zCBuffer&, zCEventManager* )   zCall( 0x0071B6A0 );
+
+    // user API
+    #include "oCMobMsg.inl"
   };
 
 } // namespace Gothic_II_Addon

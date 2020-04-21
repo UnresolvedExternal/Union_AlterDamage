@@ -191,6 +191,9 @@ namespace Gothic_I_Classic {
     virtual void Archive( zCArchiver& )                                      zCall( 0x0047FB70 );
     virtual void Unarchive( zCArchiver& )                                    zCall( 0x0047FB80 );
     virtual ~oCSpell()                                                       zCall( 0x0047BB70 );
+
+    // user API
+    #include "oCSpell.inl"
   };
 
 } // namespace Gothic_I_Classic

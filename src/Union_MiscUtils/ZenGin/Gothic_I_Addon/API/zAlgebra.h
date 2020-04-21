@@ -171,6 +171,9 @@ namespace Gothic_I_Addon {
     {
       return n[index];
     }
+
+    // user API
+    #include "zVEC2.inl"
   };
 
   class zVEC3 {
@@ -342,6 +345,9 @@ namespace Gothic_I_Addon {
     zVEC3& RotateYZ( const float& rad ) {
       RotAngle(n[1], n[2], YZ);
     }
+
+    // user API
+    #include "zVEC3.inl"
   };
 
   class zVEC4 {
@@ -498,6 +504,9 @@ namespace Gothic_I_Addon {
     {
       return n[index];
     }
+
+    // user API
+    #include "zVEC4.inl"
   };
 
   class zMAT3 {
@@ -709,6 +718,9 @@ namespace Gothic_I_Addon {
     }
 
     static zMAT3& s_identity;
+
+    // user API
+    #include "zMAT3.inl"
   };
 
   class zMAT4 {
@@ -982,6 +994,9 @@ namespace Gothic_I_Addon {
     }
 
     static zMAT4& s_identity;
+
+    // user API
+    #include "zMAT4.inl"
   };
 
   class zCQuat {
@@ -1145,6 +1160,9 @@ namespace Gothic_I_Addon {
     {
       return q[index];
     }
+
+    // user API
+    #include "zCQuat.inl"
   };
   
   inline zVEC2 Alg_Min( zVEC2 const &, zVEC2 const & )               zCall( 0x005101F0 );

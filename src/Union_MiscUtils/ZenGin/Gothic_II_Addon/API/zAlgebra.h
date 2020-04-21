@@ -171,6 +171,9 @@ namespace Gothic_II_Addon {
     {
       return n[index];
     }
+
+    // user API
+    #include "zVEC2.inl"
   };
 
   class zVEC3 {
@@ -342,6 +345,9 @@ namespace Gothic_II_Addon {
     zVEC3& RotateYZ( const float& rad ) {
       RotAngle(n[1], n[2], YZ);
     }
+
+    // user API
+    #include "zVEC3.inl"
   };
 
   class zVEC4 {
@@ -498,6 +504,9 @@ namespace Gothic_II_Addon {
     {
       return n[index];
     }
+
+    // user API
+    #include "zVEC4.inl"
   };
 
   class zMAT3 {
@@ -709,6 +718,9 @@ namespace Gothic_II_Addon {
     }
 
     static zMAT3& s_identity;
+
+    // user API
+    #include "zMAT3.inl"
   };
 
   class zMAT4 {
@@ -982,6 +994,9 @@ namespace Gothic_II_Addon {
     }
 
     static zMAT4& s_identity;
+
+    // user API
+    #include "zMAT4.inl"
   };
 
   class zCQuat {
@@ -1145,6 +1160,9 @@ namespace Gothic_II_Addon {
     {
       return q[index];
     }
+
+    // user API
+    #include "zCQuat.inl"
   };
 
   struct zComplex {
@@ -1214,6 +1232,9 @@ namespace Gothic_II_Addon {
 
     float Mag()   zCall( 0x00559BD0 );
     float Phase() zCall( 0x00559C40 );
+
+    // user API
+    #include "zComplex.inl"
   };
 
   class zCValueSmooth {
@@ -1261,6 +1282,9 @@ namespace Gothic_II_Addon {
     {
       return smoothedValue;
     }
+
+    // user API
+    #include "zCValueSmooth.inl"
   };
 
   class zCVEC3Smooth {
@@ -1308,6 +1332,9 @@ namespace Gothic_II_Addon {
     {
       return smoothedValue;
     }
+
+    // user API
+    #include "zCVEC3Smooth.inl"
   };
   
   inline zVEC2 Alg_Min( zVEC2 const &, zVEC2 const & )               zCall( 0x00512FC0 );

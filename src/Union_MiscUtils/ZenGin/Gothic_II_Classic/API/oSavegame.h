@@ -48,6 +48,9 @@ namespace Gothic_II_Classic {
     virtual void Archive( zCArchiver& )      zCall( 0x00437470 );
     virtual void Unarchive( zCArchiver& )    zCall( 0x004379C0 );
     virtual ~oCSavegameInfo()                zCall( 0x00437310 );
+
+    // user API
+    #include "oCSavegameInfo.inl"
   };
 
   class oCSavegameManager {
@@ -68,6 +71,9 @@ namespace Gothic_II_Classic {
     void ClearCurrent()                              zCall( 0x00439040 );
     zSTRING GetSlotDirName( int )                    zCall( 0x00439180 );
     virtual ~oCSavegameManager()                     zCall( 0x004383D0 );
+
+    // user API
+    #include "oCSavegameManager.inl"
   };
 
 } // namespace Gothic_II_Classic

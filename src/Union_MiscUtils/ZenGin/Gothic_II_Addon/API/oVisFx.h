@@ -87,6 +87,9 @@ namespace Gothic_II_Addon {
     void InsertKey( zMAT4& )                                            zCall( 0x00490F50 );
     zMAT4 GetKey( int )                                                 zCall( 0x00491060 );
     int GetNumKeys()                                                    zCall( 0x004910E0 );
+
+    // user API
+    #include "oCTrajectory.inl"
   };
 
   class oCEmitterKey {
@@ -147,6 +150,9 @@ namespace Gothic_II_Addon {
     void Edit()                                      zCall( 0x0049AFF0 );
     void SetDefaultByFX( oCVisualFX* )               zCall( 0x0049E430 );
     static void CreateNewScriptKey( zSTRING const& ) zCall( 0x0049B3E0 );
+
+    // user API
+    #include "oCEmitterKey.inl"
   };
 
   struct zSVisualFXColl {
@@ -155,6 +161,9 @@ namespace Gothic_II_Addon {
     zVEC3 foundNormal;
 
     zSVisualFXColl() {}
+
+    // user API
+    #include "zSVisualFXColl.inl"
   };
 
   class oCVisualFX : public zCEffect {
@@ -404,6 +413,9 @@ namespace Gothic_II_Addon {
     // static properties
     static zCParser*& fxParser;
     static oCVisualFX*& actFX;
+
+    // user API
+    #include "oCVisualFX.inl"
   };
 
   class oCVisualFXAI : public zCAIBase {
@@ -417,6 +429,9 @@ namespace Gothic_II_Addon {
     virtual void ReportCollisionToAI( zCCollisionReport const& ) zCall( 0x0048BD70 );
     virtual void HostVobAddedToWorld( zCVob*, zCWorld* )         zCall( 0x0048BD90 );
     virtual int GetIsProjectile()                                zCall( 0x0048BDA0 );
+
+    // user API
+    #include "oCVisualFXAI.inl"
   };
 
 } // namespace Gothic_II_Addon

@@ -21,6 +21,9 @@ namespace Gothic_I_Addon {
     virtual void __fastcall Blit()                                      zCall( 0x00764A00 );
     /* for zCViewBase num : 8*/
     /* for oCViewDialogItem num : 1*/
+
+    // user API
+    #include "oCViewDialogItem.inl"
   };
 
 } // namespace Gothic_I_Addon

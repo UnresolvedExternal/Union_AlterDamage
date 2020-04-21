@@ -61,6 +61,9 @@ namespace Gothic_II_Classic {
     virtual ~zCCamTrj_KeyFrame()                     zCall( 0x004BB9A0 );
     virtual void ThisVobAddedToWorld( zCWorld* )     zCall( 0x004BBA20 );
     virtual void ThisVobRemovedFromWorld( zCWorld* ) zCall( 0x004BBA30 );
+
+    // user API
+    #include "zCCamTrj_KeyFrame.inl"
   };
 
   class zCCSCamera_EventMsg : public zCEventMessage {
@@ -100,6 +103,9 @@ namespace Gothic_II_Classic {
     virtual zSTRING MD_GetSubTypeString( int )                  zCall( 0x004C4AA0 );
     virtual zCEventMessage::zTTimeBehavior MD_GetTimeBehavior() zCall( 0x004C1530 );
     virtual float MD_GetMinTime()                               zCall( 0x004C4CB0 );
+
+    // user API
+    #include "zCCSCamera_EventMsg.inl"
   };
 
   class zCCSCamera_EventMsgActivate : public zCEventMessage {
@@ -131,6 +137,9 @@ namespace Gothic_II_Classic {
     virtual zSTRING MD_GetVobRefName()                                 zCall( 0x004C4FC0 );
     virtual void MD_SetVobRefName( zSTRING const& )                    zCall( 0x004C5010 );
     virtual void MD_SetVobParam( zCVob* )                              zCall( 0x004C5150 );
+
+    // user API
+    #include "zCCSCamera_EventMsgActivate.inl"
   };
 
   class zCCSCamera : public zCVob {
@@ -258,6 +267,9 @@ namespace Gothic_II_Classic {
     static int& playing;
     static int& draw;
     static int& evaluateAvgFPS;
+
+    // user API
+    #include "zCCSCamera.inl"
   };
 
 } // namespace Gothic_II_Classic

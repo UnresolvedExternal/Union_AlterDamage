@@ -17,6 +17,9 @@ namespace Gothic_I_Addon {
 
     zTCSBlockPosition() {}
     ~zTCSBlockPosition() zCall( 0x00419540 );
+
+    // user API
+    #include "zTCSBlockPosition.inl"
   };
 
   class zCEvMsgCutscene : public zCEventMessage {
@@ -50,6 +53,9 @@ namespace Gothic_I_Addon {
     virtual int IsDeleted()                                             zCall( 0x0040C6B0 );
     virtual int MD_GetNumOfSubTypes()                                   zCall( 0x0040D500 );
     virtual zSTRING MD_GetSubTypeString( int )                          zCall( 0x0040D510 );
+
+    // user API
+    #include "zCEvMsgCutscene.inl"
   };
 
   class zCCSRole : public zCObject, public zSTRING {
@@ -111,6 +117,9 @@ namespace Gothic_I_Addon {
     virtual void BlockCorrection()                                      zCall( 0x0040D8A0 );
     virtual void BlockAsFocus( int )                                    zCall( 0x0040D8B0 );
     virtual zCCSBlockPosition* GetChildPos( int )                       zCall( 0x0040D970 );
+
+    // user API
+    #include "zCCSBlockBase.inl"
   };
 
   class zCCSAtomicBlock : public zCCSBlockBase {
@@ -144,6 +153,9 @@ namespace Gothic_I_Addon {
     virtual int IsFinished( zCArray<zCEventManager*> const& )           zCall( 0x0040B6F0 );
     virtual int IsFinished( zCEventManager* )                           zCall( 0x0040DF10 );
     virtual zCEventMessage* GetCommand()                                zCall( 0x0040B700 );
+
+    // user API
+    #include "zCCSAtomicBlock.inl"
   };
 
   class zCCSBlockPosition {
@@ -159,6 +171,9 @@ namespace Gothic_I_Addon {
     zCCSBlockPosition( float a0, zCCSBlockBase* a1 )          zInit( zCCSBlockPosition_OnInit( a0, a1 ));
     zCCSBlockPosition& operator =( zCCSBlockPosition const& ) zCall( 0x004183F0 );
     virtual ~zCCSBlockPosition()                              zCall( 0x004183E0 );
+
+    // user API
+    #include "zCCSBlockPosition.inl"
   };
 
   class zCCSBlock : public zCCSBlockBase {
@@ -193,6 +208,9 @@ namespace Gothic_I_Addon {
     virtual void BlockCorrection()                                      zCall( 0x0040EB60 );
     virtual void BlockAsFocus( int )                                    zCall( 0x0040EB20 );
     virtual zCCSBlockPosition* GetChildPos( int )                       zCall( 0x0040E310 );
+
+    // user API
+    #include "zCCSBlock.inl"
   };
 
   class zCCSSyncBlock : public zCCSBlock {
@@ -218,6 +236,9 @@ namespace Gothic_I_Addon {
     virtual void DeleteChild( int )                                     zCall( 0x0040F190 );
     virtual int GetRoleNumOfChild( int )                                zCall( 0x0040EF80 );
     virtual void BlockAsFocus( int )                                    zCall( 0x0040F140 );
+
+    // user API
+    #include "zCCSSyncBlock.inl"
   };
 
   class zCCutscene : public zCCSBlock {
@@ -300,6 +321,9 @@ namespace Gothic_I_Addon {
     virtual zCVob* LoadStage()                                          zCall( 0x004180F0 );
     virtual zCVob* CatchPlayer( zCVob* )                                zCall( 0x00418340 );
     virtual void PrepareBlock()                                         zCall( 0x00410E20 );
+
+    // user API
+    #include "zCCutscene.inl"
   };
 
 } // namespace Gothic_I_Addon

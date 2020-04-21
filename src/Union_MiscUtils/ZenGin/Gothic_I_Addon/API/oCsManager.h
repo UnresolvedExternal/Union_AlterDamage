@@ -20,6 +20,9 @@ namespace Gothic_I_Addon {
     virtual zCEventMessage* CreateOuMessage()                           zCall( 0x00402720 );
     virtual zCCSPlayer* CreateCutscenePlayer( zCWorld* )                zCall( 0x00402660 );
     virtual zCCSProps* CreateProperties()                               zCall( 0x00402FB0 );
+
+    // user API
+    #include "oCCSManager.inl"
   };
 
 } // namespace Gothic_I_Addon

@@ -21,6 +21,9 @@ namespace Gothic_I_Addon {
     void Load( zSTRING& )                zCall( 0x00731AA0 );
     void ShrinkToFit()                   zCall( 0x00731C70 );
     void Show()                          zCall( 0x00731D00 );
+
+    // user API
+    #include "zCPar_StringTable.inl"
   };
 
   class zCPar_Symbol {
@@ -87,6 +90,9 @@ namespace Gothic_I_Addon {
     // static properties
     static zCPar_Symbol*& instance_sym;
     static void*& instance_adr;
+
+    // user API
+    #include "zCPar_Symbol.inl"
   };
 
   class zCPar_SymbolTable {
@@ -126,6 +132,9 @@ namespace Gothic_I_Addon {
 
     // static properties
     static zCPar_SymbolTable*& cur_table;
+
+    // user API
+    #include "zCPar_SymbolTable.inl"
   };
 
   class zCPar_Stack {
@@ -166,6 +175,9 @@ namespace Gothic_I_Addon {
     void Clear()                    zCall( 0x00735850 );
     void Save( zFILE* )             zCall( 0x00735860 );
     void Load( zFILE* )             zCall( 0x007358A0 );
+
+    // user API
+    #include "zCPar_Stack.inl"
   };
 
   class zCPar_DataStack {
@@ -181,6 +193,9 @@ namespace Gothic_I_Addon {
     float PopFloat()              zCall( 0x00735980 );
     int IsEmpty()                 zCall( 0x007359A0 );
     void Clear()                  zCall( 0x007359B0 );
+
+    // user API
+    #include "zCPar_DataStack.inl"
   };
 
 } // namespace Gothic_I_Addon

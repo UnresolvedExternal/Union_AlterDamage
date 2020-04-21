@@ -44,6 +44,9 @@ namespace Gothic_II_Classic {
     /* for zCViewBase num : 9*/
     /* for oCViewDialogItemContainer num : 1*/
     virtual int HandleEvent( int )                           zCall( 0x00773FF0 );
+
+    // user API
+    #include "oCViewDialogItemContainer.inl"
   };
 
 } // namespace Gothic_II_Classic

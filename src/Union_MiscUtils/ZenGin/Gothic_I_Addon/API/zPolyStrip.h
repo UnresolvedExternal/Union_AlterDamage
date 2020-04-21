@@ -65,6 +65,9 @@ namespace Gothic_I_Addon {
     virtual zSTRING GetVisualName()                                       zCall( 0x004D0700 );
     virtual void SetVisualUsedBy( zCVob* )                                zCall( 0x005B7F00 );
     virtual void FreeResources()                                          zCall( 0x005B8200 );
+
+    // user API
+    #include "zCPolyStrip.inl"
   };
 
   class zCLightning : public zCVisual {
@@ -77,6 +80,9 @@ namespace Gothic_I_Addon {
       void Generate_R( zVEC3 const&, zVEC3 const&, float ) zCall( 0x005B9B30 );
       virtual int Render( zTRenderContext& )               zCall( 0x005BA1F0 );
       virtual void FreeResources()                         zCall( 0x005BA120 );
+
+      // user API
+      #include "zCLightning_zCBolt.inl"
     };
 
     zCBolt rootBolt;
@@ -84,6 +90,9 @@ namespace Gothic_I_Addon {
     zCLightning() {}
     void SetProjectionSphere( zTBSphere3D const& ) zCall( 0x005B9AA0 );
     void Generate( zVEC3 const&, zVEC3 const& )    zCall( 0x005B9AD0 );
+
+    // user API
+    #include "zCLightning.inl"
   };
 
   class zCQuadMark : public zCVisual {
@@ -105,6 +114,9 @@ namespace Gothic_I_Addon {
       float alphaFadeSpeed;
 
       zTEffectParams() {}
+
+      // user API
+      #include "zCQuadMark_zTEffectParams.inl"
     };
 
     struct zTQuadMarkVert {
@@ -112,6 +124,9 @@ namespace Gothic_I_Addon {
       zVEC2 texCoord;
 
       zTQuadMarkVert() {}
+
+      // user API
+      #include "zCQuadMark_zTQuadMarkVert.inl"
     };
 
     struct zTQuadMarkPoly {
@@ -119,6 +134,9 @@ namespace Gothic_I_Addon {
 
       zTQuadMarkPoly() {}
       ~zTQuadMarkPoly() zCall( 0x005C86C0 );
+
+      // user API
+      #include "zCQuadMark_zTQuadMarkPoly.inl"
     };
 
     struct zTQuadMarkAniState {
@@ -134,6 +152,9 @@ namespace Gothic_I_Addon {
       float alpha;
 
       zTQuadMarkAniState() {}
+
+      // user API
+      #include "zCQuadMark_zTQuadMarkAniState.inl"
     };
 
     zCMesh* quadMesh;
@@ -175,6 +196,9 @@ namespace Gothic_I_Addon {
     virtual zTBBox3D GetBBox3D()                                                                    zCall( 0x005C8840 );
     virtual zSTRING GetVisualName()                                                                 zCall( 0x005C8600 );
     virtual void SetVisualUsedBy( zCVob* )                                                          zCall( 0x005C8810 );
+
+    // user API
+    #include "zCQuadMark.inl"
   };
 
 } // namespace Gothic_I_Addon

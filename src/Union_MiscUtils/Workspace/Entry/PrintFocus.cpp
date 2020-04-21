@@ -20,7 +20,7 @@ namespace NAMESPACE
 	}
 
 	void __fastcall Hook_oCGame_UpdatePlayerStatus(oCGame*, void*);
-	CInvoke<void(__thiscall*)(oCGame*)> Ivk_oCGame_UpdatePlayerStatus(ZenDef<TInstance>(0x00638F90, 0x0065F4E0, 0x00666640, 0x006C3140), &Hook_oCGame_UpdatePlayerStatus, IvkEnabled(CurrentEngine));
+	CInvoke<void(__thiscall*)(oCGame*)> Ivk_oCGame_UpdatePlayerStatus(ZenDef<TInstance>(0x00638F90, 0x0065F4E0, 0x00666640, 0x006C3140), &Hook_oCGame_UpdatePlayerStatus, IvkEnabled(ENGINE));
 	void __fastcall Hook_oCGame_UpdatePlayerStatus(oCGame* _this, void* vtable)
 	{
 		if (!settings.printTorchName && !settings.appendAmountInfo && !settings.nameToDescFlags)
@@ -36,27 +36,7 @@ namespace NAMESPACE
 		{
 			if (settings.printTorchName && IsBurningTorch(item))
 			{
-				zVEC3 pos = item->GetPositionWorld();
-				pos = ogame->GetCamera()->GetTransform(zCAM_TRAFO_VIEW) * pos;
-
-				if (pos[2] >= 0.0f)
-				{
-					int x, y;
-					ogame->GetCamera()->Project(&pos, x, y);
-					x = screen->anx(x);
-					y = screen->any(y);
-
-					zSTRING text = GetFocusText(item);
-					float width = screen->FontSize(text);
-					float height = screen->FontY();
-					x -= width / 2;
-					y -= height / 2;
-					x = CoerceInRange(x, width, 0, 8192);
-					y = CoerceInRange(y, height, 0, 8192);
-
-					screen->Print(x + 0.5f, y + 0.5f, text);
-				}
-
+				Print(screen, item->GetPositionWorld(), GetFocusText(item));
 				Ivk_oCGame_UpdatePlayerStatus(_this);
 			}
 			else

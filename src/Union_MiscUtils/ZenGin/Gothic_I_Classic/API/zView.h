@@ -41,6 +41,9 @@ namespace Gothic_I_Classic {
 
     // static properties
     static zCList<zCInputCallback>& inputList;
+
+    // user API
+    #include "zCInputCallback.inl"
   };
 
   class zCViewText {
@@ -62,6 +65,9 @@ namespace Gothic_I_Classic {
     zCViewText( int a0, int a1, zSTRING const& a2, float& a3, zCOLOR& a4, int a5, int a6 ) zInit( zCViewText_OnInit( a0, a1, a2, a3, a4, a5, a6 ));
     void Create( int, int, zSTRING const&, float&, zCOLOR&, int, int )                     zCall( 0x00702960 );
     virtual ~zCViewText()                                                                  zCall( 0x00702AE0 );
+
+    // user API
+    #include "zCViewText.inl"
   };
 
   class zCView : public zCViewBase, public zCInputCallback {
@@ -232,6 +238,9 @@ namespace Gothic_I_Classic {
     static zCView*& stdoutput;
     static zCView*& modal;
     static int& showDebug;
+
+    // user API
+    #include "zCView.inl"
   };
 
 } // namespace Gothic_I_Classic

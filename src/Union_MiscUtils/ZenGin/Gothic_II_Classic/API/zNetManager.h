@@ -29,6 +29,9 @@ namespace Gothic_II_Classic {
     virtual zCNetMessage* CreateNetMessage( unsigned short const&, zCObject* )                  zCall( 0x0045B580 );
     virtual int HandleNetMessage( zCNetMessage*, unsigned short const&, zCClassDef*, zCWorld* ) zCall( 0x0045B4C0 );
     virtual void ProcessMessages()                                                              zCall( 0x0045B440 );
+
+    // user API
+    #include "zCNetManager.inl"
   };
 
 } // namespace Gothic_II_Classic

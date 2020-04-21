@@ -19,6 +19,9 @@ namespace Gothic_I_Classic {
     virtual void AICollisionResponseSelfDetected( zVEC3 const&, int& )  zCall( 0x00484110 );
     virtual void HostVobRemovedFromWorld( zCVob*, zCWorld* )            zCall( 0x00484120 );
     virtual void HostVobAddedToWorld( zCVob*, zCWorld* )                zCall( 0x004841B0 );
+
+    // user API
+    #include "zCAIBase.inl"
   };
 
   class zCAIBaseSound : public zCAIBase {
@@ -32,6 +35,9 @@ namespace Gothic_I_Classic {
     void RemoveSlideSound()                                             zCall( 0x004FC6E0 );
     void CheckSlideSound( zCVob* )                                      zCall( 0x004FC700 );
     void StartDefaultCollisionSound( zCVob*, zCCollisionReport const& ) zCall( 0x004FC790 );
+
+    // user API
+    #include "zCAIBaseSound.inl"
   };
 
 } // namespace Gothic_I_Classic

@@ -41,6 +41,9 @@ namespace Gothic_I_Addon {
       float zMV_DCUL_GROUND_ANGLE;
 
       zTConfig() {}
+
+      // user API
+      #include "zCAIPlayer_zTConfig.inl"
     };
 
     struct zTLedgeInfo {
@@ -50,6 +53,9 @@ namespace Gothic_I_Addon {
       float maxMoveForward;
 
       zTLedgeInfo() {}
+
+      // user API
+      #include "zCAIPlayer_zTLedgeInfo.inl"
     };
 
     struct zTBloodVobTrack {
@@ -57,6 +63,9 @@ namespace Gothic_I_Addon {
       float alpha;
 
       zTBloodVobTrack() {}
+
+      // user API
+      #include "zCAIPlayer_zTBloodVobTrack.inl"
     };
 
     zTConfig config;
@@ -171,6 +180,9 @@ namespace Gothic_I_Addon {
     virtual void HostVobRemovedFromWorld( zCVob*, zCWorld* )            zCall( 0x00510180 );
     virtual void StartStandAni()                                        zCall( 0x00515CA0 );
     virtual void StartFallDownAni()                                     zCall( 0x00515CC0 );
+
+    // user API
+    #include "zCAIPlayer.inl"
   };
 
 } // namespace Gothic_I_Addon

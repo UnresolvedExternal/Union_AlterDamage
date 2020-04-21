@@ -88,6 +88,9 @@ namespace Gothic_I_Addon {
     virtual float MD_GetMinTime()                                                   zCall( 0x00402380 );
     virtual void Pack( zCBuffer&, zCEventManager* )                                 zCall( 0x00402390 );
     virtual void Unpack( zCBuffer&, zCEventManager* )                               zCall( 0x004023A0 );
+
+    // user API
+    #include "zCEventMessage.inl"
   };
 
   class zCEventCore : public zCEventMessage {
@@ -123,6 +126,9 @@ namespace Gothic_I_Addon {
     virtual zSTRING MD_GetSubTypeString( int )                          zCall( 0x005F9340 );
     virtual void Pack( zCBuffer&, zCEventManager* )                     zCall( 0x005F9160 );
     virtual void Unpack( zCBuffer&, zCEventManager* )                   zCall( 0x005F9210 );
+
+    // user API
+    #include "zCEventCore.inl"
   };
 
   class zCVob : public zCObject {
@@ -159,6 +165,9 @@ namespace Gothic_I_Addon {
 
       zTCollisionContext() {}
       ~zTCollisionContext() zCall( 0x00612C80 );
+
+      // user API
+      #include "zCVob_zTCollisionContext.inl"
     };
 
     struct zTModelLimbColl {
@@ -169,6 +178,9 @@ namespace Gothic_I_Addon {
       void zTModelLimbColl_OnInit() zCall( 0x005F7A70 );
       zTModelLimbColl()             zInit( zTModelLimbColl_OnInit() );
       ~zTModelLimbColl()            zCall( 0x005F7AA0 );
+
+      // user API
+      #include "zCVob_zTModelLimbColl.inl"
     };
 
     zCTree<zCVob>* globalVobTreeNode;
@@ -397,6 +409,9 @@ namespace Gothic_I_Addon {
     static int& s_renderVobs;
     static int& s_showHelperVisuals;
     static zCCollisionDetector*& s_poCollisionDetector;
+
+    // user API
+    #include "zCVob.inl"
   };
 
   class zCVobLightData {
@@ -433,6 +448,9 @@ namespace Gothic_I_Addon {
     zCVobLightData()                           zInit( zCVobLightData_OnInit() );
     ~zCVobLightData()                          zCall( 0x005FD930 );
     void SetRange( float, int )                zCall( 0x005FD9A0 );
+
+    // user API
+    #include "zCVobLightData.inl"
   };
 
   class zCVobLightPreset : public zCObject {
@@ -448,6 +466,9 @@ namespace Gothic_I_Addon {
     virtual void Archive( zCArchiver& )                                 zCall( 0x005FC600 );
     virtual void Unarchive( zCArchiver& )                               zCall( 0x005FC630 );
     virtual ~zCVobLightPreset()                                         zCall( 0x005F16F0 );
+
+    // user API
+    #include "zCVobLightPreset.inl"
   };
 
   class zCVobLight : public zCVob {
@@ -480,6 +501,9 @@ namespace Gothic_I_Addon {
     // static properties
     static zCArray<zCVobLightPreset*>& lightPresetList;
     static int& renderLightVisuals;
+
+    // user API
+    #include "zCVobLight.inl"
   };
 
   class zCVobLevelCompo : public zCVob {
@@ -500,6 +524,9 @@ namespace Gothic_I_Addon {
 
     // static properties
     static int& unarcIgnoreVisuals;
+
+    // user API
+    #include "zCVobLevelCompo.inl"
   };
 
 } // namespace Gothic_I_Addon

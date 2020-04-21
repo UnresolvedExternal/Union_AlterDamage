@@ -22,6 +22,9 @@ namespace Gothic_II_Addon {
 
     zSKeyMapping() {}
     ~zSKeyMapping() zCall( 0x004CC240 );
+
+    // user API
+    #include "zSKeyMapping.inl"
   };
 
   struct zSCtrlValue {
@@ -31,6 +34,9 @@ namespace Gothic_II_Addon {
     void zSCtrlValue_OnInit() zCall( 0x004D20A0 );
     ~zSCtrlValue()            zCall( 0x004CFBB0 );
     zSCtrlValue()             zInit( zSCtrlValue_OnInit() );
+
+    // user API
+    #include "zSCtrlValue.inl"
   };
 
   class zCInput {
@@ -80,10 +86,62 @@ namespace Gothic_II_Addon {
     virtual int GetMouseIdle() const                                    zCall( 0x004CBD50 );
     virtual void SetMouseFlipXY( int, int )                             zCall( 0x004CBD60 );
     virtual void GetMouseFlipXY( int&, int& )                           zCall( 0x004CBD70 );
-	virtual void ProcessInputEvents()                                   zPureCall;
+    virtual void ProcessInputEvents()                                   zPureCall;
+
+    // other
+    bool GetMouseButtonToggledLeft() {
+      static bool pressed = false;
+      if( !pressed ) {
+        if( GetMouseButtonPressedLeft() ) {
+          pressed = true;
+          return true;
+        }
+      }
+      else {
+        if( !GetMouseButtonPressedLeft() )
+          pressed = false;
+      }
+
+      return false;
+    }
+
+    bool GetMouseButtonToggledMid() {
+      static bool pressed = false;
+      if( !pressed ) {
+        if( GetMouseButtonPressedMid() ) {
+          pressed = true;
+          return true;
+        }
+      }
+      else {
+        if( !GetMouseButtonPressedMid() )
+          pressed = false;
+      }
+
+      return false;
+    }
+
+    bool GetMouseButtonToggledRight() {
+      static bool pressed = false;
+      if( !pressed ) {
+        if( GetMouseButtonPressedRight() ) {
+          pressed = true;
+          return true;
+        }
+      }
+      else {
+        if( !GetMouseButtonPressedRight() )
+          pressed = false;
+      }
+
+      return false;
+    }
 
     // static properties
     static zCArray<zSCtrlValue>& values;
+
+    // user API
+    #include "zCInput.inl"
   };
 
 } // namespace Gothic_II_Addon

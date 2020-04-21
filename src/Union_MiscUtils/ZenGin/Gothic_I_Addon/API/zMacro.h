@@ -133,7 +133,8 @@ namespace Gothic_I_Addon {
 
   // class definition for union zobject classes
 #define zCLASS_UNION_DEFINITION( className, baseClassName, classFlags, archiveVersion )                                                         \
-  zCClassDef* className::classDef = new zCClassDef( #className, #baseClassName, className::_CreateNewInstance, sizeof( className ), 0, 0, "" ); \
+  zCClassDef* className::classDef = !CHECK_THIS_ENGINE ? Null :                                                                                 \
+                                    new zCClassDef( #className, #baseClassName, className::_CreateNewInstance, sizeof( className ), 0, 0, "" ); \
   zCObject* className::_CreateNewInstance( void ) {                                                                                             \
     return new className;                                                                                                                       \
   }                                                                                                                                             \

@@ -25,6 +25,9 @@ namespace Gothic_II_Addon {
     virtual ~oCAICamera()                    zCall( 0x0069DE90 );
     virtual void DoAI( zCVob*, int& )        zCall( 0x0069DEA0 );
     virtual int HasAIDetectedCollision()     zCall( 0x0069DE50 );
+
+    // user API
+    #include "oCAICamera.inl"
   };
 
   class oCAIHuman : public oCAniCtrl_Human {
@@ -110,6 +113,9 @@ namespace Gothic_II_Addon {
     static zSTRING& Cam_Normal;
     static zSTRING& Cam_Run;
     static zSTRING& Cam_Fight;
+
+    // user API
+    #include "oCAIHuman.inl"
   };
 
   class oCAIHuman_Stand : public zCAIBase {
@@ -123,6 +129,9 @@ namespace Gothic_II_Addon {
     virtual zCClassDef* _GetClassDef() const zCall( 0x0069E200 );
     virtual ~oCAIHuman_Stand()               zCall( 0x0069E240 );
     virtual void DoAI( zCVob*, int& )        zCall( 0x0069E250 );
+
+    // user API
+    #include "oCAIHuman_Stand.inl"
   };
 
 } // namespace Gothic_II_Addon

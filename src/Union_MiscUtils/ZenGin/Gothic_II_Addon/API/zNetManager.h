@@ -30,6 +30,9 @@ namespace Gothic_II_Addon {
     virtual zCNetMessage* CreateNetMessage( unsigned short const&, zCObject* )                  zCall( 0x0045BCD0 );
     virtual int HandleNetMessage( zCNetMessage*, unsigned short const&, zCClassDef*, zCWorld* ) zCall( 0x0045BC10 );
     virtual void ProcessMessages()                                                              zCall( 0x0045BB90 );
+
+    // user API
+    #include "zCNetManager.inl"
   };
 
 } // namespace Gothic_II_Addon

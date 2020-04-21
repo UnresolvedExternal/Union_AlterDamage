@@ -63,6 +63,9 @@ namespace Gothic_I_Addon {
     static int& disableEventManagers;
     static zCArray<zCEventManager*>& activeEM;
     static int& showMsgCommunication;
+
+    // user API
+    #include "zCEventManager.inl"
   };
 
 } // namespace Gothic_I_Addon

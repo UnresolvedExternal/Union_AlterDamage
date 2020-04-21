@@ -150,6 +150,9 @@ namespace Gothic_II_Addon {
     virtual unsigned long __fastcall RestoreGetPos()                                                   zCall( 0x0051EAC0 );
     virtual void __fastcall RestoreSeek( unsigned long )                                               zCall( 0x0051EAE0 );
     virtual void __fastcall DeleteBuffer()                                                             zCall( 0x0051C900 );
+
+    // user API
+    #include "zCArchiverBinSafe.inl"
   };
 
 } // namespace Gothic_II_Addon

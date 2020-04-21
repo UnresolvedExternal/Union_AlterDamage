@@ -20,26 +20,26 @@ namespace Gothic_II_Addon {
   class oCNpcFocus {
   public:
     group {
-      float n_range3; // 0
-      float n_range1; // 1
-      float n_range2; // 2
-      float n_azi;    // 3
-      float n_elev1;  // 4
-      float n_elev2;  // 5
-      int n_prio;     // 6
-      float i_range1; // 7
-      float i_range2; // 8
-      float i_azi;    // 9
-      float i_elev1;  // 10
-      float i_elev2;  // 11
-      int i_prio;     // 12
-      float m_range1; // 13
-      float m_range2; // 14
-      float m_azi;    // 15
-      float m_elev1;  // 16
-      float m_elev2;  // 17
-      int m_prio;     // 18
-      float max_range;// 19
+      float n_range3;
+      float n_range1;
+      float n_range2;
+      float n_azi;
+      float n_elev1;
+      float n_elev2;
+      int n_prio;
+      float i_range1;
+      float i_range2;
+      float i_azi;
+      float i_elev1;
+      float i_elev2;
+      int i_prio;
+      float m_range1;
+      float m_range2;
+      float m_azi;
+      float m_elev1;
+      float m_elev2;
+      int m_prio;
+      float max_range;
     };
 
     void oCNpcFocus_OnInit()                   zCall( 0x006BEDD0 );
@@ -77,6 +77,9 @@ namespace Gothic_II_Addon {
     static int& s_bHighlightInteractFocus;
     static oCVisualFX*& highLightFX;
     static int& isHighLighted;
+
+    // user API
+    #include "oCNpcFocus.inl"
   };
 
 } // namespace Gothic_II_Addon

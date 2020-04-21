@@ -80,6 +80,9 @@ namespace Gothic_II_Addon {
     virtual void LibCheckLoaded( int )                                 zCall( 0x0041BD80 );
     virtual zCCSPoolItem* PoolFindItem( zSTRING& )                     zCall( 0x0041AD50 );
     virtual void PoolInsertItem( zCCSPoolItem* )                       zCall( 0x0041AC70 );
+
+    // user API
+    #include "zCCSManager.inl"
   };
 
 } // namespace Gothic_II_Addon

@@ -89,6 +89,9 @@ namespace Gothic_I_Classic {
 
     // static properties
     static int& playDisabled;
+
+    // user API
+    #include "zCCSCutsceneContext.inl"
   };
 
   class zCCSDebugger {
@@ -106,6 +109,9 @@ namespace Gothic_I_Classic {
     virtual void CSDB_Warning( zCCSBlockBase*, zSTRING& ) zPureCall;
     virtual void CSDB_StartPlaying( zCCutscene* )         zPureCall;
     virtual void CSDB_Stop( zCCutscene* )                 zPureCall;
+
+    // user API
+    #include "zCCSDebugger.inl"
   };
 
 } // namespace Gothic_I_Classic

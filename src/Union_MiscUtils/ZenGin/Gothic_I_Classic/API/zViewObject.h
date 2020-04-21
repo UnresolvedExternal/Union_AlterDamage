@@ -68,6 +68,9 @@ namespace Gothic_I_Classic {
     virtual void Line( int, int, int, int, zCOLOR const& )              zCall( 0x00756240 );
     virtual void __fastcall GetViewport( int&, int&, int&, int& )       zCall( 0x007557E0 );
     virtual int GetCode( int, int )                                     zCall( 0x007562F0 );
+
+    // user API
+    #include "zCViewObject.inl"
   };
 
 } // namespace Gothic_I_Classic

@@ -34,6 +34,9 @@ namespace Gothic_I_Classic {
     void Load( zCFileBIN& )                 zCall( 0x005837C0 );
     void Save( zCFileBIN& )                 zCall( 0x005838F0 );
     void SetFlagsByString( zSTRING const& ) zCall( 0x00585740 );
+
+    // user API
+    #include "zCMorphMeshAni.inl"
   };
 
   class zCMorphMeshProto {
@@ -64,6 +67,9 @@ namespace Gothic_I_Classic {
     // static properties
     static int& autoConvertBinaryFile;
     static zCMorphMeshProto*& morphRoot;
+
+    // user API
+    #include "zCMorphMeshProto.inl"
   };
 
   class zCMorphMesh : public zCVisualAnimate {
@@ -90,6 +96,9 @@ namespace Gothic_I_Classic {
       int blendState;
 
       zTMorphAniEntry() {}
+
+      // user API
+      #include "zCMorphMesh_zTMorphAniEntry.inl"
     };
 
     struct zTRandAni {
@@ -102,6 +111,9 @@ namespace Gothic_I_Classic {
       float randAniProbMin;
 
       zTRandAni() {}
+
+      // user API
+      #include "zCMorphMesh_zTRandAni.inl"
     };
 
     zCMorphMeshProto* morphProto;
@@ -150,6 +162,9 @@ namespace Gothic_I_Classic {
     virtual void StopAnimation( zSTRING const& )                               zCall( 0x00583400 );
     virtual int IsAnimationActive( zSTRING const& )                            zCall( 0x00583520 );
     virtual zSTRING const* GetAnyAnimation()                                   zCall( 0x005874A0 );
+
+    // user API
+    #include "zCMorphMesh.inl"
   };
 
   class zCMorphMeshConvertFileHandler : public zCScanDirFileHandler {
@@ -159,6 +174,9 @@ namespace Gothic_I_Classic {
     zCMorphMeshConvertFileHandler()                                    zInit( zCMorphMeshConvertFileHandler_OnInit() );
     virtual ~zCMorphMeshConvertFileHandler()                           zCall( 0x004240A0 );
     virtual int HandleFile( zSTRING const&, char const*, _finddata_t ) zCall( 0x005881A0 );
+
+    // user API
+    #include "zCMorphMeshConvertFileHandler.inl"
   };
 
 } // namespace Gothic_I_Classic

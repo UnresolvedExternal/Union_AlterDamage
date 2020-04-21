@@ -25,6 +25,9 @@ namespace Gothic_I_Classic {
     static zCObject* _CreateNewInstance()                               zCall( 0x007096B0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00702FD0 );
     virtual ~zCVobWaypoint()                                            zCall( 0x00703010 );
+
+    // user API
+    #include "zCVobWaypoint.inl"
   };
 
   class zCWaypoint : public zCObject {
@@ -71,6 +74,9 @@ namespace Gothic_I_Classic {
     virtual void Unarchive( zCArchiver& )                               zCall( 0x007066C0 );
     virtual ~zCWaypoint()                                               zCall( 0x00705E80 );
     virtual int CanBeUsed( zCVob const* )                               zCall( 0x00705C60 );
+
+    // user API
+    #include "zCWaypoint.inl"
   };
 
   class zCWay {
@@ -102,6 +108,9 @@ namespace Gothic_I_Classic {
     virtual int CanJump()                         zCall( 0x00705A10 );
     virtual int CanBeUsed( zCVob const* )         zCall( 0x00705190 );
     virtual int IsObjectOnWay( zCVob const* )     zCall( 0x00704C60 );
+
+    // user API
+    #include "zCWay.inl"
   };
 
   class zCWayNet : public zCObject {
@@ -172,6 +181,9 @@ namespace Gothic_I_Classic {
     virtual void Archive( zCArchiver& )                                 zCall( 0x007075B0 );
     virtual void Unarchive( zCArchiver& )                               zCall( 0x00708530 );
     virtual ~zCWayNet()                                                 zCall( 0x007031A0 );
+
+    // user API
+    #include "zCWayNet.inl"
   };
 
   class zCRoute {
@@ -195,6 +207,9 @@ namespace Gothic_I_Classic {
     int IsLastTarget()                                zCall( 0x00709080 );
     int GetInterpolatedPosition( float, int, zVEC3& ) zCall( 0x007090A0 );
     virtual ~zCRoute()                                zCall( 0x00708BA0 );
+
+    // user API
+    #include "zCRoute.inl"
   };
 
   class zCVobSpot : public zCVob {
@@ -211,6 +226,9 @@ namespace Gothic_I_Classic {
     static zCObject* _CreateNewInstance()                               zCall( 0x00709930 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x007092C0 );
     virtual ~zCVobSpot()                                                zCall( 0x00709300 );
+
+    // user API
+    #include "zCVobSpot.inl"
   };
 
   class zCVobStartpoint : public zCVob {
@@ -221,6 +239,9 @@ namespace Gothic_I_Classic {
     static zCObject* _CreateNewInstance()                               zCall( 0x00709BE0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00709C90 );
     virtual ~zCVobStartpoint()                                          zCall( 0x00709CD0 );
+
+    // user API
+    #include "zCVobStartpoint.inl"
   };
 
 } // namespace Gothic_I_Classic

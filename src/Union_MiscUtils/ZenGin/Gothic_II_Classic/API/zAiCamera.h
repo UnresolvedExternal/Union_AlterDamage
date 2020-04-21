@@ -136,6 +136,9 @@ namespace Gothic_II_Classic {
     static zCAICamera*& current;
     static int& bCreated;
     static int& bCamChanges;
+
+    // user API
+    #include "zCAICamera.inl"
   };
 
 } // namespace Gothic_II_Classic

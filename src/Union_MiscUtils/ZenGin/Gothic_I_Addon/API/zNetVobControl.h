@@ -34,6 +34,9 @@ namespace Gothic_I_Addon {
     virtual int Process()                                                         zCall( 0x0045FD20 );
     virtual int HandOverToPlayer( zCPlayerInfo* )                                 zCall( 0x0045FDE0 );
     virtual zCNetMessage* CreateNetMessage( unsigned short const& )               zCall( 0x00460870 );
+
+    // user API
+    #include "zCNetVobControl.inl"
   };
 
 } // namespace Gothic_I_Addon

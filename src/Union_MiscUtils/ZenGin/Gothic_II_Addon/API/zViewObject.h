@@ -68,6 +68,9 @@ namespace Gothic_II_Addon {
     virtual void Line( int, int, int, int, zCOLOR const& )             zCall( 0x00692D90 );
     virtual void __fastcall GetViewport( int&, int&, int&, int& )      zCall( 0x00692330 );
     virtual int GetCode( int, int )                                    zCall( 0x00692E40 );
+
+    // user API
+    #include "zCViewObject.inl"
   };
 
 } // namespace Gothic_II_Addon

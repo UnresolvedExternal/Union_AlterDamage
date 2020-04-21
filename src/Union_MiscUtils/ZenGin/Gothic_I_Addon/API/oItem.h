@@ -176,6 +176,9 @@ namespace Gothic_I_Addon {
     virtual oCAIVobMove* GetAIVobMove()                                                      zCall( 0x006A0EC0 );
     virtual void GetSoundMaterial_AM( zCSoundManager::zTSndManMedium&, oTSndMaterial&, int ) zCall( 0x0069FAA0 );
     virtual oTSndMaterial GetSoundMaterial()                                                 zCall( 0x0069E830 );
+
+    // user API
+    #include "oCItem.inl"
   };
 
 } // namespace Gothic_I_Addon

@@ -32,6 +32,9 @@ namespace Gothic_II_Addon {
     };
 
     zTRenderContext() {}
+
+    // user API
+    #include "zTRenderContext.inl"
   };
 
   class zCVisual : public zCObject {
@@ -73,6 +76,9 @@ namespace Gothic_II_Addon {
 
     // static properties
     static zCArray<zCVisual*>& s_visualClassList;
+
+    // user API
+    #include "zCVisual.inl"
   };
 
   class zCVisualAnimate : public zCVisual {
@@ -89,6 +95,9 @@ namespace Gothic_II_Addon {
     virtual void StopAnimation( zSTRING const& )    zPureCall;
     virtual int IsAnimationActive( zSTRING const& ) zPureCall;
     virtual zSTRING const* GetAnyAnimation()        zPureCall;
+
+    // user API
+    #include "zCVisualAnimate.inl"
   };
 
   class zCDecal : public zCVisual {
@@ -130,6 +139,9 @@ namespace Gothic_II_Addon {
     // static properties
     static zCMesh*& decalMesh1Sided;
     static zCMesh*& decalMesh2Sided;
+
+    // user API
+    #include "zCDecal.inl"
   };
 
   class zCMesh : public zCVisual {
@@ -255,6 +267,9 @@ namespace Gothic_II_Addon {
     static int& s_numMeshes;
     static zCMesh*& s_meshRoot;
     static zCArraySort<zCVertex*>& s_vertexCache;
+
+    // user API
+    #include "zCMesh.inl"
   };
 
 } // namespace Gothic_II_Addon

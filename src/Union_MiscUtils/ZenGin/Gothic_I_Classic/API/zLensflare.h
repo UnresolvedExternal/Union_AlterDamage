@@ -33,6 +33,9 @@ namespace Gothic_I_Classic {
 
       void zTVobLightLensFlare_OnInit() zCall( 0x0054C270 );
       zTVobLightLensFlare()             zInit( zTVobLightLensFlare_OnInit() );
+
+      // user API
+      #include "zCLensFlareFX_zTVobLightLensFlare.inl"
     };
 
     zCArray<zTVobLightLensFlare> lensFlareList;
@@ -55,6 +58,9 @@ namespace Gothic_I_Classic {
     static zCMesh*& s_lensFlareMesh;
     static zCMesh*& s_coronaMesh;
     static zCMesh*& s_glowMesh;
+
+    // user API
+    #include "zCLensFlareFX.inl"
   };
 
 } // namespace Gothic_I_Classic

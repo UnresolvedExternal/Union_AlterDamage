@@ -32,6 +32,9 @@ namespace Gothic_II_Addon {
     virtual void Reset()                                   zCall( 0x0049F400 );
     virtual void SetDamage( float )                        zCall( 0x0049F490 );
     virtual void SetDamageType( int )                      zCall( 0x0049F4F0 );
+
+    // user API
+    #include "oCVisFX_MultiTarget.inl"
   };
 
 } // namespace Gothic_II_Addon

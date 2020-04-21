@@ -54,6 +54,9 @@ namespace Gothic_I_Classic {
       int comboStartFrame;
       int comboEndFrame;
       int comboDir;
+
+      // user API
+      #include "oCAniCtrl_Human_oTComboInfo.inl"
     };
 
     float angle_slide1;
@@ -447,6 +450,9 @@ namespace Gothic_I_Classic {
     virtual void StartStandAni()                                        zCall( 0x0061CA40 );
     virtual void StartFallDownAni()                                     zCall( 0x0062BF10 );
     virtual void Init( oCNpc* )                                         zCall( 0x0061B740 );
+
+    // user API
+    #include "oCAniCtrl_Human.inl"
   };
 
 } // namespace Gothic_I_Classic

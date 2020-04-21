@@ -32,6 +32,9 @@ namespace Gothic_I_Classic {
   public:
 
     zCCallback() {}
+
+    // user API
+    #include "zCCallback.inl"
   };
 
   class zCVobCallback : public zCCallback {
@@ -39,6 +42,9 @@ namespace Gothic_I_Classic {
 
     zCVobCallback() {}
     virtual void HandleVob( zCVob*, void* ) zPureCall;
+
+    // user API
+    #include "zCVobCallback.inl"
   };
 
   class zCWorldPerFrameCallback : public zCCallback {
@@ -46,6 +52,9 @@ namespace Gothic_I_Classic {
     
     virtual void DoWorldPerFrameCallback( zCWorld*, zCCamera* ) zPureCall;
     zCWorldPerFrameCallback() {}
+
+    // user API
+    #include "zCWorldPerFrameCallback.inl"
   };
 
   struct zTTraceRayReport {
@@ -57,6 +66,9 @@ namespace Gothic_I_Classic {
     zCVertex* foundVertex;
 
     zTTraceRayReport() {}
+
+    // user API
+    #include "zTTraceRayReport.inl"
   };
 
   class zCTransferConstr {
@@ -65,6 +77,9 @@ namespace Gothic_I_Classic {
     float formFactor;
 
     zCTransferConstr() {}
+
+    // user API
+    #include "zCTransferConstr.inl"
   };
   
 #pragma pack( push, 1 )
@@ -75,6 +90,9 @@ namespace Gothic_I_Classic {
     unsigned short formFactor;
 
     zCTransfer() {}
+
+    // user API
+    #include "zCTransfer.inl"
   };
   
 #pragma pack( pop )
@@ -94,6 +112,9 @@ namespace Gothic_I_Classic {
 
     zCPatch() {}
     void DoTransfers() zCall( 0x006000D0 );
+
+    // user API
+    #include "zCPatch.inl"
   };
     
 #pragma pack( push, 1 )
@@ -116,6 +137,9 @@ namespace Gothic_I_Classic {
     zCPatchMap() {}
     int CheckRaySurfaceIntersection( zVEC3&, zVEC3&, zVEC3&, zCPolygon*& ) zCall( 0x005FD520 );
     ~zCPatchMap()                                                          zCall( 0x005FF8F0 );
+
+    // user API
+    #include "zCPatchMap.inl"
   };
     
 #pragma pack( pop )
@@ -301,6 +325,9 @@ namespace Gothic_I_Classic {
     static zTWorldLoadMode& s_worldLoadMode;
     static zTWorldSaveMode& s_worldSaveMode;
     static zTWorldLoadMergeMode& s_worldMergeMode;
+
+    // user API
+    #include "zCWorld.inl"
   };
 
 } // namespace Gothic_I_Classic

@@ -33,6 +33,9 @@ namespace Gothic_II_Classic {
       TObjectRoutine() {}
       void Release()    zCall( 0x006638F0 );
       ~TObjectRoutine() zCall( 0x00663910 );
+
+      // user API
+      #include "oCGame_TObjectRoutine.inl"
     };
 
     float cliprange;
@@ -210,6 +213,9 @@ namespace Gothic_II_Classic {
     static int& s_bUseOnlineHelp;
     static int& s_bUsePotionKeys;
     static int& s_bUseQuickSave;
+
+    // user API
+    #include "oCGame.inl"
   };
 
 } // namespace Gothic_II_Classic

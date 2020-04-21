@@ -27,6 +27,9 @@ namespace Gothic_II_Classic {
     virtual ~zCNetEventManager()                                           zCall( 0x00457C10 );
     virtual void OnMessage( zCEventMessage*, zCVob* )                      zCall( 0x00457C30 );
     virtual zCNetVobControl* GetNetVobControl( int )                       zCall( 0x00459810 );
+
+    // user API
+    #include "zCNetEventManager.inl"
   };
 
 } // namespace Gothic_II_Classic

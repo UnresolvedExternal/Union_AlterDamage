@@ -78,6 +78,9 @@ namespace Gothic_I_Addon {
     /* for zCViewBase num : 8*/
     /* for oCViewDialogTrade num : 1*/
     virtual int HandleEvent( int )                                      zCall( 0x00767890 );
+
+    // user API
+    #include "oCViewDialogTrade.inl"
   };
 
 } // namespace Gothic_I_Addon

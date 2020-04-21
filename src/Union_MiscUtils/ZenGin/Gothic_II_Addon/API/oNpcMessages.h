@@ -37,6 +37,9 @@ namespace Gothic_II_Addon {
     virtual void SetInUse( int )             zCall( 0x00763110 );
     virtual int IsInUse()                    zCall( 0x00763130 );
     virtual void SetHighPriority( int )      zCall( 0x00763140 );
+
+    // user API
+    #include "oCNpcMessage.inl"
   };
 
   class oCMsgDamage : public oCNpcMessage {
@@ -70,6 +73,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING MD_GetSubTypeString( int )                                  zCall( 0x007653C0 );
     virtual void Pack( zCBuffer&, zCEventManager* )                             zCall( 0x007654F0 );
     virtual void Unpack( zCBuffer&, zCEventManager* )                           zCall( 0x00765500 );
+
+    // user API
+    #include "oCMsgDamage.inl"
   };
 
   class oCMsgWeapon : public oCNpcMessage {
@@ -115,6 +121,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING MD_GetSubTypeString( int )                  zCall( 0x00766AD0 );
     virtual zCEventMessage::zTTimeBehavior MD_GetTimeBehavior() zCall( 0x00766EE0 );
     virtual float MD_GetMinTime()                               zCall( 0x00766EF0 );
+
+    // user API
+    #include "oCMsgWeapon.inl"
   };
 
   class oCMsgMovement : public oCNpcMessage {
@@ -178,6 +187,9 @@ namespace Gothic_II_Addon {
     virtual void MD_SetVobParam( zCVob* )                         zCall( 0x007666A0 );
     virtual zCEventMessage::zTTimeBehavior MD_GetTimeBehavior()   zCall( 0x007666C0 );
     virtual float MD_GetMinTime()                                 zCall( 0x00766700 );
+
+    // user API
+    #include "oCMsgMovement.inl"
   };
 
   class oCMsgAttack : public oCNpcMessage {
@@ -224,6 +236,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING MD_GetSubTypeString( int )               zCall( 0x007676B0 );
     virtual void Pack( zCBuffer&, zCEventManager* )          zCall( 0x007673A0 );
     virtual void Unpack( zCBuffer&, zCEventManager* )        zCall( 0x00767530 );
+
+    // user API
+    #include "oCMsgAttack.inl"
   };
 
   class oCMsgUseItem : public oCNpcMessage {
@@ -253,6 +268,9 @@ namespace Gothic_II_Addon {
     virtual int IsNetRelevant()                         zCall( 0x00764180 );
     virtual void Pack( zCBuffer&, zCEventManager* )     zCall( 0x00767C30 );
     virtual void Unpack( zCBuffer&, zCEventManager* )   zCall( 0x00767C80 );
+
+    // user API
+    #include "oCMsgUseItem.inl"
   };
 
   class oCMsgState : public oCNpcMessage {
@@ -296,6 +314,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING MD_GetSubTypeString( int )                        zCall( 0x007684F0 );
     virtual zCEventMessage::zTTimeBehavior MD_GetTimeBehavior()       zCall( 0x00768720 );
     virtual float MD_GetMinTime()                                     zCall( 0x00768730 );
+
+    // user API
+    #include "oCMsgState.inl"
   };
 
   class oCMsgManipulate : public oCNpcMessage {
@@ -364,6 +385,9 @@ namespace Gothic_II_Addon {
     virtual float MD_GetMinTime()                                                     zCall( 0x007699F0 );
     virtual void Pack( zCBuffer&, zCEventManager* )                                   zCall( 0x00769240 );
     virtual void Unpack( zCBuffer&, zCEventManager* )                                 zCall( 0x00769330 );
+
+    // user API
+    #include "oCMsgManipulate.inl"
   };
 
   class oCMsgConversation : public oCNpcMessage {
@@ -442,6 +466,9 @@ namespace Gothic_II_Addon {
     virtual void MD_SetVobParam( zCVob* )                                                 zCall( 0x0076AEF0 );
     virtual zCEventMessage::zTTimeBehavior MD_GetTimeBehavior()                           zCall( 0x0076AF00 );
     virtual float MD_GetMinTime()                                                         zCall( 0x0076AF50 );
+
+    // user API
+    #include "oCMsgConversation.inl"
   };
 
   class oCMsgMagic : public oCNpcMessage {
@@ -490,6 +517,9 @@ namespace Gothic_II_Addon {
     virtual zSTRING MD_GetSubTypeString( int )               zCall( 0x0076B430 );
     virtual void Pack( zCBuffer&, zCEventManager* )          zCall( 0x0076B2C0 );
     virtual void Unpack( zCBuffer&, zCEventManager* )        zCall( 0x0076B360 );
+
+    // user API
+    #include "oCMsgMagic.inl"
   };
 
 } // namespace Gothic_II_Addon

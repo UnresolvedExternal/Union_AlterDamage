@@ -122,6 +122,9 @@ namespace Gothic_I_Classic {
     static zCGfx*& gfx_cursor;
     static zCGfx*& gfx_cursor_equip;
     static zCGfx**& gfx_arrow;
+
+    // user API
+    #include "oCItemContainer.inl"
   };
 
   class oCStealContainer : public oCItemContainer {
@@ -135,6 +138,9 @@ namespace Gothic_I_Classic {
     virtual void SetOwner( oCNpc* ) zCall( 0x0066A590 );
     virtual oCNpc* GetOwner()       zCall( 0x0066A5B0 );
     virtual void CreateList()       zCall( 0x0066A5C0 );
+
+    // user API
+    #include "oCStealContainer.inl"
   };
 
   class oCNpcContainer : public oCStealContainer {
@@ -147,6 +153,9 @@ namespace Gothic_I_Classic {
     virtual oCItem* Insert( oCItem* ) zCall( 0x0066B2D0 );
     virtual void Remove( oCItem* )    zCall( 0x0066B310 );
     virtual void CreateList()         zCall( 0x0066AB10 );
+
+    // user API
+    #include "oCNpcContainer.inl"
   };
 
   class oCNpcInventory : public oCItemContainer {
@@ -212,6 +221,9 @@ namespace Gothic_I_Classic {
 
     // static properties
     static zCGfx**& gfx_cats;
+
+    // user API
+    #include "oCNpcInventory.inl"
   };
 
 } // namespace Gothic_I_Classic

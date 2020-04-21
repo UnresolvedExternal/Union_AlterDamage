@@ -42,6 +42,9 @@ namespace Gothic_I_Addon {
     virtual void __fastcall BlitTextLine( zCViewText2* )                         zCall( 0x00798EE0 );
     virtual void __fastcall BlitTextCharacters( zCViewText2*, zCFont*, zCOLOR& ) zCall( 0x00798FB0 );
     /* for zCViewBase num : 8*/
+
+    // user API
+    #include "zCViewPrint.inl"
   };
 
 } // namespace Gothic_I_Addon

@@ -22,6 +22,9 @@ namespace Gothic_II_Addon {
     void CreateParticles()                 zCall( 0x005E0CF0 );
     virtual ~zCUnderwaterPFX()             zCall( 0x005DFF10 );
     virtual int Render( zTRenderContext& ) zCall( 0x005E08D0 );
+
+    // user API
+    #include "zCUnderwaterPFX.inl"
   };
 
   class zCSkyControler : public zCObject {
@@ -86,6 +89,9 @@ namespace Gothic_II_Addon {
     // static properties
     static zCSkyControler*& s_activeSkyControler;
     static int& s_skyEffectsEnabled;
+
+    // user API
+    #include "zCSkyControler.inl"
   };
 
   class zCSkyControler_Mid : public zCSkyControler {
@@ -132,6 +138,9 @@ namespace Gothic_II_Addon {
     virtual void UpdateWorldDependencies()               zPureCall;
     virtual void RenderSkyPre()                          zCall( 0x005E0060 );
     virtual void RenderSkyPost( int )                    zCall( 0x005E0130 );
+
+    // user API
+    #include "zCSkyControler_Mid.inl"
   };
 
   class zCSkyControler_Indoor : public zCSkyControler_Mid {
@@ -162,6 +171,9 @@ namespace Gothic_II_Addon {
     virtual void UpdateWorldDependencies()       zCall( 0x005DF5A0 );
     virtual void RenderSkyPre()                  zCall( 0x005E0820 );
     virtual void RenderSkyPost( int )            zCall( 0x005E08C0 );
+
+    // user API
+    #include "zCSkyControler_Indoor.inl"
   };
 
 } // namespace Gothic_II_Addon

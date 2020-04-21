@@ -50,6 +50,9 @@ namespace Gothic_I_Addon {
     virtual void __fastcall EvaluateTexturePosition()                                                zCall( 0x00796EE0 );
     virtual void __fastcall Blit()                                                                   zCall( 0x00796DB0 );
     /* for zCViewBase num : 8*/
+
+    // user API
+    #include "zCViewFX.inl"
   };
 
 } // namespace Gothic_I_Addon

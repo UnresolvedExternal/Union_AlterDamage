@@ -25,6 +25,9 @@ namespace Gothic_II_Classic {
     virtual void __fastcall StartSelection() zCall( 0x007715A0 );
     virtual void __fastcall StopSelection()  zCall( 0x007715B0 );
     /* for zCViewBase num : 9*/
+
+    // user API
+    #include "zCViewDialog.inl"
   };
 
 } // namespace Gothic_II_Classic

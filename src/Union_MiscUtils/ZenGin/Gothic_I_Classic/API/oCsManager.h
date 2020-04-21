@@ -20,6 +20,9 @@ namespace Gothic_I_Classic {
     virtual zCEventMessage* CreateOuMessage()                           zCall( 0x004022E0 );
     virtual zCCSPlayer* CreateCutscenePlayer( zCWorld* )                zCall( 0x00402220 );
     virtual zCCSProps* CreateProperties()                               zCall( 0x00402B50 );
+
+    // user API
+    #include "oCCSManager.inl"
   };
 
 } // namespace Gothic_I_Classic

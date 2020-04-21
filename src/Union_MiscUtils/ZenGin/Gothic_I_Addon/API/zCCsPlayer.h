@@ -68,6 +68,9 @@ namespace Gothic_I_Addon {
     virtual void CSDB_Warning( zCCSBlockBase*, zSTRING& )                      zCall( 0x004213A0 );
     virtual void CSDB_StartPlaying( zCCutscene* )                              zCall( 0x00421630 );
     virtual void CSDB_Stop( zCCutscene* )                                      zCall( 0x00421650 );
+
+    // user API
+    #include "zCCSPlayer.inl"
   };
 
 } // namespace Gothic_I_Addon

@@ -19,6 +19,9 @@ namespace Gothic_I_Classic {
     virtual ~oCCSPlayer()                                               zCall( 0x004037A0 );
     virtual void ProcessCutscene( zCCSCutsceneContext*, zVEC3 const& )  zCall( 0x004037C0 );
     /* for zCCSDebugger num : 7*/
+
+    // user API
+    #include "oCCSPlayer.inl"
   };
 
 } // namespace Gothic_I_Classic

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CPublisher.h"
-#include "Workspace\Utility\CMemPool.h"
+#include "Workspace\Utility\Common\CMemPool.h"
 
 class CSubscription
 {

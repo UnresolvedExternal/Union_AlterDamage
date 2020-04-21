@@ -52,6 +52,9 @@ namespace Gothic_I_Classic {
     virtual void TraverseVobList( zCVobCallback&, void* )                zCall( 0x006D75F0 );
     virtual int DisposeVobs( zCTree<zCVob>* )                            zCall( 0x005F55F0 );
     virtual void DisposeVobs()                                           zCall( 0x006D7990 );
+
+    // user API
+    #include "oCWorld.inl"
   };
 
   class oCWorldTimer {
@@ -78,6 +81,9 @@ namespace Gothic_I_Classic {
     int IsDay()                                 zCall( 0x006D7FD0 );
     int IsNight()                               zCall( 0x006D8050 );
     static void AddTime( int&, int&, int, int ) zCall( 0x006D80E0 );
+
+    // user API
+    #include "oCWorldTimer.inl"
   };
 
 } // namespace Gothic_I_Classic

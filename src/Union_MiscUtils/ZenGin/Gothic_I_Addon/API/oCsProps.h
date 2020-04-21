@@ -23,6 +23,9 @@ namespace Gothic_I_Addon {
     virtual int AcceptRole( zCCSRole*, zCVob* )                         zCall( 0x00404590 );
     virtual int CheckRole( zCCSRole*, zCVob* )                          zCall( 0x004045B0 );
     virtual int CheckRoleResult()                                       zCall( 0x00404600 );
+
+    // user API
+    #include "oCCSProps.inl"
   };
 
 } // namespace Gothic_I_Addon

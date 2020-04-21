@@ -50,6 +50,9 @@ namespace Gothic_I_Classic {
     virtual int CheckDistance( float )                                  zCall( 0x00421BB0 );
     virtual int CheckRange( float )                                     zCall( 0x00421BF0 );
     virtual void PrintDebugInfo()                                       zCall( 0x00421C30 );
+
+    // user API
+    #include "zCCSProps.inl"
   };
 
 } // namespace Gothic_I_Classic
