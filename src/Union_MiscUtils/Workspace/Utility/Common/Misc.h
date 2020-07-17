@@ -2,11 +2,14 @@
 
 #include "UnionAfx.h"
 
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+
 template <class T>
 T CoerceInRange(T start, const T& length, const T& minValue, const T& maxValue)
 {
-	start -= max(0, start + length - maxValue);
-	start += max(0, minValue - start);
+	start -= MAX(0, start + length - maxValue);
+	start += MAX(0, minValue - start);
 	return start;
 }
 
@@ -92,7 +95,7 @@ public:
 			string word = str.GetWord(delimeter, i);
 			if (!word.Length())
 				break;
-			
+
 			for (uint k = 0; k < pairs.GetNum(); k++)
 				if (pairs[k].first.Compare(word))
 				{
@@ -103,42 +106,67 @@ public:
 
 		return flags;
 	}
+};
 
-	// Array<T>
+// Array<T>
 
+template <class T>
+const T* begin(const Array<T>& array)
+{
+	return &array[0];
+}
+
+template <class T>
+const T* end(const Array<T>& array)
+{
+	return &array[0] + array.GetNum();
+}
+
+template <class T>
+const T* cbegin(const Array<T>& array)
+{
+	return &array[0];
+}
+
+template <class T>
+const T* cend(const Array<T>& array)
+{
+	return &array[0] + array.GetNum();
+}
+
+template <class T>
+T* begin(Array<T>& array)
+{
+	return &array[0];
+}
+
+template <class T>
+T* end(Array<T>& array)
+{
+	return &array[0] + array.GetNum();
+}
+
+class CCmdn
+{
+public:
 	template <class T>
-	const T* begin(const Array<T>& array)
+	CCmdn& operator<<(const T& e)
 	{
-		return &array[0];
+		cmd << e;
+		return *this;
 	}
 
-	template <class T>
-	const T* end(const Array<T>& array)
+	~CCmdn()
 	{
-		return &array[0] + array.GetNum();
-	}
-
-	template <class T>
-	const T* cbegin(const Array<T>& array)
-	{
-		return &array[0];
-	}
-
-	template <class T>
-	const T* cend(const Array<T>& array)
-	{
-		return &array[0] + array.GetNum();
-	}
-
-	template <class T>
-	T* begin(Array<T>& array)
-	{
-		return &array[0];
-	}
-
-	template <class T>
-	T* end(Array<T>& array)
-	{
-		return &array[0] + array.GetNum();
+		cmd << endl;
 	}
 };
+
+const float epsF = 1e-6;
+
+inline bool IsLessF(float x, float y) { return x < y - epsF; }
+inline bool IsMoreF(float x, float y) { return x > y + epsF; }
+inline bool IsEqualF(float x, float y) { return x <= y + epsF && x >= y - epsF; }
+
+#define CMDN if (true) CCmdn()
+#define LOG(exp) cmd << #exp << ": " << (exp) << endl

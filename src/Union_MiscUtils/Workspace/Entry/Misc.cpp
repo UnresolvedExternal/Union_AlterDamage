@@ -16,6 +16,5 @@ namespace NAMESPACE
 			serializer.Add("MAGIC", 1 << 31);
 
 			settings.Load();
-			settings.Save();
 		}, CHECK_THIS_ENGINE);
 }

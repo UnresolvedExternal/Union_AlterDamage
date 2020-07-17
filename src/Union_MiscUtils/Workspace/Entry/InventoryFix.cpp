@@ -116,7 +116,7 @@ namespace NAMESPACE
 			const TPackedItem& e = elems[i];
 			bool nameMatched = e.CheckName(pStr, nStr, nLen);
 			if (nameMatched)
-				amount += max(0, e.GetAmount(pStr));
+				amount += MAX(0, e.GetAmount(pStr));
 			if (remove)
 				remFlags.InsertEnd(nameMatched);
 		}

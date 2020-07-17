@@ -1231,6 +1231,7 @@ namespace Gothic_I_Addon {
 
   template <class T>
   class zCList {
+  public:
     T *data;
     zCList *next;
   public:

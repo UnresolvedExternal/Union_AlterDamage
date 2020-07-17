@@ -211,6 +211,9 @@
     <Filter Include="Workspace\Entry">
       <UniqueIdentifier>{36c053c8-b222-41dc-b503-79a782cf1fe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Workspace\Settings">
+      <UniqueIdentifier>{2bf3066c-a852-4838-b964-6178c10244dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ZenGin\Gothic_I_Classic\staticDef_Ver0.cpp">
@@ -283,9 +286,6 @@
     <ClCompile Include="Workspace\Entry\Misc.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Entry\CKeyRemover.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
     <ClCompile Include="Workspace\Entry\DrawItem.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
@@ -301,9 +301,6 @@
     <ClCompile Include="Workspace\Entry\RemoveKeys.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Assembly\CPluginSettings.cpp">
-      <Filter>Workspace\Assembly</Filter>
-    </ClCompile>
     <ClCompile Include="Workspace\Entry\SaveTorches.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
@@ -317,6 +314,24 @@
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
     <ClCompile Include="Workspace\Entry\ThrottleEvents.cpp">
+      <Filter>Workspace\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace\Entry\ChangeMotionFactor.cpp">
+      <Filter>Workspace\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace\Entry\MoveLogEntry.cpp">
+      <Filter>Workspace\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace\Settings\CPluginSettings.cpp">
+      <Filter>Workspace\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace\Entry\SkipNoise.cpp">
+      <Filter>Workspace\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace\Entry\ReapplyOverlays.cpp">
+      <Filter>Workspace\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace\Entry\RestrictAcrobatic.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2881,11 +2896,17 @@
     <ClInclude Include="Workspace\Utility\Engine\Misc.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Entry\CKeyRemover.h">
-      <Filter>Workspace\Entry</Filter>
+    <ClInclude Include="Workspace\Settings\CPluginSettings.h">
+      <Filter>Workspace\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Assembly\CPluginSettings.h">
-      <Filter>Workspace\Assembly</Filter>
+    <ClInclude Include="Workspace\Utility\Engine\ZOwner.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\TPathOverlay.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\PointPath.h">
+      <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

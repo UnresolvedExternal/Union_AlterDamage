@@ -64,4 +64,40 @@ namespace NAMESPACE
 
 		return false;
 	}
+
+	zVEC3 WorldToView(const zVEC3& worldPos, zCView* view)
+	{
+		zCCamera* cam = ogame->GetCamera();
+		zVEC3 result = cam->trafoView * worldPos;
+		
+		int x, y;
+		cam->Project(&result, x, y);
+		
+		if (view)
+		{
+			x = view->anx(x);
+			y = view->any(y);
+		}
+
+		result[0] = x;
+		result[1] = y;
+		return result;
+	}
+
+	zVEC3 WorldToViewText(const zVEC3& worldPos, zCView* view, const zSTRING& text, bool coerce)
+	{
+		zVEC3 viewPos = WorldToView(worldPos, view);
+		float width = view->FontSize(const_cast<zSTRING&>(text));
+		float height = view->FontY();
+		viewPos[0] -= width / 2;
+		viewPos[1] -= height / 2;
+
+		if (coerce)
+		{
+			viewPos[0] = CoerceInRange(viewPos[0], width, 0.0f, 8191.0f);
+			viewPos[1] = CoerceInRange(viewPos[1], height, 0.0f, 8191.0f);
+		}
+
+		return viewPos;
+	}
 }

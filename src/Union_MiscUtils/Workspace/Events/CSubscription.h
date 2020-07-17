@@ -9,9 +9,8 @@ class CSubscription
 
 private:
 	TGameEvent event;
-	std::function<void()> delegate;
-	std::function<void()>* helperDelegate;
-
+	std::function<void()>* delegate;
+	
 	CMemPool<std::function<void()>>& GetDelegatesPool();
 
 public:

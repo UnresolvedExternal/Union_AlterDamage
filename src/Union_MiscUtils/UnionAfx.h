@@ -10,6 +10,7 @@
 
 
 extern "C" {
+  #define NOMINMAX
   #include <Windows.h>
   #include <stdlib.h>
   #include <stdio.h>

@@ -11,7 +11,8 @@ namespace NAMESPACE
 
 		if (settings.appendAmountInfo && item->amount != 1)
 		{
-			text += " (x";
+			text += " (";
+			text += settings.xChar.GetVector();
 			text += item->amount;
 			text += ")";
 		}

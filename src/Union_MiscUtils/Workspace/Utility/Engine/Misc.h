@@ -33,6 +33,14 @@ namespace NAMESPACE
 		CollectVobs(ogame->GetGameWorld(), vobs);
 	}
 
+	template <typename T> 
+	inline constexpr int sign(T val) 
+	{
+		return (T(0) < val) - (val < T(0));
+	}
+
 	void Print(zCView* view, const zVEC3& worldPos, const zSTRING& text);
 	bool IsLogicalPressed(unsigned short logicalId);
+	zVEC3 WorldToView(const zVEC3& worldPos, zCView* view);
+	zVEC3 WorldToViewText(const zVEC3& worldPos, zCView* view, const zSTRING& text, bool coerce);
 }

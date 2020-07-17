@@ -43,7 +43,13 @@ namespace NAMESPACE
 
 		void OnLoop()
 		{
-			if (npc->sleepingMode == zTVobSleepingMode::zVOB_SLEEPING || IsLogicalPressed(GAME_PARADE) || zinput->GetMouseButtonPressedRight())
+			if (npc->sleepingMode == zTVobSleepingMode::zVOB_SLEEPING)
+			{
+				delete this;
+				return;
+			}
+
+			if (IsLogicalPressed(GAME_PARADE) || zinput->GetMouseButtonPressedRight() || IsLogicalPressed(GAME_EXIT))
 			{
 				delete this;
 				return;

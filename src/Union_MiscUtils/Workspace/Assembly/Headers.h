@@ -1,4 +1,4 @@
-#include "CPluginSettings.h"
+#include "Workspace\Settings\CPluginSettings.h"
 
 #include "Workspace\Savegame\CSGGlobal.h"
 #include "Workspace\Savegame\CSGInstanceSet.h"
@@ -7,5 +7,6 @@
 #include "Workspace\Utility\Engine\EngineIterators.h"
 #include "Workspace\Utility\Engine\CVobCollector.h"
 #include "Workspace\Utility\Engine\Misc.h"
-
-#include "Workspace\Entry\CKeyRemover.h"
+#include "Workspace\Utility\Engine\ZOwner.h"
+#include "Workspace\Utility\Engine\TPathOverlay.h"
+#include "Workspace\Utility\Engine\PointPath.h"

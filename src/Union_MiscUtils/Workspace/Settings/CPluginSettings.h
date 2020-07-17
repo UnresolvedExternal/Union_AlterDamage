@@ -19,7 +19,6 @@ namespace NAMESPACE
 	{
 	public:
 		static CFlagsSerializer<int> catsSerializer;
-		static const char* const pluginName;
 
 		TItemMarkSettings unreadDoc;
 		TItemMarkSettings newItem;
@@ -33,14 +32,15 @@ namespace NAMESPACE
 
 		int nameToDescFlags;
 		bool appendAmountInfo;
+		string xChar;
 		
 		int messageLimit;
 		bool midnightFix;
 		bool fastFood;
+		bool moveLogEntry;
 
 		CPluginSettings();
 		CPluginSettings& operator=(const CPluginSettings& other) = delete;
-		void Save();
 		void Load();
 	};
 

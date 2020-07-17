@@ -68,11 +68,19 @@ inline void* CMemPool<T>::PopSegment()
 	return segment;
 }
 
+namespace
+{
+	size_t GetMax(size_t x, size_t y)
+	{
+		return (x > y) ? x : y;
+	}
+}
+
 template<class T>
 inline CMemPool<T>::CMemPool()
 {
 	segmentSize = sizeof(T);
-	pageSize = max((size_t)1 << 14, segmentSize * 16);
+	pageSize = GetMax((size_t)1 << 14, segmentSize * 16);
 	perPage = pageSize / segmentSize;
 }
 

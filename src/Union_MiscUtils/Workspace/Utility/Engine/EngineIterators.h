@@ -3,13 +3,13 @@ namespace NAMESPACE
 	// zCArray<T>
 
 	template <class T>
-	const T* begin(const zCArray<T>& array)
+	T* begin(zCArray<T>& array)
 	{
 		return array.GetArray();
 	}
 
 	template <class T>
-	const T* end(const zCArray<T>& array)
+	T* end(zCArray<T>& array)
 	{
 		return array.GetArray() + array.GetNum();
 	}
@@ -26,13 +26,13 @@ namespace NAMESPACE
 		return array.GetArray() + array.GetNum();
 	}
 
-	// zCListSort
+	// zCList / zCListSort
 
-	template <class T>
+	template <class T, class TList>
 	struct TListSortIterator
 	{
 	private:
-		zCListSort<T>* ele;
+		TList* ele;
 
 	public:
 		typedef TListSortIterator self_type;
@@ -41,7 +41,7 @@ namespace NAMESPACE
 		typedef T** pointer;
 		typedef std::forward_iterator_tag iterator_category;
 
-		TListSortIterator(zCListSort<T>& list) :
+		TListSortIterator(TList& list) :
 			ele(list.next)
 		{
 
@@ -53,7 +53,7 @@ namespace NAMESPACE
 
 		}
 
-		TListSortIterator(const TListSortIterator<T>& right) :
+		TListSortIterator(const TListSortIterator<T, TList>& right) :
 			ele(right.ele)
 		{
 
@@ -94,29 +94,55 @@ namespace NAMESPACE
 	};
 
 	template <class T>
-	TListSortIterator<T> begin(zCListSort<T>& list)
+	TListSortIterator<T, zCList<T>> begin(zCList<T>& list)
 	{
-		return TListSortIterator<T>(list);
+		return TListSortIterator<T, zCList<T>>(list);
 	}
 
 	template <class T>
-	TListSortIterator<T> end(zCListSort<T>& list)
+	TListSortIterator<T, zCList<T>> end(zCList<T>& list)
 	{
-		return TListSortIterator<T>(nullptr);
+		return TListSortIterator<T, zCList<T>>(nullptr);
 	}
 
 	template <class T>
-	TListSortIterator<T> begin(zCListSort<T>* list)
+	TListSortIterator<T, zCList<T>> begin(zCList<T>* list)
 	{
 		if (list)
-			return TListSortIterator<T>(*list);
-		return TListSortIterator<T>(nullptr);
+			return TListSortIterator<T, zCList<T>>(*list);
+		return TListSortIterator<T, zCList<T>>(nullptr);
 	}
 
 	template <class T>
-	TListSortIterator<T> end(zCListSort<T>* list)
+	TListSortIterator<T, zCList<T>> end(zCList<T>* list)
 	{
-		return TListSortIterator<T>(nullptr);
+		return TListSortIterator<T, zCList<T>>(nullptr);
+	}
+
+	template <class T>
+	TListSortIterator<T, zCListSort<T>> begin(zCListSort<T>& list)
+	{
+		return TListSortIterator<T, zCListSort<T>>(list);
+	}
+
+	template <class T>
+	TListSortIterator<T, zCListSort<T>> end(zCListSort<T>& list)
+	{
+		return TListSortIterator<T, zCListSort<T>>(nullptr);
+	}
+
+	template <class T>
+	TListSortIterator<T, zCListSort<T>> begin(zCListSort<T>* list)
+	{
+		if (list)
+			return TListSortIterator<T, zCListSort<T>>(*list);
+		return TListSortIterator<T, zCListSort<T>>(nullptr);
+	}
+
+	template <class T>
+	TListSortIterator<T, zCListSort<T>> end(zCListSort<T>* list)
+	{
+		return TListSortIterator<T, zCListSort<T>>(nullptr);
 	}
 
 	// oCNpcInventory
