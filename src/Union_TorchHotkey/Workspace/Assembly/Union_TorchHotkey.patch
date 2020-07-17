@@ -1,0 +1,5 @@
+#engine
+	#patch
+		LoadPlugins("Union_TorchHotkey.dll")
+	#/patch
+#/engine
