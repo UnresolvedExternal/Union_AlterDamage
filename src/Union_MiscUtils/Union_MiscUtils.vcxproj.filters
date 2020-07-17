@@ -316,23 +316,11 @@
     <ClCompile Include="Workspace\Entry\ThrottleEvents.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Entry\ChangeMotionFactor.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
     <ClCompile Include="Workspace\Entry\MoveLogEntry.cpp">
       <Filter>Workspace\Entry</Filter>
     </ClCompile>
     <ClCompile Include="Workspace\Settings\CPluginSettings.cpp">
       <Filter>Workspace\Settings</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\SkipNoise.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\ReapplyOverlays.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\RestrictAcrobatic.cpp">
-      <Filter>Workspace\Entry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
