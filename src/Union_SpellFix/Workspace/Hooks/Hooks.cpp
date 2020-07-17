@@ -3,6 +3,12 @@
 
 namespace NAMESPACE
 {
+	CSubscription loadSettings(TGameEvent::Init, []()
+		{
+			if (CurrentEngine == Union.GetEngineVersion())
+				settings.Load();
+		});
+
 	void RemoveChildEffects(zCVob* vob)
 	{
 		oCWorld* world = ogame->GetGameWorld();
@@ -95,6 +101,13 @@ namespace NAMESPACE
 	CInvoke<int(__thiscall*)(oCVisualFX*, zSVisualFXColl&)> Ivk_oCVisualFX_ProcessCollision(ZenDef<TInstance>(0, 0, 0x00493CF0, 0x004958D0), &Hook_oCVisualFX_ProcessCollision, (CurrentEngine >= Engine_G2) ? IVK_AUTO : IVK_DISABLED);
 	int __fastcall Hook_oCVisualFX_ProcessCollision(oCVisualFX* _this, void* vtable, zSVisualFXColl& a1)
 	{
+		if (!settings.collideTargetFix)
+		{
+			int result = Ivk_oCVisualFX_ProcessCollision(_this, a1);
+			Ivk_oCVisualFX_ProcessCollision.Detach();
+			return result;
+		}
+
 		auto scope = AssignTemp(_this->target, a1.foundVob);
 		return Ivk_oCVisualFX_ProcessCollision(_this, a1);
 	}
