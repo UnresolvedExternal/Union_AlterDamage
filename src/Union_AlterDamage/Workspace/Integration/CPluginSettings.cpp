@@ -2,7 +2,7 @@ namespace NAMESPACE
 {
 	void CPluginSettings::Load()
 	{
-		enablePopupDamage = zoptions->ReadBool(pluginName.GetVector(), Z"EnablePopupDamage", true);
+		enablePopupDamage = zoptions->ReadBool(pluginName.GetVector(), Z"EnablePopupDamage", false);
 		requiredAttrScaling = zoptions->ReadBool(pluginName.GetVector(), Z"RequiredAttrScaling", false);
 		humanFistDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"HumanFistDamageMult", 0.5f);
 		meleeRawDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"MeleeRawDamageMult", ZenDef(2.0f, 2.0f, 1.0f, 1.0f));
@@ -10,6 +10,8 @@ namespace NAMESPACE
 		armorSoftCap = zoptions->ReadReal(pluginName.GetVector(), Z"ArmorSoftCap", 0.6f);
 		beyondSoftCapArmorScaling = zoptions->ReadReal(pluginName.GetVector(), Z"BeyondSoftCapArmorScaling", 0.3f);
 		twoHandedMult = zoptions->ReadReal(pluginName.GetVector(), Z"TwoHandedMult", 1.35f);
+		comboChanceAdd = zoptions->ReadReal(pluginName.GetVector(), Z"ComboChanceAdd", 8.0f);
+		comboDamageAdd = zoptions->ReadReal(pluginName.GetVector(), Z"ComboDamageAdd", 0.08f);
 		randomStability = zoptions->ReadReal(pluginName.GetVector(), Z"RandomStability", 0.5f);
 		fireDotDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"FireDotDamageMult", 0.5f);
 		fireDotDuration = zoptions->ReadReal(pluginName.GetVector(), Z"FireDotDuration", 5.0f);

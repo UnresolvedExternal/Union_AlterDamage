@@ -12,6 +12,7 @@ namespace NAMESPACE
 		bool IsMelee(oCItem* weapon);
 		int GetBestScalingAttribute(oCItem* weapon);
 		void GetIsMeleeAndTalent(const TDamageInfo& info, bool& isMelee, int& talent);
+		int GetComboHit(const TDamageInfo& info);
 
 		oEDamageType IndexToDamage(const oEDamageIndex& index);
 		bool IsCorrectSpellData(const TDamageInfo& info);

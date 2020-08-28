@@ -12,6 +12,8 @@ namespace NAMESPACE
 		float armorSoftCap;
 		float beyondSoftCapArmorScaling;
 		float twoHandedMult;
+		float comboChanceAdd;
+		float comboDamageAdd;
 		float randomStability;
 		float fireDotDamageMult;
 		float fireDotDuration;

@@ -57,6 +57,13 @@ namespace NAMESPACE
 		}
 	}
 
+	int CDamageDealer::GetComboHit(const TDamageInfo& info)
+	{
+		if (info.npcAttacker && info.npcAttacker->anictrl && (info.enuModeWeapon == NPC_WEAPON_FIST || info.weapon && IsMelee(info.weapon)))
+			return info.npcAttacker->anictrl->comboNr;
+		return 0;
+	}
+
 	oEDamageType CDamageDealer::IndexToDamage(const oEDamageIndex& index)
 	{
 		return (oEDamageType)(1 << index);
@@ -111,6 +118,8 @@ namespace NAMESPACE
 		int talent;
 		GetIsMeleeAndTalent(info, isMelee, talent);
 		float chance = GetHitChance(info.npcAttacker, talent);
+		chance *= 1.0f + GetComboHit(info) * TGlobals::pluginSettings.comboChanceAdd / 100.0f;
+		chance = CoerceInRange(chance, 0.0f, 0.0f, 1.0f);
 
 		for (int i = 0; i < (int)oEDamageIndex::oEDamageIndex_MAX; i++)
 			info.rawDamage[i] = weapon->damage[i];
@@ -331,6 +340,8 @@ namespace NAMESPACE
 
 		if (info.enuModeWeapon == NPC_WEAPON_2HS)
 			info.totalDamage *= twoHandedMult;
+
+		info.totalDamage *= 1.0f + GetComboHit(info) * TGlobals::pluginSettings.comboDamageAdd;
 	}
 
 	void CDamageDealer::SetRealDamage(TDamageInfo& info)
