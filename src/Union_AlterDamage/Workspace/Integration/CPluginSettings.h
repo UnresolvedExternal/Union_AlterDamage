@@ -15,6 +15,7 @@ namespace NAMESPACE
 		float comboChanceAdd;
 		float comboDamageAdd;
 		float randomStability;
+		float mageMaxManaToDamage;
 		float fireDotDamageMult;
 		float fireDotDuration;
 		string minDamageVarName;

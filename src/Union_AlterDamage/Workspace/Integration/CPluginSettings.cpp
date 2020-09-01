@@ -13,6 +13,7 @@ namespace NAMESPACE
 		comboChanceAdd = zoptions->ReadReal(pluginName.GetVector(), Z"ComboChanceAdd", 8.0f);
 		comboDamageAdd = zoptions->ReadReal(pluginName.GetVector(), Z"ComboDamageAdd", 0.08f);
 		randomStability = zoptions->ReadReal(pluginName.GetVector(), Z"RandomStability", 0.5f);
+		mageMaxManaToDamage = zoptions->ReadReal(pluginName.GetVector(), Z"MageMaxManaToDamage", 0.0f);
 		fireDotDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"FireDotDamageMult", 0.5f);
 		fireDotDuration = zoptions->ReadReal(pluginName.GetVector(), Z"FireDotDuration", 5.0f);
 		minDamageVarName = (string)zoptions->ReadString(pluginName.GetVector(), Z"MinDamageVarName", "#");

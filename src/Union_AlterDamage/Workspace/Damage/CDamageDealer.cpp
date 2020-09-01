@@ -295,6 +295,17 @@ namespace NAMESPACE
 			break;
 
 		case NPC_WEAPON_MAG:
+			if (!info.npcAttacker || info.npcAttacker->GetTalentSkill(oCNpcTalent::NPC_TAL_MAGE) <= 0)
+				break;
+
+#if CurrentEngine == Engine_G2 || CurrentEngine == Engine_G2A
+			if (info.spellId >= SPL_PALLIGHT && info.spellId <= SPL_PALTELEPORTSECRET)
+				break;
+#endif
+			
+			for (int i = 0; i < (int)oEDamageIndex::oEDamageIndex_MAX; i++)
+				info.rawDamage[i] += TGlobals::pluginSettings.mageMaxManaToDamage * info.npcAttacker->attribute[NPC_ATR_MANAMAX] * info.rawDamage[i];
+
 			break;
 
 		default:
