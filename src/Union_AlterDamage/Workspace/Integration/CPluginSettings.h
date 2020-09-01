@@ -14,6 +14,8 @@ namespace NAMESPACE
 		float twoHandedMult;
 		float comboChanceAdd;
 		float comboDamageAdd;
+		float attackRunChanceAdd;
+		float attackRunMult;
 		float randomStability;
 		float mageMaxManaToDamage;
 		float fireDotDamageMult;

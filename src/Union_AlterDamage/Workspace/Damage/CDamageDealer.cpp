@@ -118,7 +118,11 @@ namespace NAMESPACE
 		int talent;
 		GetIsMeleeAndTalent(info, isMelee, talent);
 		float chance = GetHitChance(info.npcAttacker, talent);
-		chance *= 1.0f + GetComboHit(info) * TGlobals::pluginSettings.comboChanceAdd / 100.0f;
+		chance += GetComboHit(info) * TGlobals::pluginSettings.comboChanceAdd / 100.0f;
+
+		if (TGlobals::attackRun)
+			chance += TGlobals::pluginSettings.attackRunChanceAdd / 100.0f;
+
 		chance = CoerceInRange(chance, 0.0f, 0.0f, 1.0f);
 
 		for (int i = 0; i < (int)oEDamageIndex::oEDamageIndex_MAX; i++)
@@ -351,6 +355,9 @@ namespace NAMESPACE
 
 		if (info.enuModeWeapon == NPC_WEAPON_2HS)
 			info.totalDamage *= twoHandedMult;
+
+		if (TGlobals::attackRun)
+			info.totalDamage *= TGlobals::pluginSettings.attackRunMult;
 
 		info.totalDamage *= 1.0f + GetComboHit(info) * TGlobals::pluginSettings.comboDamageAdd;
 	}

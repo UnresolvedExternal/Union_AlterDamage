@@ -67,4 +67,13 @@ namespace NAMESPACE
 		if (TGlobals::pluginSettings.enablePopupDamage && info->npcAttacker && info->npcAttacker->IsSelfPlayer())
 			new CPopupDamageLabel(info);
 	}
+
+	int __fastcall Hook_oCNpc_EV_AttackRun(oCNpc*, void*, oCMsgAttack*);
+	CInvoke<int(__thiscall*)(oCNpc*, oCMsgAttack*)> Ivk_oCNpc_EV_AttackRun(ZenDef<TInstance>(0x006ABEF0, 0x006DED30, 0x006F29F0, 0x007517D0), &Hook_oCNpc_EV_AttackRun, IvkEnabled(CurrentEngine));
+	int __fastcall Hook_oCNpc_EV_AttackRun(oCNpc* _this, void* vtable, oCMsgAttack* a0)
+	{
+		auto scope = AssignTemp(TGlobals::attackRun, true);
+		int result = Ivk_oCNpc_EV_AttackRun(_this, a0);
+		return result;
+	}
 }

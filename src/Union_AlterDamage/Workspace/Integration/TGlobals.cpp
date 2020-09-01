@@ -6,4 +6,5 @@ namespace NAMESPACE
 	CPluginSettings TGlobals::pluginSettings;
 	bool TGlobals::disableOnHitHook = false;
 	std::unordered_map<oCNpc*, CHitGenContainer> TGlobals::hitGens;
+	bool TGlobals::attackRun = false;
 }

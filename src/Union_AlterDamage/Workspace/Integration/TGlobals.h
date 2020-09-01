@@ -9,5 +9,6 @@ namespace NAMESPACE
 		static CPluginSettings pluginSettings;
 		static bool disableOnHitHook;
 		static std::unordered_map<oCNpc*, CHitGenContainer> hitGens;
+		static bool attackRun;
 	};
 }
