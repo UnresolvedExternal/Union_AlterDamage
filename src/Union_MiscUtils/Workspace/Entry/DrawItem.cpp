@@ -43,7 +43,7 @@ namespace NAMESPACE
 		static CSGInstanceSet& docsRead = CSGGlobal::Get<CSGInstanceSet>("DocsRead");
 		auto& opt = settings.unreadDoc;
 
-		if (!inContainerDraw || !opt.prio || !item->HasFlag(ITM_CAT_DOCS) || docsRead.Contains(item->GetInstance()))
+		if (!inContainerDraw || !opt.prio || !item->HasFlag(ITM_CAT_DOCS) || docsRead.Contains(item->GetInstance()) || !item->scemeName.Length())
 			return false;
 
 		zCView* view = TROLOLO_CAST<zCViewBase, zCView>(baseView);
