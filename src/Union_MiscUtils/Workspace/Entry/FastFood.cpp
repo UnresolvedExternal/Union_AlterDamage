@@ -121,19 +121,23 @@ namespace NAMESPACE
 	CInvoke<int(__thiscall*)(oCNpc*, oCMsgManipulate*)> Ivk_oCNpc_EV_UseItemToState_FastFood(ZenDef<TInstance>(0x006AFC70, 0x006E3AF0, 0x006F6AC0, 0x007558F0), &Hook_oCNpc_EV_UseItemToState_FastFood, IvkEnabled(ENGINE));
 	int __fastcall Hook_oCNpc_EV_UseItemToState_FastFood(oCNpc* _this, void* vtable, oCMsgManipulate* message)
 	{
-		if (!_this->IsAPlayer() || COA3(message, targetVob, GetVobType()) != zVOB_TYPE_ITEM)
+		if (!_this->IsAPlayer())
 			return Ivk_oCNpc_EV_UseItemToState_FastFood(_this, message);
 
 		int oldHp = _this->attribute[NPC_ATR_HITPOINTS];
 		int oldMana = _this->attribute[NPC_ATR_MANA];
 
+		getStateEffectCalledOn = nullptr;
 		int result = Ivk_oCNpc_EV_UseItemToState_FastFood(_this, message);
+
+		if (!getStateEffectCalledOn)
+			return result;
 
 		int deltaHp = _this->attribute[NPC_ATR_HITPOINTS] - oldHp;
 		int deltaMana = _this->attribute[NPC_ATR_MANA] - oldMana;
 
 		if (IsLogicalPressed(GAME_SLOW))
-			CFastFoodController::TryStart(_this, static_cast<oCItem*>(message->targetVob)->instanz, deltaHp, deltaMana);
+			CFastFoodController::TryStart(_this, getStateEffectCalledOn->instanz, deltaHp, deltaMana);
 
 		return result;
 	}
