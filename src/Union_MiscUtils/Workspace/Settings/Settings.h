@@ -39,9 +39,7 @@ namespace NAMESPACE
 	{
 		void Load()
 		{
-			CSingleOptionBase::LoadAll();
-
-			NameToDescCats.onChange += [](const CSingleOption<CVectorSetting<string>>& opt)
+			NameToDescCats.onChange += [](const CSingleOption<CVectorSetting<string>> & opt)
 			{
 				Cats.clear();
 
@@ -61,6 +59,8 @@ namespace NAMESPACE
 					if (name == "MAGIC") Cats.insert(ITM_CAT_MAGIC);
 				}
 			};
+
+			CSingleOptionBase::LoadAll();
 		}
 	}
 }
