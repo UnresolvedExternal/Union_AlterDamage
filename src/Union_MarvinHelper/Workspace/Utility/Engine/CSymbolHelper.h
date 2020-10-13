@@ -544,7 +544,7 @@ namespace NAMESPACE
 					return false;
 
 				target->datastack.Push(this->index);
-				return false;
+				return true;
 
 			default:
 				return false;

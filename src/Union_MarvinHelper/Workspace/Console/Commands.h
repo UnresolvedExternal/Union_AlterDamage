@@ -409,12 +409,18 @@ namespace NAMESPACE
 			{
 				zCArray<zCVob*> vobs;
 				ogame->GetGameWorld()->SearchVobListByName((A args.front()).Upper(), vobs);
-
+				
 				hints.reserve(vobs.GetNum());
+				std::unordered_set<zCVob*> set;
 
 				for (int i = 1; i <= vobs.GetNum(); i++)
-					if ((A i).StartWith(args.back()) && vobs[i - 1] && !vobs[i - 1]->CastTo<zCVobSpot>())
+				{
+					if (!set.count(vobs[i - 1]) && (A i).StartWith(args.back()) && vobs[i - 1] && !vobs[i - 1]->CastTo<zCVobSpot>())
+					{
 						hints.push_back(i);
+						set.insert(vobs[i - 1]);
+					}
+				}
 
 				return;
 			}
@@ -472,6 +478,9 @@ namespace NAMESPACE
 
 		virtual void AddHints(std::vector<string>& hints) override
 		{
+			if (args.size() != 1)
+				return;
+
 			c_npc = parser->GetIndex(oCNpc::classDef->scriptClassName);
 			c_item = parser->GetIndex(oCItem::classDef->scriptClassName);
 
@@ -494,11 +503,6 @@ namespace NAMESPACE
 
 		}
 	};
-
-	bool zFail(int error)
-	{
-		return error != 0 && error != 1;
-	}
 
 	class CExecuteCommand : public CConsoleCommand
 	{
