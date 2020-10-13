@@ -30,18 +30,12 @@ extern "C" {
 #define ASTAPI __declspec (dllimport)
 #define VDFAPI __declspec (dllimport)
 
-
-
 // memory operations
 #include "Memory\Shw32.h"
-
-
 
 // base classes of Union: arrays, strings, options and etc
 #include "Common\Common.h"
 using namespace Common;
-
-
 
 // functional classes of union: hooks, applications, plugins . . .
 #include "Core\Core.h"
@@ -53,15 +47,12 @@ using namespace UnionCore;
 #include "Vdfs\Vdfs.h"
 using namespace Vdfs32;
 
-
-
 // systempack patch classes
 #include "SystemPack\Union.Patch\CPatchFile.h"
 using namespace SystemPack;
 
-
-
 // gothic engine classes for g1, g1a, g2 and g2a
+#pragma warning(disable:4244)
 #include "ZenGin\zGothicAPI.h"
 
 

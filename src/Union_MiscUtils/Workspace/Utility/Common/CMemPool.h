@@ -52,7 +52,7 @@ void CMemPool<T>::EnsureSpace()
 {
 	if (segments.empty())
 	{
-		void* page = malloc(pageSize);
+		void* page = new byte[pageSize];
 		pages.push_back(page);
 
 		for (size_t i = 0; i < perPage; i++)
@@ -114,6 +114,6 @@ inline void CMemPool<T>::Free(void* ptr)
 template<class T>
 inline CMemPool<T>::~CMemPool()
 {
-	for (auto page : pages)
-		free(page);
+	for (void* page : pages)
+		delete[] page;
 }

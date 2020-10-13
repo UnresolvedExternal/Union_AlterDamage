@@ -1,6 +1,7 @@
 #pragma once
 
 #include "UnionAfx.h"
+#include <regex>
 
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
@@ -14,6 +15,7 @@ T CoerceInRange(T start, const T& length, const T& minValue, const T& maxValue)
 }
 
 bool Intersects(const tagRECT& a, const tagRECT& b);
+std::vector<string> SearchByRegex(const string& text, const string& re);
 
 template <class TBase, class TDerived>
 TDerived* TROLOLO_CAST(TBase* instance)
@@ -167,6 +169,23 @@ const float epsF = 1e-6;
 inline bool IsLessF(float x, float y) { return x < y - epsF; }
 inline bool IsMoreF(float x, float y) { return x > y + epsF; }
 inline bool IsEqualF(float x, float y) { return x <= y + epsF && x >= y - epsF; }
+
+template <typename T, typename U>
+constexpr size_t OffsetOf(U T::* member)
+{
+	return (char*)& ((T*)nullptr->*member) - (char*)nullptr;
+}
+
+bool TryParse(const string& line, int& number);
+bool TryParse(const string& line, float& number);
+bool TryParse(const string& line, string& text);
+
+class CStringConvertible
+{
+public:
+	virtual string ToString() const = 0;
+	inline virtual ~CStringConvertible() { }
+};
 
 #define CMDN if (true) CCmdn()
 #define LOG(exp) cmd << #exp << ": " << (exp) << endl

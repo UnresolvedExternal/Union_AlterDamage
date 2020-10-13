@@ -118,7 +118,7 @@ namespace NAMESPACE
 	std::unordered_set<oCNpc*> CFastFoodController::npcs;
 
 	int __fastcall Hook_oCNpc_EV_UseItemToState_FastFood(oCNpc*, void*, oCMsgManipulate*);
-	CInvoke<int(__thiscall*)(oCNpc*, oCMsgManipulate*)> Ivk_oCNpc_EV_UseItemToState_FastFood(ZenDef<TInstance>(0x006AFC70, 0x006E3AF0, 0x006F6AC0, 0x007558F0), &Hook_oCNpc_EV_UseItemToState_FastFood, IvkEnabled(ENGINE));
+	COptionInvoke<int(__thiscall*)(oCNpc*, oCMsgManipulate*), bool> Ivk_oCNpc_EV_UseItemToState_FastFood(ZenDef<TInstance>(0x006AFC70, 0x006E3AF0, 0x006F6AC0, 0x007558F0), &Hook_oCNpc_EV_UseItemToState_FastFood, IvkEnabled(ENGINE), Settings::FastFood);
 	int __fastcall Hook_oCNpc_EV_UseItemToState_FastFood(oCNpc* _this, void* vtable, oCMsgManipulate* message)
 	{
 		if (!_this->IsAPlayer())

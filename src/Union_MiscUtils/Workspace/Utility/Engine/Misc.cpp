@@ -44,12 +44,12 @@ namespace NAMESPACE
 
 		float width = view->FontSize(const_cast<zSTRING&>(text));
 		float height = view->FontY();
-		x -= width / 2;
-		y -= height / 2;
-		x = CoerceInRange<float>(x, width, 0, 8191);
-		y = CoerceInRange<float>(y, height, 0, 8191);
+		float vx = x - width / 2;
+		float vy = y - height / 2;
+		vx = CoerceInRange<float>(vx, width, 0, 8191);
+		vy = CoerceInRange<float>(vy, height, 0, 8191);
 
-		view->Print(x + 0.5f, y + 0.5f, text);
+		view->Print(vx + 0.5f, vy + 0.5f, text);
 	}
 
 	bool IsLogicalPressed(unsigned short logicalId)

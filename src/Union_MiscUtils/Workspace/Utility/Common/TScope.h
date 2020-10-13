@@ -13,6 +13,7 @@ public:
 	TScope(T& var);
 	TScope(TScope&& scope);
 	TScope& operator=(TScope&& right);
+	void Reset();
 	~TScope();
 };
 
@@ -43,6 +44,16 @@ template<class T>
 inline TScope<T>& TScope<T>::operator=(TScope<T>&& right)
 {
 	return TScope<T>(right);
+}
+
+template<class T>
+inline void TScope<T>::Reset()
+{
+	if (!moved)
+	{
+		var = value;
+		moved = true;
+	}
 }
 
 template<class T>

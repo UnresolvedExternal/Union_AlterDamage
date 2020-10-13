@@ -3,7 +3,7 @@ namespace NAMESPACE
 	CInvoke<zSTRING*(__cdecl*)(zSTRING*,int)> Ivk_oCAniCtrl_Human_GetWeaponString(ZenDef<TInstance>(0x00626100, 0x0064AF70, 0x006523E0, 0x006AEC60), nullptr, IVK_DISABLED);
 
 	int __fastcall Hook_oCNpc_EV_RemoveWeapon(oCNpc*, void*, oCMsgWeapon*);
-	CInvoke<int(__thiscall*)(oCNpc*, oCMsgWeapon*)> Ivk_oCNpc_EV_RemoveWeapon(ZenDef<TInstance>(0x006A93C0, 0x006DC1B0, 0x006EEDB0, 0x0074DB20), &Hook_oCNpc_EV_RemoveWeapon, IvkEnabled(ENGINE));
+	COptionInvoke<int(__thiscall*)(oCNpc*, oCMsgWeapon*), bool> Ivk_oCNpc_EV_RemoveWeapon(ZenDef<TInstance>(0x006A93C0, 0x006DC1B0, 0x006EEDB0, 0x0074DB20), &Hook_oCNpc_EV_RemoveWeapon, IvkEnabled(ENGINE), Settings::WaterWeaponFix);
 	int __fastcall Hook_oCNpc_EV_RemoveWeapon(oCNpc* _this, void* vtable, oCMsgWeapon* msg)
 	{
 		int result = Ivk_oCNpc_EV_RemoveWeapon(_this, msg);

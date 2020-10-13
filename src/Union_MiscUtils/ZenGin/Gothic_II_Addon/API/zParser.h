@@ -189,7 +189,7 @@ namespace Gothic_II_Addon {
     int GetInt( int, int )                                                          zCall( 0x00793E90 );
     zSTRING GetInstanceValue( zSTRING&, int, void*, int )                           zCall( 0x00793EE0 );
     zSTRING GetInstanceValue( int, int, void*, int )                                zCall( 0x00793FD0 );
-    int IsValid( zSTRING&, void*, zSTRING& )                                        zCall( 0x007942E0 );
+    int IsCompleted( zSTRING&, void*, zSTRING& )                                        zCall( 0x007942E0 );
     int CheckClassSize( zSTRING&, int )                                             zCall( 0x00794450 );
     int CheckClassSize( int, int )                                                  zCall( 0x00794470 );
     void AddClassOffset( zSTRING&, int )                                            zCall( 0x00794730 );

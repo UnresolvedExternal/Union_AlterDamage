@@ -1,16 +1,16 @@
 namespace NAMESPACE
 {
-	CSubscription loadDocsRead(TGameEvent::LoadEnd, []()
+	CSubscription loadDocsRead(ZSUB(LoadEnd), []()
 		{
 			static CSGInstanceSet& docsRead = CSGGlobal::Get<CSGInstanceSet>("DocsRead");
 			docsRead.Load();
-		}, CHECK_THIS_ENGINE);
+		});
 
-	CSubscription saveDocsRead(TGameEvent::SaveBegin, []()
+	CSubscription saveDocsRead(ZSUB(SaveBegin), []()
 		{
 			static CSGInstanceSet& docsRead = CSGGlobal::Get<CSGInstanceSet>("DocsRead");
 			docsRead.Save();
-		}, CHECK_THIS_ENGINE);
+		});
 
 	oCItem* getStateEffectCalledOn = nullptr;
 

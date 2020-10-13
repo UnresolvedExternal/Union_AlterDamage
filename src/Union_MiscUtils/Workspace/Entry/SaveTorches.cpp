@@ -34,41 +34,42 @@ namespace NAMESPACE
 		return true;
 	}
 
-	extern CSubscription saveTorches;
-	CSubscription saveTorches(TGameEvent::SaveBegin, []()
+	COptionSubscription<bool> saveTorches(ZSUB(SaveBegin), Settings::SaveTorches, []()
 		{
-			if (!settings.saveTorches)
-				return saveTorches.Reset();
-
 			oCItem* playerTorch = nullptr;
 			worldChange = true;
 
 			if (player)
 			{
 				worldChange = false;
-				playerTorch = player->GetSlotItem(NPC_NODE_LEFTHAND);
+				playerTorch = COA2(player, GetSlotItem(NPC_NODE_LEFTHAND));
 				if (!IsBurningTorch(playerTorch))
 					playerTorch = nullptr;
 			}
 
 			for (oCItem* item : torches)
 				item->dontWriteIntoArchive = item != playerTorch && item->HasFlag(ITM_FLAG_NFOCUS);
-		}, CHECK_THIS_ENGINE);
+		});
 
-	extern CSubscription trajectPlayerPos_LoadEnd;
-	CSubscription trajectPlayerPos_LoadEnd(TGameEvent::LoadEnd, []()
+	CSubscription trajectPlayerPos_LoadEnd(ZSUB(LoadEnd), []()
 		{
-			if (!settings.saveTorches && !settings.exchangeTorchOnTeleport)
-				return trajectPlayerPos_LoadEnd.Reset();
+			if (!Settings::SaveTorches && !Settings::ExchangeTorchOnTeleport)
+				return;
+
+			if (!player)
+				return;
+
 			playerLastPos = player->GetPositionWorld();
 			playerLastPosChanged = false;
-		}, CHECK_THIS_ENGINE);
+		});
 
-	extern CSubscription trajectPlayerPos_Loop;
-	CSubscription trajectPlayerPos_Loop(TGameEvent::Loop, []()
+	CSubscription trajectPlayerPos_Loop(ZSUB(Loop), []()
 		{
-			if (!settings.saveTorches && !settings.exchangeTorchOnTeleport)
-				return trajectPlayerPos_Loop.Reset();
+			if (!Settings::SaveTorches && !Settings::ExchangeTorchOnTeleport)
+				return;
+
+			if (!player)
+				return;
 
 			playerLastPosChanged = false;
 			zVEC3 playerPos = player->GetPositionWorld();
@@ -79,24 +80,19 @@ namespace NAMESPACE
 				playerLastPos = playerPos;
 				playerLastPosChanged = true;
 			}
-		}, CHECK_THIS_ENGINE);
+		});
 
-	extern CSubscription loadTorches;
-	CSubscription loadTorches(TGameEvent::LoadEnd, []()
+	COptionSubscription<bool> loadTorches(ZSUB(LoadEnd), Settings::SaveTorches, []()
 		{
-			if (!settings.saveTorches)
-				return loadTorches.Reset();
-
 			torches.Clear();
 			oCWorld* world = ogame->GetGameWorld();
-			CVobCollector<oCItem> itemCollector(world);
+			CVobTraverser traverser;
 			bool didPut = false;
 
-			for (oCItem* item : itemCollector.vobs)
+			for (oCItem* item : world->voblist_items)
 			{
 				if (!IsBurningTorch(item))
 					continue;
-
 
 				if (!worldChange && !didPut && item->HasFlag(ITM_FLAG_NFOCUS))
 				{
@@ -117,20 +113,16 @@ namespace NAMESPACE
 				TryExchangeTorch(player);
 
 			worldChange = false;
-		}, CHECK_THIS_ENGINE);
+		});
 
-	extern CSubscription removeFarTorches;
-	CSubscription removeFarTorches(TGameEvent::Loop, []()
+	COptionSubscription<bool> removeFarTorches(ZSUB(Loop), Settings::SaveTorches, []()
 		{
-			if (!settings.saveTorches)
-				return removeFarTorches.Reset();
-
 			if (!playerLastPosChanged)
 				return;
 
 			zCWorld* world = ogame->GetWorld();
 			zCVob* cam = ogame->GetCameraVob();
-			CArray<oCItem*> oldTorches;
+			Array<oCItem*> oldTorches;
 			for (oCItem* oldTorch : torches)
 				oldTorches.InsertEnd(oldTorch);
 			torches.Clear();
@@ -143,57 +135,39 @@ namespace NAMESPACE
 				}
 				else
 					torches.InsertEnd(oldTorch);
-		}, CHECK_THIS_ENGINE);
+		});
 
-	CSubscription exchangeTorchOnTeleport(TGameEvent::Loop, []()
+	COptionSubscription<bool> exchangeTorchOnTeleport(ZSUB(Loop), Settings::ExchangeTorchOnTeleport, []()
 		{
 			if (playerLastPosChanged && distanceChange > ogame->GetSpawnManager()->GetRemoveRange() / 2)
 				TryExchangeTorch(player);
-		}, CHECK_THIS_ENGINE);
+		});
 
 	void __fastcall Hook_zCVob_ThisVobAddedToWorld(zCVob*, void*, zCWorld*);
-	CInvoke<void(__thiscall*)(zCVob*, zCWorld*)> Ivk_zCVob_ThisVobAddedToWorld(ZenDef<TInstance>(0x005D66B0, 0x005F5BF0, 0x005FAE50, 0x00601C80), &Hook_zCVob_ThisVobAddedToWorld, IvkEnabled(ENGINE));
+	COptionInvoke<void(__thiscall*)(zCVob*, zCWorld*), bool> Ivk_zCVob_ThisVobAddedToWorld(ZenDef<TInstance>(0x005D66B0, 0x005F5BF0, 0x005FAE50, 0x00601C80), &Hook_zCVob_ThisVobAddedToWorld, IvkEnabled(ENGINE), Settings::SaveTorches);
 	void __fastcall Hook_zCVob_ThisVobAddedToWorld(zCVob* _this, void* vtable, zCWorld* a0)
 	{
 		Ivk_zCVob_ThisVobAddedToWorld(_this, a0);
-
-		if (!settings.saveTorches)
-		{
-			Ivk_zCVob_ThisVobAddedToWorld.Detach();
-			return;
-		}
 
 		if (IsBurningTorch(_this))
 			torches.InsertEnd((oCItem*)_this);
 	}
 
 	void __fastcall Hook_zCVob_ThisVobRemovedFromWorld(zCVob*, void*, zCWorld*);
-	CInvoke<void(__thiscall*)(zCVob*, zCWorld*)> Ivk_zCVob_ThisVobRemovedFromWorld(ZenDef<TInstance>(0x005D66D0, 0x005F5C10, 0x005FAE70, 0x00601CA0), &Hook_zCVob_ThisVobRemovedFromWorld, IvkEnabled(ENGINE));
+	COptionInvoke<void(__thiscall*)(zCVob*, zCWorld*), bool> Ivk_zCVob_ThisVobRemovedFromWorld(ZenDef<TInstance>(0x005D66D0, 0x005F5C10, 0x005FAE70, 0x00601CA0), &Hook_zCVob_ThisVobRemovedFromWorld, IvkEnabled(ENGINE), Settings::SaveTorches);
 	void __fastcall Hook_zCVob_ThisVobRemovedFromWorld(zCVob* _this, void* vtable, zCWorld* a0)
 	{
 		Ivk_zCVob_ThisVobRemovedFromWorld(_this, a0);
 		
-		if (!settings.saveTorches)
-		{
-			Ivk_zCVob_ThisVobRemovedFromWorld.Detach();
-			return;
-		}
-
 		if (IsBurningTorch(_this))
 			torches.Remove((oCItem*)_this);
 	}
 
 	int __fastcall Hook_oCNpc_UseItem(oCNpc*, void*, oCItem*);
-	CInvoke<int(__thiscall*)(oCNpc*, oCItem*)> Ivk_oCNpc_UseItem(ZenDef<TInstance>(0x00698810, 0x006CA590, 0x006DD450, 0x0073BC10), &Hook_oCNpc_UseItem, IvkEnabled(ENGINE));
+	COptionInvoke<int(__thiscall*)(oCNpc*, oCItem*), bool> Ivk_oCNpc_UseItem(ZenDef<TInstance>(0x00698810, 0x006CA590, 0x006DD450, 0x0073BC10), &Hook_oCNpc_UseItem, IvkEnabled(ENGINE), Settings::SaveTorches);
 	int __fastcall Hook_oCNpc_UseItem(oCNpc* _this, void* vtable, oCItem* a0)
 	{
 		int result = Ivk_oCNpc_UseItem(_this, a0);
-
-		if (!settings.saveTorches)
-		{
-			Ivk_oCNpc_UseItem.Detach();
-			return result;
-		}
 
 		if (IsBurningTorch(_this->GetSlotItem(NPC_NODE_LEFTHAND)) && a0 && a0->HasFlag(ITM_FLAG_TORCH))
 			TryExchangeTorch(_this);

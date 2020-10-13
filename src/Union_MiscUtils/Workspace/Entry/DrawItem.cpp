@@ -1,6 +1,3 @@
-#include <vector>
-#include <unordered_map>
-
 namespace NAMESPACE
 {
 	bool inContainerDraw;
@@ -41,19 +38,20 @@ namespace NAMESPACE
 	bool TryDrawUnreadDoc(oCItem* item, zCWorld* rndWorld, zCViewBase* baseView, float time)
 	{
 		static CSGInstanceSet& docsRead = CSGGlobal::Get<CSGInstanceSet>("DocsRead");
-		auto& opt = settings.unreadDoc;
 
-		if (!inContainerDraw || !opt.prio || !item->HasFlag(ITM_CAT_DOCS) || docsRead.Contains(item->GetInstance()) || !item->scemeName.Length())
+		if (!inContainerDraw || !Settings::UnreadDocPrio || !item->HasFlag(ITM_CAT_DOCS) || docsRead.Contains(item->GetInstance()) || !item->scemeName.Length())
 			return false;
 
-		zCView* view = TROLOLO_CAST<zCViewBase, zCView>(baseView);
+		zCView* view = dynamic_cast<zCView*>(baseView);
 		if (!view)
 			return false;
 
-		zCView itemView(opt.texPos[0], opt.texPos[1], opt.texPos[2], opt.texPos[3]);
-		itemView.InsertBack(opt.texName.GetVector());
+		const auto& pos = *Settings::UnreadDocTexPos;
+
+		zCView itemView(pos[0], pos[1], pos[2], pos[3]);
+		itemView.InsertBack(Settings::UnreadDocTexName->GetVector());
 		itemView.SetAlphaBlendFunc(zRND_ALPHA_FUNC_BLEND);
-		itemView.SetTransparency(opt.opacity);
+		itemView.SetTransparency(Settings::UnreadDocOpacity);
 		view->InsertItem(&itemView);
 		itemView.Blit();
 		view->RemoveItem(&itemView);
@@ -64,19 +62,20 @@ namespace NAMESPACE
 	bool TryDrawNewItem(oCItem* item, zCWorld* rndWorld, zCViewBase* baseView, float time)
 	{
 		static CSGInventoryMonitor& invMon = CSGGlobal::Get<CSGInventoryMonitor>("Inventory");
-		auto& opt = settings.newItem;
 
-		if (!inContainerDraw || !inPlayerContainer || !opt.prio || invMon.GetState(item) != TItemState::New)
+		if (!inContainerDraw || !inPlayerContainer || !Settings::NewItemPrio || invMon.GetState(item) != TItemState::New)
 			return false;
 
-		zCView* view = TROLOLO_CAST<zCViewBase, zCView>(baseView);
+		zCView* view = dynamic_cast<zCView*>(baseView);
 		if (!view)
 			return false;
 
-		zCView itemView(opt.texPos[0], opt.texPos[1], opt.texPos[2], opt.texPos[3]);
-		itemView.InsertBack(opt.texName.GetVector());
+		const auto& pos = *Settings::NewItemTexPos;
+
+		zCView itemView(pos[0], pos[1], pos[2], pos[3]);
+		itemView.InsertBack(Settings::NewItemTexName->GetVector());
 		itemView.SetAlphaBlendFunc(zRND_ALPHA_FUNC_BLEND);
-		itemView.SetTransparency(opt.opacity);
+		itemView.SetTransparency(Settings::NewItemOpacity);
 		view->InsertItem(&itemView);
 		itemView.Blit();
 		view->RemoveItem(&itemView);
@@ -86,20 +85,21 @@ namespace NAMESPACE
 
 	bool TryDrawAddItem(oCItem* item, zCWorld* rndWorld, zCViewBase* baseView, float time)
 	{
-		static CSGInventoryMonitor& invMon = CSGGlobal::Get<CSGInventoryMonitor>("Inventory");
-		auto& opt = settings.addItem;
+		CSGInventoryMonitor& invMon = CSGGlobal::Get<CSGInventoryMonitor>("Inventory");
 
-		if (!inContainerDraw || !inPlayerContainer || !opt.prio || invMon.GetState(item) != TItemState::Add)
+		if (!inContainerDraw || !inPlayerContainer || !Settings::AddItemPrio || invMon.GetState(item) != TItemState::Add)
 			return false;
 
-		zCView* view = TROLOLO_CAST<zCViewBase, zCView>(baseView);
+		zCView* view = dynamic_cast<zCView*>(baseView);
 		if (!view)
 			return false;
 
-		zCView itemView(opt.texPos[0], opt.texPos[1], opt.texPos[2], opt.texPos[3]);
-		itemView.InsertBack(opt.texName.GetVector());
+		const auto& pos = *Settings::AddItemTexPos;
+
+		zCView itemView(pos[0], pos[1], pos[2], pos[3]);
+		itemView.InsertBack(Settings::AddItemTexName->GetVector());
 		itemView.SetAlphaBlendFunc(zRND_ALPHA_FUNC_BLEND);
-		itemView.SetTransparency(opt.opacity);
+		itemView.SetTransparency(Settings::AddItemOpacity);
 		view->InsertItem(&itemView);
 		itemView.Blit();
 		view->RemoveItem(&itemView);
@@ -130,15 +130,15 @@ namespace NAMESPACE
 		{
 			TDrawElement ele;
 			
-			ele.prio = settings.unreadDoc.prio;
+			ele.prio = Settings::UnreadDocPrio;
 			ele.func = &TryDrawUnreadDoc;
 			drawElements.push_back(ele);
 
-			ele.prio = settings.newItem.prio;
+			ele.prio = Settings::NewItemPrio;
 			ele.func = &TryDrawNewItem;
 			drawElements.push_back(ele);
 
-			ele.prio = settings.addItem.prio;
+			ele.prio = Settings::AddItemPrio;
 			ele.func = &TryDrawAddItem;
 			drawElements.push_back(ele);
 
@@ -155,4 +155,9 @@ namespace NAMESPACE
 		for (const TDrawElement& ele : drawElements)
 			ele.func(_this, world, viewBase, time);
 	}
+
+	CSubscription updateDrawElements(ZSUB(Loop), []()
+		{
+			drawElements.clear();
+		});
 }

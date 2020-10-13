@@ -4,15 +4,15 @@ namespace NAMESPACE
 	{
 		zSTRING text;
 
-		if (item->mainflag & settings.nameToDescFlags)
+		if (Settings::Cats.count(item->mainflag))
 			text += item->description;
 		else
 			text += item->name;
 
-		if (settings.appendAmountInfo && item->amount != 1)
+		if (Settings::AppendAmountInfo && item->amount != 1)
 		{
 			text += " (";
-			text += settings.xChar.GetVector();
+			text += Settings::XChar->GetVector();
 			text += item->amount;
 			text += ")";
 		}
@@ -24,18 +24,11 @@ namespace NAMESPACE
 	CInvoke<void(__thiscall*)(oCGame*)> Ivk_oCGame_UpdatePlayerStatus(ZenDef<TInstance>(0x00638F90, 0x0065F4E0, 0x00666640, 0x006C3140), &Hook_oCGame_UpdatePlayerStatus, IvkEnabled(ENGINE));
 	void __fastcall Hook_oCGame_UpdatePlayerStatus(oCGame* _this, void* vtable)
 	{
-		if (!settings.printTorchName && !settings.appendAmountInfo && !settings.nameToDescFlags)
-		{
-			Ivk_oCGame_UpdatePlayerStatus(_this);
-			Ivk_oCGame_UpdatePlayerStatus.Detach();
-			return;
-		}
-
-		oCItem* item = player->GetFocusVob()->CastTo<oCItem>();
+		oCItem* item = COA3(player, GetFocusVob(), CastTo<oCItem>());
 		
 		if (item)
 		{
-			if (settings.printTorchName && IsBurningTorch(item))
+			if (Settings::PrintTorchName && IsBurningTorch(item))
 			{
 				Print(screen, item->GetPositionWorld(), GetFocusText(item));
 				Ivk_oCGame_UpdatePlayerStatus(_this);

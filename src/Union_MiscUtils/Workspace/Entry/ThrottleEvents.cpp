@@ -48,7 +48,7 @@ namespace NAMESPACE
 	}
 
 	void __fastcall Hook_zCEventManager_OnMessage(zCEventManager*, void*, zCEventMessage*, zCVob*);
-	CInvoke<void(__thiscall*)(zCEventManager*, zCEventMessage*, zCVob*)> Ivk_zCEventManager_OnMessage(ZenDef<TInstance>(0x006DD090, 0x00715250, 0x00726940, 0x00786380), &Hook_zCEventManager_OnMessage, IvkEnabled(ENGINE));
+	COptionInvoke<void(__thiscall*)(zCEventManager*, zCEventMessage*, zCVob*), int> Ivk_zCEventManager_OnMessage(ZenDef<TInstance>(0x006DD090, 0x00715250, 0x00726940, 0x00786380), &Hook_zCEventManager_OnMessage, IvkEnabled(ENGINE), Settings::MessageLimit);
 	void __fastcall Hook_zCEventManager_OnMessage(zCEventManager* _this, void* vtable, zCEventMessage* message, zCVob* sourceVob)
 	{
 		if (inHandleEvent && messageMode == TMessageMode::Disabled)
@@ -60,7 +60,7 @@ namespace NAMESPACE
 		if (inHandleEvent && messageMode == TMessageMode::Enabled)
 			return Ivk_zCEventManager_OnMessage(_this, message, sourceVob);
 
-		if (inHandleEvent && messageMode == TMessageMode::Unknown && _this->hostVob == player && GetControlMessageCount(_this) >= settings.messageLimit)
+		if (inHandleEvent && messageMode == TMessageMode::Unknown && _this->hostVob == player && GetControlMessageCount(_this) >= Settings::MessageLimit)
 		{
 			messageMode = TMessageMode::Disabled;
 			message->Release();
