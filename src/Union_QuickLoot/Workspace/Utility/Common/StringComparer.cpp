@@ -2,7 +2,7 @@
 
 bool CStringEqualityComparer::operator()(const string& x, const string& y) const
 {
-	return CStringComparer()(x, y) == 0;
+	return x == y;
 }
 
 size_t CStringHasher::operator()(const string& x) const

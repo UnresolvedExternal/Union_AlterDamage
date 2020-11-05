@@ -9,15 +9,16 @@ class CSubscription
 
 private:
 	TGameEvent event;
-	std::function<void()>* delegate;
-	
-	CMemPool<std::function<void()>>& GetDelegatesPool();
+	CDelegate<void()> delegate;
 
 public:
 	CSubscription();
-	CSubscription(const TGameEvent& event, const std::function<void()>& delegate, bool enabled = true);
+	CSubscription(const TGameEvent& event, const CDelegate<void()>& delegate);
 	CSubscription(CSubscription&& subscription);
-	void Reset(const TGameEvent& event, const std::function<void()>& delegate, bool enabled = true);
+	void Reset(const TGameEvent& event, const CDelegate<void()>& delegate);
 	void Reset();
 	~CSubscription();
 };
+
+#define ZSUB(event) (CHECK_THIS_ENGINE ? (TGameEvent::event) : TGameEvent::NoEvent)
+#define ADDSUB(event) subs.push_back(CSubscription(TGameEvent::event, std::bind(&std::remove_pointer_t<decltype(this)>::On##event, this)))

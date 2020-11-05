@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Workspace\Utility\Common\CMemPool.h"
+#include "Delegate.h"
 #include <functional>
 #include <vector>
 
@@ -10,7 +10,10 @@ enum class TGameEvent
 	Entry,
 	Init,
 	DetachDll,
+	PreLoop,
 	Loop,
+	PostLoop,
+	MenuLoop,
 	SaveBegin,
 	SaveEnd,
 	LoadBegin,
@@ -34,18 +37,23 @@ class CPublisher
 private:
 	bool dllDetached;
 	int nesting;
-	std::vector<const std::function<void()>*> subs[(int)TGameEvent::DefineExternals];
-
-	inline std::vector<const std::function<void()>*>& Subs(const TGameEvent& event)
-	{
-		return subs[(int)event - 1];
-	}
+	CDelegateContainer<void()> subs[(int)TGameEvent::DefineExternals];
 
 	CPublisher();
 
 public:
+
 	static CPublisher& GetInstance();
-	void Subscribe(const TGameEvent& event, const std::function<void()>* delegate);
-	void Unsubscribe(const TGameEvent& event, const std::function<void()>* delegate);
+
+	inline CDelegateContainer<void()>& Subs(const TGameEvent& event)
+	{
+		return subs[(int)event - 1];
+	}
+
+	inline bool IsDllDetached() const
+	{
+		return dllDetached;
+	}
+
 	void Raise(const TGameEvent& event);
 };

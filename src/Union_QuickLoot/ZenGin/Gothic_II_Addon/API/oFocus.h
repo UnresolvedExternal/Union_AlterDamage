@@ -47,7 +47,7 @@ namespace Gothic_II_Addon {
     ~oCNpcFocus()                              zCall( 0x006BEDF0 );
     void Init( zSTRING& )                      zCall( 0x006BEE40 );
     void Init( int )                           zCall( 0x006BEE70 );
-    int IsValid( int )                         zCall( 0x006BEF20 );
+    int IsCompleted( int )                         zCall( 0x006BEF20 );
     float GetMaxRange()                        zCall( 0x006BEF70 );
     float GetRange2()                          zCall( 0x006BEF80 );
     float GetItemThrowRange()                  zCall( 0x006BEF90 );

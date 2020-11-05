@@ -244,15 +244,6 @@
     <ClCompile Include="Workspace\Assembly\Assembly.cpp">
       <Filter>Workspace\Assembly</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGGlobal.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGInstanceSet.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGInventoryMonitor.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
     <ClCompile Include="Workspace\Utility\Common\CBinSeqGen.cpp">
       <Filter>Workspace\Utility\Common</Filter>
     </ClCompile>
@@ -277,11 +268,8 @@
     <ClCompile Include="Workspace\Utility\Engine\Misc.cpp">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Settings\CPluginSettings.cpp">
-      <Filter>Workspace\Settings</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\QuickLoot.cpp">
-      <Filter>Workspace\Entry</Filter>
+    <ClCompile Include="Workspace\Utility\Engine\CSGGlobal.cpp">
+      <Filter>Workspace\Utility\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2797,15 +2785,6 @@
     <ClInclude Include="Workspace\Assembly\Sources.h">
       <Filter>Workspace\Assembly</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGGlobal.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGInstanceSet.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGInventoryMonitor.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Utility\Common\CBinSeqGen.h">
       <Filter>Workspace\Utility\Common</Filter>
     </ClInclude>
@@ -2830,9 +2809,6 @@
     <ClInclude Include="Workspace\Utility\Common\TScope.h">
       <Filter>Workspace\Utility\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\CVobCollector.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\EngineIterators.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
@@ -2845,9 +2821,6 @@
     <ClInclude Include="Workspace\Utility\Engine\Misc.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Settings\CPluginSettings.h">
-      <Filter>Workspace\Settings</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\ZOwner.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
@@ -2856,6 +2829,54 @@
     </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\PointPath.h">
       <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CGridView.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CVobTraverser.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Events\Delegate.h">
+      <Filter>Workspace\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\COptionSubscription.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\Settings.h">
+      <Filter>Workspace\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\SingleOption.h">
+      <Filter>Workspace\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\COptionInvoke.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\CKeyCombo.h">
+      <Filter>Workspace\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\CKeyHelper.h">
+      <Filter>Workspace\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\Serializing.h">
+      <Filter>Workspace\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CParserScope.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\Entry.h">
+      <Filter>Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\PushPop.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CSymbol.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\CVectorSetting.h">
+      <Filter>Workspace\Settings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -4732,6 +4753,6 @@
     <None Include="Workspace\Assembly\Union_QuickLoot.patch">
       <Filter>Workspace\Assembly</Filter>
     </None>
-    <None Include="..\Union_TorchHotkey\Union_TorchHotkey.vcxproj" />
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-#engine
+﻿#engine
 	#patch
 		LoadPlugins("Union_QuickLoot.dll")
 	#/patch

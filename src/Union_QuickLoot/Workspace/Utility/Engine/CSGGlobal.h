@@ -1,5 +1,3 @@
-#include <unordered_map>
-
 namespace NAMESPACE
 {
 	class CSGGlobal
@@ -11,7 +9,7 @@ namespace NAMESPACE
 
 		CSGGlobal(const CSGGlobal& right) = delete;
 		CSGGlobal& operator=(const CSGGlobal& right) = delete;
-		zSTRING GetPath() const;
+		zSTRING GetPath(int slotId) const;
 
 	protected:
 		CSGGlobal(const string& name);
@@ -20,8 +18,8 @@ namespace NAMESPACE
 
 	public:
 		virtual void Clear() = 0;
-		void Save();
-		void Load();
+		void Save(const TGameEvent& event);
+		void Load(const TGameEvent& event);
 		inline virtual ~CSGGlobal() { };
 
 		template <class T>

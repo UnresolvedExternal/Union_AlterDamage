@@ -1,41 +1,18 @@
-#include <type_traits>
-
 namespace NAMESPACE
 {
-	extern CSubscription loadSettings;
-	CSubscription loadSettings(TGameEvent::LoadBegin, []()
-		{
-			loadSettings.Reset();
-
-			auto& serializer = CPluginSettings::catsSerializer;
-			serializer.Add("NONE", 1 << 0);
-			serializer.Add("NF", 1 << 1);
-			serializer.Add("FF", 1 << 2);
-			serializer.Add("MUN", 1 << 3);
-			serializer.Add("ARMOR", 1 << 4);
-			serializer.Add("FOOD", 1 << 5);
-			serializer.Add("DOCS", 1 << 6);
-			serializer.Add("POTION", 1 << 7);
-			serializer.Add("LIGHT", 1 << 8);
-			serializer.Add("RUNE", 1 << 9);
-			serializer.Add("MAGIC", 1 << 31);
-
-			settings.Load();
-		}, CHECK_THIS_ENGINE);
-
 	zSTRING GetFocusText(oCItem* item)
 	{
 		zSTRING text;
 
-		if (item->mainflag & settings.NameToDescFlags)
+		if (Settings::Cats.count(item->mainflag))
 			text += item->description;
 		else
 			text += item->name;
 
-		if (settings.AppendAmountInfo && item->amount != 1)
+		if (Settings::AppendAmountInfo && item->amount != 1)
 		{
 			text += " (";
-			text += settings.XChar.GetVector();
+			text += Settings::XChar.GetVector();
 			text += item->amount;
 			text += ")";
 		}
@@ -83,7 +60,7 @@ namespace NAMESPACE
 
 			state = TState::Showing;
 			this->timestamp = timestamp;
-			
+
 			const zVEC3 sourcePos = WorldToViewText(worldPos, screen, text, false);
 			const zVEC3 destPos(targetPos[0], targetPos[1], 0.0f);
 			const zVEC3 closedPos(8192.0f, destPos[1], 0.0f);
@@ -137,7 +114,7 @@ namespace NAMESPACE
 				return;
 
 			offset *= duration / closingTime;
-			
+
 			auto overlay = std::make_unique<CLinearPointPath>();
 			overlay->time = time;
 			overlay->duration = duration;
@@ -312,7 +289,7 @@ namespace NAMESPACE
 			onLoadBegin.Reset(TGameEvent::LoadBegin, std::bind(&CLootInformer::Clear, this));
 		}
 
-		void AddLoot(oCItem* item, const zVEC3& worldPos)
+		void AddLoot(oCItem * item, const zVEC3 & worldPos)
 		{
 			TLootInfo info(item, worldPos, mainTimer);
 			if (info.text.IsEmpty())
@@ -328,16 +305,16 @@ namespace NAMESPACE
 	};
 
 	CLootInformer* lootInformer;
-	CSubscription deleteLootInformer(TGameEvent::Exit, []() { if (lootInformer) delete lootInformer; });
+	CSubscription deleteLootInformer(ZSUB(Exit), []() { if (lootInformer) delete lootInformer; });
 
-	Array<oCItem*> GetDrop(oCNpc* npc)
+	Array<oCItem*> GetDrop(oCNpc * npc)
 	{
 		Array<oCItem*> drop;
 
 		if (npc && (npc->IsUnconscious() || npc->attribute[NPC_ATR_HITPOINTS] <= 0))
 		{
 			for (oCItem& item : npc->inventory2)
-				if ((!item.HasFlag(ITM_FLAG_ACTIVE) || Union.GetEngineVersion() <= Engine_G1A) && (item.mainflag != ITM_CAT_ARMOR || settings.DropArmor))
+				if ((!item.HasFlag(ITM_FLAG_ACTIVE) || Union.GetEngineVersion() <= Engine_G1A) && (item.mainflag != ITM_CAT_ARMOR || Settings::DropArmor))
 					drop.InsertEnd(&item);
 
 			for (oCItem*& item : drop)
@@ -351,7 +328,7 @@ namespace NAMESPACE
 	{
 		Array<oCItem*> drop;
 
-		if (!container || container->locked)
+		if (!container)
 			return drop;
 
 		for (oCItem* item : container->containList)
@@ -366,20 +343,62 @@ namespace NAMESPACE
 		return drop;
 	}
 
-	extern CSubscription quickLoot;
-	CSubscription quickLoot(TGameEvent::Loop, []()
+	bool NeedKey(const zSTRING& keyInstance)
+	{
+		for (zCVob* vob : COA3(ogame, GetGameWorld(), voblist))
 		{
-			if (!settings.LootItems && !settings.LootContainers && !settings.LootNpcs)
-				return quickLoot.Reset();
+			oCMobLockable* mob = vob->CastTo<oCMobLockable>();
+			if (mob && mob->locked && mob->keyInstance.CompareI(keyInstance))
+				return true;
+		}
+		return false;
+	}
 
-			if (ogame->singleStep || (!IsLogicalPressed(GAME_PARADE) && !zinput->GetMouseButtonPressedRight()) || !COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE)
+	bool TryRemoveKey(oCNpc* npc, const zSTRING& instance)
+	{
+		if (!npc->IsAPlayer())
+			return false;
+		if (!instance.Length())
+			return false;
+		if (zinput->GetState(GAME_SLOW))
+			return false;
+
+		oCItem* key = npc->IsInInv(instance, 0);
+		if (!key)
+			return false;
+
+		if (NeedKey(instance))
+			return false;
+
+		while (key)
+		{
+			key = npc->RemoveFromInv(key, key->amount);
+			ogame->GetWorld()->RemoveVob(key);
+			key = npc->IsInInv(instance, 0);
+		}
+
+		return true;
+	}
+
+	CSubscription quickLoot(ZSUB(Loop), []()
+		{
+			if (!Settings::LootItems && !Settings::LootContainers && !Settings::LootNpcs)
+				return;
+
+			if (ogame->singleStep)
+				return;
+
+			if (!Settings::Key->GetPressed())
+				return;
+
+			if (!COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE || player->interactMob)
 				return;
 
 			Array<oCItem*> drop;
 			zVEC3 pos;
-			oCItem* item = settings.LootItems ? COA3(player, focus_vob, CastTo<oCItem>()) : nullptr;
-			oCNpc* npc = settings.LootNpcs ? COA3(player, focus_vob, CastTo<oCNpc>()) : nullptr;
-			oCMobContainer* chest = settings.LootContainers ? COA3(player, focus_vob, CastTo<oCMobContainer>()) : nullptr;
+			oCItem * item = Settings::LootItems ? COA3(player, focus_vob, CastTo<oCItem>()) : nullptr;
+			oCNpc * npc = Settings::LootNpcs ? COA3(player, focus_vob, CastTo<oCNpc>()) : nullptr;
+			oCMobContainer * chest = Settings::LootContainers ? COA3(player, focus_vob, CastTo<oCMobContainer>()) : nullptr;
 
 			if (npc || chest)
 				pos = player->focus_vob->GetPositionWorld();
@@ -413,9 +432,49 @@ namespace NAMESPACE
 
 			if (chest)
 			{
+				if (!chest->CanOpen(player))
+				{
+					Settings::Key->GetToggled();
+					return;
+				};
+
+				if (chest->locked)
+				{
+					if (chest->keyInstance.IsEmpty())
+						return;
+
+					if (!player->IsInInv(chest->keyInstance, 1))
+						return;
+
+					chest->locked = false;
+					
+#if ENGINE == Engine_G1
+					auto subtype = oCMsgConversation::EV_PLAYSOUND;
+#else
+					auto subtype = oCMsgConversation::EV_SNDPLAY;
+#endif
+
+					auto message = new oCMsgConversation(subtype, "PICKLOCK_SUCCESS");
+					message->f_yes = true;
+					message->target = chest;
+					player->GetEM(false)->OnMessage(message, player);
+
+					if (TryRemoveKey(player, chest->keyInstance) && ogame->GetTextView())
+						ogame->GetTextView()->PrintTimedCXY(Z"Key removed: " + chest->keyInstance, 5000.0f, nullptr);
+				}
+
 				drop = GetDrop(chest);
+
 				if (drop.GetNum())
+				{
 					player->AssessUseMob_S(chest);
+
+					chest->OnBeginStateChange(player, 0, 1);
+					chest->OnEndStateChange(player, 0, 1);
+
+					chest->OnBeginStateChange(player, 1, 0);
+					chest->OnEndStateChange(player, 1, 0);
+				}
 			}
 
 			if (drop.GetNum() && !lootInformer)
@@ -442,12 +501,19 @@ namespace NAMESPACE
 					player->DoPutInInventory(item);
 			}
 
+			if (drop.GetNum())
+			{
+				player->CloseInventory();
+				player->CloseDeadNpc();
+				player->CloseSteal();
+				player->CloseTradeContainer();
+			}
+
 			if (item)
 #if ENGINE <= Engine_G1A
 				player->CollectFocusVob();
 #else
 				player->CollectFocusVob(true);
 #endif
-
-		}, CHECK_THIS_ENGINE);
+		});
 }
