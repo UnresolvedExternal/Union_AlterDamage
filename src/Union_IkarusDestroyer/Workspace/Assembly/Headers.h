@@ -18,3 +18,5 @@
 #include "Workspace\Utility\Engine\CParserScope.h"
 #include "Workspace\Utility\Engine\CSGGlobal.h"
 #include "Workspace\Utility\Engine\PushPop.h"
+
+#include "Workspace\Entry\ManaRegen.h"

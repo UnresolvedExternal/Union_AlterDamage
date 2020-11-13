@@ -444,6 +444,7 @@
     <ClCompile Include="ZenGin\Gothic_I_Classic\staticDef_Ver0.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Workspace\Entry\ManaRegen.h" />
     <ClInclude Include="UnionAfx.h" />
     <ClInclude Include="Workspace\Assembly\Headers.h" />
     <ClInclude Include="Workspace\Assembly\Macro.h" />

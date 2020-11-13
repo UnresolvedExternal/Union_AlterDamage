@@ -2875,6 +2875,9 @@
     <ClInclude Include="Workspace\Settings\CVectorSetting.h">
       <Filter>Workspace\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="Workspace\Entry\ManaRegen.h">
+      <Filter>Workspace\Entry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ZenGin\Gothic_UserAPI\CGameManager.inl">
