@@ -459,7 +459,7 @@ namespace NAMESPACE
 					message->target = chest;
 					player->GetEM(false)->OnMessage(message, player);
 
-					if (TryRemoveKey(player, chest->keyInstance) && ogame->GetTextView())
+					if (Settings::RemoveKeys && TryRemoveKey(player, chest->keyInstance) && ogame->GetTextView())
 						ogame->GetTextView()->PrintTimedCXY(Z"Key removed: " + chest->keyInstance, 5000.0f, nullptr);
 				}
 
