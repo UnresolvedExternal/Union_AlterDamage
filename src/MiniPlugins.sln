@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_ScriptClass", "Union_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_ScriptGui", "Union_ScriptGui\Union_ScriptGui.vcxproj", "{6CC5A238-45F3-4425-BD03-621C77B2C068}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_IkarusDestroyer", "Union_IkarusDestroyer\Union_IkarusDestroyer.vcxproj", "{E88A0707-B550-4CB9-91D9-B71DA3407179}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -352,6 +354,28 @@ Global
 		{6CC5A238-45F3-4425-BD03-621C77B2C068}.Release|x86.Build.0 = Release|Win32
 		{6CC5A238-45F3-4425-BD03-621C77B2C068}.Smith Unnamed Debug|x86.ActiveCfg = Debug|Win32
 		{6CC5A238-45F3-4425-BD03-621C77B2C068}.Smith Unnamed Debug|x86.Build.0 = Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.Debug|x86.ActiveCfg = Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.Debug|x86.Build.0 = Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1 Debug|x86.ActiveCfg = G1 Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1 Debug|x86.Build.0 = G1 Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1 Release|x86.ActiveCfg = G1 Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1 Release|x86.Build.0 = G1 Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1A Debug|x86.ActiveCfg = G1A Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1A Debug|x86.Build.0 = G1A Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1A Release|x86.ActiveCfg = G1A Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G1A Release|x86.Build.0 = G1A Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2 Debug|x86.ActiveCfg = G2 Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2 Debug|x86.Build.0 = G2 Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2 Release|x86.ActiveCfg = G2 Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2 Release|x86.Build.0 = G2 Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2A Debug|x86.ActiveCfg = G2A Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2A Debug|x86.Build.0 = G2A Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2A Release|x86.ActiveCfg = G2A Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.G2A Release|x86.Build.0 = G2A Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.Release|x86.ActiveCfg = Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.Release|x86.Build.0 = Release|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.Smith Unnamed Debug|x86.ActiveCfg = Debug|Win32
+		{E88A0707-B550-4CB9-91D9-B71DA3407179}.Smith Unnamed Debug|x86.Build.0 = Debug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

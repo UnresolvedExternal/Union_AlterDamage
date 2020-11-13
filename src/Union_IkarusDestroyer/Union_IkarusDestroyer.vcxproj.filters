@@ -2866,9 +2866,6 @@
     <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Entry\Entry.h">
-      <Filter>Workspace\Entry</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\PushPop.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>

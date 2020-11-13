@@ -43,7 +43,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{34E2313F-B925-4328-96D0-959618746041}</ProjectGuid>
+    <ProjectGuid>{E88A0707-B550-4CB9-91D9-B71DA3407179}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Union_IkarusDestroyer</RootNamespace>
     <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
@@ -448,7 +448,6 @@
     <ClInclude Include="Workspace\Assembly\Headers.h" />
     <ClInclude Include="Workspace\Assembly\Macro.h" />
     <ClInclude Include="Workspace\Assembly\Sources.h" />
-    <ClInclude Include="Workspace\Entry\Entry.h" />
     <ClInclude Include="Workspace\Events\CPublisher.h" />
     <ClInclude Include="Workspace\Events\CSubscription.h" />
     <ClInclude Include="Workspace\Events\Delegate.h" />
