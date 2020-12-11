@@ -19,4 +19,4 @@
 #include "Workspace\Utility\Engine\CSGGlobal.h"
 #include "Workspace\Utility\Engine\PushPop.h"
 
-#include "Workspace\Entry\ManaRegen.h"
+#include "Workspace\Entry\Entry.h"

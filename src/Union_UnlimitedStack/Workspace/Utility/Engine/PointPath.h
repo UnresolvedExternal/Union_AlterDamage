@@ -59,6 +59,9 @@ namespace NAMESPACE
 
 		virtual zVEC3 GetPosition(float time) override
 		{
+			if (time < this->time)
+				return zVEC3(0);
+
 			time = CoerceInRange(time, 0.0f, this->time, this->time + duration);
 			time -= this->time;
 			float progress = time / duration;

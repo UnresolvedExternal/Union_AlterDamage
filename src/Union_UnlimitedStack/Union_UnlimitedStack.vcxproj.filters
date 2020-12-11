@@ -2866,6 +2866,9 @@
     <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Workspace\Entry\Entry.h">
+      <Filter>Workspace\Entry</Filter>
+    </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\PushPop.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
@@ -2874,9 +2877,6 @@
     </ClInclude>
     <ClInclude Include="Workspace\Settings\CVectorSetting.h">
       <Filter>Workspace\Settings</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Entry\ManaRegen.h">
-      <Filter>Workspace\Entry</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -4750,7 +4750,7 @@
       <Filter>Engine SDK\User API\zEngine\V</Filter>
     </None>
     <None Include=".build_settings.inl" />
-    <None Include="Workspace\Assembly\Union_IkarusDestroyer.patch">
+    <None Include="Workspace\Assembly\Union_UnlimitedStack.patch">
       <Filter>Workspace\Assembly</Filter>
     </None>
     <None Include="cpp.hint" />

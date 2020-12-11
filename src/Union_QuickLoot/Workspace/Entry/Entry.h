@@ -82,7 +82,11 @@ namespace NAMESPACE
 
 				const float x = -PIF / 2.0f;
 				const float y = std::sinf(x);
-				openingPath->SetScale(&std::sinf, zVEC2(x, y), zVEC2(-x, -y));
+
+				if (Settings::AnimatedText)
+					openingPath->SetScale(&std::sinf, zVEC2(x, y), zVEC2(-x, -y));
+				else
+					openingPath->scale = [](float x) { return 1.0f; };
 
 				path.paths.push_back(std::move(openingPath));
 			}
@@ -92,7 +96,12 @@ namespace NAMESPACE
 				closingPath->time = openingTime + openedTime;
 				closingPath->duration = closingTime;
 				closingPath->target = closedPos - destPos;
-				closingPath->scale = [](float x) { return x * x; };
+
+				if (Settings::AnimatedText)
+					closingPath->scale = [](float x) { return x * x; };
+				else
+					closingPath->scale = [](float x) { return 1.0f; };
+
 				path.paths.push_back(std::move(closingPath));
 			}
 		}
@@ -119,7 +128,12 @@ namespace NAMESPACE
 			overlay->time = time;
 			overlay->duration = duration;
 			overlay->target = zVEC3(offset[0], offset[1], 0.0f);
-			overlay->scale = &std::sqrtf;
+
+			if (Settings::AnimatedText)
+				overlay->scale = &std::sqrtf;
+			else
+				overlay->scale = [](float x) { return 1.0f; };
+
 			path.paths.push_back(std::move(overlay));
 
 			static_cast<CLinearPointPath*>(path.paths[2].get())->target -= zVEC3(offset[0], offset[1], 0.0f);
@@ -129,6 +143,7 @@ namespace NAMESPACE
 	class CLootInformer
 	{
 	private:
+		std::vector<CSubscription> subs;
 		std::vector<std::vector<TLootInfo>> buckets;
 		std::unique_ptr<zCView> view;
 		size_t nextIndex;
@@ -137,8 +152,6 @@ namespace NAMESPACE
 		const float delay = 0.01f;
 		float startTime;
 		float mainTimer;
-		CSubscription onLoop;
-		CSubscription onLoadBegin;
 
 		static constexpr int X1 = 0, Y1 = 1, X2 = 2, Y2 = 3;
 
@@ -156,7 +169,7 @@ namespace NAMESPACE
 			return left[0].timestamp < right[0].timestamp;
 		}
 
-		void Clear()
+		void OnLoadBegin()
 		{
 			startTime = -delay;
 			nextIndex = 0;
@@ -285,11 +298,11 @@ namespace NAMESPACE
 			int size = (int)((viewPort[3] - viewPort[1]) / screen->FontY());
 			size = MAX(1, size);
 			buckets.resize(size);
-			onLoop.Reset(TGameEvent::Loop, std::bind(&CLootInformer::OnLoop, this));
-			onLoadBegin.Reset(TGameEvent::LoadBegin, std::bind(&CLootInformer::Clear, this));
+			ADDSUB(Loop);
+			ADDSUB(LoadBegin);
 		}
 
-		void AddLoot(oCItem * item, const zVEC3 & worldPos)
+		void AddLoot(oCItem* item, const zVEC3& worldPos)
 		{
 			TLootInfo info(item, worldPos, mainTimer);
 			if (info.text.IsEmpty())
@@ -380,6 +393,24 @@ namespace NAMESPACE
 		return true;
 	}
 
+	struct TKeyToggler
+	{
+	public:
+		bool toggle;
+		
+		TKeyToggler() :
+			toggle(true)
+		{
+
+		}
+
+		~TKeyToggler()
+		{
+			if (toggle && COA3(player, GetEM(true), messageList).GetNum())
+				Settings::Key->GetToggled();
+		}
+	};
+
 	CSubscription quickLoot(ZSUB(Loop), []()
 		{
 			if (!Settings::LootItems && !Settings::LootContainers && !Settings::LootNpcs)
@@ -390,19 +421,19 @@ namespace NAMESPACE
 
 			if (!Settings::Key->GetPressed())
 				return;
-
+			
 			if (!COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE || player->interactMob)
 				return;
-
+			
 			Array<oCItem*> drop;
 			zVEC3 pos;
-			oCItem * item = Settings::LootItems ? COA3(player, focus_vob, CastTo<oCItem>()) : nullptr;
-			oCNpc * npc = Settings::LootNpcs ? COA3(player, focus_vob, CastTo<oCNpc>()) : nullptr;
-			oCMobContainer * chest = Settings::LootContainers ? COA3(player, focus_vob, CastTo<oCMobContainer>()) : nullptr;
-
+			oCItem* item = Settings::LootItems ? COA3(player, focus_vob, CastTo<oCItem>()) : nullptr;
+			oCNpc* npc = Settings::LootNpcs ? COA3(player, focus_vob, CastTo<oCNpc>()) : nullptr;
+			oCMobContainer* chest = Settings::LootContainers ? COA3(player, focus_vob, CastTo<oCMobContainer>()) : nullptr;
+			
 			if (npc || chest)
 				pos = player->focus_vob->GetPositionWorld();
-
+			
 			if (item)
 			{
 				zCModel* model = COA3(item, GetVisual(), CastTo<zCModel>());
@@ -419,24 +450,29 @@ namespace NAMESPACE
 					pos[1] += (item->bbox3D.maxs[1] - item->bbox3D.mins[1]) * 0.82f;
 				}
 			}
-
+			
 			if (item)
 				drop.InsertEnd(item);
-
+			
 			if (npc)
 			{
 				drop = GetDrop(npc);
 				if (drop.GetNum())
 					npc->AssessTheft_S(player);
 			}
-
-			if (chest)
+			
+			if (chest && chest->containList.next)
 			{
-				if (!chest->CanOpen(player))
+				TKeyToggler keyToggler;
+
+				if (chest->conditionFunc.Length())
 				{
-					Settings::Key->GetToggled();
-					return;
-				};
+					parser->SetInstance("SELF", player);
+					bool canUse = *(bool*)parser->CallFunc(chest->conditionFunc);
+
+					if (!canUse)
+						return;
+				}
 
 				if (chest->locked)
 				{
@@ -469,12 +505,25 @@ namespace NAMESPACE
 				{
 					player->AssessUseMob_S(chest);
 
-					chest->OnBeginStateChange(player, 0, 1);
-					chest->OnEndStateChange(player, 0, 1);
+					// suppress inv open
+					chest->locked = true;
 
-					chest->OnBeginStateChange(player, 1, 0);
-					chest->OnEndStateChange(player, 1, 0);
+					for (int i = 0; i < chest->state_num; i++)
+					{
+						chest->OnBeginStateChange(player, i, i + 1);
+						chest->OnEndStateChange(player, i, i + 1);
+					}
+
+					for (int i = 0; i < chest->state_num; i++)
+					{
+						chest->OnBeginStateChange(player, chest->state_num - i, chest->state_num - i - 1);
+						chest->OnEndStateChange(player, chest->state_num - i, chest->state_num - i - 1);
+					}
+
+					chest->locked = false;
 				}
+
+				keyToggler.toggle = false;
 			}
 
 			if (drop.GetNum() && !lootInformer)
@@ -499,14 +548,6 @@ namespace NAMESPACE
 					player->DoTakeVob(item);
 				else
 					player->DoPutInInventory(item);
-			}
-
-			if (drop.GetNum())
-			{
-				player->CloseInventory();
-				player->CloseDeadNpc();
-				player->CloseSteal();
-				player->CloseTradeContainer();
 			}
 
 			if (item)

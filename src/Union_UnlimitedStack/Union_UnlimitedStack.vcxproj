@@ -43,11 +43,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E88A0707-B550-4CB9-91D9-B71DA3407179}</ProjectGuid>
+    <ProjectGuid>{7BD8B757-81E0-42BA-84BE-63409825B52E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Union_IkarusDestroyer</RootNamespace>
+    <RootNamespace>Union_UnlimitedStack</RootNamespace>
     <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
-    <ProjectName>Union_IkarusDestroyer</ProjectName>
+    <ProjectName>Union_UnlimitedStack</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -181,13 +181,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g2a_uu\System\</OutDir>
+    <OutDir>D:\Gothic\g2a_odyssee\System\</OutDir>
     <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g2a_uu\System\</OutDir>
+    <OutDir>D:\Gothic\g2a\System\</OutDir>
     <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)</TargetName>
@@ -444,11 +444,11 @@
     <ClCompile Include="ZenGin\Gothic_I_Classic\staticDef_Ver0.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Workspace\Entry\ManaRegen.h" />
     <ClInclude Include="UnionAfx.h" />
     <ClInclude Include="Workspace\Assembly\Headers.h" />
     <ClInclude Include="Workspace\Assembly\Macro.h" />
     <ClInclude Include="Workspace\Assembly\Sources.h" />
+    <ClInclude Include="Workspace\Entry\Entry.h" />
     <ClInclude Include="Workspace\Events\CPublisher.h" />
     <ClInclude Include="Workspace\Events\CSubscription.h" />
     <ClInclude Include="Workspace\Events\Delegate.h" />
@@ -1317,7 +1317,7 @@
   <ItemGroup>
     <None Include=".build_settings.inl" />
     <None Include="cpp.hint" />
-    <None Include="Workspace\Assembly\Union_IkarusDestroyer.patch" />
+    <None Include="Workspace\Assembly\Union_UnlimitedStack.patch" />
     <None Include="ZenGin\Gothic_UserAPI\CGameManager.inl" />
     <None Include="ZenGin\Gothic_UserAPI\oCAIArrow.inl" />
     <None Include="ZenGin\Gothic_UserAPI\oCAIArrowBase.inl" />

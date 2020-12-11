@@ -11,6 +11,7 @@ namespace NAMESPACE
 		ZOPTION(LootNpcs, true);
 		ZOPTION(LootContainers, true);
 		ZOPTION(Key, CKeyCombo({ { MOUSE_BUTTONRIGHT }, { KEY_V } }));
+		ZOPTION(AnimatedText, 1);
 
 		std::unordered_set<int> Cats;
 	}

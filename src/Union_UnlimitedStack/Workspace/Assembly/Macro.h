@@ -4,7 +4,7 @@
 #define Engine_G2A 4
 
 #define CHECK_THIS_ENGINE ((ENGINE) == Union.GetEngineVersion())
-#define PLUGIN_NAME "Union_IkarusDestroyer"
+#define PLUGIN_NAME "Union_UnlimitedStack"
 
 #if 1
 inline void Assert(bool result, const char* file, const char* func, int line, const char* expr)
