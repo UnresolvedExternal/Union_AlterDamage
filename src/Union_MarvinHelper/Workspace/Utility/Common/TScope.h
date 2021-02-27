@@ -4,9 +4,8 @@ template<class T>
 class TScope
 {
 private:
-	T& var;
-	const T value;
-	bool moved;
+	T* var;
+	T value;
 
 public:
 	TScope();
@@ -17,53 +16,57 @@ public:
 	~TScope();
 };
 
-template<class T>
+template <class T>
 inline TScope<T>::TScope() :
-	moved(true)
+	var(nullptr),
+	value(T())
 {
+
 }
 
-template<class T>
+template <class T>
 inline TScope<T>::TScope(T& var) :
-	var(var),
-	value(var),
-	moved(false)
+	var(&var),
+	value(var)
 {
+
 }
 
-template<class T>
+template <class T>
 inline TScope<T>::TScope(TScope&& scope) :
 	var(scope.var),
-	value(scope.value)
+	value(std::move(scope.value))
 {
-	moved = scope.moved;
-	scope.moved = true;
+	scope.var = nullptr;
 }
 
 template<class T>
 inline TScope<T>& TScope<T>::operator=(TScope<T>&& right)
 {
-	return TScope<T>(right);
+	Reset();
+	var = right.var;
+	value = std::move(right.value);
+	right.var = nullptr;
+	return *this;
 }
 
-template<class T>
+template <class T>
 inline void TScope<T>::Reset()
 {
-	if (!moved)
+	if (var)
 	{
-		var = value;
-		moved = true;
+		*var = value;
+		var = nullptr;
 	}
 }
 
-template<class T>
+template <class T>
 inline TScope<T>::~TScope()
 {
-	if (!moved)
-		var = value;
+	Reset();
 }
 
-template<class T>
+template <class T>
 TScope<T> AssignTemp(T& var, const T& value)
 {
 	TScope<T> scope(var);

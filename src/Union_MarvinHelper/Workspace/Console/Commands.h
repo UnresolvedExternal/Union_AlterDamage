@@ -1,4 +1,6 @@
-#include <filesystem>
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+#include <experimental/filesystem>
+#include <iomanip>
 
 namespace fs = std::experimental::filesystem;
 
@@ -218,24 +220,24 @@ namespace NAMESPACE
 
 		string CalcResult() const
 		{
-			CSymbolHelper res = func->Call(args);
+			CSymbol res = func->Call(args);
 
 			switch (res.GetType())
 			{
-			case CSymbolHelper::Type::DummyInt:
+			case CSymbol::Type::DummyInt:
 				return res.GetValue<int>(0);
 
-			case CSymbolHelper::Type::DummyFloat:
+			case CSymbol::Type::DummyFloat:
 				return res.GetValue<float>(0);
 
-			case CSymbolHelper::Type::DummyString:
+			case CSymbol::Type::DummyString:
 				return A"\"" + res.GetValue<string>(0) + A"\"";
 
-			case CSymbolHelper::Type::Unknown:
+			case CSymbol::Type::Unknown:
 				return "void";
 
-			case CSymbolHelper::Type::Instance:
-			case CSymbolHelper::Type::VarInstance:
+			case CSymbol::Type::Instance:
+			case CSymbol::Type::VarInstance:
 				return AHEX32(res.GetValue<int>(0));
 
 			default:
@@ -374,6 +376,9 @@ namespace NAMESPACE
 	protected:
 		virtual void AddHints(std::vector<string>& hints) override
 		{
+			if (args.size() > 1)
+				return;
+
 			for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
 				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
 					hints.push_back((A wp->name).Lower());
@@ -462,12 +467,12 @@ namespace NAMESPACE
 	protected:
 		int c_npc, c_item;
 
-		bool CheckSymbol(const CSymbolHelper& symbol) const
+		bool CheckSymbol(const CSymbol& symbol) const
 		{
-			if (symbol.GetType() != CSymbolHelper::Type::Instance)
+			if (symbol.GetType() != CSymbol::Type::Instance)
 				return false;
 
-			const int base = parser->GetBaseClass(symbol.GetIndex());
+			const int base = parser->GetBaseClass(symbol.GetSymbol());
 			return (c_npc == base || c_item == base) && symbol.IsGlobal();
 		}
 
@@ -636,6 +641,330 @@ namespace NAMESPACE
 			CConsoleCommand("save showlist", "saves command sequence, that can build current show list")
 		{
 			
+		}
+	};
+
+	class CLowfpsVisual : public CStringConvertible
+	{
+	private:
+		const double threshold, time;
+		const string title;
+
+		mutable CFpsCounter::CBenchmark benchmark;
+
+		mutable double lowfpsTime, tempTime, avgFrameTime;
+		mutable size_t frameCount;
+
+		bool CalcAvgFrameTime(double frameTime) const
+		{
+			frameCount += 1;
+			return (avgFrameTime += frameTime) >= time;
+		}
+
+		bool CalcLowfpsTime(double frameTime) const
+		{
+			if (frameTime > avgFrameTime / threshold)
+				lowfpsTime += frameTime;
+
+			tempTime += frameTime;
+			return tempTime >= time;
+		}
+
+	public:
+		CLowfpsVisual(CFpsCounter& fpsCounter, const double& threshold, const double& time) :
+			threshold(threshold),
+			time(time),
+			benchmark(fpsCounter, time),
+			title(A"lowfps " + threshold + " " + time + ": ")
+		{
+
+		}
+
+		virtual string ToString() const override
+		{
+			lowfpsTime = tempTime = avgFrameTime = frameCount = 0;
+
+			benchmark.handleFrameTime = std::bind(&CLowfpsVisual::CalcAvgFrameTime, this, std::placeholders::_1);
+			benchmark.ProcessFrameTimes();
+
+			if (frameCount <= 0 || avgFrameTime <= 0)
+				return title + "undefined";
+
+			avgFrameTime /= frameCount;
+
+			benchmark.handleFrameTime = std::bind(&CLowfpsVisual::CalcLowfpsTime, this, std::placeholders::_1);
+			benchmark.ProcessFrameTimes();
+
+			return title + A(lowfpsTime / tempTime * 100) + "%";
+		}
+	};
+
+	class CShowLowfpsCommand : public CConsoleCommand
+	{
+	protected:
+		virtual string Execute() override
+		{
+			double threshold = 0.5;
+			double time = 10.0;
+
+			if (args.size() >= 1)
+				threshold = CoerceInRange(atof(args[0].GetVector()), 0.0, 0.01, 2.00);
+
+			if (args.size() >= 2)
+				time = CoerceInRange(atof(args[1].GetVector()), 0.0, 0.01, 10000.0);
+
+			string command = GetPrefix() + " " + threshold + " " + time;
+			auto visual = std::make_unique<CLowfpsVisual>(context.GetFpsCounter(), threshold, time);
+			context.GetShowList().push_back(std::make_unique<CSimpleEntry>(std::move(visual), command));
+
+			return "Ok";
+		}
+
+	public:
+		CShowLowfpsCommand() :
+			CConsoleCommand("show lowfps", "low fps benchmark")
+		{
+
+		}
+	};
+
+	class CDecompileCommand : public CConsoleCommand
+	{
+	protected:
+		static std::string GetFolder()
+		{
+			return (A zoptions->GetDirString(DIR_ROOT) + "\\Console\\").GetVector();
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1)
+				return;
+
+			auto infos = context.GetSymbolHelperCache().Select([&](const TSymbolInfo& info)
+				{
+					bool success = false;
+					success = success || info.first.GetType() == CSymbol::Type::Instance;
+					success = success || info.first.GetType() == CSymbol::Type::Prototype;
+					success = success || info.first.GetType() == CSymbol::Type::Func;
+					success = success && CheckHintI(info.second);
+					return success;
+				});
+
+			for (const TSymbolInfo* info : infos)
+				hints.push_back(info->second);
+		}
+
+		virtual string Execute() override
+		{
+			if (args.empty())
+				return "Fail: no argument provided";
+
+			CSymbol symbol(parser, args.front());
+
+			if (symbol.GetType() == CSymbol::Type::Unknown)
+				return "Fail: symbol not found";
+
+			bool success = false;
+			success = success || symbol.GetType() == CSymbol::Type::Instance;
+			success = success || symbol.GetType() == CSymbol::Type::Prototype;
+			success = success || symbol.GetType() == CSymbol::Type::Func;
+
+			if (!success)
+				return "Fail: symbol has wrong type";
+
+			try
+			{
+				auto ast = BuildAst(symbol);
+				std::string path = GetFolder() + (A symbol.GetSymbol()->name).Lower().GetVector() + ".d";
+
+				{
+					auto file = std::make_unique<zFILE_FILE>(path.c_str());
+					file->DirCreate();
+				}
+
+				std::ofstream out(path);
+
+				CSymbol instance = symbol;
+				EmitCode(out, symbol, ast.get(), instance);
+
+				out.close();
+				system((std::string("start \"\" \"") + path + std::string("\"")).c_str());
+			}
+			catch (const std::exception& e)
+			{
+				return A"Fail: unable to decompile (" + e.what() + A")";
+			}
+
+			return "Ok.";
+		}
+
+	public:
+		CDecompileCommand() :
+			CConsoleCommand("decompile", "decompiles a function")
+		{
+
+		}
+	};
+
+	class CShowCursorCommand : public CConsoleCommand
+	{
+	protected:
+		virtual string Execute() override
+		{
+			int& winCursorShowState = *(int*)ZenDef(0x0086F4D0, 0x008B50EC, 0x008C5C0C, 0x008D4244);
+			
+			for (int tryNum = 1; true; tryNum++)
+			{
+				winCursorShowState = ShowCursor(true);
+
+				if (winCursorShowState > 0)
+					return "Ok.";
+			}
+		}
+
+	public:
+		CShowCursorCommand() :
+			CConsoleCommand("show cursor", "shows mouse cursor")
+		{
+
+		}
+	};
+
+	class CHideCursorCommand : public CConsoleCommand
+	{
+	protected:
+		virtual string Execute() override
+		{
+			int& winCursorShowState = *(int*)ZenDef(0x0086F4D0, 0x008B50EC, 0x008C5C0C, 0x008D4244);
+
+			for (int tryNum = 1; true; tryNum++)
+			{
+				winCursorShowState = ShowCursor(false);
+
+				if (winCursorShowState < -1)
+					return "Ok.";
+			}
+		}
+
+	public:
+		CHideCursorCommand() :
+			CConsoleCommand("hide cursor", "hides mouse cursor")
+		{
+
+		}
+	};
+
+	class CPrintWeaponsCommand : public CConsoleCommand
+	{
+	protected:
+		static std::string GetFolder()
+		{
+			return (A zoptions->GetDirString(DIR_ROOT) + "\\Console\\").GetVector();
+		}
+
+		static std::vector<zVEC3> GetVertexes(zCProgMeshProto* visual)
+		{
+			std::vector<zVEC3> vertexes;
+			vertexes.reserve(64u);
+
+			auto& posList{ visual->posList };
+			auto& subMeshList{ visual->subMeshList };
+
+			for (int i = 0; i < visual->numSubMeshes; i++)
+				for (int p = 0; p < subMeshList[i].triList.GetNum(); p++)
+					for (int k = 0; k < 3; k++)
+						vertexes.emplace_back(posList[subMeshList[i].wedgeList[subMeshList[i].triList[p].wedge[k]].position]);
+
+			return vertexes;
+		}
+
+		virtual string Execute() override
+		{
+			std::string path = GetFolder() + "weapons.txt";
+			std::make_unique<zFILE_FILE>(path.c_str())->DirCreate();
+
+			std::vector<std::pair<ZOwner<oCItem>, float>> items;
+			int c_item = parser->GetIndex(oCItem::classDef->scriptClassName);
+
+			for (int i = 0; i < parser->symtab.GetNumInList(); i++)
+			{
+				CSymbol symbol{ parser, i };
+
+				if (symbol.GetType() != CSymbol::Type::Instance)
+					continue;
+
+				if (parser->GetBaseClass(symbol.GetSymbol()) != c_item)
+					continue;
+
+				std::pair<ZOwner<oCItem>, float> ele{ ZOwner<oCItem>(zfactory->CreateItem(i)), 0.0f };
+
+				if (!ele.first)
+					continue;
+
+				if (!ele.first->HasFlag(ITM_CAT_NF))
+					continue;
+
+				items.emplace_back(std::move(ele));
+				auto& e = items.back();
+
+				e.first->CreateVisual();
+				zCProgMeshProto* visual = COA3(e.first, visual, CastTo<zCProgMeshProto>());
+
+				if (!visual)
+					continue;
+
+				for (const zVEC3& vertex : GetVertexes(visual))
+					if (-vertex[VX] > e.second)
+						e.second = -vertex[VX];
+			}
+
+			std::sort(items.begin(), items.end(), [](auto& x, auto& y)
+				{
+					if (x.second && y.second)
+						return x.first->range - x.second > y.first->range - y.second;
+
+					if (!x.second && !y.second)
+						return false;
+
+					return !x.second;
+				});
+
+			std::ofstream out(path);
+			out << std::left << std::fixed << std::setprecision(2);
+
+			out << std::setw(8) << "ID"
+				<< std::setw(32) << "SYMBOL"
+				<< std::setw(64) << "NAME"
+				<< std::setw(12) << "RANGE"
+				<< std::setw(12) << "VISUALRANGE"
+				<< std::setw(12) << "DIFFERENCE"
+				<< std::endl;
+
+			for (const auto& item : items)
+			{
+				out << std::setw(8) << item.first->instanz
+					<< std::setw(32) << item.first->objectName
+					<< std::setw(64) << item.first->name
+					<< std::setw(12) << item.first->range;
+
+				if (item.second)
+					out << std::setw(12) << item.second
+						<< std::setw(12) << item.first->range - item.second;
+
+				out << std::endl;
+			}
+
+			out.close();
+			system((std::string("start \"\" \"") + path + std::string("\"")).c_str());
+			return "Ok.";
+		}
+
+	public:
+		CPrintWeaponsCommand() :
+			CConsoleCommand("print weapons", "prints melee weapons script and visual ranges")
+		{
+
 		}
 	};
 }

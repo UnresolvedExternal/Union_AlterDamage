@@ -10,7 +10,10 @@ enum class TGameEvent
 	Entry,
 	Init,
 	DetachDll,
+	PreLoop,
 	Loop,
+	PostLoop,
+	MenuLoop,
 	SaveBegin,
 	SaveEnd,
 	LoadBegin,
@@ -39,6 +42,7 @@ private:
 	CPublisher();
 
 public:
+
 	static CPublisher& GetInstance();
 
 	inline CDelegateContainer<void()>& Subs(const TGameEvent& event)

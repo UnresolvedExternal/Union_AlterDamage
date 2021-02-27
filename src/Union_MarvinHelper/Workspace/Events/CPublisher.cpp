@@ -15,8 +15,12 @@ CPublisher& CPublisher::GetInstance()
 
 void CPublisher::Raise(const TGameEvent& event)
 {
+	if (event == TGameEvent::NoEvent)
+		return;
+
 	nesting += 1;
 	Subs(event)();
 	nesting -= 1;
+
 	dllDetached = dllDetached || event == TGameEvent::DetachDll && nesting == 0;
 }

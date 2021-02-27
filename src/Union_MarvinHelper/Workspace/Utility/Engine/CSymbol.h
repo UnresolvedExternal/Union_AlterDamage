@@ -1,12 +1,12 @@
 namespace NAMESPACE
 {
 	template <class TFrom, class TTo>
-	TTo NoConvert(const TFrom& value) { ASSERT(false); return TTo(); }
+	TTo NoConvert(const TFrom& value) { ASSERT(false); return { }; }
 	template <> int NoConvert(const int& value) { return value; }
 	template <> float NoConvert(const float& value) { return value; }
 	template <> string NoConvert(const string& value) { return value; }
 
-	class CSymbolHelper
+	class CSymbol
 	{
 	public:
 		enum class Type
@@ -176,7 +176,7 @@ namespace NAMESPACE
 		}
 
 	public:
-		CSymbolHelper() :
+		CSymbol() :
 			type(Type::Unknown),
 			parser(nullptr),
 			index(-1),
@@ -186,8 +186,8 @@ namespace NAMESPACE
 
 		}
 
-		CSymbolHelper(zCParser* parser, int index) :
-			CSymbolHelper()
+		CSymbol(zCParser* parser, int index) :
+			CSymbol()
 		{
 			if (parser && index >= 0 && index < parser->symtab.table.GetNum())
 			{
@@ -198,34 +198,34 @@ namespace NAMESPACE
 			}
 		}
 
-		CSymbolHelper(zCParser* parser, const string& name) :
-			CSymbolHelper(parser, parser->GetIndex(name))
+		CSymbol(zCParser* parser, const string& name) :
+			CSymbol(parser, parser->GetIndex(name))
 		{
 
 		}
 
-		CSymbolHelper(int dummyInt) :
-			CSymbolHelper()
+		CSymbol(int dummyInt) :
+			CSymbol()
 		{
 			this->type = Type::DummyInt;
 			this->dummyInt = dummyInt;
 		}
 
-		CSymbolHelper(float dummyFloat) :
-			CSymbolHelper()
+		CSymbol(float dummyFloat) :
+			CSymbol()
 		{
 			this->type = Type::DummyFloat;
 			this->dummyFloat = dummyFloat;
 		}
 
-		CSymbolHelper(const string& dummyString) :
-			CSymbolHelper()
+		CSymbol(const string& dummyString) :
+			CSymbol()
 		{
 			this->type = Type::DummyString;
 			this->dummyString = new zSTRING(dummyString);
 		}
 
-		CSymbolHelper(const CSymbolHelper& right) :
+		CSymbol(const CSymbol& right) :
 			type(right.type),
 			parser(right.parser),
 			index(right.index),
@@ -236,7 +236,7 @@ namespace NAMESPACE
 				dummyString = new zSTRING(*right.dummyString);
 		}
 
-		CSymbolHelper(CSymbolHelper&& right) :
+		CSymbol(CSymbol&& right) :
 			type(right.type),
 			parser(right.parser),
 			index(right.index),
@@ -246,9 +246,9 @@ namespace NAMESPACE
 			right.type = Type::Unknown;
 		}
 
-		CSymbolHelper& operator=(const CSymbolHelper& right)
+		CSymbol& operator=(const CSymbol& right)
 		{
-			this->~CSymbolHelper();
+			this->~CSymbol();
 
 			type = right.type;
 			parser = right.parser;
@@ -262,9 +262,9 @@ namespace NAMESPACE
 			return *this;
 		}
 
-		CSymbolHelper& operator=(CSymbolHelper&& right)
+		CSymbol& operator=(CSymbol&& right)
 		{
-			this->~CSymbolHelper();
+			this->~CSymbol();
 
 			type = right.type;
 			parser = right.parser;
@@ -276,7 +276,7 @@ namespace NAMESPACE
 			return *this;
 		}
 
-		~CSymbolHelper()
+		~CSymbol()
 		{
 			if (type == Type::DummyString)
 				delete dummyString;
@@ -463,7 +463,7 @@ namespace NAMESPACE
 			ASSERT(false);
 		}
 
-		bool TryPushAsParam(zCParser* target, int index, const CSymbolHelper& param) const
+		bool TryPushAsParam(zCParser* target, int index, const CSymbol& param) const
 		{
 			zCPar_Symbol* paramSym = param.GetSymbol();
 			
@@ -551,7 +551,7 @@ namespace NAMESPACE
 			}
 		}
 
-		bool CanPushAsParam(zCParser* target, int index, const CSymbolHelper& param) const
+		bool CanPushAsParam(zCParser* target, int index, const CSymbol& param) const
 		{
 			if (!target)
 				return false;

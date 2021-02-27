@@ -1,7 +1,12 @@
 namespace NAMESPACE
 {
+	int (*innerEvalFunc)(const zSTRING&, zSTRING&);
+
 	int ConsoleEvalFunc(const zSTRING& inpstr, zSTRING& msg)
 	{
+		if (innerEvalFunc && innerEvalFunc(inpstr, msg))
+			return true;
+
 		string output;
 		
 		if (CConsoleContext::GetInstance().TryExecute(output))
@@ -30,8 +35,21 @@ namespace NAMESPACE
 		context.AddCommand<CInsertCommand>();
 		context.AddCommand<CExecuteCommand>();
 		context.AddCommand<CSaveShowListCommand>();
+		context.AddCommand<CShowLowfpsCommand>();
+		context.AddCommand<CDecompileCommand>();
+		context.AddCommand<CShowCursorCommand>();
+		context.AddCommand<CHideCursorCommand>();
+		context.AddCommand<CPrintWeaponsCommand>();
 
-		zcon->AddEvalFunc(&ConsoleEvalFunc);
+		int evalNum = 0;
+
+		for (int i = 1; i < zCON_MAX_EVAL; i++)
+			if (zcon->evalfunc[i])
+				evalNum = i;
+
+		innerEvalFunc = zcon->evalfunc[evalNum];
+		zcon->evalfunc[evalNum] = &ConsoleEvalFunc;
+
 		Ivk__Game_InitConsole();
 	}
 }

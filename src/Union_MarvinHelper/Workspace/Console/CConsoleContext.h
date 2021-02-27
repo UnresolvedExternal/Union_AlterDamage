@@ -53,7 +53,8 @@ namespace NAMESPACE
 		std::vector<std::unique_ptr<CShowListEntry>> showList;
 		CGridView* gridView;
 
-		std::unique_ptr<CSymbolHelperCache> symbolHelperCache;
+		std::unique_ptr<CSymbolCache> symbolHelperCache;
+		std::unique_ptr<CFpsCounter> fpsCounter;
 
 		static bool IsInAuxConsole()
 		{
@@ -310,11 +311,18 @@ namespace NAMESPACE
 			return command;
 		}
 
-		CSymbolHelperCache& GetSymbolHelperCache()
+		CSymbolCache& GetSymbolHelperCache()
 		{
 			if (!symbolHelperCache)
-				symbolHelperCache = std::make_unique<CSymbolHelperCache>(parser);
+				symbolHelperCache = std::make_unique<CSymbolCache>(parser);
 			return *symbolHelperCache;
+		}
+
+		CFpsCounter& GetFpsCounter()
+		{
+			if (!fpsCounter)
+				fpsCounter = std::make_unique<CFpsCounter>();
+			return *fpsCounter;
 		}
 
 		template <class T, class ...TArgs>

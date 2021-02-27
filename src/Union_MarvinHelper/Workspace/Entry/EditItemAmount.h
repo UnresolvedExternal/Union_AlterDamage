@@ -13,7 +13,7 @@ namespace NAMESPACE
 		if (!sym || (sym->type != zPAR_TYPE_INSTANCE))
 			return false;
 
-		sym = par->GetSymbol(par->GetBaseClass(index));
+		sym = par->GetSymbol(par->GetBaseClass(sym));
 		if (!sym || !sym->name.Compare("C_ITEM"))
 			return false;
 

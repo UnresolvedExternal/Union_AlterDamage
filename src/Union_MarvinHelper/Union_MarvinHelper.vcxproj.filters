@@ -202,9 +202,6 @@
     <Filter Include="Workspace\Utility\Engine">
       <UniqueIdentifier>{5ee00f2f-4241-4bd2-8b2e-0c660c1ff30e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Workspace\Savegame">
-      <UniqueIdentifier>{08faf17a-f049-442d-841c-6939221913ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Workspace\Events">
       <UniqueIdentifier>{dd71a1be-dfcb-48cf-8fbc-6dd74beb04d9}</UniqueIdentifier>
     </Filter>
@@ -247,15 +244,6 @@
     <ClCompile Include="Workspace\Assembly\Assembly.cpp">
       <Filter>Workspace\Assembly</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGGlobal.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGInstanceSet.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGInventoryMonitor.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
     <ClCompile Include="Workspace\Utility\Common\CBinSeqGen.cpp">
       <Filter>Workspace\Utility\Common</Filter>
     </ClCompile>
@@ -280,8 +268,8 @@
     <ClCompile Include="Workspace\Utility\Engine\Misc.cpp">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGOverlaySet.cpp">
-      <Filter>Workspace\Savegame</Filter>
+    <ClCompile Include="Workspace\Utility\Engine\CSGGlobal.cpp">
+      <Filter>Workspace\Utility\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2797,15 +2785,6 @@
     <ClInclude Include="Workspace\Assembly\Sources.h">
       <Filter>Workspace\Assembly</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGGlobal.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGInstanceSet.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGInventoryMonitor.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Utility\Common\CBinSeqGen.h">
       <Filter>Workspace\Utility\Common</Filter>
     </ClInclude>
@@ -2851,17 +2830,11 @@
     <ClInclude Include="Workspace\Utility\Engine\PointPath.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGOverlaySet.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\CGridView.h">
       <Filter>Workspace\Utility\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Workspace\Utility\Engine\CVobTraverser.h">
       <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Console\Engine.h">
-      <Filter>Workspace\Console</Filter>
     </ClInclude>
     <ClInclude Include="Workspace\Console\Parser.h">
       <Filter>Workspace\Console</Filter>
@@ -2931,6 +2904,27 @@
     </ClInclude>
     <ClInclude Include="Workspace\Entry\ToggleConsole.h">
       <Filter>Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CParserScope.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\CSymbol.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\PushPop.h">
+      <Filter>Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Settings\CVectorSetting.h">
+      <Filter>Workspace\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Console\CFpsCounter.h">
+      <Filter>Workspace\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Console\Decompiler.h">
+      <Filter>Workspace\Console</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

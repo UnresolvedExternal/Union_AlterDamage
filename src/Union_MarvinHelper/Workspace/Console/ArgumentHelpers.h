@@ -18,7 +18,7 @@ namespace NAMESPACE
 	protected:
 		TParsedToken token;
 
-		bool CheckSymbol(const CLeftAssignable& left, const CSymbolHelper& symbol) const;
+		bool CheckSymbol(const CLeftAssignable& left, const CSymbol& symbol) const;
 		bool CheckName(const string& name) const;
 		bool CheckInfo(const CLeftAssignable& left, const TSymbolInfo& info) const;
 		void AddHints(std::vector<string>& hints, const TSymbolInfo& info) const;
@@ -32,7 +32,7 @@ namespace NAMESPACE
 	class CRightAssignable : protected CRightAssignableIncomplete
 	{
 	protected:
-		CSymbolHelper symbol;
+		CSymbol symbol;
 		int start;
 
 		CRightAssignable(const string& token);
@@ -53,7 +53,7 @@ namespace NAMESPACE
 		TParsedVarName varName;
 		int c_info;
 
-		bool CheckSymbol(const CSymbolHelper& symbol) const;
+		bool CheckSymbol(const CSymbol& symbol) const;
 		bool CheckName(const string& name) const;
 		bool CheckInfo(const TSymbolInfo& info) const;
 		void AddHints(std::vector<string>& hints, const TSymbolInfo& info) const;
@@ -68,7 +68,7 @@ namespace NAMESPACE
 	{
 	protected:
 		string origin;
-		CSymbolHelper symbol;
+		CSymbol symbol;
 		oCInfo* info;
 		int start, count;
 
@@ -91,29 +91,29 @@ namespace NAMESPACE
 	protected:
 		TParsedToken token;
 
-		bool CheckSymbol(const CSymbolHelper& paramDesc, const CSymbolHelper& symbol) const;
+		bool CheckSymbol(const CSymbol& paramDesc, const CSymbol& symbol) const;
 		bool CheckName(const string& name) const;
-		bool CheckInfo(const CSymbolHelper& paramDesc, const TSymbolInfo& info) const;
+		bool CheckInfo(const CSymbol& paramDesc, const TSymbolInfo& info) const;
 		void AddHints(std::vector<string>& hints, const TSymbolInfo& info) const;
 		std::vector<string> AsHints(const std::vector<const TSymbolInfo*>& infos) const;
 
 	public:
 		CArgumentIncomplete(const string& token);
-		std::vector<string> GetHints(const CSymbolHelper& paramDesc, CCache<TSymbolInfo>& cache) const;
+		std::vector<string> GetHints(const CSymbol& paramDesc, CCache<TSymbolInfo>& cache) const;
 	};
 
 	class CArgument : protected CArgumentIncomplete
 	{
 	protected:
-		CSymbolHelper symbol;
+		CSymbol symbol;
 		int start;
 
 		CArgument(const string& token);
 
 	public:
 		static std::unique_ptr<CArgument> TryCreate(const string& token);
-		bool CanPushAs(const CSymbolHelper& paramDesc) const;
-		void PushAs(const CSymbolHelper& paramDesc) const;
+		bool CanPushAs(const CSymbol& paramDesc) const;
+		void PushAs(const CSymbol& paramDesc) const;
 	};
 
 	class CCallableIncomplete
@@ -121,7 +121,7 @@ namespace NAMESPACE
 	protected:
 		TParsedVarName varName;
 
-		bool CheckSymbol(const CSymbolHelper& symbol) const;
+		bool CheckSymbol(const CSymbol& symbol) const;
 		bool CheckName(const string& name) const;
 		bool CheckInfo(const TSymbolInfo& info) const;
 		void AddHints(std::vector<string>& hints, const TSymbolInfo& info) const;
@@ -135,27 +135,27 @@ namespace NAMESPACE
 	class CCallable : protected CCallableIncomplete
 	{
 	protected:
-		CSymbolHelper symbol;
+		CSymbol symbol;
 
 		CCallable(const string& token);
 
 	public:
 		static std::unique_ptr<CCallable> TryCreate(const string& token);
 		int GetArgumentsCount() const;
-		CSymbolHelper GetArgumentDescription(int index) const;
-		CSymbolHelper Call(const std::vector<std::unique_ptr<CArgument>>& arguments) const;
+		CSymbol GetArgumentDescription(int index) const;
+		CSymbol Call(const std::vector<std::unique_ptr<CArgument>>& arguments) const;
 	};
 
 #pragma region CRightAssignableIncomplete
 
-	bool CRightAssignableIncomplete::CheckSymbol(const CLeftAssignable& left, const CSymbolHelper& symbol) const
+	bool CRightAssignableIncomplete::CheckSymbol(const CLeftAssignable& left, const CSymbol& symbol) const
 	{
 		if (!symbol.IsGlobal())
 			return false;
 
 		switch (symbol.GetType())
 		{
-		case CSymbolHelper::Type::ExternalVar:
+		case CSymbol::Type::ExternalVar:
 			if (symbol.IsValueType<int>())
 				return left.IsEleAssignableFrom<int>();
 			if (symbol.IsValueType<float>())
@@ -166,28 +166,28 @@ namespace NAMESPACE
 			ASSERT(false);
 			return false;
 
-		case CSymbolHelper::Type::VarString:
+		case CSymbol::Type::VarString:
 			return left.IsEleAssignableFrom<string>();
 
-		case CSymbolHelper::Type::VarFloat:
+		case CSymbol::Type::VarFloat:
 			return left.IsEleAssignableFrom<float>();
 
-		case CSymbolHelper::Type::VarInt:
-		case CSymbolHelper::Type::Instance:
-		case CSymbolHelper::Type::Func:
+		case CSymbol::Type::VarInt:
+		case CSymbol::Type::Instance:
+		case CSymbol::Type::Func:
 			return left.IsEleAssignableFrom<int>();
 
-		case CSymbolHelper::Type::Prototype:
-		case CSymbolHelper::Type::ClassVar:
-		case CSymbolHelper::Type::Class:
-		case CSymbolHelper::Type::ExternalFunc:
-		case CSymbolHelper::Type::VarInstance:
+		case CSymbol::Type::Prototype:
+		case CSymbol::Type::ClassVar:
+		case CSymbol::Type::Class:
+		case CSymbol::Type::ExternalFunc:
+		case CSymbol::Type::VarInstance:
 			return false;
 
-		case CSymbolHelper::Type::DummyString:
-		case CSymbolHelper::Type::DummyFloat:
-		case CSymbolHelper::Type::DummyInt:
-		case CSymbolHelper::Type::Unknown:
+		case CSymbol::Type::DummyString:
+		case CSymbol::Type::DummyFloat:
+		case CSymbol::Type::DummyInt:
+		case CSymbol::Type::Unknown:
 		default:
 			ASSERT(false);
 		}
@@ -280,13 +280,13 @@ namespace NAMESPACE
 		start(0)
 	{
 		if (this->token.IsInt())
-			symbol = CSymbolHelper(this->token.GetInt());
+			symbol = CSymbol(this->token.GetInt());
 		else
 			if (this->token.IsFloat())
-				symbol = CSymbolHelper(this->token.GetFloat());
+				symbol = CSymbol(this->token.GetFloat());
 			else
 				if (this->token.IsString())
-					symbol = CSymbolHelper(this->token.GetString());
+					symbol = CSymbol(this->token.GetString());
 				else
 				{
 					if (!this->token.GetVar().IsCompleted())
@@ -295,7 +295,7 @@ namespace NAMESPACE
 					if (this->token.GetVar().endIndex != -1 && this->token.GetVar().endIndex != this->token.GetVar().startIndex)
 						return;
 
-					symbol = CSymbolHelper(parser, UpperSafe(this->token.GetVar().name));
+					symbol = CSymbol(parser, UpperSafe(this->token.GetVar().name));
 					start = this->token.GetVar().startIndex;
 				}
 	}
@@ -306,10 +306,10 @@ namespace NAMESPACE
 
 		switch (e->symbol.GetType())
 		{
-		case CSymbolHelper::Type::ExternalVar:
-		case CSymbolHelper::Type::VarString:
-		case CSymbolHelper::Type::VarFloat:
-		case CSymbolHelper::Type::VarInt:
+		case CSymbol::Type::ExternalVar:
+		case CSymbol::Type::VarString:
+		case CSymbol::Type::VarFloat:
+		case CSymbol::Type::VarInt:
 			if (e->start == -1)
 			{
 				if (e->symbol.GetValuesCount() != 1)
@@ -324,25 +324,25 @@ namespace NAMESPACE
 				return e;
 			return { };
 
-		case CSymbolHelper::Type::Instance:
-		case CSymbolHelper::Type::Func:
+		case CSymbol::Type::Instance:
+		case CSymbol::Type::Func:
 			if (e->symbol.IsGlobal())
 				return e;
 			return { };
 
-		case CSymbolHelper::Type::Prototype:
-		case CSymbolHelper::Type::ClassVar:
-		case CSymbolHelper::Type::Class:
-		case CSymbolHelper::Type::ExternalFunc:
-		case CSymbolHelper::Type::VarInstance:
+		case CSymbol::Type::Prototype:
+		case CSymbol::Type::ClassVar:
+		case CSymbol::Type::Class:
+		case CSymbol::Type::ExternalFunc:
+		case CSymbol::Type::VarInstance:
 			return { };
 
-		case CSymbolHelper::Type::DummyString:
-		case CSymbolHelper::Type::DummyFloat:
-		case CSymbolHelper::Type::DummyInt:
+		case CSymbol::Type::DummyString:
+		case CSymbol::Type::DummyFloat:
+		case CSymbol::Type::DummyInt:
 			return e;
 
-		case CSymbolHelper::Type::Unknown:
+		case CSymbol::Type::Unknown:
 			return { };
 
 		default:
@@ -364,7 +364,7 @@ namespace NAMESPACE
 
 		switch (symbol.GetType())
 		{
-		case CSymbolHelper::Type::ExternalVar:
+		case CSymbol::Type::ExternalVar:
 		{
 			if (IsValueType<int>()) goto GetInt;
 			if (IsValueType<float>()) goto GetFloat;
@@ -372,31 +372,31 @@ namespace NAMESPACE
 			ASSERT(false);
 		}
 
-		case CSymbolHelper::Type::VarString:
-		case CSymbolHelper::Type::DummyString:
+		case CSymbol::Type::VarString:
+		case CSymbol::Type::DummyString:
 		GetString:
 			return NoConvert<string, T>(symbol.GetValue<string>(start));
 
-		case CSymbolHelper::Type::VarFloat:
-		case CSymbolHelper::Type::DummyFloat:
+		case CSymbol::Type::VarFloat:
+		case CSymbol::Type::DummyFloat:
 		GetFloat:
 			return NoConvert<float, T>(symbol.GetValue<float>(start));
 
-		case CSymbolHelper::Type::VarInt:
-		case CSymbolHelper::Type::DummyInt:
+		case CSymbol::Type::VarInt:
+		case CSymbol::Type::DummyInt:
 		GetInt:
 			return NoConvert<int, T>(symbol.GetValue<int>(start));
 
-		case CSymbolHelper::Type::Instance:
-		case CSymbolHelper::Type::Func:
+		case CSymbol::Type::Instance:
+		case CSymbol::Type::Func:
 			return NoConvert<int, T>(symbol.GetIndex());
 
-		case CSymbolHelper::Type::Prototype:
-		case CSymbolHelper::Type::ClassVar:
-		case CSymbolHelper::Type::Class:
-		case CSymbolHelper::Type::ExternalFunc:
-		case CSymbolHelper::Type::VarInstance:
-		case CSymbolHelper::Type::Unknown:
+		case CSymbol::Type::Prototype:
+		case CSymbol::Type::ClassVar:
+		case CSymbol::Type::Class:
+		case CSymbol::Type::ExternalFunc:
+		case CSymbol::Type::VarInstance:
+		case CSymbol::Type::Unknown:
 		default:
 			ASSERT(false);
 		}
@@ -406,22 +406,22 @@ namespace NAMESPACE
 
 #pragma region CLeftAssignableIncomplete
 
-	bool CLeftAssignableIncomplete::CheckSymbol(const CSymbolHelper& symbol) const
+	bool CLeftAssignableIncomplete::CheckSymbol(const CSymbol& symbol) const
 	{
 		switch (symbol.GetType())
 		{
 			// allow regular global vars assignment
-		case CSymbolHelper::Type::ExternalVar:
-		case CSymbolHelper::Type::VarString:
-		case CSymbolHelper::Type::VarFloat:
-		case CSymbolHelper::Type::VarInt:
+		case CSymbol::Type::ExternalVar:
+		case CSymbol::Type::VarString:
+		case CSymbol::Type::VarFloat:
+		case CSymbol::Type::VarInt:
 			return symbol.IsGlobal();
 
 			// allow dialog state assignment
-		case CSymbolHelper::Type::Instance:
+		case CSymbol::Type::Instance:
 			if (varName.IsIndexed())
 				return false;
-			if (parser->GetBaseClass(symbol.GetIndex()) != c_info)
+			if (parser->GetBaseClass(symbol.GetSymbol()) != c_info)
 				return false;
 			return true;
 
@@ -521,13 +521,13 @@ namespace NAMESPACE
 			return;
 
 		case TParsedVarName::TState::Name:
-			symbol = CSymbolHelper(parser, UpperSafe(varName.name));
+			symbol = CSymbol(parser, UpperSafe(varName.name));
 			if (CheckSymbol(symbol))
 			{
 				start = 0;
 				count = symbol.GetValuesCount();
 
-				if (symbol.GetType() == CSymbolHelper::Type::Instance)
+				if (symbol.GetType() == CSymbol::Type::Instance)
 				{
 					info = COA3(ogame, GetInfoManager(), GetInformation(symbol.GetIndex()));
 					if (!info)
@@ -545,7 +545,7 @@ namespace NAMESPACE
 			return;
 
 		case TParsedVarName::TState::Stop:
-			symbol = CSymbolHelper(parser, UpperSafe(varName.name));
+			symbol = CSymbol(parser, UpperSafe(varName.name));
 			start = varName.startIndex;
 			count = (varName.endIndex == -1) ? 1 : (varName.endIndex - start + 1);
 			if (!symbol.CheckRange(start, count))
@@ -564,7 +564,7 @@ namespace NAMESPACE
 	{
 		std::unique_ptr<CLeftAssignable> e(new CLeftAssignable(token));
 
-		if (e->symbol.GetType() == CSymbolHelper::Type::Unknown)
+		if (e->symbol.GetType() == CSymbol::Type::Unknown)
 			return { };
 
 		return e;
@@ -592,10 +592,10 @@ namespace NAMESPACE
 	{
 		switch (symbol.GetType())
 		{
-		case CSymbolHelper::Type::ExternalVar:
-		case CSymbolHelper::Type::VarString:
-		case CSymbolHelper::Type::VarFloat:
-		case CSymbolHelper::Type::VarInt:
+		case CSymbol::Type::ExternalVar:
+		case CSymbol::Type::VarString:
+		case CSymbol::Type::VarFloat:
+		case CSymbol::Type::VarInt:
 			if (right.IsValueType<int>())
 				return IsEleAssignableFrom<int>();
 			if (right.IsValueType<float>())
@@ -604,19 +604,19 @@ namespace NAMESPACE
 				return IsEleAssignableFrom<string>();
 			ASSERT(false);
 
-		case CSymbolHelper::Type::Instance:
+		case CSymbol::Type::Instance:
 			return right.IsValueType<int>();
 
-		case CSymbolHelper::Type::ClassVar:
-		case CSymbolHelper::Type::Class:
-		case CSymbolHelper::Type::ExternalFunc:
-		case CSymbolHelper::Type::Prototype:
-		case CSymbolHelper::Type::Func:
-		case CSymbolHelper::Type::VarInstance:
-		case CSymbolHelper::Type::DummyString:
-		case CSymbolHelper::Type::DummyFloat:
-		case CSymbolHelper::Type::DummyInt:
-		case CSymbolHelper::Type::Unknown:
+		case CSymbol::Type::ClassVar:
+		case CSymbol::Type::Class:
+		case CSymbol::Type::ExternalFunc:
+		case CSymbol::Type::Prototype:
+		case CSymbol::Type::Func:
+		case CSymbol::Type::VarInstance:
+		case CSymbol::Type::DummyString:
+		case CSymbol::Type::DummyFloat:
+		case CSymbol::Type::DummyInt:
+		case CSymbol::Type::Unknown:
 		default:
 			ASSERT(false);
 		}
@@ -706,7 +706,7 @@ namespace NAMESPACE
 
 #pragma region CArgumentIncomplete
 
-	bool CArgumentIncomplete::CheckSymbol(const CSymbolHelper& paramDesc, const CSymbolHelper& symbol) const
+	bool CArgumentIncomplete::CheckSymbol(const CSymbol& paramDesc, const CSymbol& symbol) const
 	{
 		if (!symbol.IsGlobal())
 			return false;
@@ -739,7 +739,7 @@ namespace NAMESPACE
 		}
 	}
 
-	bool CArgumentIncomplete::CheckInfo(const CSymbolHelper& paramDesc, const TSymbolInfo& info) const
+	bool CArgumentIncomplete::CheckInfo(const CSymbol& paramDesc, const TSymbolInfo& info) const
 	{
 		return CheckSymbol(paramDesc, info.first) && CheckName(info.second);
 	}
@@ -783,7 +783,7 @@ namespace NAMESPACE
 		this->token.Parse(token);
 	}
 
-	std::vector<string> CArgumentIncomplete::GetHints(const CSymbolHelper& paramDesc, CCache<TSymbolInfo>& cache) const
+	std::vector<string> CArgumentIncomplete::GetHints(const CSymbol& paramDesc, CCache<TSymbolInfo>& cache) const
 	{
 		if (token.GetVar().state == TParsedVarName::TState::Fail)
 			return { };
@@ -801,13 +801,13 @@ namespace NAMESPACE
 		start(0)
 	{
 		if (this->token.IsInt())
-			symbol = CSymbolHelper(this->token.GetInt());
+			symbol = CSymbol(this->token.GetInt());
 		else
 			if (this->token.IsFloat())
-				symbol = CSymbolHelper(this->token.GetFloat());
+				symbol = CSymbol(this->token.GetFloat());
 			else
 				if (this->token.IsString())
-					symbol = CSymbolHelper(this->token.GetString());
+					symbol = CSymbol(this->token.GetString());
 				else
 				{
 					if (!this->token.GetVar().IsCompleted())
@@ -816,7 +816,7 @@ namespace NAMESPACE
 					if (this->token.GetVar().endIndex != -1 && this->token.GetVar().endIndex != this->token.GetVar().startIndex)
 						return;
 
-					symbol = CSymbolHelper(parser, UpperSafe(this->token.GetVar().name));
+					symbol = CSymbol(parser, UpperSafe(this->token.GetVar().name));
 					start = this->token.GetVar().startIndex;
 					start = std::max(start, 0);
 				}
@@ -828,10 +828,10 @@ namespace NAMESPACE
 
 		switch (e->symbol.GetType())
 		{
-		case CSymbolHelper::Type::ExternalVar:
-		case CSymbolHelper::Type::VarString:
-		case CSymbolHelper::Type::VarFloat:
-		case CSymbolHelper::Type::VarInt:
+		case CSymbol::Type::ExternalVar:
+		case CSymbol::Type::VarString:
+		case CSymbol::Type::VarFloat:
+		case CSymbol::Type::VarInt:
 			if (e->start == -1)
 			{
 				if (e->symbol.GetValuesCount() != 1)
@@ -846,25 +846,25 @@ namespace NAMESPACE
 				return e;
 			return { };
 
-		case CSymbolHelper::Type::VarInstance:
-		case CSymbolHelper::Type::Instance:
-		case CSymbolHelper::Type::Func:
+		case CSymbol::Type::VarInstance:
+		case CSymbol::Type::Instance:
+		case CSymbol::Type::Func:
 			if (e->symbol.IsGlobal())
 				return e;
 			return { };
 
-		case CSymbolHelper::Type::Prototype:
-		case CSymbolHelper::Type::ClassVar:
-		case CSymbolHelper::Type::Class:
-		case CSymbolHelper::Type::ExternalFunc:
+		case CSymbol::Type::Prototype:
+		case CSymbol::Type::ClassVar:
+		case CSymbol::Type::Class:
+		case CSymbol::Type::ExternalFunc:
 			return { };
 
-		case CSymbolHelper::Type::DummyString:
-		case CSymbolHelper::Type::DummyFloat:
-		case CSymbolHelper::Type::DummyInt:
+		case CSymbol::Type::DummyString:
+		case CSymbol::Type::DummyFloat:
+		case CSymbol::Type::DummyInt:
 			return e;
 
-		case CSymbolHelper::Type::Unknown:
+		case CSymbol::Type::Unknown:
 			return { };
 
 		default:
@@ -872,12 +872,12 @@ namespace NAMESPACE
 		}
 	}
 
-	bool CArgument::CanPushAs(const CSymbolHelper& paramDesc) const
+	bool CArgument::CanPushAs(const CSymbol& paramDesc) const
 	{
 		return symbol.CanPushAsParam(parser, start, paramDesc);
 	}
 
-	void CArgument::PushAs(const CSymbolHelper& paramDesc) const
+	void CArgument::PushAs(const CSymbol& paramDesc) const
 	{
 		const bool success = symbol.TryPushAsParam(parser, start, paramDesc);
 		ASSERT(success);
@@ -887,27 +887,27 @@ namespace NAMESPACE
 
 #pragma region CCallableIncomplete
 
-	bool CCallableIncomplete::CheckSymbol(const CSymbolHelper& symbol) const
+	bool CCallableIncomplete::CheckSymbol(const CSymbol& symbol) const
 	{
 		switch (symbol.GetType())
 		{
-		case CSymbolHelper::Type::ExternalFunc:
-		case CSymbolHelper::Type::Func:
+		case CSymbol::Type::ExternalFunc:
+		case CSymbol::Type::Func:
 			return symbol.IsGlobal();
 
-		case CSymbolHelper::Type::ClassVar:
-		case CSymbolHelper::Type::Class:
-		case CSymbolHelper::Type::ExternalVar:
-		case CSymbolHelper::Type::Instance:
-		case CSymbolHelper::Type::Prototype:
-		case CSymbolHelper::Type::VarInstance:
-		case CSymbolHelper::Type::VarString:
-		case CSymbolHelper::Type::VarFloat:
-		case CSymbolHelper::Type::VarInt:
-		case CSymbolHelper::Type::DummyString:
-		case CSymbolHelper::Type::DummyFloat:
-		case CSymbolHelper::Type::DummyInt:
-		case CSymbolHelper::Type::Unknown:
+		case CSymbol::Type::ClassVar:
+		case CSymbol::Type::Class:
+		case CSymbol::Type::ExternalVar:
+		case CSymbol::Type::Instance:
+		case CSymbol::Type::Prototype:
+		case CSymbol::Type::VarInstance:
+		case CSymbol::Type::VarString:
+		case CSymbol::Type::VarFloat:
+		case CSymbol::Type::VarInt:
+		case CSymbol::Type::DummyString:
+		case CSymbol::Type::DummyFloat:
+		case CSymbol::Type::DummyInt:
+		case CSymbol::Type::Unknown:
 			return false;
 
 		default:
@@ -999,7 +999,7 @@ namespace NAMESPACE
 			return;
 
 		case TParsedVarName::TState::Name:
-			symbol = CSymbolHelper(parser, UpperSafe(varName.name));
+			symbol = CSymbol(parser, UpperSafe(varName.name));
 			if (!CheckSymbol(symbol))
 				symbol = { };
 			return;
@@ -1021,7 +1021,7 @@ namespace NAMESPACE
 	{
 		std::unique_ptr<CCallable> e(new CCallable(token));
 
-		if (e->symbol.GetType() == CSymbolHelper::Type::Unknown)
+		if (e->symbol.GetType() == CSymbol::Type::Unknown)
 			return { };
 
 		return e;
@@ -1032,13 +1032,13 @@ namespace NAMESPACE
 		return symbol.GetSymbol()->ele;
 	}
 
-	CSymbolHelper CCallable::GetArgumentDescription(int index) const
+	CSymbol CCallable::GetArgumentDescription(int index) const
 	{
 		ASSERT(index >= 1 && index <= GetArgumentsCount());
-		return CSymbolHelper(parser, symbol.GetIndex() + index);
+		return CSymbol(parser, symbol.GetIndex() + index);
 	}
 
-	CSymbolHelper CCallable::Call(const std::vector<std::unique_ptr<CArgument>>& arguments) const
+	CSymbol CCallable::Call(const std::vector<std::unique_ptr<CArgument>>& arguments) const
 	{
 		ASSERT(GetArgumentsCount() == (int)arguments.size());
 		
@@ -1047,7 +1047,7 @@ namespace NAMESPACE
 		for (int i = 0; i < GetArgumentsCount(); i++)
 			arguments[i]->PushAs(GetArgumentDescription(i + 1));
 
-		if (symbol.GetType() == CSymbolHelper::Type::ExternalFunc)
+		if (symbol.GetType() == CSymbol::Type::ExternalFunc)
 		{
 			void* address = (void*)symbol.GetValue<int>(0);
 			((int(__cdecl*)())address)();
@@ -1061,25 +1061,25 @@ namespace NAMESPACE
 		{
 			int result;
 			parser->GetParameter(result);
-			return CSymbolHelper(result);
+			return CSymbol(result);
 		}
 
 		case zPAR_TYPE_FLOAT:
 		{
 			float result;
 			parser->GetParameter(result);
-			return CSymbolHelper(result);
+			return CSymbol(result);
 		}
 
 		case zPAR_TYPE_STRING:
 		{
 			zSTRING result;
 			parser->GetParameter(result);
-			return CSymbolHelper(A result);
+			return CSymbol(A result);
 		}
 
 		case zPAR_TYPE_INSTANCE:
-			return CSymbolHelper(parser, parser->datastack.Pop());
+			return CSymbol(parser, parser->datastack.Pop());
 
 		case zPAR_TYPE_VOID:
 			return { };

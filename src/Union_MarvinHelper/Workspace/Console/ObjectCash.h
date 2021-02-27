@@ -1,8 +1,8 @@
 namespace NAMESPACE
 {
-	typedef std::pair<CSymbolHelper, string> TSymbolInfo;
+	typedef std::pair<CSymbol, string> TSymbolInfo;
 
-	class CSymbolHelperCache : public CCache<TSymbolInfo>
+	class CSymbolCache : public CCache<TSymbolInfo>
 	{
 	protected:
 		zCParser* parser;
@@ -12,7 +12,7 @@ namespace NAMESPACE
 		{
 			for (int i = 0; i < parser->symtab.GetNumInList(); i++)
 			{
-				CSymbolHelper symbol(parser, parser->symtab.tablesort[i]);
+				CSymbol symbol(parser, parser->symtab.tablesort[i]);
 				string name = symbol.GetSymbol()->name;
 				name.Lower();
 				entities.push_back(std::move(std::make_pair(symbol, name)));
@@ -38,7 +38,7 @@ namespace NAMESPACE
 		}
 
 	public:
-		CSymbolHelperCache(zCParser* parser) :
+		CSymbolCache(zCParser* parser) :
 			parser(parser)
 		{
 
@@ -48,7 +48,7 @@ namespace NAMESPACE
 	class CScriptVarNameCache : public CCache<string>
 	{
 	private:
-		CSymbolHelperCache& symbolCash;
+		CSymbolCache& symbolCash;
 		std::vector<string> entities;
 		int c_info;
 
@@ -57,7 +57,7 @@ namespace NAMESPACE
 		{
 			c_info = parser->GetIndex("C_INFO");
 
-			for (const std::pair<CSymbolHelper, string>* sym : symbolCash.Select(GetPredicate()))
+			for (const std::pair<CSymbol, string>* sym : symbolCash.Select(GetPredicate()))
 			{
 				const string& name = sym->second;
 				if (name.Length())
@@ -82,27 +82,27 @@ namespace NAMESPACE
 		}
 
 	public:
-		CScriptVarNameCache(CSymbolHelperCache& symbolCash) :
+		CScriptVarNameCache(CSymbolCache& symbolCash) :
 			symbolCash(symbolCash)
 		{
 
 		}
 
-		std::function<bool(const std::pair<CSymbolHelper, string>&)> GetPredicate() const
+		std::function<bool(const std::pair<CSymbol, string>&)> GetPredicate() const
 		{
-			return [=](const std::pair<CSymbolHelper, string>& symbolInfo)
+			return [=](const std::pair<CSymbol, string>& symbolInfo)
 			{
-				const CSymbolHelper& symbol = symbolInfo.first;
+				const CSymbol& symbol = symbolInfo.first;
 
 				switch (symbol.GetType())
 				{
-				case CSymbolHelper::Type::VarInt:
-				case CSymbolHelper::Type::VarFloat:
-				case CSymbolHelper::Type::VarString:
+				case CSymbol::Type::VarInt:
+				case CSymbol::Type::VarFloat:
+				case CSymbol::Type::VarString:
 					return symbol.IsGlobal();
 
-				case CSymbolHelper::Type::Instance:
-					if (parser->GetBaseClass(symbol.GetIndex()) == c_info)
+				case CSymbol::Type::Instance:
+					if (parser->GetBaseClass(symbol.GetSymbol()) == c_info)
 						return symbol.IsGlobal();
 
 				default:
