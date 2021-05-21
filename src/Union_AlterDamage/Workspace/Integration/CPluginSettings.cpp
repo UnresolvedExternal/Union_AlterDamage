@@ -15,7 +15,7 @@ namespace NAMESPACE
 		attackRunChanceAdd = zoptions->ReadReal(pluginName.GetVector(), Z"AttackRunChanceAdd", 15.0f);
 		attackRunMult = zoptions->ReadReal(pluginName.GetVector(), Z"AttackRunMult", 1.15f);
 		randomStability = zoptions->ReadReal(pluginName.GetVector(), Z"RandomStability", 0.5f);
-		mageMaxManaToDamage = zoptions->ReadReal(pluginName.GetVector(), Z"MageMaxManaToDamage", 0.1f);
+		mageMaxManaToDamage = zoptions->ReadReal(pluginName.GetVector(), Z"MageMaxManaToDamage", 0.002f);
 		fireDotDamageMult = zoptions->ReadReal(pluginName.GetVector(), Z"FireDotDamageMult", 0.5f);
 		fireDotDuration = zoptions->ReadReal(pluginName.GetVector(), Z"FireDotDuration", 5.0f);
 		minDamageVarName = (string)zoptions->ReadString(pluginName.GetVector(), Z"MinDamageVarName", "#");

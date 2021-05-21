@@ -40,6 +40,7 @@ namespace NAMESPACE
 		context.AddCommand<CShowCursorCommand>();
 		context.AddCommand<CHideCursorCommand>();
 		context.AddCommand<CPrintWeaponsCommand>();
+		context.AddCommand<CGoRouteCommand>();
 
 		int evalNum = 0;
 

@@ -967,4 +967,93 @@ namespace NAMESPACE
 
 		}
 	};
+
+	class CGoRouteCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() > 3)
+				return;
+
+			if (args.size() == 1)
+			{
+				std::unordered_set<int> instances;
+
+				for (oCNpc* npc : ogame->GetGameWorld()->voblist_npcs)
+					if (npc && npc->instanz > 0 && parser->GetSymbol(npc->instanz)->offset == reinterpret_cast<int>(npc))
+						if (HasWordI(parser->GetSymbol(npc->instanz)->name, args.back()) && instances.insert(npc->instanz).second)
+							hints.push_back((A parser->GetSymbol(npc->instanz)->name).Lower());
+
+				return;
+			}
+
+			if (args.size() == 2)
+			{
+				for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
+					if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
+						hints.push_back((A wp->name).Lower());
+
+				CVobTraverser traverser;
+
+				traverser.handle = [&](zCVob* vob)
+				{
+					zCVobSpot* fp = COA2(vob, CastTo<zCVobSpot>());
+					if (fp && fp->objectName.Length() && HasWordI(fp->objectName, args.back()))
+						hints.push_back((A fp->objectName).Lower());
+				};
+
+				traverser.TraverseVobTree();
+				return;
+			}
+
+			if (args.size() == 3)
+			{
+				if (HasWordI("walk", args.back()))
+					hints.push_back("walk");
+
+				if (HasWordI("run", args.back()))
+					hints.push_back("run");
+
+				return;
+			}
+		}
+
+		virtual string Execute() override
+		{
+			if (args.size() < 2)
+				return "Fail! Expected at lest 2 arguments.";
+
+			oCNpc* npc = dynamic_cast<oCNpc*>(ogame->GetGameWorld()->SearchVobByName((A args[0]).Upper()));
+
+			if (!npc)
+				return "Fail! Npc not found.";
+
+			int mode = -1;
+
+			if (args.size() >= 3)
+			{
+				const string& arg = args[2];
+
+				if (arg.CompareI(A"run"))
+					mode = ANI_WALKMODE_RUN;
+				else
+					if (arg.CompareI(A"walk"))
+						mode = ANI_WALKMODE_WALK;
+			}
+
+			if (mode != -1)
+				npc->GetEM(false)->OnMessage(zNEW(oCMsgMovement)(oCMsgMovement::EV_SETWALKMODE, mode), npc);
+
+			npc->GetEM(false)->OnMessage(zNEW(oCMsgMovement)(oCMsgMovement::EV_GOROUTE, (A args[1]).Upper()), npc);
+			return "Ok.";
+		}
+
+	public:
+		CGoRouteCommand() :
+			CConsoleCommand("goroute", "ai command for npc")
+		{
+
+		}
+	};
 }
