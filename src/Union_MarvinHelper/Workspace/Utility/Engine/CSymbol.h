@@ -543,7 +543,7 @@ namespace NAMESPACE
 				if (parser != target || paramSym->type != zPAR_TYPE_FUNC && paramSym->type != zPAR_TYPE_INT)
 					return false;
 
-				target->datastack.Push(this->index);
+				target->SetReturn(this->index);
 				return true;
 
 			default:

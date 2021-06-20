@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_Exp", "Union_Exp\Unio
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_GroundSoundFix", "Union_GroundSoundFix\Union_GroundSoundFix.vcxproj", "{A164C88F-8514-4D06-8E60-1E61D26B1012}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Union_MarkItems", "Union_MarkItems\Union_MarkItems.vcxproj", "{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -449,6 +451,30 @@ Global
 		{A164C88F-8514-4D06-8E60-1E61D26B1012}.MP Release|x86.Build.0 = MP Release|Win32
 		{A164C88F-8514-4D06-8E60-1E61D26B1012}.Release|x86.ActiveCfg = MP Release|Win32
 		{A164C88F-8514-4D06-8E60-1E61D26B1012}.Release|x86.Build.0 = MP Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.Debug|x86.ActiveCfg = Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.Debug|x86.Build.0 = Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1 Debug|x86.ActiveCfg = G1 Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1 Debug|x86.Build.0 = G1 Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1 Release|x86.ActiveCfg = G1 Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1 Release|x86.Build.0 = G1 Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1A Debug|x86.ActiveCfg = G1A Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1A Debug|x86.Build.0 = G1A Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1A Release|x86.ActiveCfg = G1A Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G1A Release|x86.Build.0 = G1A Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2 Debug|x86.ActiveCfg = G2 Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2 Debug|x86.Build.0 = G2 Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2 Release|x86.ActiveCfg = G2 Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2 Release|x86.Build.0 = G2 Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2A Debug|x86.ActiveCfg = G2A Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2A Debug|x86.Build.0 = G2A Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2A Release|x86.ActiveCfg = G2A Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.G2A Release|x86.Build.0 = G2A Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.MP Debug|x86.ActiveCfg = Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.MP Debug|x86.Build.0 = Debug|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.MP Release|x86.ActiveCfg = Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.MP Release|x86.Build.0 = Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.Release|x86.ActiveCfg = Release|Win32
+		{BCD92A4D-E2A2-4EF1-B579-05F4038404CA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,7 +40,16 @@ namespace NAMESPACE
 		context.AddCommand<CShowCursorCommand>();
 		context.AddCommand<CHideCursorCommand>();
 		context.AddCommand<CPrintWeaponsCommand>();
-		context.AddCommand<CGoRouteCommand>();
+		context.AddCommand<CGoRouteCommand>();		
+		
+#pragma region Zuku05
+
+		context.AddCommand<CConnectWp>();
+		context.AddCommand<CDeleteWp>();
+		context.AddCommand<CAddWpFp>();
+		context.AddCommand<CWpConnection>();
+
+#pragma endregion
 
 		int evalNum = 0;
 
