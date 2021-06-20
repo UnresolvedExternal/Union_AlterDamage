@@ -9,7 +9,6 @@
 #include "Workspace\Utility\Engine\CVobTraverser.h"
 #include "Workspace\Utility\Engine\Misc.h"
 #include "Workspace\Utility\Engine\ZOwner.h"
-#include "Workspace\Utility\Engine\TPathOverlay.h"
 #include "Workspace\Utility\Engine\PointPath.h"
 #include "Workspace\Utility\Engine\CGridView.h"
 #include "Workspace\Utility\Engine\CSymbol.h"
@@ -18,5 +17,7 @@
 #include "Workspace\Utility\Engine\CParserScope.h"
 #include "Workspace\Utility\Engine\CSGGlobal.h"
 #include "Workspace\Utility\Engine\PushPop.h"
+#include "Workspace\Utility\Engine\Misc.hpp"
+#include "Workspace\Utility\Engine\CSGGlobal.hpp"
 
 #include "Workspace\Entry\Entry.h"

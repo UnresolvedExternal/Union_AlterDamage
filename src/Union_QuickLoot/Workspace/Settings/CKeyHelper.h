@@ -1,4 +1,5 @@
 #include <unordered_set>
+#include <unordered_map>
 
 namespace NAMESPACE
 {
@@ -194,7 +195,7 @@ namespace NAMESPACE
 			//ADDKEY(MAX_KEYS)
 			//ADDKEY(MAX_KEYS_AND_CODES)
 			//ADDKEY(KEY_NOT_HERE)
-			ADDKEY(KEY_RELEASE)
+			//ADDKEY(KEY_RELEASE)
 
 			//ADDKEY(MIN_MOUSE_BTNS_AND_CODES)
 
@@ -302,4 +303,4 @@ namespace NAMESPACE
 	};
 
 #undef ADDKEY
-	}
+}

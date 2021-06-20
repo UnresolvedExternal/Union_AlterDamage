@@ -53,6 +53,7 @@ namespace Gothic_II_Addon {
 
   typedef struct zSParticle {
   public:
+    zSParticle* next;
     zVEC3 position;
     zVEC3 positionWS;
     zVEC3 vel;

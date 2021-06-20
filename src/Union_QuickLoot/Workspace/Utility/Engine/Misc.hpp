@@ -79,8 +79,8 @@ namespace NAMESPACE
 			y = view->any(y);
 		}
 
-		result[0] = x;
-		result[1] = y;
+		result[0] = (float)x;
+		result[1] = (float)y;
 		return result;
 	}
 

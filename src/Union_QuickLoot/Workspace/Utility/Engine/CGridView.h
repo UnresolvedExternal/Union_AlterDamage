@@ -43,7 +43,6 @@ namespace NAMESPACE
 		void Draw(const Array<string>& entries)
 		{
 			this->entries.Clear();
-
 			zCView::ClrPrintwin();
 
 			if (!entries.GetNum() || !ondesk || !FontY())

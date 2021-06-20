@@ -7,7 +7,6 @@ namespace NAMESPACE
 		std::vector<TScope<int>> symbols;
 		TScope<zCPar_Symbol*> instance;
 		TScope<void*> address;
-		static int nesting;
 
 	public:
 		CParserScope(zCParser* parser) :

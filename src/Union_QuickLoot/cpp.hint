@@ -1,5 +1,0 @@
-#define ZOPTION(name, value)
-#define ZPOP(...) PopArguments(parser, __VA_ARGS__);
-#define ZEXTERNAL(name, ...) CExternalRegistration<__VA_ARGS__> name ## _reg(parser, #name, &name);
-#define ZEXTERNAL
-#define MEMPOOL_DECL

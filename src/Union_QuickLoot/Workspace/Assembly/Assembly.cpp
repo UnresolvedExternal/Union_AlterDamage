@@ -1,20 +1,21 @@
-#include <regex>
-#include <future>
-#include <sstream>
-#include <unordered_map>
-
 #include "UnionAfx.h"
+
+#include <gdiplus.h>
+#pragma comment (lib,"Gdiplus.lib")
+using namespace Gdiplus;
+
 #include "Macro.h"
 
 #include "Workspace\Events\CSubscription.h"
 
-#include "Workspace\Utility\Common\Macro.h"
+#include "Workspace\Utility\Common\Coalesce.h"
 #include "Workspace\Utility\Common\TScope.h"
 #include "Workspace\Utility\Common\StringComparer.h"
 #include "Workspace\Utility\Common\Misc.h"
 #include "Workspace\Utility\Common\CMemPool.h"
 #include "Workspace\Utility\Common\CThreadPool.h"
 #include "Workspace\Utility\Common\CMemoryStream.h"
+#include "Workspace\Utility\Common\VectorOperators.h"
 
 #ifdef __G1
 #define NAMESPACE Gothic_I_Classic
@@ -95,3 +96,5 @@
 #undef ENGINE
 #undef NAMESPACE
 #endif
+
+#include "Export.h"

@@ -50,6 +50,7 @@ namespace Gothic_II_Classic {
 
   typedef struct zSParticle {
   public:
+    zSParticle* next;
     zVEC3 position;
     zVEC3 positionWS;
     zVEC3 vel;

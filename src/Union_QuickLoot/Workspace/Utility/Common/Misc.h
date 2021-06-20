@@ -1,29 +1,14 @@
 #pragma once
 
 #include "UnionAfx.h"
-#include <regex>
-
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#include <algorithm>
 
 template <class T>
 T CoerceInRange(T start, const T& length, const T& minValue, const T& maxValue)
 {
-	start -= MAX(0, start + length - maxValue);
-	start += MAX(0, minValue - start);
+	start -= std::max(T(), start + length - maxValue);
+	start += std::max(T(), minValue - start);
 	return start;
-}
-
-bool Intersects(const tagRECT& a, const tagRECT& b);
-std::vector<string> SearchByRegex(const string& text, const string& re);
-
-template <class TBase, class TDerived>
-TDerived* TROLOLO_CAST(TBase* instance)
-{
-#ifndef _DEBUG
-	return dynamic_cast<TDerived*>(instance);
-#endif
-	return reinterpret_cast<TDerived*>(instance);
 }
 
 void ParseExternalScript(const string& parser, const string& path);
@@ -110,71 +95,11 @@ public:
 	}
 };
 
-// Array<T>
-
-template <class T>
-const T* begin(const Array<T>& array)
-{
-	return &array[0];
-}
-
-template <class T>
-const T* end(const Array<T>& array)
-{
-	return &array[0] + array.GetNum();
-}
-
-template <class T>
-const T* cbegin(const Array<T>& array)
-{
-	return &array[0];
-}
-
-template <class T>
-const T* cend(const Array<T>& array)
-{
-	return &array[0] + array.GetNum();
-}
-
-template <class T>
-T* begin(Array<T>& array)
-{
-	return &array[0];
-}
-
-template <class T>
-T* end(Array<T>& array)
-{
-	return &array[0] + array.GetNum();
-}
-
-class CCmdn
-{
-public:
-	template <class T>
-	CCmdn& operator<<(const T& e)
-	{
-		cmd << e;
-		return *this;
-	}
-
-	~CCmdn()
-	{
-		cmd << endl;
-	}
-};
-
 const float epsF = 1e-6;
 
 inline bool IsLessF(float x, float y) { return x < y - epsF; }
 inline bool IsMoreF(float x, float y) { return x > y + epsF; }
 inline bool IsEqualF(float x, float y) { return x <= y + epsF && x >= y - epsF; }
-
-template <typename T, typename U>
-constexpr size_t OffsetOf(U T::* member)
-{
-	return (char*)& ((T*)nullptr->*member) - (char*)nullptr;
-}
 
 bool TryParse(const string& line, int& number);
 bool TryParse(const string& line, float& number);
@@ -187,5 +112,4 @@ public:
 	inline virtual ~CStringConvertible() { }
 };
 
-#define CMDN if (true) CCmdn()
 #define LOG(exp) cmd << #exp << ": " << (exp) << endl

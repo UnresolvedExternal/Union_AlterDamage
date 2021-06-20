@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="MP Debug|Win32">
+      <Configuration>MP Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="G1 Debug|Win32">
@@ -37,88 +37,88 @@
       <Configuration>G2A Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
+    <ProjectConfiguration Include="MP Release|Win32">
+      <Configuration>MP Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{34E2313F-B925-4328-96D0-959618746041}</ProjectGuid>
+    <ProjectGuid>{b8437c2c-708f-4cc6-b5c4-83f7a6b2dda6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Union_QuickLoot</RootNamespace>
     <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
     <ProjectName>Union_QuickLoot</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'" Label="PropertySheets">
@@ -133,7 +133,7 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'" Label="PropertySheets">
@@ -149,74 +149,74 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Gothic\g2a_odyssee\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2a_dirty\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Gothic\g2a_uu\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2a_dirty\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Gothic\g2\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Gothic\g1a\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g1a\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Gothic\g1\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g1\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g1_modfix\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2a\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g2a\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2a\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g2\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g1a\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g1a\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g1\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0h\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g1\system\</OutDir>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;__G1A;__G2;__G2A;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;__G1A;__G2;__G2A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -226,6 +226,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">
     <ClCompile>
@@ -233,7 +241,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2A;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -243,6 +251,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">
     <ClCompile>
@@ -250,7 +266,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -260,6 +276,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">
     <ClCompile>
@@ -267,7 +291,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1A;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -277,6 +301,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
     <ClCompile>
@@ -284,7 +316,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -294,8 +326,16 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
@@ -303,7 +343,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;__G1A;__G2;__G2A;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;__G1A;__G2;__G2A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -315,6 +355,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
     <ClCompile>
@@ -324,7 +372,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2A;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -336,6 +384,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">
     <ClCompile>
@@ -345,7 +401,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -357,6 +413,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">
     <ClCompile>
@@ -366,7 +430,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1A;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -378,6 +442,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">
     <ClCompile>
@@ -387,7 +459,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -399,6 +471,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DllMain.cpp" />
@@ -406,42 +486,157 @@
     <ClCompile Include="Workspace\Events\Application.cpp" />
     <ClCompile Include="Workspace\Events\CPublisher.cpp" />
     <ClCompile Include="Workspace\Events\CSubscription.cpp" />
-    <ClCompile Include="Workspace\Utility\Engine\CSGGlobal.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Workspace\Utility\Common\CBinSeqGen.cpp" />
     <ClCompile Include="Workspace\Utility\Common\CThreadPool.cpp" />
     <ClCompile Include="Workspace\Utility\Common\Misc.cpp" />
     <ClCompile Include="Workspace\Utility\Common\StringComparer.cpp" />
-    <ClCompile Include="Workspace\Utility\Engine\Misc.cpp">
+    <ClInclude Include="Export.h" />
+    <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.hpp" />
+    <ClInclude Include="Workspace\Utility\Engine\Misc.hpp" />
+    <ClCompile Include="ZenGin\Gothic_II_Addon\ClassDeclarators_G2A.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Addon\Globals_G2A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Addon\Statics_G2A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\ClassDeclarators_G2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\Globals_G2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\Statics_G2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\ClassDeclarators_G1A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\Globals_G1A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\Statics_G1A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\ClassDeclarators_G1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_II_Addon\classDef_Ver3.cpp" />
-    <ClCompile Include="ZenGin\Gothic_II_Addon\staticDef_Ver3.cpp" />
-    <ClCompile Include="ZenGin\Gothic_II_Classic\classDef_Ver2.cpp" />
-    <ClCompile Include="ZenGin\Gothic_II_Classic\staticDef_Ver2.cpp" />
-    <ClCompile Include="ZenGin\Gothic_I_Addon\classDef_Ver1.cpp" />
-    <ClCompile Include="ZenGin\Gothic_I_Addon\staticDef_Ver1.cpp" />
-    <ClCompile Include="ZenGin\Gothic_I_Classic\classDef_Ver0.cpp" />
-    <ClCompile Include="ZenGin\Gothic_I_Classic\staticDef_Ver0.cpp" />
+    <ClCompile Include="ZenGin\Gothic_I_Classic\Globals_G1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\Statics_G1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UnionAfx.h" />
@@ -452,32 +647,32 @@
     <ClInclude Include="Workspace\Events\CPublisher.h" />
     <ClInclude Include="Workspace\Events\CSubscription.h" />
     <ClInclude Include="Workspace\Events\Delegate.h" />
-    <ClInclude Include="Workspace\Settings\CVectorSetting.h" />
-    <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.h" />
     <ClInclude Include="Workspace\Settings\CKeyCombo.h" />
     <ClInclude Include="Workspace\Settings\CKeyHelper.h" />
+    <ClInclude Include="Workspace\Settings\CVectorSetting.h" />
     <ClInclude Include="Workspace\Settings\Serializing.h" />
     <ClInclude Include="Workspace\Settings\Settings.h" />
     <ClInclude Include="Workspace\Settings\SingleOption.h" />
     <ClInclude Include="Workspace\Utility\Common\CBinSeqGen.h" />
     <ClInclude Include="Workspace\Utility\Common\CMemoryStream.h" />
     <ClInclude Include="Workspace\Utility\Common\CMemPool.h" />
+    <ClInclude Include="Workspace\Utility\Common\Coalesce.h" />
     <ClInclude Include="Workspace\Utility\Common\CThreadPool.h" />
-    <ClInclude Include="Workspace\Utility\Common\Macro.h" />
     <ClInclude Include="Workspace\Utility\Common\Misc.h" />
     <ClInclude Include="Workspace\Utility\Common\StringComparer.h" />
     <ClInclude Include="Workspace\Utility\Common\TScope.h" />
+    <ClInclude Include="Workspace\Utility\Common\VectorOperators.h" />
     <ClInclude Include="Workspace\Utility\Engine\CGridView.h" />
     <ClInclude Include="Workspace\Utility\Engine\COptionInvoke.h" />
     <ClInclude Include="Workspace\Utility\Engine\COptionSubscription.h" />
     <ClInclude Include="Workspace\Utility\Engine\CParserScope.h" />
+    <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.h" />
+    <ClInclude Include="Workspace\Utility\Engine\CSymbol.h" />
     <ClInclude Include="Workspace\Utility\Engine\CVobTraverser.h" />
     <ClInclude Include="Workspace\Utility\Engine\EngineIterators.h" />
     <ClInclude Include="Workspace\Utility\Engine\Misc.h" />
     <ClInclude Include="Workspace\Utility\Engine\PointPath.h" />
     <ClInclude Include="Workspace\Utility\Engine\PushPop.h" />
-    <ClInclude Include="Workspace\Utility\Engine\TPathOverlay.h" />
-    <ClInclude Include="Workspace\Utility\Engine\CSymbol.h" />
     <ClInclude Include="Workspace\Utility\Engine\ZOwner.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\oAiHuman.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\oAiShoot.h" />
@@ -686,8 +881,8 @@
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\zWorld.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\zWorldInfo.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\zZone.h" />
-    <ClInclude Include="ZenGin\Gothic_II_Addon\engineNames_Ver3.hpp" />
-    <ClInclude Include="ZenGin\Gothic_II_Addon\vtable_Ver3.h" />
+    <ClInclude Include="ZenGin\Gothic_II_Addon\Names_G2A.hpp" />
+    <ClInclude Include="ZenGin\Gothic_II_Addon\VFTable_G2A.h" />
     <ClInclude Include="ZenGin\Gothic_II_Classic\API\oAiHuman.h" />
     <ClInclude Include="ZenGin\Gothic_II_Classic\API\oAiShoot.h" />
     <ClInclude Include="ZenGin\Gothic_II_Classic\API\oAniCtrl.h" />
@@ -894,8 +1089,8 @@
     <ClInclude Include="ZenGin\Gothic_II_Classic\API\zWorld.h" />
     <ClInclude Include="ZenGin\Gothic_II_Classic\API\zWorldInfo.h" />
     <ClInclude Include="ZenGin\Gothic_II_Classic\API\zZone.h" />
-    <ClInclude Include="ZenGin\Gothic_II_Classic\engineNames_Ver2.hpp" />
-    <ClInclude Include="ZenGin\Gothic_II_Classic\vtable_Ver2.h" />
+    <ClInclude Include="ZenGin\Gothic_II_Classic\Names_G2.hpp" />
+    <ClInclude Include="ZenGin\Gothic_II_Classic\VFTable_G2.h" />
     <ClInclude Include="ZenGin\Gothic_I_Addon\API\oAiHuman.h" />
     <ClInclude Include="ZenGin\Gothic_I_Addon\API\oAiShoot.h" />
     <ClInclude Include="ZenGin\Gothic_I_Addon\API\oAniCtrl.h" />
@@ -1100,8 +1295,8 @@
     <ClInclude Include="ZenGin\Gothic_I_Addon\API\zWorld.h" />
     <ClInclude Include="ZenGin\Gothic_I_Addon\API\zWorldInfo.h" />
     <ClInclude Include="ZenGin\Gothic_I_Addon\API\zZone.h" />
-    <ClInclude Include="ZenGin\Gothic_I_Addon\engineNames_Ver1.hpp" />
-    <ClInclude Include="ZenGin\Gothic_I_Addon\vtable_Ver1.h" />
+    <ClInclude Include="ZenGin\Gothic_I_Addon\Names_G1A.hpp" />
+    <ClInclude Include="ZenGin\Gothic_I_Addon\VFTable_G1A.h" />
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\oAiHuman.h" />
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\oAiShoot.h" />
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\oAniCtrl.h" />
@@ -1310,13 +1505,12 @@
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\zWorld.h" />
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\zWorldInfo.h" />
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\zZone.h" />
-    <ClInclude Include="ZenGin\Gothic_I_Classic\engineNames_Ver0.hpp" />
-    <ClInclude Include="ZenGin\Gothic_I_Classic\vtable_Ver0.h" />
+    <ClInclude Include="ZenGin\Gothic_I_Classic\Names_G1.hpp" />
+    <ClInclude Include="ZenGin\Gothic_I_Classic\VFTable_G1.h" />
     <ClInclude Include="ZenGin\zGothicAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".build_settings.inl" />
-    <None Include="cpp.hint" />
     <None Include="Workspace\Assembly\Union_QuickLoot.patch" />
     <None Include="ZenGin\Gothic_UserAPI\CGameManager.inl" />
     <None Include="ZenGin\Gothic_UserAPI\oCAIArrow.inl" />
@@ -1584,6 +1778,7 @@
     <None Include="ZenGin\Gothic_UserAPI\zCLightMap.inl" />
     <None Include="ZenGin\Gothic_UserAPI\zCLightning.inl" />
     <None Include="ZenGin\Gothic_UserAPI\zCLightning_zCBolt.inl" />
+    <None Include="ZenGin\Gothic_UserAPI\zCLine2D.inl" />
     <None Include="ZenGin\Gothic_UserAPI\zCLineCache.inl" />
     <None Include="ZenGin\Gothic_UserAPI\zCLineCache_zTCacheEntry.inl" />
     <None Include="ZenGin\Gothic_UserAPI\zCList.inl" />
@@ -1947,58 +2142,52 @@
   </ImportGroup>
   <ItemDefinitionGroup>
     <CustomBuildStep>
-      <Command>forfiles /p $(ProjectDir) /m *.patch /s /c "cmd /c copy @path $(TargetDir)"</Command>
+      <Command>forfiles /p $(ProjectDir) /m *.patch /s /c "cmd /c copy @path $(TargetDir)\"</Command>
       <Outputs>NOT_EXISTING_FILE</Outputs>
     </CustomBuildStep>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
+    <Link>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ManifestFile Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">$(IntDir)$(TargetName)$(TargetExt).intermediate.manifest</ManifestFile>
+    </Link>
   </ItemDefinitionGroup>
 </Project>

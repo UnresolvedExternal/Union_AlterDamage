@@ -477,6 +477,19 @@ namespace Gothic_II_Classic {
     #include "zCPortal.inl"
   };
 
+  inline void GetProjection( int& x, int& y, zVEC3 v ) {
+    float fPixelPosX = FLT_MAX;
+    float fPixelPosY = FLT_MAX;
+    zCCamera* pCamera = zCCamera::activeCam;
+    pCamera->Activate();
+    zVEC3 vec = pCamera->camMatrix * v;
+    if( vec[2] > 0 )
+      pCamera->Project( &vec, fPixelPosX, fPixelPosY );
+
+    x = screen->anx( fPixelPosX );
+    y = screen->any( fPixelPosY );
+  }
+
 } // namespace Gothic_II_Classic
 
 #endif // __Z3D_H__VER2__

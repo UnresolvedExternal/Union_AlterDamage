@@ -3,6 +3,9 @@
 #define Engine_G2 3
 #define Engine_G2A 4
 
+#undef min
+#undef max
+
 #define CHECK_THIS_ENGINE ((ENGINE) == Union.GetEngineVersion())
 #define PLUGIN_NAME "Union_QuickLoot"
 

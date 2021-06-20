@@ -1,3 +1,5 @@
+#include <unordered_map>
+
 namespace NAMESPACE
 {
 	class CSGGlobal

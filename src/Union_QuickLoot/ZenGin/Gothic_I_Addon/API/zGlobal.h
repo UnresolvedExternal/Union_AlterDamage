@@ -6,7 +6,7 @@
 namespace Gothic_I_Addon {
   extern zCEngine*&             zengine;
   extern zCOption*&             zoptions;
-  //                            zgameoptions;
+  extern zCOption*&             zgameoptions;
   extern zCTimer*               ztimer;
   extern oCGame*&               ogame;
   extern zCInput*&              zinput;
@@ -136,12 +136,18 @@ namespace Gothic_I_Addon {
     }
   }
   
-  uint ASTAPI FindEngineAddress( string from, string to );
+  uint ASTAPI FindEngineAddress( CStringA from, CStringA to );
 
   template <typename T>
-  inline CInvoke<T> InvokeAuto_BySignature( const string& sig, T ptr, const uint32& flag = IVK_AUTO ) {
+  inline CInvoke<T> InvokeAuto_BySignature( const CStringA& sig, T ptr, const uint32& flag = IVK_AUTO ) {
     uint adr = FindEngineAddress( sig, typeid( ptr ).name() );
     return CInvoke<T>( adr, ptr, flag );
+  }
+
+  template <typename T>
+  inline ModulePatchCallInvoker<T> AutoModulePatchCallInvoker_BySignature( const CStringA& sig, T ptr ) {
+    uint adr = FindEngineAddress( sig, typeid(ptr).name() );
+    return ModulePatchCallInvoker<T>( adr, ptr );
   }
 
 } // namespace Gothic_II_Addon

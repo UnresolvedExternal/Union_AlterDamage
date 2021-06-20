@@ -1,4 +1,5 @@
 #include "CSubscription.h"
+#include "Workspace\Utility\Common\VectorOperators.h"
 
 MEMPOOL_DEF(CSubscription)
 

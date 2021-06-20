@@ -240,6 +240,12 @@ namespace Gothic_I_Addon {
     #include "zCView.inl"
   };
 
+  extern zCView*& screen;
+  inline int PixelToVirtualX( int x ) { return screen->anx( x ); }
+  inline int PixelToVirtualY( int y ) { return screen->any( y ); }
+  inline int VirtualToPixelX( int x ) { return screen->nax( x ); }
+  inline int VirtualToPixelY( int y ) { return screen->nay( y ); }
+
 } // namespace Gothic_I_Addon
 
 #endif // __ZVIEW_H__VER1__

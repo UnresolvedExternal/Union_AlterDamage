@@ -2,7 +2,8 @@ namespace NAMESPACE
 {
 	namespace
 	{
-		inline void Release(zCObject* pointer)
+		template <class T>
+		inline void Release(T pointer)
 		{
 			pointer->Release();
 		}

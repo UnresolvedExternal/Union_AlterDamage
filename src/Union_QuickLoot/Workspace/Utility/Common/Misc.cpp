@@ -1,12 +1,7 @@
 #include "Misc.h"
 
-bool Intersects(const tagRECT& a, const tagRECT& b)
-{
-	return (a.left <= b.right &&
-		b.left <= a.right &&
-		a.top <= b.bottom &&
-		b.top <= a.bottom);
-}
+#undef min
+#undef max
 
 typedef void(*TParseExternalScript)(string parser, string script);
 TParseExternalScript parseExternalScript;
@@ -29,17 +24,6 @@ void ParseExternalScript(const string& parser, const string& path)
 	}
 
 	parseExternalScript(parser, path);
-}
-
-std::vector<string> SearchByRegex(const string& text, const string& re)
-{
-	std::vector<string> matches;
-	std::regex exp(re.GetVector());
-
-	for (auto it = std::cregex_iterator(text.GetVector(), text.GetVector() + text.Length(), exp); it != std::cregex_iterator(); it++)
-		matches.push_back(it->str().c_str());
-
-	return matches;
 }
 
 bool TryParse(const string& line, int& number)
@@ -76,7 +60,7 @@ bool TryParse(const string& line, int& number)
 	return true;
 }
 
-bool TryParse(const string & line, float& number)
+bool TryParse(const string& line, float& number)
 {
 	if (!line.Length())
 		return false;
@@ -122,7 +106,7 @@ bool TryParse(const string & line, float& number)
 			return false;
 	}
 
-	number = value;
+	number = (float)value;
 	return true;
 }
 

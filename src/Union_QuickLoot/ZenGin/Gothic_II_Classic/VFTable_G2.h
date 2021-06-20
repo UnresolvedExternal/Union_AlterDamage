@@ -1,12 +1,13 @@
 // Supported with union (c) 2018 Union team
 
-#ifndef __VFTABLE_STRUCTS_H__VER0__
-#define __VFTABLE_STRUCTS_H__VER0__
+#ifdef __G2
+#ifndef __VFTABLE_STRUCTS_H__VER2__
+#define __VFTABLE_STRUCTS_H__VER2__
 
 // permanent memory unlocker
 #define MemUnlock static SystemPack::TMemUnlocker unlocker( (void*)GetAddress(), GetFuncsNum() * 4, True )
 
-namespace Gothic_I_Classic {
+namespace Gothic_II_Classic {
   struct vfunc {
     union {
       uint address;
@@ -37,7 +38,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D06E8;
+      return 0x008206F0;
     }
 
     static uint GetFuncsNum() {
@@ -53,39 +54,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCCSCamera_EventMsgActivate {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCCSCamera_EventMsgActivate  ?_GetClassDef@zCCSCamera_EventMsgActivate@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCCSCamera_EventMsgActivate  ?Archive@zCCSCamera_EventMsgActivate@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCCSCamera_EventMsgActivate  ?Unarchive@zCCSCamera_EventMsgActivate@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_vector_destructor;   // from base                         
-        vfunc f04_IsOverlay;           // from zCEventMessage               ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage               ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage               ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage               ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCCSCamera_EventMsgActivate  ?Delete@zCCSCamera_EventMsgActivate@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage               ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCCSCamera_EventMsgActivate  ?IsDeleted@zCCSCamera_EventMsgActivate@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage               ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage               ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCCSCamera_EventMsgActivate  ?MD_GetNumOfSubTypes@zCCSCamera_EventMsgActivate@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCCSCamera_EventMsgActivate  ?MD_GetSubTypeString@zCCSCamera_EventMsgActivate@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCCSCamera_EventMsgActivate  ?MD_GetVobRefName@zCCSCamera_EventMsgActivate@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCCSCamera_EventMsgActivate  ?MD_SetVobRefName@zCCSCamera_EventMsgActivate@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCCSCamera_EventMsgActivate  ?MD_SetVobParam@zCCSCamera_EventMsgActivate@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage               ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage               ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage               ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage               ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCCSCamera_EventMsgActivate  ?_GetClassDef@zCCSCamera_EventMsgActivate@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCCSCamera_EventMsgActivate  ?Archive@zCCSCamera_EventMsgActivate@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCCSCamera_EventMsgActivate  ?Unarchive@zCCSCamera_EventMsgActivate@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_vector_destructor;     // from base                         
+        vfunc f04_IsOverlay;             // from zCEventMessage               ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage               ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage               ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage               ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage               ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCCSCamera_EventMsgActivate  ?Delete@zCCSCamera_EventMsgActivate@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage               ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCCSCamera_EventMsgActivate  ?IsDeleted@zCCSCamera_EventMsgActivate@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage               ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage               ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCCSCamera_EventMsgActivate  ?MD_GetNumOfSubTypes@zCCSCamera_EventMsgActivate@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCCSCamera_EventMsgActivate  ?MD_GetSubTypeString@zCCSCamera_EventMsgActivate@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCCSCamera_EventMsgActivate  ?MD_GetVobRefName@zCCSCamera_EventMsgActivate@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCCSCamera_EventMsgActivate  ?MD_SetVobRefName@zCCSCamera_EventMsgActivate@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCCSCamera_EventMsgActivate  ?MD_SetVobParam@zCCSCamera_EventMsgActivate@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage               ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage               ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage               ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage               ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D06F4;
+      return 0x008206FC;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCCSCamera_EventMsgActivate& GetTable() {
@@ -97,39 +99,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCEventMessage {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEventMessage  ?_GetClassDef@zCEventMessage@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventMessage  ?MD_GetNumOfSubTypes@zCEventMessage@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventMessage  ?MD_GetSubTypeString@zCEventMessage@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEventMessage  ?_GetClassDef@zCEventMessage@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage  ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventMessage  ?MD_GetNumOfSubTypes@zCEventMessage@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventMessage  ?MD_GetSubTypeString@zCEventMessage@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D0754;
+      return 0x0082075C;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEventMessage& GetTable() {
@@ -141,39 +144,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCEventCore {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEventCore     ?_GetClassDef@zCEventCore@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventCore     ?Archive@zCEventCore@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventCore     ?Unarchive@zCEventCore@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventCore     ?IsNetRelevant@zCEventCore@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventCore     ?MD_GetNumOfSubTypes@zCEventCore@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventCore     ?MD_GetSubTypeString@zCEventCore@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventCore     ?Pack@zCEventCore@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventCore     ?Unpack@zCEventCore@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEventCore     ?_GetClassDef@zCEventCore@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventCore     ?Archive@zCEventCore@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventCore     ?Unarchive@zCEventCore@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventCore     ?IsNetRelevant@zCEventCore@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage  ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventCore     ?MD_GetNumOfSubTypes@zCEventCore@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventCore     ?MD_GetSubTypeString@zCEventCore@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventCore     ?Pack@zCEventCore@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventCore     ?Unpack@zCEventCore@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D07B4;
+      return 0x008207BC;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEventCore& GetTable() {
@@ -222,7 +226,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0814;
+      return 0x0082081C;
     }
 
     static uint GetFuncsNum() {
@@ -248,7 +252,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0894;
+      return 0x0082089C;
     }
 
     static uint GetFuncsNum() {
@@ -278,7 +282,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D08CC;
+      return 0x008208DC;
     }
 
     static uint GetFuncsNum() {
@@ -321,7 +325,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D08F4;
+      return 0x00820904;
     }
 
     static uint GetFuncsNum() {
@@ -354,7 +358,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0958;
+      return 0x00820970;
     }
 
     static uint GetFuncsNum() {
@@ -407,7 +411,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0994;
+      return 0x008209B4;
     }
 
     static uint GetFuncsNum() {
@@ -482,7 +486,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0A24;
+      return 0x00820A4C;
     }
 
     static uint GetFuncsNum() {
@@ -528,7 +532,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0B2C;
+      return 0x00820B5C;
     }
 
     static uint GetFuncsNum() {
@@ -574,7 +578,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0B94;
+      return 0x00820BC4;
     }
 
     static uint GetFuncsNum() {
@@ -620,7 +624,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0BFC;
+      return 0x00820C2C;
     }
 
     static uint GetFuncsNum() {
@@ -643,16 +647,16 @@ namespace Gothic_I_Classic {
         vfunc f02_Unarchive;         // from zCCSBlockBase  ?Unarchive@zCCSBlockBase@@MAEXAAVzCArchiver@@@Z
         vfunc f03_scalar_destructor; // from base           
         vfunc f04_GetChild;          // from zCCSBlockBase  ?GetChild@zCCSBlockBase@@UAEPAV1@H@Z
-        vfunc f05_OrganizeRoles;     // from base           purecall
+        vfunc f05_OrganizeRoles;     // from this           purecall
         vfunc f06_GetRoleName;       // from zCCSBlockBase  ?GetRoleName@zCCSBlockBase@@UAE?AVzSTRING@@XZ
         vfunc f07_SetRoleName;       // from zCCSBlockBase  ?SetRoleName@zCCSBlockBase@@UAEXAAVzSTRING@@@Z
-        vfunc f08_Play;              // from base           purecall
-        vfunc f09_Play;              // from base           purecall
-        vfunc f10_Play;              // from base           purecall
-        vfunc f11_Play;              // from base           purecall
-        vfunc f12_GetMinTime;        // from base           purecall
-        vfunc f13_IsFinished;        // from base           purecall
-        vfunc f14_IsFinished;        // from base           purecall
+        vfunc f08_Play;              // from this           purecall
+        vfunc f09_Play;              // from this           purecall
+        vfunc f10_Play;              // from this           purecall
+        vfunc f11_Play;              // from this           purecall
+        vfunc f12_GetMinTime;        // from this           purecall
+        vfunc f13_IsFinished;        // from this           purecall
+        vfunc f14_IsFinished;        // from this           purecall
         vfunc f15_GetCommand;        // from zCCSBlockBase  ?GetCommand@zCCSBlockBase@@UAEPAVzCEventMessage@@XZ
         vfunc f16_NewBlock;          // from zCCSBlockBase  ?NewBlock@zCCSBlockBase@@UAEHHH@Z
         vfunc f17_InsertBlock;       // from zCCSBlockBase  ?InsertBlock@zCCSBlockBase@@UAEXPAV1@H@Z
@@ -666,7 +670,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0C64;
+      return 0x00820C94;
     }
 
     static uint GetFuncsNum() {
@@ -689,7 +693,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0CC8;
+      return 0x00820CF8;
     }
 
     static uint GetFuncsNum() {
@@ -715,7 +719,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0CD0;
+      return 0x00820D00;
     }
 
     static uint GetFuncsNum() {
@@ -731,39 +735,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCEvMsgCutscene {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEvMsgCutscene  ?_GetClassDef@zCEvMsgCutscene@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventMessage   ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventMessage   ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base             
-        vfunc f04_IsOverlay;           // from zCEventMessage   ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage   ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEvMsgCutscene  ?IsHighPriority@zCEvMsgCutscene@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage   ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEvMsgCutscene  ?Delete@zCEvMsgCutscene@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage   ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEvMsgCutscene  ?IsDeleted@zCEvMsgCutscene@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage   ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage   ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEvMsgCutscene  ?MD_GetNumOfSubTypes@zCEvMsgCutscene@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEvMsgCutscene  ?MD_GetSubTypeString@zCEvMsgCutscene@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage   ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage   ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage   ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage   ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage   ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage   ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage   ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEvMsgCutscene  ?_GetClassDef@zCEvMsgCutscene@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventMessage   ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventMessage   ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base             
+        vfunc f04_IsOverlay;             // from zCEventMessage   ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage   ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEvMsgCutscene  ?IsHighPriority@zCEvMsgCutscene@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage   ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage   ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEvMsgCutscene  ?Delete@zCEvMsgCutscene@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage   ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEvMsgCutscene  ?IsDeleted@zCEvMsgCutscene@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage   ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage   ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEvMsgCutscene  ?MD_GetNumOfSubTypes@zCEvMsgCutscene@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEvMsgCutscene  ?MD_GetSubTypeString@zCEvMsgCutscene@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage   ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage   ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage   ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage   ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage   ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage   ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage   ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D0CE4;
+      return 0x00820D14;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEvMsgCutscene& GetTable() {
@@ -782,7 +787,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0D44;
+      return 0x00820D78;
     }
 
     static uint GetFuncsNum() {
@@ -850,7 +855,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0D54;
+      return 0x00820D8C;
     }
 
     static uint GetFuncsNum() {
@@ -876,7 +881,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0E20;
+      return 0x00820E60;
     }
 
     static uint GetFuncsNum() {
@@ -929,7 +934,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0E44;
+      return 0x00820E8C;
     }
 
     static uint GetFuncsNum() {
@@ -959,7 +964,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0ED0;
+      return 0x00820F20;
     }
 
     static uint GetFuncsNum() {
@@ -1002,7 +1007,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0EF4;
+      return 0x00820F44;
     }
 
     static uint GetFuncsNum() {
@@ -1032,7 +1037,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0F4C;
+      return 0x00820F9C;
     }
 
     static uint GetFuncsNum() {
@@ -1058,7 +1063,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0F80;
+      return 0x00820FD8;
     }
 
     static uint GetFuncsNum() {
@@ -1082,7 +1087,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0F94;
+      return 0x00820FEC;
     }
 
     static uint GetFuncsNum() {
@@ -1114,7 +1119,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0FAC;
+      return 0x0082100C;
     }
 
     static uint GetFuncsNum() {
@@ -1151,7 +1156,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D0FDC;
+      return 0x00821044;
     }
 
     static uint GetFuncsNum() {
@@ -1185,7 +1190,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D102C;
+      return 0x0082109C;
     }
 
     static uint GetFuncsNum() {
@@ -1209,7 +1214,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1078;
+      return 0x008210EC;
     }
 
     static uint GetFuncsNum() {
@@ -1233,7 +1238,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1084;
+      return 0x008210F8;
     }
 
     static uint GetFuncsNum() {
@@ -1271,7 +1276,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1094;
+      return 0x00821104;
     }
 
     static uint GetFuncsNum() {
@@ -1307,7 +1312,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D10D8;
+      return 0x00821148;
     }
 
     static uint GetFuncsNum() {
@@ -1349,7 +1354,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D115C;
+      return 0x008211EC;
     }
 
     static uint GetFuncsNum() {
@@ -1385,7 +1390,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D11D8;
+      return 0x00821278;
     }
 
     static uint GetFuncsNum() {
@@ -1411,7 +1416,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D122C;
+      return 0x008212D8;
     }
 
     static uint GetFuncsNum() {
@@ -1434,7 +1439,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1240;
+      return 0x008212EC;
     }
 
     static uint GetFuncsNum() {
@@ -1460,7 +1465,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D124C;
+      return 0x00821300;
     }
 
     static uint GetFuncsNum() {
@@ -1513,7 +1518,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D12CC;
+      return 0x00821384;
     }
 
     static uint GetFuncsNum() {
@@ -1566,7 +1571,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D134C;
+      return 0x00821404;
     }
 
     static uint GetFuncsNum() {
@@ -1616,7 +1621,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D13CC;
+      return 0x00821484;
     }
 
     static uint GetFuncsNum() {
@@ -1639,7 +1644,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1458;
+      return 0x00821520;
     }
 
     static uint GetFuncsNum() {
@@ -1655,7 +1660,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewStatusBar_for_zCViewBase {
     union {
-      vfunc array[14];
+      vfunc array[16];
       group {
         vfunc f00_anx;               // from zCView           ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView           ?any@zCView@@UAEHH@Z
@@ -1664,22 +1669,24 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView           ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView           ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView           ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView           ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base             
-        vfunc f09_Blit;              // from zCView           ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView           ?DrawItems@zCView@@UAEXXZ
-        vfunc f11_SetMaxRange;       // from oCViewStatusBar  ?SetMaxRange@oCViewStatusBar@@UAEXMM@Z
-        vfunc f12_SetRange;          // from oCViewStatusBar  ?SetRange@oCViewStatusBar@@UAEXMM@Z
-        vfunc f13_SetValue;          // from oCViewStatusBar  ?SetValue@oCViewStatusBar@@UAEXM@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase       ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView           ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base             
+        vfunc f10_Blit;              // from zCView           ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView           ?DrawItems@zCView@@UAEXXZ
+        vfunc f12_SetMaxRange;       // from oCViewStatusBar  ?SetMaxRange@oCViewStatusBar@@UAEXMM@Z
+        vfunc f13_SetRange;          // from oCViewStatusBar  ?SetRange@oCViewStatusBar@@UAEXMM@Z
+        vfunc f14_SetPreview;        // from oCViewStatusBar  ?SetPreview@oCViewStatusBar@@UAEXM@Z
+        vfunc f15_SetValue;          // from oCViewStatusBar  ?SetValue@oCViewStatusBar@@UAEXM@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D1460;
+      return 0x0082152C;
     }
 
     static uint GetFuncsNum() {
-      return 14;
+      return 16;
     }
 
     static vftable_oCViewStatusBar_for_zCViewBase& GetTable() {
@@ -1712,7 +1719,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D14B4;
+      return 0x00821594;
     }
 
     static uint GetFuncsNum() {
@@ -1735,7 +1742,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1508;
+      return 0x008215F0;
     }
 
     static uint GetFuncsNum() {
@@ -1815,7 +1822,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1534;
+      return 0x0082161C;
     }
 
     static uint GetFuncsNum() {
@@ -1898,7 +1905,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1624;
+      return 0x0082170C;
     }
 
     static uint GetFuncsNum() {
@@ -1921,7 +1928,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1724;
+      return 0x0082180C;
     }
 
     static uint GetFuncsNum() {
@@ -1944,7 +1951,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D172C;
+      return 0x00821814;
     }
 
     static uint GetFuncsNum() {
@@ -1967,7 +1974,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1834;
+      return 0x00821924;
     }
 
     static uint GetFuncsNum() {
@@ -2050,7 +2057,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D183C;
+      return 0x0082192C;
     }
 
     static uint GetFuncsNum() {
@@ -2084,7 +2091,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1940;
+      return 0x00821A38;
     }
 
     static uint GetFuncsNum() {
@@ -2107,7 +2114,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1980;
+      return 0x00821A80;
     }
 
     static uint GetFuncsNum() {
@@ -2130,7 +2137,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1988;
+      return 0x00821A88;
     }
 
     static uint GetFuncsNum() {
@@ -2180,7 +2187,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D19C4;
+      return 0x00821ACC;
     }
 
     static uint GetFuncsNum() {
@@ -2203,7 +2210,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1A44;
+      return 0x00821B54;
     }
 
     static uint GetFuncsNum() {
@@ -2233,7 +2240,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1A58;
+      return 0x00821B70;
     }
 
     static uint GetFuncsNum() {
@@ -2256,7 +2263,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1A88;
+      return 0x00821BA8;
     }
 
     static uint GetFuncsNum() {
@@ -2279,7 +2286,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1A90;
+      return 0x00821BB0;
     }
 
     static uint GetFuncsNum() {
@@ -2308,7 +2315,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1A98;
+      return 0x00821BB8;
     }
 
     static uint GetFuncsNum() {
@@ -2344,7 +2351,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1AC4;
+      return 0x00821BEC;
     }
 
     static uint GetFuncsNum() {
@@ -2367,7 +2374,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1B08;
+      return 0x00821C30;
     }
 
     static uint GetFuncsNum() {
@@ -2390,7 +2397,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1B20;
+      return 0x00821C50;
     }
 
     static uint GetFuncsNum() {
@@ -2424,7 +2431,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1B34;
+      return 0x00821C6C;
     }
 
     static uint GetFuncsNum() {
@@ -2448,7 +2455,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1B68;
+      return 0x00821CA0;
     }
 
     static uint GetFuncsNum() {
@@ -2473,7 +2480,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1B74;
+      return 0x00821CAC;
     }
 
     static uint GetFuncsNum() {
@@ -2497,7 +2504,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1D90;
+      return 0x00821ED0;
     }
 
     static uint GetFuncsNum() {
@@ -2533,7 +2540,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1D9C;
+      return 0x00821EDC;
     }
 
     static uint GetFuncsNum() {
@@ -2556,7 +2563,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1DDC;
+      return 0x00821F24;
     }
 
     static uint GetFuncsNum() {
@@ -2572,7 +2579,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewProgressBar_for_zCViewBase {
     union {
-      vfunc array[14];
+      vfunc array[15];
       group {
         vfunc f00_anx;               // from zCView             ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView             ?any@zCView@@UAEHH@Z
@@ -2581,22 +2588,23 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView             ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView             ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView             ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView             ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base               
-        vfunc f09_Blit;              // from zCView             ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView             ?DrawItems@zCView@@UAEXXZ
-        vfunc f11_Init;              // from zCViewProgressBar  ?Init@zCViewProgressBar@@UAEXXZ
-        vfunc f12_HandleChange;      // from zCViewProgressBar  ?HandleChange@zCViewProgressBar@@UAEXXZ
-        vfunc f13_Draw;              // from zCViewProgressBar  ?Draw@zCViewProgressBar@@UAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase         ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView             ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base               
+        vfunc f10_Blit;              // from zCView             ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView             ?DrawItems@zCView@@UAEXXZ
+        vfunc f12_Init;              // from zCViewProgressBar  ?Init@zCViewProgressBar@@UAEXXZ
+        vfunc f13_HandleChange;      // from zCViewProgressBar  ?HandleChange@zCViewProgressBar@@UAEXXZ
+        vfunc f14_Draw;              // from zCViewProgressBar  ?Draw@zCViewProgressBar@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D1DE4;
+      return 0x00821F2C;
     }
 
     static uint GetFuncsNum() {
-      return 14;
+      return 15;
     }
 
     static vftable_zCViewProgressBar_for_zCViewBase& GetTable() {
@@ -2615,7 +2623,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1E24;
+      return 0x00821F78;
     }
 
     static uint GetFuncsNum() {
@@ -2631,7 +2639,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewStatusBar_for_zCViewBase {
     union {
-      vfunc array[14];
+      vfunc array[16];
       group {
         vfunc f00_anx;               // from zCView           ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView           ?any@zCView@@UAEHH@Z
@@ -2640,22 +2648,24 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView           ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView           ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView           ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView           ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base             
-        vfunc f09_Blit;              // from zCView           ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView           ?DrawItems@zCView@@UAEXXZ
-        vfunc f11_SetMaxRange;       // from zCViewStatusBar  ?SetMaxRange@zCViewStatusBar@@UAEXMM@Z
-        vfunc f12_SetRange;          // from zCViewStatusBar  ?SetRange@zCViewStatusBar@@UAEXMM@Z
-        vfunc f13_SetValue;          // from zCViewStatusBar  ?SetValue@zCViewStatusBar@@UAEXM@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase       ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView           ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base             
+        vfunc f10_Blit;              // from zCView           ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView           ?DrawItems@zCView@@UAEXXZ
+        vfunc f12_SetMaxRange;       // from zCViewStatusBar  ?SetMaxRange@zCViewStatusBar@@UAEXMM@Z
+        vfunc f13_SetRange;          // from zCViewStatusBar  ?SetRange@zCViewStatusBar@@UAEXMM@Z
+        vfunc f14_SetPreview;        // from zCViewStatusBar  ?SetPreview@zCViewStatusBar@@UAEXM@Z
+        vfunc f15_SetValue;          // from zCViewStatusBar  ?SetValue@zCViewStatusBar@@UAEXM@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D1E2C;
+      return 0x00821F84;
     }
 
     static uint GetFuncsNum() {
-      return 14;
+      return 16;
     }
 
     static vftable_zCViewStatusBar_for_zCViewBase& GetTable() {
@@ -2674,7 +2684,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1E74;
+      return 0x00821FDC;
     }
 
     static uint GetFuncsNum() {
@@ -2714,7 +2724,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1F24;
+      return 0x008220B4;
     }
 
     static uint GetFuncsNum() {
@@ -2754,7 +2764,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1F74;
+      return 0x00822104;
     }
 
     static uint GetFuncsNum() {
@@ -2794,7 +2804,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D1FD4;
+      return 0x0082216C;
     }
 
     static uint GetFuncsNum() {
@@ -2834,7 +2844,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2024;
+      return 0x008221BC;
     }
 
     static uint GetFuncsNum() {
@@ -2857,7 +2867,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2070;
+      return 0x00822208;
     }
 
     static uint GetFuncsNum() {
@@ -2880,7 +2890,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2078;
+      return 0x00822210;
     }
 
     static uint GetFuncsNum() {
@@ -2903,7 +2913,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2080;
+      return 0x00822218;
     }
 
     static uint GetFuncsNum() {
@@ -2929,7 +2939,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D20B8;
+      return 0x00822260;
     }
 
     static uint GetFuncsNum() {
@@ -2945,7 +2955,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCVisualFX {
     union {
-      vfunc array[73];
+      vfunc array[75];
       group {
         vfunc f00_GetClassDef;               // from oCVisualFX  ?_GetClassDef@oCVisualFX@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                   // from oCVisualFX  ?Archive@oCVisualFX@@UAEXAAVzCArchiver@@@Z
@@ -3014,21 +3024,23 @@ namespace Gothic_I_Classic {
         vfunc f64_GetSpellType;              // from oCVisualFX  ?GetSpellType@oCVisualFX@@UBEHXZ
         vfunc f65_GetSpellTargetTypes;       // from oCVisualFX  ?GetSpellTargetTypes@oCVisualFX@@UBEHXZ
         vfunc f66_SetSpellTargetTypes;       // from oCVisualFX  ?SetSpellTargetTypes@oCVisualFX@@UAEXH@Z
-        vfunc f67_GetIsProjectile;           // from oCVisualFX  ?GetIsProjectile@oCVisualFX@@UAEHXZ
-        vfunc f68_SetIsProjectile;           // from oCVisualFX  ?SetIsProjectile@oCVisualFX@@UAEXH@Z
-        vfunc f69_SetVisualByString;         // from oCVisualFX  ?SetVisualByString@oCVisualFX@@MAEXABVzSTRING@@@Z
-        vfunc f70_CalcTrajectory;            // from oCVisualFX  ?CalcTrajectory@oCVisualFX@@MAEXABH@Z
-        vfunc f71_Collide;                   // from oCVisualFX  ?Collide@oCVisualFX@@MAEXH@Z
-        vfunc f72_CollisionResponse;         // from oCVisualFX  ?CollisionResponse@oCVisualFX@@MAEXABVzVEC3@@H@Z
+        vfunc f67_GetSendsAssessMagic;       // from oCVisualFX  ?GetSendsAssessMagic@oCVisualFX@@UAEHXZ
+        vfunc f68_SetSendsAssessMagic;       // from oCVisualFX  ?SetSendsAssessMagic@oCVisualFX@@UAEXH@Z
+        vfunc f69_GetIsProjectile;           // from oCVisualFX  ?GetIsProjectile@oCVisualFX@@UAEHXZ
+        vfunc f70_SetIsProjectile;           // from oCVisualFX  ?SetIsProjectile@oCVisualFX@@UAEXH@Z
+        vfunc f71_SetVisualByString;         // from oCVisualFX  ?SetVisualByString@oCVisualFX@@MAEXABVzSTRING@@@Z
+        vfunc f72_CalcTrajectory;            // from oCVisualFX  ?CalcTrajectory@oCVisualFX@@MAEXABH@Z
+        vfunc f73_Collide;                   // from oCVisualFX  ?Collide@oCVisualFX@@MAEXH@Z
+        vfunc f74_CollisionResponse;         // from oCVisualFX  ?CollisionResponse@oCVisualFX@@MAEXABVzVEC3@@H@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2104;
+      return 0x0082229C;
     }
 
     static uint GetFuncsNum() {
-      return 73;
+      return 75;
     }
 
     static vftable_oCVisualFX& GetTable() {
@@ -3074,7 +3086,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D222C;
+      return 0x008223CC;
     }
 
     static uint GetFuncsNum() {
@@ -3107,7 +3119,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D22A0;
+      return 0x00822440;
     }
 
     static uint GetFuncsNum() {
@@ -3140,7 +3152,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D22D0;
+      return 0x00822470;
     }
 
     static uint GetFuncsNum() {
@@ -3154,104 +3166,9 @@ namespace Gothic_I_Classic {
   };
 
 
-  struct vftable_oCVisFX_Lightning {
-    union {
-      vfunc array[73];
-      group {
-        vfunc f00_GetClassDef;               // from oCVisFX_Lightning  ?_GetClassDef@oCVisFX_Lightning@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;                   // from oCVisualFX         ?Archive@oCVisualFX@@UAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;                 // from oCVisualFX         ?Unarchive@oCVisualFX@@UAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;         // from base               
-        vfunc f04_OnTrigger;                 // from zCVob              ?OnTrigger@zCVob@@UAEXPAV1@0@Z
-        vfunc f05_OnUntrigger;               // from zCVob              ?OnUntrigger@zCVob@@UAEXPAV1@0@Z
-        vfunc f06_OnTouch;                   // from zCVob              ?OnTouch@zCVob@@UAEXPAV1@@Z
-        vfunc f07_OnUntouch;                 // from zCVob              ?OnUntouch@zCVob@@UAEXPAV1@@Z
-        vfunc f08_OnTouchLevel;              // from zCVob              ?OnTouchLevel@zCVob@@UAEXXZ
-        vfunc f09_OnDamage;                  // from zCVob              ?OnDamage@zCVob@@UAEXPAV1@0MHABVzVEC3@@@Z
-        vfunc f10_OnMessage;                 // from zCVob              ?OnMessage@zCVob@@UAEXPAVzCEventMessage@@PAV1@@Z
-        vfunc f11_OnTick;                    // from oCVisFX_Lightning  ?OnTick@oCVisFX_Lightning@@UAEXXZ
-        vfunc f12_OnTimer;                   // from zCVob              ?OnTimer@zCVob@@UAEXXZ
-        vfunc f13_PostLoad;                  // from zCVob              ?PostLoad@zCVob@@UAEXXZ
-        vfunc f14_GetCharacterClass;         // from zCVob              ?GetCharacterClass@zCVob@@UAE?AW4zTVobCharClass@1@XZ
-        vfunc f15_SetSleepingMode;           // from zCVob              ?SetSleepingMode@zCVob@@UAEXW4zTVobSleepingMode@@@Z
-        vfunc f16_EndMovement;               // from zCVob              ?EndMovement@zCVob@@UAEXXZ
-        vfunc f17_CanThisCollideWith;        // from oCVisualFX         ?CanThisCollideWith@oCVisualFX@@UAEHPAVzCVob@@@Z
-        vfunc f18_Render;                    // from zCVob              ?Render@zCVob@@UAIHAAUzTRenderContext@@@Z
-        vfunc f19_SetVisual;                 // from zCVob              ?SetVisual@zCVob@@UAEXABVzSTRING@@@Z
-        vfunc f20_SetVisual;                 // from zCVob              ?SetVisual@zCVob@@UAEXPAVzCVisual@@@Z
-        vfunc f21_GetScriptInstance;         // from zCVob              ?GetScriptInstance@zCVob@@UAEHAAPAVzSTRING@@AAH@Z
-        vfunc f22_SetByScriptInstance;       // from zCVob              ?SetByScriptInstance@zCVob@@UAEHPBVzSTRING@@H@Z
-        vfunc f23_GetCSStateFlags;           // from zCVob              ?GetCSStateFlags@zCVob@@UAEHXZ
-        vfunc f24_TraceRay;                  // from zCVob              ?TraceRay@zCVob@@UAEHABVzVEC3@@0HAAUzTTraceRayReport@@@Z
-        vfunc f25_GetTriggerTarget;          // from zCVob              ?GetTriggerTarget@zCVob@@UBEPBVzSTRING@@H@Z
-        vfunc f26_ThisVobAddedToWorld;       // from zCVob              ?ThisVobAddedToWorld@zCVob@@UAEXPAVzCWorld@@@Z
-        vfunc f27_ThisVobRemovedFromWorld;   // from zCVob              ?ThisVobRemovedFromWorld@zCVob@@UAEXPAVzCWorld@@@Z
-        vfunc f28_Open;                      // from oCVisFX_Lightning  ?Open@oCVisFX_Lightning@@UAEXXZ
-        vfunc f29_SetOrigin;                 // from oCVisualFX         ?SetOrigin@oCVisualFX@@UAEXPAVzCVob@@@Z
-        vfunc f30_SetTarget;                 // from oCVisualFX         ?SetTarget@oCVisualFX@@UAEXAAVzVEC3@@@Z
-        vfunc f31_SetTarget;                 // from oCVisualFX         ?SetTarget@oCVisualFX@@UAEXPAVzCVob@@@Z
-        vfunc f32_SetInflictor;              // from oCVisualFX         ?SetInflictor@oCVisualFX@@UAEXPAVzCVob@@@Z
-        vfunc f33_GetOrigin;                 // from oCVisualFX         ?GetOrigin@oCVisualFX@@UAEPAVzCVob@@XZ
-        vfunc f34_GetTarget;                 // from oCVisualFX         ?GetTarget@oCVisualFX@@UAEPAVzCVob@@XZ
-        vfunc f35_GetInflictor;              // from oCVisualFX         ?GetInflictor@oCVisualFX@@UAEPAVzCVob@@XZ
-        vfunc f36_Init;                      // from oCVisFX_Lightning  ?Init@oCVisFX_Lightning@@UAEXABV?$zCArray@PAVzCVob@@@@@Z
-        vfunc f37_Init;                      // from oCVisualFX         ?Init@oCVisualFX@@UAEXPBVzCVob@@00@Z
-        vfunc f38_Init;                      // from oCVisualFX         ?Init@oCVisualFX@@UAEXPBVzCVob@@ABVzVEC3@@@Z
-        vfunc f39_InvestNext;                // from oCVisFX_Lightning  ?InvestNext@oCVisFX_Lightning@@UAEXXZ
-        vfunc f40_SetLevel;                  // from oCVisualFX         ?SetLevel@oCVisualFX@@UAEXH@Z
-        vfunc f41_GetLevel;                  // from oCVisualFX         ?GetLevel@oCVisualFX@@UBEHXZ
-        vfunc f42_Cast;                      // from oCVisFX_Lightning  ?Cast@oCVisFX_Lightning@@UAEXH@Z
-        vfunc f43_Stop;                      // from oCVisFX_Lightning  ?Stop@oCVisFX_Lightning@@UAEXH@Z
-        vfunc f44_Kill;                      // from oCVisualFX         ?Kill@oCVisualFX@@UAEXXZ
-        vfunc f45_Play;                      // from oCVisualFX         ?Play@oCVisualFX@@UAEXMPBVzMAT4@@0@Z
-        vfunc f46_CanBeDeleted;              // from oCVisualFX         ?CanBeDeleted@oCVisualFX@@UAEHXZ
-        vfunc f47_IsFinished;                // from oCVisualFX         ?IsFinished@oCVisualFX@@UAEHXZ
-        vfunc f48_IsLooping;                 // from oCVisualFX         ?IsLooping@oCVisualFX@@UAEHXZ
-        vfunc f49_SetByScript;               // from oCVisualFX         ?SetByScript@oCVisualFX@@UAEXABVzSTRING@@@Z
-        vfunc f50_SetDuration;               // from oCVisualFX         ?SetDuration@oCVisualFX@@UAEXM@Z
-        vfunc f51_Reset;                     // from oCVisualFX         ?Reset@oCVisualFX@@UAEXXZ
-        vfunc f52_ReportCollision;           // from oCVisualFX         ?ReportCollision@oCVisualFX@@UAEXABVzCCollisionReport@@@Z
-        vfunc f53_SetCollisionEnabled;       // from oCVisualFX         ?SetCollisionEnabled@oCVisualFX@@UAEXH@Z
-        vfunc f54_SetCollisionCandidates;    // from oCVisualFX         ?SetCollisionCandidates@oCVisualFX@@UAEXV?$zCArray@PAVzCVob@@@@@Z
-        vfunc f55_GetCollisionCandidates;    // from oCVisualFX         ?GetCollisionCandidates@oCVisualFX@@UAEXAAV?$zCArray@PAVzCVob@@@@@Z
-        vfunc f56_GetNumCollisionCandidates; // from oCVisualFX         ?GetNumCollisionCandidates@oCVisualFX@@UAEHXZ
-        vfunc f57_GetCollidedCandidates;     // from oCVisualFX         ?GetCollidedCandidates@oCVisualFX@@UAEHAAV?$zCArray@PAVzCVob@@@@@Z
-        vfunc f58_SetDamage;                 // from oCVisualFX         ?SetDamage@oCVisualFX@@UAEXM@Z
-        vfunc f59_SetDamageType;             // from oCVisualFX         ?SetDamageType@oCVisualFX@@UAEXH@Z
-        vfunc f60_GetDamage;                 // from oCVisualFX         ?GetDamage@oCVisualFX@@UBEMXZ
-        vfunc f61_GetDamageType;             // from oCVisualFX         ?GetDamageType@oCVisualFX@@UBEHXZ
-        vfunc f62_IsASpell;                  // from oCVisualFX         ?IsASpell@oCVisualFX@@UAEHXZ
-        vfunc f63_SetSpellType;              // from oCVisualFX         ?SetSpellType@oCVisualFX@@UAEXH@Z
-        vfunc f64_GetSpellType;              // from oCVisualFX         ?GetSpellType@oCVisualFX@@UBEHXZ
-        vfunc f65_GetSpellTargetTypes;       // from oCVisualFX         ?GetSpellTargetTypes@oCVisualFX@@UBEHXZ
-        vfunc f66_SetSpellTargetTypes;       // from oCVisualFX         ?SetSpellTargetTypes@oCVisualFX@@UAEXH@Z
-        vfunc f67_GetIsProjectile;           // from oCVisualFX         ?GetIsProjectile@oCVisualFX@@UAEHXZ
-        vfunc f68_SetIsProjectile;           // from oCVisualFX         ?SetIsProjectile@oCVisualFX@@UAEXH@Z
-        vfunc f69_SetVisualByString;         // from oCVisualFX         ?SetVisualByString@oCVisualFX@@MAEXABVzSTRING@@@Z
-        vfunc f70_CalcTrajectory;            // from oCVisualFX         ?CalcTrajectory@oCVisualFX@@MAEXABH@Z
-        vfunc f71_Collide;                   // from oCVisualFX         ?Collide@oCVisualFX@@MAEXH@Z
-        vfunc f72_CollisionResponse;         // from oCVisualFX         ?CollisionResponse@oCVisualFX@@MAEXABVzVEC3@@H@Z
-      } names;
-    };
-
-    static uint GetAddress() {
-      return 0x007D234C;
-    }
-
-    static uint GetFuncsNum() {
-      return 73;
-    }
-
-    static vftable_oCVisFX_Lightning& GetTable() {
-      MemUnlock;
-      return *(vftable_oCVisFX_Lightning*)GetAddress();
-    }
-  };
-
-
   struct vftable_oCVisFX_MultiTarget {
     union {
-      vfunc array[74];
+      vfunc array[76];
       group {
         vfunc f00_GetClassDef;               // from oCVisFX_MultiTarget  ?_GetClassDef@oCVisFX_MultiTarget@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                   // from oCVisFX_MultiTarget  ?Archive@oCVisFX_MultiTarget@@UAEXAAVzCArchiver@@@Z
@@ -3320,22 +3237,24 @@ namespace Gothic_I_Classic {
         vfunc f64_GetSpellType;              // from oCVisualFX           ?GetSpellType@oCVisualFX@@UBEHXZ
         vfunc f65_GetSpellTargetTypes;       // from oCVisualFX           ?GetSpellTargetTypes@oCVisualFX@@UBEHXZ
         vfunc f66_SetSpellTargetTypes;       // from oCVisualFX           ?SetSpellTargetTypes@oCVisualFX@@UAEXH@Z
-        vfunc f67_GetIsProjectile;           // from oCVisualFX           ?GetIsProjectile@oCVisualFX@@UAEHXZ
-        vfunc f68_SetIsProjectile;           // from oCVisualFX           ?SetIsProjectile@oCVisualFX@@UAEXH@Z
-        vfunc f69_SetVisualByString;         // from oCVisualFX           ?SetVisualByString@oCVisualFX@@MAEXABVzSTRING@@@Z
-        vfunc f70_CalcTrajectory;            // from oCVisualFX           ?CalcTrajectory@oCVisualFX@@MAEXABH@Z
-        vfunc f71_Collide;                   // from oCVisualFX           ?Collide@oCVisualFX@@MAEXH@Z
-        vfunc f72_CollisionResponse;         // from oCVisualFX           ?CollisionResponse@oCVisualFX@@MAEXABVzVEC3@@H@Z
-        vfunc f73_Init;                      // from oCVisFX_MultiTarget  ?Init@oCVisFX_MultiTarget@@UAEXV?$zCArray@PAVzCVob@@@@@Z
+        vfunc f67_GetSendsAssessMagic;       // from oCVisualFX           ?GetSendsAssessMagic@oCVisualFX@@UAEHXZ
+        vfunc f68_SetSendsAssessMagic;       // from oCVisualFX           ?SetSendsAssessMagic@oCVisualFX@@UAEXH@Z
+        vfunc f69_GetIsProjectile;           // from oCVisualFX           ?GetIsProjectile@oCVisualFX@@UAEHXZ
+        vfunc f70_SetIsProjectile;           // from oCVisualFX           ?SetIsProjectile@oCVisualFX@@UAEXH@Z
+        vfunc f71_SetVisualByString;         // from oCVisualFX           ?SetVisualByString@oCVisualFX@@MAEXABVzSTRING@@@Z
+        vfunc f72_CalcTrajectory;            // from oCVisualFX           ?CalcTrajectory@oCVisualFX@@MAEXABH@Z
+        vfunc f73_Collide;                   // from oCVisualFX           ?Collide@oCVisualFX@@MAEXH@Z
+        vfunc f74_CollisionResponse;         // from oCVisualFX           ?CollisionResponse@oCVisualFX@@MAEXABVzVEC3@@H@Z
+        vfunc f75_Init;                      // from oCVisFX_MultiTarget  ?Init@oCVisFX_MultiTarget@@UAEXV?$zCArray@PAVzCVob@@@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2484;
+      return 0x00822514;
     }
 
     static uint GetFuncsNum() {
-      return 74;
+      return 76;
     }
 
     static vftable_oCVisFX_MultiTarget& GetTable() {
@@ -3364,7 +3283,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D25C0;
+      return 0x00822660;
     }
 
     static uint GetFuncsNum() {
@@ -3414,7 +3333,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D274C;
+      return 0x0082283C;
     }
 
     static uint GetFuncsNum() {
@@ -3464,7 +3383,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D27C4;
+      return 0x008228B4;
     }
 
     static uint GetFuncsNum() {
@@ -3480,39 +3399,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCCSCamera_EventMsg {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCCSCamera_EventMsg  ?_GetClassDef@zCCSCamera_EventMsg@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCCSCamera_EventMsg  ?Archive@zCCSCamera_EventMsg@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCCSCamera_EventMsg  ?Unarchive@zCCSCamera_EventMsg@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base                 
-        vfunc f04_IsOverlay;           // from zCEventMessage       ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage       ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCCSCamera_EventMsg  ?IsHighPriority@zCCSCamera_EventMsg@@UAEHXZ
-        vfunc f07_IsJob;               // from zCCSCamera_EventMsg  ?IsJob@zCCSCamera_EventMsg@@UAEHXZ
-        vfunc f08_Delete;              // from zCCSCamera_EventMsg  ?Delete@zCCSCamera_EventMsg@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage       ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCCSCamera_EventMsg  ?IsDeleted@zCCSCamera_EventMsg@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage       ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage       ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCCSCamera_EventMsg  ?MD_GetNumOfSubTypes@zCCSCamera_EventMsg@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCCSCamera_EventMsg  ?MD_GetSubTypeString@zCCSCamera_EventMsg@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage       ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage       ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage       ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCCSCamera_EventMsg  ?MD_GetTimeBehavior@zCCSCamera_EventMsg@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from zCCSCamera_EventMsg  ?MD_GetMinTime@zCCSCamera_EventMsg@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage       ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage       ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCCSCamera_EventMsg  ?_GetClassDef@zCCSCamera_EventMsg@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCCSCamera_EventMsg  ?Archive@zCCSCamera_EventMsg@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCCSCamera_EventMsg  ?Unarchive@zCCSCamera_EventMsg@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base                 
+        vfunc f04_IsOverlay;             // from zCEventMessage       ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage       ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCCSCamera_EventMsg  ?IsHighPriority@zCCSCamera_EventMsg@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCCSCamera_EventMsg  ?IsJob@zCCSCamera_EventMsg@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage       ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCCSCamera_EventMsg  ?Delete@zCCSCamera_EventMsg@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage       ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCCSCamera_EventMsg  ?IsDeleted@zCCSCamera_EventMsg@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage       ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage       ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCCSCamera_EventMsg  ?MD_GetNumOfSubTypes@zCCSCamera_EventMsg@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCCSCamera_EventMsg  ?MD_GetSubTypeString@zCCSCamera_EventMsg@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage       ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage       ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage       ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCCSCamera_EventMsg  ?MD_GetTimeBehavior@zCCSCamera_EventMsg@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from zCCSCamera_EventMsg  ?MD_GetMinTime@zCCSCamera_EventMsg@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage       ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage       ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D284C;
+      return 0x00822934;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCCSCamera_EventMsg& GetTable() {
@@ -3524,7 +3444,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCFlash_zCBolt {
     union {
-      vfunc array[21];
+      vfunc array[23];
       group {
         vfunc f00_GetClassDef;             // from zCPolyStrip  ?_GetClassDef@zCPolyStrip@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject     ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -3545,17 +3465,19 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual     ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual     ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual     ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual     ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
-        vfunc f20_FreeResources;           // from zCFlash      ?FreeResources@zCBolt@zCFlash@@UAEXXZ
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual     ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual     ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual     ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f22_FreeResources;           // from zCFlash      ?FreeResources@zCBolt@zCFlash@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D28D4;
+      return 0x008229CC;
     }
 
     static uint GetFuncsNum() {
-      return 21;
+      return 23;
     }
 
     static vftable_zCFlash_zCBolt& GetTable() {
@@ -3567,7 +3489,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCFlash {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCVisual  ?_GetClassDef@zCVisual@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject  ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -3588,16 +3510,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual  ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual  ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual  ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual  ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual  ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual  ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual  ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D292C;
+      return 0x00822A2C;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCFlash& GetTable() {
@@ -3609,7 +3533,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCInput {
     union {
-      vfunc array[29];
+      vfunc array[30];
       group {
         vfunc f00_scalar_destructor;          // from base     
         vfunc f01_GetState;                   // from zCInput  ?GetState@zCInput@@UAEMG@Z
@@ -3624,7 +3548,7 @@ namespace Gothic_I_Classic {
         vfunc f10_ResetRepeatKey;             // from zCInput  ?ResetRepeatKey@zCInput@@UAEXH@Z
         vfunc f11_GetKey;                     // from zCInput  ?GetKey@zCInput@@UAEGHH@Z
         vfunc f12_SetKey;                     // from zCInput  ?SetKey@zCInput@@UAEXHH@Z
-        vfunc f13_GetChar;                    // from zCInput  ?GetChar@zCInput@@UAEDXZ
+        vfunc f13_GetChar;                    // from zCInput  ?GetChar@zCInput@@UAEEXZ
         vfunc f14_ClearKeyBuffer;             // from zCInput  ?ClearKeyBuffer@zCInput@@UAEXXZ
         vfunc f15_GetNumJoysConnected;        // from zCInput  ?GetNumJoysConnected@zCInput@@UAEHXZ
         vfunc f16_SetJoyDigitalEmu;           // from zCInput  ?SetJoyDigitalEmu@zCInput@@UAEXH@Z
@@ -3637,18 +3561,19 @@ namespace Gothic_I_Classic {
         vfunc f23_GetMouseButtonPressedRight; // from zCInput  ?GetMouseButtonPressedRight@zCInput@@UAEHXZ
         vfunc f24_SetMouseSensitivity;        // from zCInput  ?SetMouseSensitivity@zCInput@@UAEXMM@Z
         vfunc f25_GetMouseSensitivity;        // from zCInput  ?GetMouseSensitivity@zCInput@@UAEXAAM0@Z
-        vfunc f26_SetMouseFlipXY;             // from zCInput  ?SetMouseFlipXY@zCInput@@UAEXHH@Z
-        vfunc f27_GetMouseFlipXY;             // from zCInput  ?GetMouseFlipXY@zCInput@@UAEXAAH0@Z
-        vfunc f28_ProcessInputEvents;         // from base     purecall
+        vfunc f26_GetMouseIdle;               // from zCInput  ?GetMouseIdle@zCInput@@UBEHXZ
+        vfunc f27_SetMouseFlipXY;             // from zCInput  ?SetMouseFlipXY@zCInput@@UAEXHH@Z
+        vfunc f28_GetMouseFlipXY;             // from zCInput  ?GetMouseFlipXY@zCInput@@UAEXAAH0@Z
+        vfunc f29_ProcessInputEvents;         // from base     purecall
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2994;
+      return 0x00822A9C;
     }
 
     static uint GetFuncsNum() {
-      return 29;
+      return 30;
     }
 
     static vftable_zCInput& GetTable() {
@@ -3660,7 +3585,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCInput_Win32 {
     union {
-      vfunc array[29];
+      vfunc array[30];
       group {
         vfunc f00_scalar_destructor;          // from base           
         vfunc f01_GetState;                   // from zCInput_Win32  ?GetState@zCInput_Win32@@UAEMG@Z
@@ -3675,7 +3600,7 @@ namespace Gothic_I_Classic {
         vfunc f10_ResetRepeatKey;             // from zCInput_Win32  ?ResetRepeatKey@zCInput_Win32@@UAEXH@Z
         vfunc f11_GetKey;                     // from zCInput_Win32  ?GetKey@zCInput_Win32@@UAEGHH@Z
         vfunc f12_SetKey;                     // from zCInput_Win32  ?SetKey@zCInput_Win32@@UAEXHH@Z
-        vfunc f13_GetChar;                    // from zCInput_Win32  ?GetChar@zCInput_Win32@@UAEDXZ
+        vfunc f13_GetChar;                    // from zCInput_Win32  ?GetChar@zCInput_Win32@@UAEEXZ
         vfunc f14_ClearKeyBuffer;             // from zCInput_Win32  ?ClearKeyBuffer@zCInput_Win32@@UAEXXZ
         vfunc f15_GetNumJoysConnected;        // from zCInput        ?GetNumJoysConnected@zCInput@@UAEHXZ
         vfunc f16_SetJoyDigitalEmu;           // from zCInput        ?SetJoyDigitalEmu@zCInput@@UAEXH@Z
@@ -3688,18 +3613,19 @@ namespace Gothic_I_Classic {
         vfunc f23_GetMouseButtonPressedRight; // from zCInput_Win32  ?GetMouseButtonPressedRight@zCInput_Win32@@UAEHXZ
         vfunc f24_SetMouseSensitivity;        // from zCInput_Win32  ?SetMouseSensitivity@zCInput_Win32@@UAEXMM@Z
         vfunc f25_GetMouseSensitivity;        // from zCInput_Win32  ?GetMouseSensitivity@zCInput_Win32@@UAEXAAM0@Z
-        vfunc f26_SetMouseFlipXY;             // from zCInput_Win32  ?SetMouseFlipXY@zCInput_Win32@@UAEXHH@Z
-        vfunc f27_GetMouseFlipXY;             // from zCInput_Win32  ?GetMouseFlipXY@zCInput_Win32@@UAEXAAH0@Z
-        vfunc f28_ProcessInputEvents;         // from zCInput_Win32  ?ProcessInputEvents@zCInput_Win32@@UAEXXZ
+        vfunc f26_GetMouseIdle;               // from zCInput_Win32  ?GetMouseIdle@zCInput_Win32@@UBEHXZ
+        vfunc f27_SetMouseFlipXY;             // from zCInput_Win32  ?SetMouseFlipXY@zCInput_Win32@@UAEXHH@Z
+        vfunc f28_GetMouseFlipXY;             // from zCInput_Win32  ?GetMouseFlipXY@zCInput_Win32@@UAEXAAH0@Z
+        vfunc f29_ProcessInputEvents;         // from zCInput_Win32  ?ProcessInputEvents@zCInput_Win32@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2A0C;
+      return 0x00822B2C;
     }
 
     static uint GetFuncsNum() {
-      return 29;
+      return 30;
     }
 
     static vftable_zCInput_Win32& GetTable() {
@@ -3735,7 +3661,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2ACC;
+      return 0x00822C04;
     }
 
     static uint GetFuncsNum() {
@@ -3758,7 +3684,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2B2C;
+      return 0x00822C6C;
     }
 
     static uint GetFuncsNum() {
@@ -3774,7 +3700,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItemButton_for_zCViewBase {
     union {
-      vfunc array[32];
+      vfunc array[33];
       group {
         vfunc f00_anx;               // from zCView            ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView            ?any@zCView@@UAEHH@Z
@@ -3783,40 +3709,41 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView            ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView            ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView            ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView            ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base              
-        vfunc f09_Blit;              // from zCView            ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem        ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItemButton  ?InitMenuItem@zCMenuItemButton@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItem        ?ToggleValue@zCMenuItem@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItemButton  ?Run@zCMenuItemButton@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItem        ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem        ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem        ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItem        ?Enter@zCMenuItem@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItem        ?Leave@zCMenuItem@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItem        ?Draw@zCMenuItem@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItem        ?DrawFront@zCMenuItem@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItem        ?Show@zCMenuItem@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItem        ?Hide@zCMenuItem@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItem        ?HasBeenCanceled@zCMenuItem@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem        ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem        ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItemButton  ?InsertInWin@zCMenuItemButton@@MAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItemButton  ?RemoveFromWin@zCMenuItemButton@@MAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItem        ?UpdateContent@zCMenuItem@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem        ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase        ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView            ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base              
+        vfunc f10_Blit;              // from zCView            ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem        ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItemButton  ?InitMenuItem@zCMenuItemButton@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItem        ?ToggleValue@zCMenuItem@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItemButton  ?Run@zCMenuItemButton@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItem        ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem        ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem        ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItem        ?Enter@zCMenuItem@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItem        ?Leave@zCMenuItem@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItem        ?Draw@zCMenuItem@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItem        ?DrawFront@zCMenuItem@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItem        ?Show@zCMenuItem@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItem        ?Hide@zCMenuItem@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItem        ?HasBeenCanceled@zCMenuItem@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem        ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem        ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItemButton  ?InsertInWin@zCMenuItemButton@@MAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItemButton  ?RemoveFromWin@zCMenuItemButton@@MAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItem        ?UpdateContent@zCMenuItem@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem        ?UpdateFX@zCMenuItem@@MAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2B34;
+      return 0x00822C74;
     }
 
     static uint GetFuncsNum() {
-      return 32;
+      return 33;
     }
 
     static vftable_zCMenuItemButton_for_zCViewBase& GetTable() {
@@ -3835,7 +3762,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2BB8;
+      return 0x00822CFC;
     }
 
     static uint GetFuncsNum() {
@@ -3851,7 +3778,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItemList_for_zCViewBase {
     union {
-      vfunc array[32];
+      vfunc array[33];
       group {
         vfunc f00_anx;               // from zCView          ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView          ?any@zCView@@UAEHH@Z
@@ -3860,40 +3787,41 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView          ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView          ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView          ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView          ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base            
-        vfunc f09_Blit;              // from zCView          ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem      ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItemList  ?InitMenuItem@zCMenuItemList@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItem      ?ToggleValue@zCMenuItem@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItemList  ?Run@zCMenuItemList@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItem      ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItem      ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItem      ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem      ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem      ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItemList  ?Enter@zCMenuItemList@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItemList  ?Leave@zCMenuItemList@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItem      ?Draw@zCMenuItem@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItemList  ?DrawFront@zCMenuItemList@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItemList  ?Show@zCMenuItemList@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItemList  ?Hide@zCMenuItemList@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItem      ?HasBeenCanceled@zCMenuItem@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem      ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem      ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItemList  ?InsertInWin@zCMenuItemList@@EAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItemList  ?RemoveFromWin@zCMenuItemList@@EAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItemList  ?UpdateContent@zCMenuItemList@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem      ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase      ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView          ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base            
+        vfunc f10_Blit;              // from zCView          ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem      ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItemList  ?InitMenuItem@zCMenuItemList@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItem      ?ToggleValue@zCMenuItem@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItemList  ?Run@zCMenuItemList@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItem      ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItem      ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItem      ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem      ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem      ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItemList  ?Enter@zCMenuItemList@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItemList  ?Leave@zCMenuItemList@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItem      ?Draw@zCMenuItem@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItemList  ?DrawFront@zCMenuItemList@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItemList  ?Show@zCMenuItemList@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItemList  ?Hide@zCMenuItemList@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItem      ?HasBeenCanceled@zCMenuItem@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem      ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem      ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItemList  ?InsertInWin@zCMenuItemList@@EAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItemList  ?RemoveFromWin@zCMenuItemList@@EAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItemList  ?UpdateContent@zCMenuItemList@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem      ?UpdateFX@zCMenuItem@@MAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2BC4;
+      return 0x00822D04;
     }
 
     static uint GetFuncsNum() {
-      return 32;
+      return 33;
     }
 
     static vftable_zCMenuItemList_for_zCViewBase& GetTable() {
@@ -3912,7 +3840,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2C48;
+      return 0x00822D8C;
     }
 
     static uint GetFuncsNum() {
@@ -3928,7 +3856,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItemChoice_for_zCViewBase {
     union {
-      vfunc array[32];
+      vfunc array[33];
       group {
         vfunc f00_anx;               // from zCView            ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView            ?any@zCView@@UAEHH@Z
@@ -3937,40 +3865,41 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView            ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView            ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView            ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView            ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base              
-        vfunc f09_Blit;              // from zCView            ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem        ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItemChoice  ?InitMenuItem@zCMenuItemChoice@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItemChoice  ?ToggleValue@zCMenuItemChoice@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItem        ?Run@zCMenuItem@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItemChoice  ?GetText@zCMenuItemChoice@@EAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem        ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem        ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItem        ?Enter@zCMenuItem@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItem        ?Leave@zCMenuItem@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItemChoice  ?Draw@zCMenuItemChoice@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItemChoice  ?DrawFront@zCMenuItemChoice@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItem        ?Show@zCMenuItem@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItem        ?Hide@zCMenuItem@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItem        ?HasBeenCanceled@zCMenuItem@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem        ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem        ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItemChoice  ?InsertInWin@zCMenuItemChoice@@UAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItemChoice  ?RemoveFromWin@zCMenuItemChoice@@UAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItem        ?UpdateContent@zCMenuItem@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem        ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase        ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView            ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base              
+        vfunc f10_Blit;              // from zCView            ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem        ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItemChoice  ?InitMenuItem@zCMenuItemChoice@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItemChoice  ?ToggleValue@zCMenuItemChoice@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItem        ?Run@zCMenuItem@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItemChoice  ?GetText@zCMenuItemChoice@@EAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem        ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem        ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItem        ?Enter@zCMenuItem@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItem        ?Leave@zCMenuItem@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItemChoice  ?Draw@zCMenuItemChoice@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItemChoice  ?DrawFront@zCMenuItemChoice@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItem        ?Show@zCMenuItem@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItem        ?Hide@zCMenuItem@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItem        ?HasBeenCanceled@zCMenuItem@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem        ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem        ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItemChoice  ?InsertInWin@zCMenuItemChoice@@UAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItemChoice  ?RemoveFromWin@zCMenuItemChoice@@UAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItem        ?UpdateContent@zCMenuItem@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem        ?UpdateFX@zCMenuItem@@MAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2C54;
+      return 0x00822D94;
     }
 
     static uint GetFuncsNum() {
-      return 32;
+      return 33;
     }
 
     static vftable_zCMenuItemChoice_for_zCViewBase& GetTable() {
@@ -3989,7 +3918,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2CD8;
+      return 0x00822E1C;
     }
 
     static uint GetFuncsNum() {
@@ -4005,7 +3934,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItemSlider_for_zCViewBase {
     union {
-      vfunc array[33];
+      vfunc array[34];
       group {
         vfunc f00_anx;               // from zCView            ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView            ?any@zCView@@UAEHH@Z
@@ -4014,41 +3943,42 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView            ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView            ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView            ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView            ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base              
-        vfunc f09_Blit;              // from zCView            ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem        ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItemSlider  ?InitMenuItem@zCMenuItemSlider@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItemSlider  ?ToggleValue@zCMenuItemSlider@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItem        ?Run@zCMenuItem@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItem        ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem        ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem        ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItem        ?Enter@zCMenuItem@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItem        ?Leave@zCMenuItem@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItem        ?Draw@zCMenuItem@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItem        ?DrawFront@zCMenuItem@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItem        ?Show@zCMenuItem@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItem        ?Hide@zCMenuItem@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItem        ?HasBeenCanceled@zCMenuItem@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem        ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem        ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItemSlider  ?InsertInWin@zCMenuItemSlider@@MAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItemSlider  ?RemoveFromWin@zCMenuItemSlider@@MAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItem        ?UpdateContent@zCMenuItem@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem        ?UpdateFX@zCMenuItem@@MAEXXZ
-        vfunc f32_SetIsActive;       // from zCMenuItemSlider  ?SetIsActive@zCMenuItemSlider@@UAEXH@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase        ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView            ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base              
+        vfunc f10_Blit;              // from zCView            ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem        ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItemSlider  ?InitMenuItem@zCMenuItemSlider@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItemSlider  ?ToggleValue@zCMenuItemSlider@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItem        ?Run@zCMenuItem@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItem        ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItem        ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem        ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem        ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItem        ?Enter@zCMenuItem@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItem        ?Leave@zCMenuItem@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItem        ?Draw@zCMenuItem@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItem        ?DrawFront@zCMenuItem@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItem        ?Show@zCMenuItem@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItem        ?Hide@zCMenuItem@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItem        ?HasBeenCanceled@zCMenuItem@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem        ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem        ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItemSlider  ?InsertInWin@zCMenuItemSlider@@MAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItemSlider  ?RemoveFromWin@zCMenuItemSlider@@MAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItem        ?UpdateContent@zCMenuItem@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem        ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f33_SetIsActive;       // from zCMenuItemSlider  ?SetIsActive@zCMenuItemSlider@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2CE4;
+      return 0x00822E24;
     }
 
     static uint GetFuncsNum() {
-      return 33;
+      return 34;
     }
 
     static vftable_zCMenuItemSlider_for_zCViewBase& GetTable() {
@@ -4067,7 +3997,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2D6C;
+      return 0x00822EB0;
     }
 
     static uint GetFuncsNum() {
@@ -4083,7 +4013,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItemInput_for_zCViewBase {
     union {
-      vfunc array[32];
+      vfunc array[33];
       group {
         vfunc f00_anx;               // from zCView           ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView           ?any@zCView@@UAEHH@Z
@@ -4092,40 +4022,41 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView           ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView           ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView           ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView           ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base             
-        vfunc f09_Blit;              // from zCView           ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem       ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItemInput  ?InitMenuItem@zCMenuItemInput@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItem       ?ToggleValue@zCMenuItem@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItemInput  ?Run@zCMenuItemInput@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItem       ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItem       ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItem       ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem       ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem       ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItemInput  ?Enter@zCMenuItemInput@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItemInput  ?Leave@zCMenuItemInput@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItem       ?Draw@zCMenuItem@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItem       ?DrawFront@zCMenuItem@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItem       ?Show@zCMenuItem@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItem       ?Hide@zCMenuItem@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItemInput  ?HasBeenCanceled@zCMenuItemInput@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem       ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem       ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItemInput  ?InsertInWin@zCMenuItemInput@@MAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItem       ?RemoveFromWin@zCMenuItem@@MAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItem       ?UpdateContent@zCMenuItem@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem       ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase       ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView           ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base             
+        vfunc f10_Blit;              // from zCView           ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem       ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItemInput  ?InitMenuItem@zCMenuItemInput@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItem       ?ToggleValue@zCMenuItem@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItemInput  ?Run@zCMenuItemInput@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItem       ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItem       ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItem       ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem       ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem       ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItemInput  ?Enter@zCMenuItemInput@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItemInput  ?Leave@zCMenuItemInput@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItem       ?Draw@zCMenuItem@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItem       ?DrawFront@zCMenuItem@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItem       ?Show@zCMenuItem@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItem       ?Hide@zCMenuItem@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItemInput  ?HasBeenCanceled@zCMenuItemInput@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem       ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem       ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItemInput  ?InsertInWin@zCMenuItemInput@@MAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItem       ?RemoveFromWin@zCMenuItem@@MAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItem       ?UpdateContent@zCMenuItem@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem       ?UpdateFX@zCMenuItem@@MAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2D74;
+      return 0x00822EBC;
     }
 
     static uint GetFuncsNum() {
-      return 32;
+      return 33;
     }
 
     static vftable_zCMenuItemInput_for_zCViewBase& GetTable() {
@@ -4144,7 +4075,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2DF8;
+      return 0x00822F44;
     }
 
     static uint GetFuncsNum() {
@@ -4160,7 +4091,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItemText_for_zCViewBase {
     union {
-      vfunc array[33];
+      vfunc array[34];
       group {
         vfunc f00_anx;               // from zCView          ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView          ?any@zCView@@UAEHH@Z
@@ -4169,41 +4100,42 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView          ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView          ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView          ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView          ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base            
-        vfunc f09_Blit;              // from zCView          ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem      ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItemText  ?InitMenuItem@zCMenuItemText@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItem      ?ToggleValue@zCMenuItem@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItem      ?Run@zCMenuItem@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItem      ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItemText  ?SetText@zCMenuItemText@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItemText  ?SetText@zCMenuItemText@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem      ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem      ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItem      ?Enter@zCMenuItem@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItem      ?Leave@zCMenuItem@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItem      ?Draw@zCMenuItem@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItemText  ?DrawFront@zCMenuItemText@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItem      ?Show@zCMenuItem@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItem      ?Hide@zCMenuItem@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItem      ?HasBeenCanceled@zCMenuItem@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem      ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem      ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItem      ?InsertInWin@zCMenuItem@@MAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItem      ?RemoveFromWin@zCMenuItem@@MAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItem      ?UpdateContent@zCMenuItem@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem      ?UpdateFX@zCMenuItem@@MAEXXZ
-        vfunc f32_SetEnum;           // from zCMenuItemText  ?SetEnum@zCMenuItemText@@UAEXABVzSTRING@@@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase      ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView          ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base            
+        vfunc f10_Blit;              // from zCView          ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem      ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItemText  ?InitMenuItem@zCMenuItemText@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItem      ?ToggleValue@zCMenuItem@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItem      ?Run@zCMenuItem@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItem      ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItemText  ?SetText@zCMenuItemText@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItemText  ?SetText@zCMenuItemText@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem      ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem      ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItem      ?Enter@zCMenuItem@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItem      ?Leave@zCMenuItem@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItem      ?Draw@zCMenuItem@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItemText  ?DrawFront@zCMenuItemText@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItem      ?Show@zCMenuItem@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItem      ?Hide@zCMenuItem@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItem      ?HasBeenCanceled@zCMenuItem@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem      ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem      ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItem      ?InsertInWin@zCMenuItem@@MAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItem      ?RemoveFromWin@zCMenuItem@@MAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItem      ?UpdateContent@zCMenuItem@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem      ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f33_SetEnum;           // from zCMenuItemText  ?SetEnum@zCMenuItemText@@UAEXABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2E04;
+      return 0x00822F4C;
     }
 
     static uint GetFuncsNum() {
-      return 33;
+      return 34;
     }
 
     static vftable_zCMenuItemText_for_zCViewBase& GetTable() {
@@ -4222,7 +4154,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2E8C;
+      return 0x00822FD8;
     }
 
     static uint GetFuncsNum() {
@@ -4238,7 +4170,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMenuItem_for_zCViewBase {
     union {
-      vfunc array[32];
+      vfunc array[33];
       group {
         vfunc f00_anx;               // from zCView      ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView      ?any@zCView@@UAEHH@Z
@@ -4247,40 +4179,41 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView      ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView      ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView      ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView      ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base        
-        vfunc f09_Blit;              // from zCView      ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCMenuItem  ?DrawItems@zCMenuItem@@MAEXXZ
-        vfunc f11_InitMenuItem;      // from zCMenuItem  ?InitMenuItem@zCMenuItem@@UAEXXZ
-        vfunc f12_ToggleValue;       // from zCMenuItem  ?ToggleValue@zCMenuItem@@UAEHHH@Z
-        vfunc f13_Run;               // from zCMenuItem  ?Run@zCMenuItem@@UAEHXZ
-        vfunc f14_GetText;           // from zCMenuItem  ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
-        vfunc f15_SetText;           // from zCMenuItem  ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
-        vfunc f16_SetText;           // from zCMenuItem  ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
-        vfunc f17_SetMinValue;       // from zCMenuItem  ?SetMinValue@zCMenuItem@@UAEXM@Z
-        vfunc f18_SetMaxValue;       // from zCMenuItem  ?SetMaxValue@zCMenuItem@@UAEXM@Z
-        vfunc f19_Enter;             // from zCMenuItem  ?Enter@zCMenuItem@@UAEXXZ
-        vfunc f20_Leave;             // from zCMenuItem  ?Leave@zCMenuItem@@UAEXXZ
-        vfunc f21_Draw;              // from zCMenuItem  ?Draw@zCMenuItem@@UAEXXZ
-        vfunc f22_DrawFront;         // from zCMenuItem  ?DrawFront@zCMenuItem@@UAEXXZ
-        vfunc f23_Show;              // from zCMenuItem  ?Show@zCMenuItem@@UAEHXZ
-        vfunc f24_Hide;              // from zCMenuItem  ?Hide@zCMenuItem@@UAEHXZ
-        vfunc f25_HasBeenCanceled;   // from zCMenuItem  ?HasBeenCanceled@zCMenuItem@@UAEHXZ
-        vfunc f26_Open;              // from zCMenuItem  ?Open@zCMenuItem@@MAEXXZ
-        vfunc f27_Input;             // from zCMenuItem  ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
-        vfunc f28_InsertInWin;       // from zCMenuItem  ?InsertInWin@zCMenuItem@@MAEXPAVzCView@@@Z
-        vfunc f29_RemoveFromWin;     // from zCMenuItem  ?RemoveFromWin@zCMenuItem@@MAEXXZ
-        vfunc f30_UpdateContent;     // from zCMenuItem  ?UpdateContent@zCMenuItem@@MAEXXZ
-        vfunc f31_UpdateFX;          // from zCMenuItem  ?UpdateFX@zCMenuItem@@MAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase  ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView      ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base        
+        vfunc f10_Blit;              // from zCView      ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCMenuItem  ?DrawItems@zCMenuItem@@MAEXXZ
+        vfunc f12_InitMenuItem;      // from zCMenuItem  ?InitMenuItem@zCMenuItem@@UAEXXZ
+        vfunc f13_ToggleValue;       // from zCMenuItem  ?ToggleValue@zCMenuItem@@UAEHHH@Z
+        vfunc f14_Run;               // from zCMenuItem  ?Run@zCMenuItem@@UAEHXZ
+        vfunc f15_GetText;           // from zCMenuItem  ?GetText@zCMenuItem@@UAE?AVzSTRING@@H@Z
+        vfunc f16_SetText;           // from zCMenuItem  ?SetText@zCMenuItem@@UAEXV?$zCArray@VzSTRING@@@@H@Z
+        vfunc f17_SetText;           // from zCMenuItem  ?SetText@zCMenuItem@@UAEXABVzSTRING@@HH@Z
+        vfunc f18_SetMinValue;       // from zCMenuItem  ?SetMinValue@zCMenuItem@@UAEXM@Z
+        vfunc f19_SetMaxValue;       // from zCMenuItem  ?SetMaxValue@zCMenuItem@@UAEXM@Z
+        vfunc f20_Enter;             // from zCMenuItem  ?Enter@zCMenuItem@@UAEXXZ
+        vfunc f21_Leave;             // from zCMenuItem  ?Leave@zCMenuItem@@UAEXXZ
+        vfunc f22_Draw;              // from zCMenuItem  ?Draw@zCMenuItem@@UAEXXZ
+        vfunc f23_DrawFront;         // from zCMenuItem  ?DrawFront@zCMenuItem@@UAEXXZ
+        vfunc f24_Show;              // from zCMenuItem  ?Show@zCMenuItem@@UAEHXZ
+        vfunc f25_Hide;              // from zCMenuItem  ?Hide@zCMenuItem@@UAEHXZ
+        vfunc f26_HasBeenCanceled;   // from zCMenuItem  ?HasBeenCanceled@zCMenuItem@@UAEHXZ
+        vfunc f27_Open;              // from zCMenuItem  ?Open@zCMenuItem@@MAEXXZ
+        vfunc f28_Input;             // from zCMenuItem  ?Input@zCMenuItem@@MAEHHAAVzSTRING@@@Z
+        vfunc f29_InsertInWin;       // from zCMenuItem  ?InsertInWin@zCMenuItem@@MAEXPAVzCView@@@Z
+        vfunc f30_RemoveFromWin;     // from zCMenuItem  ?RemoveFromWin@zCMenuItem@@MAEXXZ
+        vfunc f31_UpdateContent;     // from zCMenuItem  ?UpdateContent@zCMenuItem@@MAEXXZ
+        vfunc f32_UpdateFX;          // from zCMenuItem  ?UpdateFX@zCMenuItem@@MAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D2E94;
+      return 0x00822FE4;
     }
 
     static uint GetFuncsNum() {
-      return 32;
+      return 33;
     }
 
     static vftable_zCMenuItem_for_zCViewBase& GetTable() {
@@ -4300,7 +4233,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2F30;
+      return 0x0082308C;
     }
 
     static uint GetFuncsNum() {
@@ -4324,7 +4257,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2F3C;
+      return 0x00823098;
     }
 
     static uint GetFuncsNum() {
@@ -4367,7 +4300,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2F4C;
+      return 0x008230AC;
     }
 
     static uint GetFuncsNum() {
@@ -4396,7 +4329,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2FA4;
+      return 0x00823104;
     }
 
     static uint GetFuncsNum() {
@@ -4439,7 +4372,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D2FC4;
+      return 0x00823124;
     }
 
     static uint GetFuncsNum() {
@@ -4462,7 +4395,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3064;
+      return 0x008231C8;
     }
 
     static uint GetFuncsNum() {
@@ -4516,7 +4449,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D306C;
+      return 0x008231D4;
     }
 
     static uint GetFuncsNum() {
@@ -4570,7 +4503,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D30F4;
+      return 0x0082325C;
     }
 
     static uint GetFuncsNum() {
@@ -4586,7 +4519,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSndFX_MSS {
     union {
-      vfunc array[21];
+      vfunc array[23];
       group {
         vfunc f00_GetClassDef;         // from zCSoundFX    ?_GetClassDef@zCSoundFX@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;             // from zCObject     ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -4609,15 +4542,17 @@ namespace Gothic_I_Classic {
         vfunc f18_SetFrequency;        // from zCSndFX_MSS  ?SetFrequency@zCSndFX_MSS@@UAEXH@Z
         vfunc f19_SetLooping;          // from zCSndFX_MSS  ?SetLooping@zCSndFX_MSS@@UAEXH@Z
         vfunc f20_IsLooping;           // from zCSndFX_MSS  ?IsLooping@zCSndFX_MSS@@UBEHXZ
+        vfunc f21_SetIsFixed;          // from zCSndFX_MSS  ?SetIsFixed@zCSndFX_MSS@@UAEXH@Z
+        vfunc f22_GetIsFixed;          // from zCSndFX_MSS  ?GetIsFixed@zCSndFX_MSS@@UBEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D317C;
+      return 0x008232E4;
     }
 
     static uint GetFuncsNum() {
-      return 21;
+      return 23;
     }
 
     static vftable_zCSndFX_MSS& GetTable() {
@@ -4629,7 +4564,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSoundFX {
     union {
-      vfunc array[21];
+      vfunc array[23];
       group {
         vfunc f00_GetClassDef;         // from zCSoundFX   ?_GetClassDef@zCSoundFX@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;             // from zCObject    ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -4652,15 +4587,17 @@ namespace Gothic_I_Classic {
         vfunc f18_SetFrequency;        // from zCSoundFX   ?SetFrequency@zCSoundFX@@UAEXH@Z
         vfunc f19_SetLooping;          // from zCSoundFX   ?SetLooping@zCSoundFX@@UAEXH@Z
         vfunc f20_IsLooping;           // from zCSoundFX   ?IsLooping@zCSoundFX@@UBEHXZ
+        vfunc f21_SetIsFixed;          // from zCSoundFX   ?SetIsFixed@zCSoundFX@@UAEXH@Z
+        vfunc f22_GetIsFixed;          // from zCSoundFX   ?GetIsFixed@zCSoundFX@@UBEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D31D4;
+      return 0x00823344;
     }
 
     static uint GetFuncsNum() {
-      return 21;
+      return 23;
     }
 
     static vftable_zCSoundFX& GetTable() {
@@ -4679,7 +4616,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3248;
+      return 0x008233CC;
     }
 
     static uint GetFuncsNum() {
@@ -4695,28 +4632,29 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewWindow_for_zCViewBase {
     union {
-      vfunc array[11];
+      vfunc array[12];
       group {
-        vfunc f00_anx;               // from zCView  ?anx@zCView@@UAEHH@Z
-        vfunc f01_any;               // from zCView  ?any@zCView@@UAEHH@Z
-        vfunc f02_nax;               // from zCView  ?nax@zCView@@UAEHH@Z
-        vfunc f03_nay;               // from zCView  ?nay@zCView@@UAEHH@Z
-        vfunc f04_ClipLine;          // from zCView  ?ClipLine@zCView@@UAEHAAH000@Z
-        vfunc f05_Line;              // from zCView  ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
-        vfunc f06_GetViewport;       // from zCView  ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView  ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base    
-        vfunc f09_Blit;              // from zCView  ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView  ?DrawItems@zCView@@UAEXXZ
+        vfunc f00_anx;               // from zCView      ?anx@zCView@@UAEHH@Z
+        vfunc f01_any;               // from zCView      ?any@zCView@@UAEHH@Z
+        vfunc f02_nax;               // from zCView      ?nax@zCView@@UAEHH@Z
+        vfunc f03_nay;               // from zCView      ?nay@zCView@@UAEHH@Z
+        vfunc f04_ClipLine;          // from zCView      ?ClipLine@zCView@@UAEHAAH000@Z
+        vfunc f05_Line;              // from zCView      ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
+        vfunc f06_GetViewport;       // from zCView      ?GetViewport@zCView@@UAIXAAH000@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase  ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView      ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base        
+        vfunc f10_Blit;              // from zCView      ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView      ?DrawItems@zCView@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D3250;
+      return 0x008233D4;
     }
 
     static uint GetFuncsNum() {
-      return 11;
+      return 12;
     }
 
     static vftable_zCViewWindow_for_zCViewBase& GetTable() {
@@ -4747,7 +4685,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D332C;
+      return 0x008234E4;
     }
 
     static uint GetFuncsNum() {
@@ -4776,7 +4714,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D34B0;
+      return 0x00823670;
     }
 
     static uint GetFuncsNum() {
@@ -4890,7 +4828,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D34D4;
+      return 0x0082369C;
     }
 
     static uint GetFuncsNum() {
@@ -5004,7 +4942,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D364C;
+      return 0x00823814;
     }
 
     static uint GetFuncsNum() {
@@ -5118,7 +5056,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D37D4;
+      return 0x008239A4;
     }
 
     static uint GetFuncsNum() {
@@ -5143,7 +5081,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3994;
+      return 0x00823B6C;
     }
 
     static uint GetFuncsNum() {
@@ -5168,7 +5106,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D39A4;
+      return 0x00823B7C;
     }
 
     static uint GetFuncsNum() {
@@ -5191,7 +5129,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3AF0;
+      return 0x00823D0C;
     }
 
     static uint GetFuncsNum() {
@@ -5218,7 +5156,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3AF8;
+      return 0x00823D14;
     }
 
     static uint GetFuncsNum() {
@@ -5247,7 +5185,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3B1C;
+      return 0x00823D40;
     }
 
     static uint GetFuncsNum() {
@@ -5276,7 +5214,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3B48;
+      return 0x00823D74;
     }
 
     static uint GetFuncsNum() {
@@ -5305,7 +5243,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3B68;
+      return 0x00823D94;
     }
 
     static uint GetFuncsNum() {
@@ -5334,7 +5272,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3B88;
+      return 0x00823DB4;
     }
 
     static uint GetFuncsNum() {
@@ -5363,7 +5301,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3BA8;
+      return 0x00823DD4;
     }
 
     static uint GetFuncsNum() {
@@ -5392,7 +5330,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3BC8;
+      return 0x00823DF4;
     }
 
     static uint GetFuncsNum() {
@@ -5421,7 +5359,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3BE8;
+      return 0x00823E14;
     }
 
     static uint GetFuncsNum() {
@@ -5450,7 +5388,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3C08;
+      return 0x00823E34;
     }
 
     static uint GetFuncsNum() {
@@ -5484,7 +5422,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3C34;
+      return 0x00823E68;
     }
 
     static uint GetFuncsNum() {
@@ -5513,7 +5451,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3C68;
+      return 0x00823E9C;
     }
 
     static uint GetFuncsNum() {
@@ -5543,7 +5481,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3CDC;
+      return 0x00823F1C;
     }
 
     static uint GetFuncsNum() {
@@ -5573,7 +5511,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3D00;
+      return 0x00823F40;
     }
 
     static uint GetFuncsNum() {
@@ -5603,7 +5541,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3D2C;
+      return 0x00823F6C;
     }
 
     static uint GetFuncsNum() {
@@ -5633,7 +5571,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3D50;
+      return 0x00823F90;
     }
 
     static uint GetFuncsNum() {
@@ -5649,7 +5587,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCDecal {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCDecal   ?_GetClassDef@zCDecal@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCDecal   ?Archive@zCDecal@@MAEXAAVzCArchiver@@@Z
@@ -5670,16 +5608,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual  ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCDecal   ?GetFileExtension@zCDecal@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual  ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCDecal   ?LoadVisualVirtual@zCDecal@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCDecal   ?GetAlphaTestingEnabled@zCDecal@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual  ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCDecal   ?LoadVisualVirtual@zCDecal@@MBEPAVzCVisual@@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D3E04;
+      return 0x0082404C;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCDecal& GetTable() {
@@ -5698,7 +5638,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3E70;
+      return 0x008240C8;
     }
 
     static uint GetFuncsNum() {
@@ -5708,6 +5648,29 @@ namespace Gothic_I_Classic {
     static vftable_zCEngine& GetTable() {
       MemUnlock;
       return *(vftable_zCEngine*)GetAddress();
+    }
+  };
+
+
+  struct vftable_zCFFT {
+    union {
+      vfunc array[1];
+      group {
+        vfunc f00_scalar_destructor; // from base  
+      } names;
+    };
+
+    static uint GetAddress() {
+      return 0x008240F0;
+    }
+
+    static uint GetFuncsNum() {
+      return 1;
+    }
+
+    static vftable_zCFFT& GetTable() {
+      MemUnlock;
+      return *(vftable_zCFFT*)GetAddress();
     }
   };
 
@@ -5724,7 +5687,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3EA4;
+      return 0x008241AC;
     }
 
     static uint GetFuncsNum() {
@@ -5750,7 +5713,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3ECC;
+      return 0x008241DC;
     }
 
     static uint GetFuncsNum() {
@@ -5784,7 +5747,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3EE0;
+      return 0x008241F0;
     }
 
     static uint GetFuncsNum() {
@@ -5818,7 +5781,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3F14;
+      return 0x00824224;
     }
 
     static uint GetFuncsNum() {
@@ -5841,7 +5804,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D3F48;
+      return 0x00824258;
     }
 
     static uint GetFuncsNum() {
@@ -5857,7 +5820,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMesh {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCMesh    ?_GetClassDef@zCMesh@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject  ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -5878,16 +5841,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual  ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCMesh    ?GetFileExtension@zCMesh@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual  ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCMesh    ?LoadVisualVirtual@zCMesh@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCMesh    ?GetAlphaTestingEnabled@zCMesh@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCMesh    ?SetAlphaTestingEnabled@zCMesh@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCMesh    ?LoadVisualVirtual@zCMesh@@MBEPAVzCVisual@@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D3F6C;
+      return 0x00824284;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCMesh& GetTable() {
@@ -5899,7 +5864,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCModel {
     union {
-      vfunc array[24];
+      vfunc array[26];
       group {
         vfunc f00_GetClassDef;             // from zCModel   ?_GetClassDef@zCModel@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject  ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -5920,20 +5885,22 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual  ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCModel   ?GetFileExtension@zCModel@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual  ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCModel   ?LoadVisualVirtual@zCModel@@MBEPAVzCVisual@@ABVzSTRING@@@Z
-        vfunc f20_StartAnimation;          // from zCModel   ?StartAnimation@zCModel@@UAEXABVzSTRING@@@Z
-        vfunc f21_StopAnimation;           // from zCModel   ?StopAnimation@zCModel@@UAEXABVzSTRING@@@Z
-        vfunc f22_IsAnimationActive;       // from zCModel   ?IsAnimationActive@zCModel@@UAEHABVzSTRING@@@Z
-        vfunc f23_GetAnyAnimation;         // from zCModel   ?GetAnyAnimation@zCModel@@UAEPBVzSTRING@@XZ
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual  ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual  ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCModel   ?LoadVisualVirtual@zCModel@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f22_StartAnimation;          // from zCModel   ?StartAnimation@zCModel@@UAEXABVzSTRING@@@Z
+        vfunc f23_StopAnimation;           // from zCModel   ?StopAnimation@zCModel@@UAEXABVzSTRING@@@Z
+        vfunc f24_IsAnimationActive;       // from zCModel   ?IsAnimationActive@zCModel@@UAEHABVzSTRING@@@Z
+        vfunc f25_GetAnyAnimation;         // from zCModel   ?GetAnyAnimation@zCModel@@UAEPBVzSTRING@@XZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D3FEC;
+      return 0x00824314;
     }
 
     static uint GetFuncsNum() {
-      return 24;
+      return 26;
     }
 
     static vftable_zCModel& GetTable() {
@@ -5945,7 +5912,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCVisualAnimate {
     union {
-      vfunc array[24];
+      vfunc array[26];
       group {
         vfunc f00_GetClassDef;             // from zCVisualAnimate  ?_GetClassDef@zCVisualAnimate@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject         ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -5966,20 +5933,22 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual         ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual         ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual         ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual         ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
-        vfunc f20_StartAnimation;          // from base             purecall
-        vfunc f21_StopAnimation;           // from base             purecall
-        vfunc f22_IsAnimationActive;       // from base             purecall
-        vfunc f23_GetAnyAnimation;         // from base             purecall
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual         ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual         ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual         ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f22_StartAnimation;          // from base             purecall
+        vfunc f23_StopAnimation;           // from base             purecall
+        vfunc f24_IsAnimationActive;       // from base             purecall
+        vfunc f25_GetAnyAnimation;         // from base             purecall
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D4054;
+      return 0x00824384;
     }
 
     static uint GetFuncsNum() {
-      return 24;
+      return 26;
     }
 
     static vftable_zCVisualAnimate& GetTable() {
@@ -6001,7 +5970,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D40C0;
+      return 0x00824400;
     }
 
     static uint GetFuncsNum() {
@@ -6027,7 +5996,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4114;
+      return 0x00824460;
     }
 
     static uint GetFuncsNum() {
@@ -6051,7 +6020,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D412C;
+      return 0x00824478;
     }
 
     static uint GetFuncsNum() {
@@ -6067,7 +6036,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMorphMesh {
     union {
-      vfunc array[24];
+      vfunc array[20];
       group {
         vfunc f00_GetClassDef;             // from zCMorphMesh  ?_GetClassDef@zCMorphMesh@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject     ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6088,20 +6057,16 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual     ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCMorphMesh  ?GetFileExtension@zCMorphMesh@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual     ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCMorphMesh  ?LoadVisualVirtual@zCMorphMesh@@MBEPAVzCVisual@@ABVzSTRING@@@Z
-        vfunc f20_StartAnimation;          // from zCMorphMesh  ?StartAnimation@zCMorphMesh@@UAEXABVzSTRING@@@Z
-        vfunc f21_StopAnimation;           // from zCMorphMesh  ?StopAnimation@zCMorphMesh@@UAEXABVzSTRING@@@Z
-        vfunc f22_IsAnimationActive;       // from zCMorphMesh  ?IsAnimationActive@zCMorphMesh@@UAEHABVzSTRING@@@Z
-        vfunc f23_GetAnyAnimation;         // from zCMorphMesh  ?GetAnyAnimation@zCMorphMesh@@UAEPBVzSTRING@@XZ
+        vfunc f19_GetAlphaTestingEnabled;  // from zCMorphMesh  ?GetAlphaTestingEnabled@zCMorphMesh@@UBEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D4144;
+      return 0x0082449C;
     }
 
     static uint GetFuncsNum() {
-      return 24;
+      return 20;
     }
 
     static vftable_zCMorphMesh& GetTable() {
@@ -6121,7 +6086,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D41AC;
+      return 0x0082450C;
     }
 
     static uint GetFuncsNum() {
@@ -6137,7 +6102,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCParticleFX {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCParticleFX  ?_GetClassDef@zCParticleFX@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject      ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6158,16 +6123,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCParticleFX  ?HostVobAddedToWorld@zCParticleFX@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCParticleFX  ?GetFileExtension@zCParticleFX@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual      ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCParticleFX  ?LoadVisualVirtual@zCParticleFX@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual      ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual      ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCParticleFX  ?LoadVisualVirtual@zCParticleFX@@MBEPAVzCVisual@@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D4214;
+      return 0x0082458C;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCParticleFX& GetTable() {
@@ -6186,7 +6153,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4268;
+      return 0x008245E8;
     }
 
     static uint GetFuncsNum() {
@@ -6202,7 +6169,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCPolyStrip {
     union {
-      vfunc array[21];
+      vfunc array[23];
       group {
         vfunc f00_GetClassDef;             // from zCPolyStrip  ?_GetClassDef@zCPolyStrip@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject     ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6223,17 +6190,19 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual     ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual     ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual     ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual     ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
-        vfunc f20_FreeResources;           // from zCPolyStrip  ?FreeResources@zCPolyStrip@@UAEXXZ
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual     ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual     ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual     ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f22_FreeResources;           // from zCPolyStrip  ?FreeResources@zCPolyStrip@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D42EC;
+      return 0x0082468C;
     }
 
     static uint GetFuncsNum() {
-      return 21;
+      return 23;
     }
 
     static vftable_zCPolyStrip& GetTable() {
@@ -6245,7 +6214,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCLightning_zCBolt {
     union {
-      vfunc array[21];
+      vfunc array[23];
       group {
         vfunc f00_GetClassDef;             // from zCPolyStrip  ?_GetClassDef@zCPolyStrip@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject     ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6266,17 +6235,19 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual     ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual     ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual     ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual     ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
-        vfunc f20_FreeResources;           // from zCLightning  ?FreeResources@zCBolt@zCLightning@@UAEXXZ
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual     ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual     ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual     ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f22_FreeResources;           // from zCLightning  ?FreeResources@zCBolt@zCLightning@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D4354;
+      return 0x008246F4;
     }
 
     static uint GetFuncsNum() {
-      return 21;
+      return 23;
     }
 
     static vftable_zCLightning_zCBolt& GetTable() {
@@ -6288,7 +6259,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCMeshSoftSkin {
     union {
-      vfunc array[22];
+      vfunc array[24];
       group {
         vfunc f00_GetClassDef;             // from zCMeshSoftSkin   ?_GetClassDef@zCMeshSoftSkin@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject         ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6309,18 +6280,20 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual         ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCProgMeshProto  ?GetFileExtension@zCProgMeshProto@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual         ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCProgMeshProto  ?LoadVisualVirtual@zCProgMeshProto@@MBEPAVzCVisual@@ABVzSTRING@@@Z
-        vfunc f20_Save;                    // from zCMeshSoftSkin   ?Save@zCMeshSoftSkin@@UAEHAAVzCFileBIN@@@Z
-        vfunc f21_Load;                    // from zCMeshSoftSkin   ?Load@zCMeshSoftSkin@@UAEHAAVzCFileBIN@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCProgMeshProto  ?GetAlphaTestingEnabled@zCProgMeshProto@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCProgMeshProto  ?SetAlphaTestingEnabled@zCProgMeshProto@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCProgMeshProto  ?LoadVisualVirtual@zCProgMeshProto@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f22_Save;                    // from zCMeshSoftSkin   ?Save@zCMeshSoftSkin@@UAEHAAVzCFileBIN@@@Z
+        vfunc f23_Load;                    // from zCMeshSoftSkin   ?Load@zCMeshSoftSkin@@UAEHAAVzCFileBIN@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D4594;
+      return 0x0082493C;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 24;
     }
 
     static vftable_zCMeshSoftSkin& GetTable() {
@@ -6332,7 +6305,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCProgMeshProto {
     union {
-      vfunc array[22];
+      vfunc array[24];
       group {
         vfunc f00_GetClassDef;             // from zCProgMeshProto  ?_GetClassDef@zCProgMeshProto@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject         ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6353,18 +6326,20 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual         ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCProgMeshProto  ?GetFileExtension@zCProgMeshProto@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual         ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCProgMeshProto  ?LoadVisualVirtual@zCProgMeshProto@@MBEPAVzCVisual@@ABVzSTRING@@@Z
-        vfunc f20_Save;                    // from zCProgMeshProto  ?Save@zCProgMeshProto@@UAEHAAVzCFileBIN@@@Z
-        vfunc f21_Load;                    // from zCProgMeshProto  ?Load@zCProgMeshProto@@UAEHAAVzCFileBIN@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCProgMeshProto  ?GetAlphaTestingEnabled@zCProgMeshProto@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCProgMeshProto  ?SetAlphaTestingEnabled@zCProgMeshProto@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCProgMeshProto  ?LoadVisualVirtual@zCProgMeshProto@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f22_Save;                    // from zCProgMeshProto  ?Save@zCProgMeshProto@@UAEHAAVzCFileBIN@@@Z
+        vfunc f23_Load;                    // from zCProgMeshProto  ?Load@zCProgMeshProto@@UAEHAAVzCFileBIN@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D45F4;
+      return 0x008249A4;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 24;
     }
 
     static vftable_zCProgMeshProto& GetTable() {
@@ -6384,7 +6359,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D465C;
+      return 0x00824A14;
     }
 
     static uint GetFuncsNum() {
@@ -6400,7 +6375,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCQuadMark {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCQuadMark  ?_GetClassDef@zCQuadMark@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject    ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6421,16 +6396,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual    ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual    ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual    ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual    ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual    ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual    ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual    ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D467C;
+      return 0x00824A3C;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCQuadMark& GetTable() {
@@ -6451,7 +6428,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4798;
+      return 0x00824BA4;
     }
 
     static uint GetFuncsNum() {
@@ -6481,7 +6458,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D47B0;
+      return 0x00824BC4;
     }
 
     static uint GetFuncsNum() {
@@ -6512,7 +6489,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D47D4;
+      return 0x00824BE8;
     }
 
     static uint GetFuncsNum() {
@@ -6556,7 +6533,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D480C;
+      return 0x00824C24;
     }
 
     static uint GetFuncsNum() {
@@ -6572,7 +6549,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSkyControler_Indoor {
     union {
-      vfunc array[23];
+      vfunc array[36];
       group {
         vfunc f00_GetClassDef;                   // from zCSkyControler_Indoor  ?_GetClassDef@zCSkyControler_Indoor@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                       // from zCObject               ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6587,25 +6564,38 @@ namespace Gothic_I_Classic {
         vfunc f10_GetFarZScalability;            // from zCSkyControler_Indoor  ?GetFarZScalability@zCSkyControler_Indoor@@UBEMXZ
         vfunc f11_SetBackgroundColor;            // from zCSkyControler_Indoor  ?SetBackgroundColor@zCSkyControler_Indoor@@UAEXUzCOLOR@@@Z
         vfunc f12_GetBackgroundColor;            // from zCSkyControler_Indoor  ?GetBackgroundColor@zCSkyControler_Indoor@@UBE?AUzCOLOR@@XZ
-        vfunc f13_SetFillBackground;             // from zCSkyControler         ?SetFillBackground@zCSkyControler@@UAEXH@Z
-        vfunc f14_GetFillBackground;             // from zCSkyControler         ?GetFillBackground@zCSkyControler@@UBEHXZ
-        vfunc f15_SetUnderwaterFX;               // from zCSkyControler_Mid     ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
-        vfunc f16_GetUnderwaterFX;               // from zCSkyControler_Mid     ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
-        vfunc f17_UpdateWorldDependencies;       // from zCSkyControler_Indoor  ?UpdateWorldDependencies@zCSkyControler_Indoor@@UAEXXZ
-        vfunc f18_GetRelightCtr;                 // from zCSkyControler         ?GetRelightCtr@zCSkyControler@@UAEHXZ
-        vfunc f19_GetDaylightColorFromIntensity; // from zCSkyControler         ?GetDaylightColorFromIntensity@zCSkyControler@@UAE?AUzCOLOR@@H@Z
-        vfunc f20_RenderSkyPre;                  // from zCSkyControler_Indoor  ?RenderSkyPre@zCSkyControler_Indoor@@UAEXXZ
-        vfunc f21_RenderSkyPost;                 // from zCSkyControler_Indoor  ?RenderSkyPost@zCSkyControler_Indoor@@UAEXXZ
-        vfunc f22_SetCameraLocationHint;         // from zCSkyControler         ?SetCameraLocationHint@zCSkyControler@@UAEXW4zTCamLocationHint@1@@Z
+        vfunc f13_GetBackgroundColorDef;         // from zCSkyControler_Indoor  ?GetBackgroundColorDef@zCSkyControler_Indoor@@UBE?AUzCOLOR@@XZ
+        vfunc f14_SetOverrideColor;              // from zCSkyControler_Indoor  ?SetOverrideColor@zCSkyControler_Indoor@@UAEXVzVEC3@@@Z
+        vfunc f15_SetOverrideColorFlag;          // from zCSkyControler_Indoor  ?SetOverrideColorFlag@zCSkyControler_Indoor@@UAEXH@Z
+        vfunc f16_GetCloudShadowScale;           // from zCSkyControler         ?GetCloudShadowScale@zCSkyControler@@UBEMXZ
+        vfunc f17_SetCloudShadowScale;           // from zCSkyControler         ?SetCloudShadowScale@zCSkyControler@@UAEXM@Z
+        vfunc f18_SetFillBackground;             // from zCSkyControler         ?SetFillBackground@zCSkyControler@@UAEXH@Z
+        vfunc f19_GetFillBackground;             // from zCSkyControler         ?GetFillBackground@zCSkyControler@@UBEHXZ
+        vfunc f20_SetUnderwaterFX;               // from zCSkyControler_Mid     ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
+        vfunc f21_GetUnderwaterFX;               // from zCSkyControler_Mid     ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
+        vfunc f22_UpdateWorldDependencies;       // from zCSkyControler_Indoor  ?UpdateWorldDependencies@zCSkyControler_Indoor@@UAEXXZ
+        vfunc f23_SetLightDirty;                 // from zCSkyControler         ?SetLightDirty@zCSkyControler@@UAEXXZ
+        vfunc f24_SetRelightTime;                // from zCSkyControler         ?SetRelightTime@zCSkyControler@@UAEXM@Z
+        vfunc f25_GetRelightCtr;                 // from zCSkyControler         ?GetRelightCtr@zCSkyControler@@UAEHXZ
+        vfunc f26_GetDaylightColorFromIntensity; // from zCSkyControler         ?GetDaylightColorFromIntensity@zCSkyControler@@UAE?AUzCOLOR@@H@Z
+        vfunc f27_RenderSkyPre;                  // from zCSkyControler_Indoor  ?RenderSkyPre@zCSkyControler_Indoor@@UAEXXZ
+        vfunc f28_RenderSkyPost;                 // from zCSkyControler_Indoor  ?RenderSkyPost@zCSkyControler_Indoor@@UAEXH@Z
+        vfunc f29_GetGlobalWindVec;              // from zCSkyControler         ?GetGlobalWindVec@zCSkyControler@@UAEHAAVzVEC3@@W4zTAnimationMode@@@Z
+        vfunc f30_SetGlobalSkyScale;             // from zCSkyControler         ?SetGlobalSkyScale@zCSkyControler@@UAEXM@Z
+        vfunc f31_GetGlobalSkyScale;             // from zCSkyControler         ?GetGlobalSkyScale@zCSkyControler@@UBEMXZ
+        vfunc f32_GetGlobalSkyScaleChanged;      // from zCSkyControler         ?GetGlobalSkyScaleChanged@zCSkyControler@@UBEHXZ
+        vfunc f33_SetCameraLocationHint;         // from zCSkyControler         ?SetCameraLocationHint@zCSkyControler@@UAEXW4zTCamLocationHint@1@@Z
+        vfunc f34_SetWeatherType;                // from zCSkyControler         ?SetWeatherType@zCSkyControler@@UAEXW4zTWeather@@@Z
+        vfunc f35_GetWeatherType;                // from zCSkyControler         ?GetWeatherType@zCSkyControler@@UBE?AW4zTWeather@@XZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D489C;
+      return 0x00824C94;
     }
 
     static uint GetFuncsNum() {
-      return 23;
+      return 36;
     }
 
     static vftable_zCSkyControler_Indoor& GetTable() {
@@ -6617,7 +6607,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSkyControler_Mid {
     union {
-      vfunc array[23];
+      vfunc array[36];
       group {
         vfunc f00_GetClassDef;                   // from zCSkyControler_Mid  ?_GetClassDef@zCSkyControler_Mid@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                       // from zCObject            ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6632,25 +6622,38 @@ namespace Gothic_I_Classic {
         vfunc f10_GetFarZScalability;            // from base                purecall
         vfunc f11_SetBackgroundColor;            // from base                purecall
         vfunc f12_GetBackgroundColor;            // from base                purecall
-        vfunc f13_SetFillBackground;             // from zCSkyControler      ?SetFillBackground@zCSkyControler@@UAEXH@Z
-        vfunc f14_GetFillBackground;             // from zCSkyControler      ?GetFillBackground@zCSkyControler@@UBEHXZ
-        vfunc f15_SetUnderwaterFX;               // from zCSkyControler_Mid  ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
-        vfunc f16_GetUnderwaterFX;               // from zCSkyControler_Mid  ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
-        vfunc f17_UpdateWorldDependencies;       // from base                purecall
-        vfunc f18_GetRelightCtr;                 // from zCSkyControler      ?GetRelightCtr@zCSkyControler@@UAEHXZ
-        vfunc f19_GetDaylightColorFromIntensity; // from zCSkyControler      ?GetDaylightColorFromIntensity@zCSkyControler@@UAE?AUzCOLOR@@H@Z
-        vfunc f20_RenderSkyPre;                  // from zCSkyControler_Mid  ?RenderSkyPre@zCSkyControler_Mid@@UAEXXZ
-        vfunc f21_RenderSkyPost;                 // from zCSkyControler_Mid  ?RenderSkyPost@zCSkyControler_Mid@@UAEXXZ
-        vfunc f22_SetCameraLocationHint;         // from zCSkyControler      ?SetCameraLocationHint@zCSkyControler@@UAEXW4zTCamLocationHint@1@@Z
+        vfunc f13_GetBackgroundColorDef;         // from base                purecall
+        vfunc f14_SetOverrideColor;              // from base                purecall
+        vfunc f15_SetOverrideColorFlag;          // from base                purecall
+        vfunc f16_GetCloudShadowScale;           // from zCSkyControler      ?GetCloudShadowScale@zCSkyControler@@UBEMXZ
+        vfunc f17_SetCloudShadowScale;           // from zCSkyControler      ?SetCloudShadowScale@zCSkyControler@@UAEXM@Z
+        vfunc f18_SetFillBackground;             // from zCSkyControler      ?SetFillBackground@zCSkyControler@@UAEXH@Z
+        vfunc f19_GetFillBackground;             // from zCSkyControler      ?GetFillBackground@zCSkyControler@@UBEHXZ
+        vfunc f20_SetUnderwaterFX;               // from zCSkyControler_Mid  ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
+        vfunc f21_GetUnderwaterFX;               // from zCSkyControler_Mid  ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
+        vfunc f22_UpdateWorldDependencies;       // from base                purecall
+        vfunc f23_SetLightDirty;                 // from zCSkyControler      ?SetLightDirty@zCSkyControler@@UAEXXZ
+        vfunc f24_SetRelightTime;                // from zCSkyControler      ?SetRelightTime@zCSkyControler@@UAEXM@Z
+        vfunc f25_GetRelightCtr;                 // from zCSkyControler      ?GetRelightCtr@zCSkyControler@@UAEHXZ
+        vfunc f26_GetDaylightColorFromIntensity; // from zCSkyControler      ?GetDaylightColorFromIntensity@zCSkyControler@@UAE?AUzCOLOR@@H@Z
+        vfunc f27_RenderSkyPre;                  // from zCSkyControler_Mid  ?RenderSkyPre@zCSkyControler_Mid@@UAEXXZ
+        vfunc f28_RenderSkyPost;                 // from zCSkyControler_Mid  ?RenderSkyPost@zCSkyControler_Mid@@UAEXH@Z
+        vfunc f29_GetGlobalWindVec;              // from zCSkyControler      ?GetGlobalWindVec@zCSkyControler@@UAEHAAVzVEC3@@W4zTAnimationMode@@@Z
+        vfunc f30_SetGlobalSkyScale;             // from zCSkyControler      ?SetGlobalSkyScale@zCSkyControler@@UAEXM@Z
+        vfunc f31_GetGlobalSkyScale;             // from zCSkyControler      ?GetGlobalSkyScale@zCSkyControler@@UBEMXZ
+        vfunc f32_GetGlobalSkyScaleChanged;      // from zCSkyControler      ?GetGlobalSkyScaleChanged@zCSkyControler@@UBEHXZ
+        vfunc f33_SetCameraLocationHint;         // from zCSkyControler      ?SetCameraLocationHint@zCSkyControler@@UAEXW4zTCamLocationHint@1@@Z
+        vfunc f34_SetWeatherType;                // from zCSkyControler      ?SetWeatherType@zCSkyControler@@UAEXW4zTWeather@@@Z
+        vfunc f35_GetWeatherType;                // from zCSkyControler      ?GetWeatherType@zCSkyControler@@UBE?AW4zTWeather@@XZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D48FC;
+      return 0x00824D2C;
     }
 
     static uint GetFuncsNum() {
-      return 23;
+      return 36;
     }
 
     static vftable_zCSkyControler_Mid& GetTable() {
@@ -6662,7 +6665,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSkyControler {
     union {
-      vfunc array[23];
+      vfunc array[36];
       group {
         vfunc f00_GetClassDef;                   // from zCSkyControler  ?_GetClassDef@zCSkyControler@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                       // from zCObject        ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6677,25 +6680,38 @@ namespace Gothic_I_Classic {
         vfunc f10_GetFarZScalability;            // from base            purecall
         vfunc f11_SetBackgroundColor;            // from base            purecall
         vfunc f12_GetBackgroundColor;            // from base            purecall
-        vfunc f13_SetFillBackground;             // from zCSkyControler  ?SetFillBackground@zCSkyControler@@UAEXH@Z
-        vfunc f14_GetFillBackground;             // from zCSkyControler  ?GetFillBackground@zCSkyControler@@UBEHXZ
-        vfunc f15_SetUnderwaterFX;               // from base            purecall
-        vfunc f16_GetUnderwaterFX;               // from base            purecall
-        vfunc f17_UpdateWorldDependencies;       // from base            purecall
-        vfunc f18_GetRelightCtr;                 // from zCSkyControler  ?GetRelightCtr@zCSkyControler@@UAEHXZ
-        vfunc f19_GetDaylightColorFromIntensity; // from zCSkyControler  ?GetDaylightColorFromIntensity@zCSkyControler@@UAE?AUzCOLOR@@H@Z
-        vfunc f20_RenderSkyPre;                  // from base            purecall
-        vfunc f21_RenderSkyPost;                 // from base            purecall
-        vfunc f22_SetCameraLocationHint;         // from zCSkyControler  ?SetCameraLocationHint@zCSkyControler@@UAEXW4zTCamLocationHint@1@@Z
+        vfunc f13_GetBackgroundColorDef;         // from base            purecall
+        vfunc f14_SetOverrideColor;              // from base            purecall
+        vfunc f15_SetOverrideColorFlag;          // from base            purecall
+        vfunc f16_GetCloudShadowScale;           // from zCSkyControler  ?GetCloudShadowScale@zCSkyControler@@UBEMXZ
+        vfunc f17_SetCloudShadowScale;           // from zCSkyControler  ?SetCloudShadowScale@zCSkyControler@@UAEXM@Z
+        vfunc f18_SetFillBackground;             // from zCSkyControler  ?SetFillBackground@zCSkyControler@@UAEXH@Z
+        vfunc f19_GetFillBackground;             // from zCSkyControler  ?GetFillBackground@zCSkyControler@@UBEHXZ
+        vfunc f20_SetUnderwaterFX;               // from base            purecall
+        vfunc f21_GetUnderwaterFX;               // from base            purecall
+        vfunc f22_UpdateWorldDependencies;       // from base            purecall
+        vfunc f23_SetLightDirty;                 // from zCSkyControler  ?SetLightDirty@zCSkyControler@@UAEXXZ
+        vfunc f24_SetRelightTime;                // from zCSkyControler  ?SetRelightTime@zCSkyControler@@UAEXM@Z
+        vfunc f25_GetRelightCtr;                 // from zCSkyControler  ?GetRelightCtr@zCSkyControler@@UAEHXZ
+        vfunc f26_GetDaylightColorFromIntensity; // from zCSkyControler  ?GetDaylightColorFromIntensity@zCSkyControler@@UAE?AUzCOLOR@@H@Z
+        vfunc f27_RenderSkyPre;                  // from base            purecall
+        vfunc f28_RenderSkyPost;                 // from base            purecall
+        vfunc f29_GetGlobalWindVec;              // from zCSkyControler  ?GetGlobalWindVec@zCSkyControler@@UAEHAAVzVEC3@@W4zTAnimationMode@@@Z
+        vfunc f30_SetGlobalSkyScale;             // from zCSkyControler  ?SetGlobalSkyScale@zCSkyControler@@UAEXM@Z
+        vfunc f31_GetGlobalSkyScale;             // from zCSkyControler  ?GetGlobalSkyScale@zCSkyControler@@UBEMXZ
+        vfunc f32_GetGlobalSkyScaleChanged;      // from zCSkyControler  ?GetGlobalSkyScaleChanged@zCSkyControler@@UBEHXZ
+        vfunc f33_SetCameraLocationHint;         // from zCSkyControler  ?SetCameraLocationHint@zCSkyControler@@UAEXW4zTCamLocationHint@1@@Z
+        vfunc f34_SetWeatherType;                // from zCSkyControler  ?SetWeatherType@zCSkyControler@@UAEXW4zTWeather@@@Z
+        vfunc f35_GetWeatherType;                // from zCSkyControler  ?GetWeatherType@zCSkyControler@@UBE?AW4zTWeather@@XZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D495C;
+      return 0x00824DC4;
     }
 
     static uint GetFuncsNum() {
-      return 23;
+      return 36;
     }
 
     static vftable_zCSkyControler& GetTable() {
@@ -6707,7 +6723,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCUnderwaterPFX {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCParticleFX     ?_GetClassDef@zCParticleFX@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject         ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -6728,16 +6744,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCParticleFX     ?HostVobAddedToWorld@zCParticleFX@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCParticleFX     ?GetFileExtension@zCParticleFX@@MAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual         ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCParticleFX     ?LoadVisualVirtual@zCParticleFX@@MBEPAVzCVisual@@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual         ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual         ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCParticleFX     ?LoadVisualVirtual@zCParticleFX@@MBEPAVzCVisual@@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D49EC;
+      return 0x00824E5C;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCUnderwaterPFX& GetTable() {
@@ -6749,7 +6767,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSkyControler_Outdoor {
     union {
-      vfunc array[23];
+      vfunc array[37];
       group {
         vfunc f00_GetClassDef;                   // from zCSkyControler_Outdoor  ?_GetClassDef@zCSkyControler_Outdoor@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                       // from zCSkyControler_Outdoor  ?Archive@zCSkyControler_Outdoor@@MAEXAAVzCArchiver@@@Z
@@ -6764,25 +6782,39 @@ namespace Gothic_I_Classic {
         vfunc f10_GetFarZScalability;            // from zCSkyControler_Outdoor  ?GetFarZScalability@zCSkyControler_Outdoor@@UBEMXZ
         vfunc f11_SetBackgroundColor;            // from zCSkyControler_Outdoor  ?SetBackgroundColor@zCSkyControler_Outdoor@@UAEXUzCOLOR@@@Z
         vfunc f12_GetBackgroundColor;            // from zCSkyControler_Outdoor  ?GetBackgroundColor@zCSkyControler_Outdoor@@UBE?AUzCOLOR@@XZ
-        vfunc f13_SetFillBackground;             // from zCSkyControler          ?SetFillBackground@zCSkyControler@@UAEXH@Z
-        vfunc f14_GetFillBackground;             // from zCSkyControler          ?GetFillBackground@zCSkyControler@@UBEHXZ
-        vfunc f15_SetUnderwaterFX;               // from zCSkyControler_Mid      ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
-        vfunc f16_GetUnderwaterFX;               // from zCSkyControler_Mid      ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
-        vfunc f17_UpdateWorldDependencies;       // from zCSkyControler_Outdoor  ?UpdateWorldDependencies@zCSkyControler_Outdoor@@UAEXXZ
-        vfunc f18_GetRelightCtr;                 // from zCSkyControler_Outdoor  ?GetRelightCtr@zCSkyControler_Outdoor@@UAEHXZ
-        vfunc f19_GetDaylightColorFromIntensity; // from zCSkyControler_Outdoor  ?GetDaylightColorFromIntensity@zCSkyControler_Outdoor@@UAE?AUzCOLOR@@H@Z
-        vfunc f20_RenderSkyPre;                  // from zCSkyControler_Outdoor  ?RenderSkyPre@zCSkyControler_Outdoor@@UAEXXZ
-        vfunc f21_RenderSkyPost;                 // from zCSkyControler_Outdoor  ?RenderSkyPost@zCSkyControler_Outdoor@@UAEXXZ
-        vfunc f22_SetCameraLocationHint;         // from zCSkyControler_Outdoor  ?SetCameraLocationHint@zCSkyControler_Outdoor@@UAEXW4zTCamLocationHint@zCSkyControler@@@Z
+        vfunc f13_GetBackgroundColorDef;         // from zCSkyControler_Outdoor  ?GetBackgroundColorDef@zCSkyControler_Outdoor@@UBE?AUzCOLOR@@XZ
+        vfunc f14_SetOverrideColor;              // from zCSkyControler_Outdoor  ?SetOverrideColor@zCSkyControler_Outdoor@@UAEXVzVEC3@@@Z
+        vfunc f15_SetOverrideColorFlag;          // from zCSkyControler_Outdoor  ?SetOverrideColorFlag@zCSkyControler_Outdoor@@UAEXH@Z
+        vfunc f16_GetCloudShadowScale;           // from zCSkyControler_Outdoor  ?GetCloudShadowScale@zCSkyControler_Outdoor@@UBEMXZ
+        vfunc f17_SetCloudShadowScale;           // from zCSkyControler_Outdoor  ?SetCloudShadowScale@zCSkyControler_Outdoor@@UAEXM@Z
+        vfunc f18_SetFillBackground;             // from zCSkyControler          ?SetFillBackground@zCSkyControler@@UAEXH@Z
+        vfunc f19_GetFillBackground;             // from zCSkyControler          ?GetFillBackground@zCSkyControler@@UBEHXZ
+        vfunc f20_SetUnderwaterFX;               // from zCSkyControler_Mid      ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
+        vfunc f21_GetUnderwaterFX;               // from zCSkyControler_Mid      ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
+        vfunc f22_UpdateWorldDependencies;       // from zCSkyControler_Outdoor  ?UpdateWorldDependencies@zCSkyControler_Outdoor@@UAEXXZ
+        vfunc f23_SetLightDirty;                 // from zCSkyControler          ?SetLightDirty@zCSkyControler@@UAEXXZ
+        vfunc f24_SetRelightTime;                // from zCSkyControler          ?SetRelightTime@zCSkyControler@@UAEXM@Z
+        vfunc f25_GetRelightCtr;                 // from zCSkyControler          ?GetRelightCtr@zCSkyControler@@UAEHXZ
+        vfunc f26_GetDaylightColorFromIntensity; // from zCSkyControler_Outdoor  ?GetDaylightColorFromIntensity@zCSkyControler_Outdoor@@UAE?AUzCOLOR@@H@Z
+        vfunc f27_RenderSkyPre;                  // from zCSkyControler_Outdoor  ?RenderSkyPre@zCSkyControler_Outdoor@@UAEXXZ
+        vfunc f28_RenderSkyPost;                 // from zCSkyControler_Outdoor  ?RenderSkyPost@zCSkyControler_Outdoor@@UAEXH@Z
+        vfunc f29_GetGlobalWindVec;              // from zCSkyControler_Outdoor  ?GetGlobalWindVec@zCSkyControler_Outdoor@@UAEHAAVzVEC3@@W4zTAnimationMode@@@Z
+        vfunc f30_SetGlobalSkyScale;             // from zCSkyControler_Outdoor  ?SetGlobalSkyScale@zCSkyControler_Outdoor@@UAEXM@Z
+        vfunc f31_GetGlobalSkyScale;             // from zCSkyControler_Outdoor  ?GetGlobalSkyScale@zCSkyControler_Outdoor@@UBEMXZ
+        vfunc f32_GetGlobalSkyScaleChanged;      // from zCSkyControler_Outdoor  ?GetGlobalSkyScaleChanged@zCSkyControler_Outdoor@@UBEHXZ
+        vfunc f33_SetCameraLocationHint;         // from zCSkyControler_Outdoor  ?SetCameraLocationHint@zCSkyControler_Outdoor@@UAEXW4zTCamLocationHint@zCSkyControler@@@Z
+        vfunc f34_SetWeatherType;                // from zCSkyControler_Outdoor  ?SetWeatherType@zCSkyControler_Outdoor@@UAEXW4zTWeather@@@Z
+        vfunc f35_GetWeatherType;                // from zCSkyControler          ?GetWeatherType@zCSkyControler@@UBE?AW4zTWeather@@XZ
+        vfunc f36_GetRenderLightning;            // from zCSkyControler_Outdoor  ?GetRenderLightning@zCSkyControler_Outdoor@@UBEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007D4A64;
+      return 0x00824F2C;
     }
 
     static uint GetFuncsNum() {
-      return 23;
+      return 37;
     }
 
     static vftable_zCSkyControler_Outdoor& GetTable() {
@@ -6813,7 +6845,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4B0C;
+      return 0x00824FFC;
     }
 
     static uint GetFuncsNum() {
@@ -6838,7 +6870,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4B44;
+      return 0x00825034;
     }
 
     static uint GetFuncsNum() {
@@ -6871,7 +6903,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4B58;
+      return 0x00825050;
     }
 
     static uint GetFuncsNum() {
@@ -6904,7 +6936,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4B88;
+      return 0x00825080;
     }
 
     static uint GetFuncsNum() {
@@ -6937,7 +6969,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4BB8;
+      return 0x008250B0;
     }
 
     static uint GetFuncsNum() {
@@ -6970,7 +7002,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4BF4;
+      return 0x008250F4;
     }
 
     static uint GetFuncsNum() {
@@ -7003,7 +7035,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4C24;
+      return 0x00825124;
     }
 
     static uint GetFuncsNum() {
@@ -7036,7 +7068,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4C54;
+      return 0x00825154;
     }
 
     static uint GetFuncsNum() {
@@ -7062,7 +7094,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4C90;
+      return 0x0082518C;
     }
 
     static uint GetFuncsNum() {
@@ -7089,7 +7121,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4CA4;
+      return 0x008251A0;
     }
 
     static uint GetFuncsNum() {
@@ -7114,7 +7146,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4CCC;
+      return 0x008251C8;
     }
 
     static uint GetFuncsNum() {
@@ -7139,7 +7171,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4CDC;
+      return 0x008251D8;
     }
 
     static uint GetFuncsNum() {
@@ -7164,7 +7196,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007D4CEC;
+      return 0x008251E8;
     }
 
     static uint GetFuncsNum() {
@@ -7204,7 +7236,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB364;
+      return 0x0082B864;
     }
 
     static uint GetFuncsNum() {
@@ -7230,7 +7262,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB3BC;
+      return 0x0082B8C4;
     }
 
     static uint GetFuncsNum() {
@@ -7280,7 +7312,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB3D4;
+      return 0x0082B8DC;
     }
 
     static uint GetFuncsNum() {
@@ -7330,7 +7362,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB44C;
+      return 0x0082B954;
     }
 
     static uint GetFuncsNum() {
@@ -7346,7 +7378,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCVisual {
     union {
-      vfunc array[20];
+      vfunc array[22];
       group {
         vfunc f00_GetClassDef;             // from zCVisual  ?_GetClassDef@zCVisual@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject  ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -7367,16 +7399,18 @@ namespace Gothic_I_Classic {
         vfunc f16_HostVobAddedToWorld;     // from zCVisual  ?HostVobAddedToWorld@zCVisual@@UAEXPAVzCVob@@PAVzCWorld@@@Z
         vfunc f17_GetFileExtension;        // from zCVisual  ?GetFileExtension@zCVisual@@UAEPBVzSTRING@@H@Z
         vfunc f18_GetLODVisualAndAlpha;    // from zCVisual  ?GetLODVisualAndAlpha@zCVisual@@UAEXMAAPAV1@AAM@Z
-        vfunc f19_LoadVisualVirtual;       // from zCVisual  ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
+        vfunc f19_GetAlphaTestingEnabled;  // from zCVisual  ?GetAlphaTestingEnabled@zCVisual@@UBEHXZ
+        vfunc f20_SetAlphaTestingEnabled;  // from zCVisual  ?SetAlphaTestingEnabled@zCVisual@@UAEXH@Z
+        vfunc f21_LoadVisualVirtual;       // from zCVisual  ?LoadVisualVirtual@zCVisual@@MBEPAV1@ABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DB4D4;
+      return 0x0082B9DC;
     }
 
     static uint GetFuncsNum() {
-      return 20;
+      return 22;
     }
 
     static vftable_zCVisual& GetTable() {
@@ -7422,7 +7456,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB534;
+      return 0x0082BA4C;
     }
 
     static uint GetFuncsNum() {
@@ -7472,7 +7506,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB604;
+      return 0x0082BB24;
     }
 
     static uint GetFuncsNum() {
@@ -7522,7 +7556,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB67C;
+      return 0x0082BB9C;
     }
 
     static uint GetFuncsNum() {
@@ -7572,7 +7606,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB6F4;
+      return 0x0082BC14;
     }
 
     static uint GetFuncsNum() {
@@ -7622,7 +7656,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB76C;
+      return 0x0082BC8C;
     }
 
     static uint GetFuncsNum() {
@@ -7672,7 +7706,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB7E4;
+      return 0x0082BD04;
     }
 
     static uint GetFuncsNum() {
@@ -7722,7 +7756,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB85C;
+      return 0x0082BD7C;
     }
 
     static uint GetFuncsNum() {
@@ -7772,7 +7806,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB8D4;
+      return 0x0082BDF4;
     }
 
     static uint GetFuncsNum() {
@@ -7825,7 +7859,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB94C;
+      return 0x0082BE6C;
     }
 
     static uint GetFuncsNum() {
@@ -7878,7 +7912,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DB9CC;
+      return 0x0082BEEC;
     }
 
     static uint GetFuncsNum() {
@@ -7928,7 +7962,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBA4C;
+      return 0x0082BF6C;
     }
 
     static uint GetFuncsNum() {
@@ -7978,7 +8012,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBAC4;
+      return 0x0082BFE4;
     }
 
     static uint GetFuncsNum() {
@@ -8029,7 +8063,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBB3C;
+      return 0x0082C05C;
     }
 
     static uint GetFuncsNum() {
@@ -8080,7 +8114,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBBB4;
+      return 0x0082C0D4;
     }
 
     static uint GetFuncsNum() {
@@ -8131,7 +8165,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBC2C;
+      return 0x0082C14C;
     }
 
     static uint GetFuncsNum() {
@@ -8181,7 +8215,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBCA4;
+      return 0x0082C1C4;
     }
 
     static uint GetFuncsNum() {
@@ -8231,7 +8265,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBD1C;
+      return 0x0082C23C;
     }
 
     static uint GetFuncsNum() {
@@ -8245,91 +8279,42 @@ namespace Gothic_I_Classic {
   };
 
 
-  struct vftable_zCVobScreenFX {
-    union {
-      vfunc array[28];
-      group {
-        vfunc f00_GetClassDef;             // from zCVobScreenFX  ?_GetClassDef@zCVobScreenFX@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;                 // from zCVobScreenFX  ?Archive@zCVobScreenFX@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;               // from zCVobScreenFX  ?Unarchive@zCVobScreenFX@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;       // from base           
-        vfunc f04_OnTrigger;               // from zCVob          ?OnTrigger@zCVob@@UAEXPAV1@0@Z
-        vfunc f05_OnUntrigger;             // from zCVob          ?OnUntrigger@zCVob@@UAEXPAV1@0@Z
-        vfunc f06_OnTouch;                 // from zCVob          ?OnTouch@zCVob@@UAEXPAV1@@Z
-        vfunc f07_OnUntouch;               // from zCVob          ?OnUntouch@zCVob@@UAEXPAV1@@Z
-        vfunc f08_OnTouchLevel;            // from zCVob          ?OnTouchLevel@zCVob@@UAEXXZ
-        vfunc f09_OnDamage;                // from zCVob          ?OnDamage@zCVob@@UAEXPAV1@0MHABVzVEC3@@@Z
-        vfunc f10_OnMessage;               // from zCVobScreenFX  ?OnMessage@zCVobScreenFX@@UAEXPAVzCEventMessage@@PAVzCVob@@@Z
-        vfunc f11_OnTick;                  // from zCVobScreenFX  ?OnTick@zCVobScreenFX@@UAEXXZ
-        vfunc f12_OnTimer;                 // from zCVob          ?OnTimer@zCVob@@UAEXXZ
-        vfunc f13_PostLoad;                // from zCVob          ?PostLoad@zCVob@@UAEXXZ
-        vfunc f14_GetCharacterClass;       // from zCVob          ?GetCharacterClass@zCVob@@UAE?AW4zTVobCharClass@1@XZ
-        vfunc f15_SetSleepingMode;         // from zCVob          ?SetSleepingMode@zCVob@@UAEXW4zTVobSleepingMode@@@Z
-        vfunc f16_EndMovement;             // from zCVob          ?EndMovement@zCVob@@UAEXXZ
-        vfunc f17_CanThisCollideWith;      // from zCVob          ?CanThisCollideWith@zCVob@@UAEHPAV1@@Z
-        vfunc f18_Render;                  // from zCVob          ?Render@zCVob@@UAIHAAUzTRenderContext@@@Z
-        vfunc f19_SetVisual;               // from zCVob          ?SetVisual@zCVob@@UAEXABVzSTRING@@@Z
-        vfunc f20_SetVisual;               // from zCVob          ?SetVisual@zCVob@@UAEXPAVzCVisual@@@Z
-        vfunc f21_GetScriptInstance;       // from zCVob          ?GetScriptInstance@zCVob@@UAEHAAPAVzSTRING@@AAH@Z
-        vfunc f22_SetByScriptInstance;     // from zCVob          ?SetByScriptInstance@zCVob@@UAEHPBVzSTRING@@H@Z
-        vfunc f23_GetCSStateFlags;         // from zCVob          ?GetCSStateFlags@zCVob@@UAEHXZ
-        vfunc f24_TraceRay;                // from zCVob          ?TraceRay@zCVob@@UAEHABVzVEC3@@0HAAUzTTraceRayReport@@@Z
-        vfunc f25_GetTriggerTarget;        // from zCVob          ?GetTriggerTarget@zCVob@@UBEPBVzSTRING@@H@Z
-        vfunc f26_ThisVobAddedToWorld;     // from zCVob          ?ThisVobAddedToWorld@zCVob@@UAEXPAVzCWorld@@@Z
-        vfunc f27_ThisVobRemovedFromWorld; // from zCVob          ?ThisVobRemovedFromWorld@zCVob@@UAEXPAVzCWorld@@@Z
-      } names;
-    };
-
-    static uint GetAddress() {
-      return 0x007DBD94;
-    }
-
-    static uint GetFuncsNum() {
-      return 28;
-    }
-
-    static vftable_zCVobScreenFX& GetTable() {
-      MemUnlock;
-      return *(vftable_zCVobScreenFX*)GetAddress();
-    }
-  };
-
-
   struct vftable_zCEventCommon {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEventCommon   ?_GetClassDef@zCEventCommon@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventCommon   ?IsNetRelevant@zCEventCommon@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventCommon   ?MD_GetNumOfSubTypes@zCEventCommon@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventCommon   ?MD_GetSubTypeString@zCEventCommon@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEventCommon   ?_GetClassDef@zCEventCommon@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventCommon   ?IsNetRelevant@zCEventCommon@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage  ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventCommon   ?MD_GetNumOfSubTypes@zCEventCommon@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventCommon   ?MD_GetSubTypeString@zCEventCommon@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DBE0C;
+      return 0x0082C2B4;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEventCommon& GetTable() {
@@ -8341,39 +8326,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCEventMover {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEventMover    ?_GetClassDef@zCEventMover@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMover    ?IsNetRelevant@zCEventMover@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventMover    ?MD_GetNumOfSubTypes@zCEventMover@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventMover    ?MD_GetSubTypeString@zCEventMover@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEventMover    ?_GetClassDef@zCEventMover@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMover    ?IsNetRelevant@zCEventMover@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage  ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventMover    ?MD_GetNumOfSubTypes@zCEventMover@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventMover    ?MD_GetSubTypeString@zCEventMover@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DBE6C;
+      return 0x0082C314;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEventMover& GetTable() {
@@ -8385,39 +8371,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCEventScreenFX {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEventScreenFX  ?_GetClassDef@zCEventScreenFX@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventScreenFX  ?Archive@zCEventScreenFX@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventScreenFX  ?Unarchive@zCEventScreenFX@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base             
-        vfunc f04_IsOverlay;           // from zCEventMessage   ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage   ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage   ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage   ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage   ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage   ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage   ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage   ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage   ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventScreenFX  ?MD_GetNumOfSubTypes@zCEventScreenFX@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventScreenFX  ?MD_GetSubTypeString@zCEventScreenFX@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage   ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage   ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage   ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventScreenFX  ?MD_GetTimeBehavior@zCEventScreenFX@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventScreenFX  ?MD_GetMinTime@zCEventScreenFX@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventScreenFX  ?Pack@zCEventScreenFX@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventScreenFX  ?Unpack@zCEventScreenFX@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEventScreenFX  ?_GetClassDef@zCEventScreenFX@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventScreenFX  ?Archive@zCEventScreenFX@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventScreenFX  ?Unarchive@zCEventScreenFX@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base             
+        vfunc f04_IsOverlay;             // from zCEventMessage   ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage   ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage   ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage   ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage   ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage   ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage   ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage   ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage   ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage   ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventScreenFX  ?MD_GetNumOfSubTypes@zCEventScreenFX@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventScreenFX  ?MD_GetSubTypeString@zCEventScreenFX@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage   ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage   ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage   ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventScreenFX  ?MD_GetTimeBehavior@zCEventScreenFX@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventScreenFX  ?MD_GetMinTime@zCEventScreenFX@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventScreenFX  ?Pack@zCEventScreenFX@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventScreenFX  ?Unpack@zCEventScreenFX@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DBECC;
+      return 0x0082C374;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEventScreenFX& GetTable() {
@@ -8466,7 +8453,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBF2C;
+      return 0x0082C3D4;
     }
 
     static uint GetFuncsNum() {
@@ -8519,7 +8506,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DBFAC;
+      return 0x0082C454;
     }
 
     static uint GetFuncsNum() {
@@ -8533,9 +8520,59 @@ namespace Gothic_I_Classic {
   };
 
 
+  struct vftable_zCVobScreenFX {
+    union {
+      vfunc array[28];
+      group {
+        vfunc f00_GetClassDef;             // from zCVobScreenFX  ?_GetClassDef@zCVobScreenFX@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;                 // from zCVobScreenFX  ?Archive@zCVobScreenFX@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;               // from zCVobScreenFX  ?Unarchive@zCVobScreenFX@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;       // from base           
+        vfunc f04_OnTrigger;               // from zCVob          ?OnTrigger@zCVob@@UAEXPAV1@0@Z
+        vfunc f05_OnUntrigger;             // from zCVob          ?OnUntrigger@zCVob@@UAEXPAV1@0@Z
+        vfunc f06_OnTouch;                 // from zCVob          ?OnTouch@zCVob@@UAEXPAV1@@Z
+        vfunc f07_OnUntouch;               // from zCVob          ?OnUntouch@zCVob@@UAEXPAV1@@Z
+        vfunc f08_OnTouchLevel;            // from zCVob          ?OnTouchLevel@zCVob@@UAEXXZ
+        vfunc f09_OnDamage;                // from zCVob          ?OnDamage@zCVob@@UAEXPAV1@0MHABVzVEC3@@@Z
+        vfunc f10_OnMessage;               // from zCVobScreenFX  ?OnMessage@zCVobScreenFX@@UAEXPAVzCEventMessage@@PAVzCVob@@@Z
+        vfunc f11_OnTick;                  // from zCVobScreenFX  ?OnTick@zCVobScreenFX@@UAEXXZ
+        vfunc f12_OnTimer;                 // from zCVob          ?OnTimer@zCVob@@UAEXXZ
+        vfunc f13_PostLoad;                // from zCVob          ?PostLoad@zCVob@@UAEXXZ
+        vfunc f14_GetCharacterClass;       // from zCVob          ?GetCharacterClass@zCVob@@UAE?AW4zTVobCharClass@1@XZ
+        vfunc f15_SetSleepingMode;         // from zCVob          ?SetSleepingMode@zCVob@@UAEXW4zTVobSleepingMode@@@Z
+        vfunc f16_EndMovement;             // from zCVob          ?EndMovement@zCVob@@UAEXXZ
+        vfunc f17_CanThisCollideWith;      // from zCVob          ?CanThisCollideWith@zCVob@@UAEHPAV1@@Z
+        vfunc f18_Render;                  // from zCVob          ?Render@zCVob@@UAIHAAUzTRenderContext@@@Z
+        vfunc f19_SetVisual;               // from zCVob          ?SetVisual@zCVob@@UAEXABVzSTRING@@@Z
+        vfunc f20_SetVisual;               // from zCVob          ?SetVisual@zCVob@@UAEXPAVzCVisual@@@Z
+        vfunc f21_GetScriptInstance;       // from zCVob          ?GetScriptInstance@zCVob@@UAEHAAPAVzSTRING@@AAH@Z
+        vfunc f22_SetByScriptInstance;     // from zCVob          ?SetByScriptInstance@zCVob@@UAEHPBVzSTRING@@H@Z
+        vfunc f23_GetCSStateFlags;         // from zCVob          ?GetCSStateFlags@zCVob@@UAEHXZ
+        vfunc f24_TraceRay;                // from zCVob          ?TraceRay@zCVob@@UAEHABVzVEC3@@0HAAUzTTraceRayReport@@@Z
+        vfunc f25_GetTriggerTarget;        // from zCVob          ?GetTriggerTarget@zCVob@@UBEPBVzSTRING@@H@Z
+        vfunc f26_ThisVobAddedToWorld;     // from zCVob          ?ThisVobAddedToWorld@zCVob@@UAEXPAVzCWorld@@@Z
+        vfunc f27_ThisVobRemovedFromWorld; // from zCVob          ?ThisVobRemovedFromWorld@zCVob@@UAEXPAVzCWorld@@@Z
+      } names;
+    };
+
+    static uint GetAddress() {
+      return 0x0082C4D4;
+    }
+
+    static uint GetFuncsNum() {
+      return 28;
+    }
+
+    static vftable_zCVobScreenFX& GetTable() {
+      MemUnlock;
+      return *(vftable_zCVobScreenFX*)GetAddress();
+    }
+  };
+
+
   struct vftable_zCWorld {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
         vfunc f00_GetClassDef;              // from zCWorld  ?_GetClassDef@zCWorld@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from zCWorld  ?Archive@zCWorld@@MAEXAAVzCArchiver@@@Z
@@ -8547,30 +8584,31 @@ namespace Gothic_I_Classic {
         vfunc f07_SaveVobSubtree;           // from zCWorld  ?SaveVobSubtree@zCWorld@@UAEHABVzSTRING@@PAVzCVob@@HH@Z
         vfunc f08_DisposeWorld;             // from zCWorld  ?DisposeWorld@zCWorld@@UAEXXZ
         vfunc f09_DisposeVobs;              // from zCWorld  ?DisposeVobs@zCWorld@@UAEHPAV?$zCTree@VzCVob@@@@@Z
-        vfunc f10_DisposeStaticWorld;       // from zCWorld  ?DisposeStaticWorld@zCWorld@@UAEXXZ
-        vfunc f11_AddVobAsChild;            // from zCWorld  ?AddVobAsChild@zCWorld@@UAEPAV?$zCTree@VzCVob@@@@PAVzCVob@@PAV2@@Z
-        vfunc f12_RemoveVob;                // from zCWorld  ?RemoveVob@zCWorld@@UAEXPAVzCVob@@@Z
-        vfunc f13_RemoveVobSubtree;         // from zCWorld  ?RemoveVobSubtree@zCWorld@@UAEXPAVzCVob@@@Z
-        vfunc f14_MoveVobSubtreeTo;         // from zCWorld  ?MoveVobSubtreeTo@zCWorld@@UAEXPAVzCVob@@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f15_GetPlayerGroup;           // from zCWorld  ?GetPlayerGroup@zCWorld@@UAEPAVzCPlayerGroup@@XZ
-        vfunc f16_SearchVob;                // from zCWorld  ?SearchVob@zCWorld@@UAEPAVzCVob@@PAV2@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f17_SearchVobByID;            // from zCWorld  ?SearchVobByID@zCWorld@@UAEPAVzCVob@@KPAV?$zCTree@VzCVob@@@@@Z
-        vfunc f18_SearchVobByName;          // from zCWorld  ?SearchVobByName@zCWorld@@UAEPAVzCVob@@ABVzSTRING@@@Z
-        vfunc f19_SearchVobListByName;      // from zCWorld  ?SearchVobListByName@zCWorld@@UAEXABVzSTRING@@AAV?$zCArray@PAVzCVob@@@@@Z
-        vfunc f20_SearchVobListByClass;     // from zCWorld  ?SearchVobListByClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f21_SearchVobListByBaseClass; // from zCWorld  ?SearchVobListByBaseClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f22_VobAddedToWorld;          // from zCWorld  ?VobAddedToWorld@zCWorld@@MAEXPAVzCVob@@@Z
-        vfunc f23_VobRemovedFromWorld;      // from zCWorld  ?VobRemovedFromWorld@zCWorld@@MAEXPAVzCVob@@@Z
-        vfunc f24_RenderWaynet;             // from zCWorld  ?RenderWaynet@zCWorld@@MAEXPAVzCCamera@@@Z
+        vfunc f10_DisposeVobsDbg;           // from zCWorld  ?DisposeVobsDbg@zCWorld@@UAEHPAV?$zCTree@VzCVob@@@@@Z
+        vfunc f11_DisposeStaticWorld;       // from zCWorld  ?DisposeStaticWorld@zCWorld@@UAEXXZ
+        vfunc f12_AddVobAsChild;            // from zCWorld  ?AddVobAsChild@zCWorld@@UAEPAV?$zCTree@VzCVob@@@@PAVzCVob@@PAV2@@Z
+        vfunc f13_RemoveVob;                // from zCWorld  ?RemoveVob@zCWorld@@UAEXPAVzCVob@@@Z
+        vfunc f14_RemoveVobSubtree;         // from zCWorld  ?RemoveVobSubtree@zCWorld@@UAEXPAVzCVob@@@Z
+        vfunc f15_MoveVobSubtreeTo;         // from zCWorld  ?MoveVobSubtreeTo@zCWorld@@UAEXPAVzCVob@@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f16_GetPlayerGroup;           // from zCWorld  ?GetPlayerGroup@zCWorld@@UAEPAVzCPlayerGroup@@XZ
+        vfunc f17_SearchVob;                // from zCWorld  ?SearchVob@zCWorld@@UAEPAVzCVob@@PAV2@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f18_SearchVobByID;            // from zCWorld  ?SearchVobByID@zCWorld@@UAEPAVzCVob@@KPAV?$zCTree@VzCVob@@@@@Z
+        vfunc f19_SearchVobByName;          // from zCWorld  ?SearchVobByName@zCWorld@@UAEPAVzCVob@@ABVzSTRING@@@Z
+        vfunc f20_SearchVobListByName;      // from zCWorld  ?SearchVobListByName@zCWorld@@UAEXABVzSTRING@@AAV?$zCArray@PAVzCVob@@@@@Z
+        vfunc f21_SearchVobListByClass;     // from zCWorld  ?SearchVobListByClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f22_SearchVobListByBaseClass; // from zCWorld  ?SearchVobListByBaseClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f23_VobAddedToWorld;          // from zCWorld  ?VobAddedToWorld@zCWorld@@MAEXPAVzCVob@@@Z
+        vfunc f24_VobRemovedFromWorld;      // from zCWorld  ?VobRemovedFromWorld@zCWorld@@MAEXPAVzCVob@@@Z
+        vfunc f25_RenderWaynet;             // from zCWorld  ?RenderWaynet@zCWorld@@MAEXPAVzCCamera@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DC054;
+      return 0x0082C57C;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_zCWorld& GetTable() {
@@ -8592,7 +8630,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC0DC;
+      return 0x0082C608;
     }
 
     static uint GetFuncsNum() {
@@ -8646,7 +8684,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC134;
+      return 0x0082C67C;
     }
 
     static uint GetFuncsNum() {
@@ -8689,7 +8727,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC1BC;
+      return 0x0082C704;
     }
 
     static uint GetFuncsNum() {
@@ -8705,7 +8743,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCSoundFXDummy {
     union {
-      vfunc array[21];
+      vfunc array[23];
       group {
         vfunc f00_GetClassDef;         // from zCSoundFX   ?_GetClassDef@zCSoundFX@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;             // from zCObject    ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -8728,43 +8766,22 @@ namespace Gothic_I_Classic {
         vfunc f18_SetFrequency;        // from zCSoundFX   ?SetFrequency@zCSoundFX@@UAEXH@Z
         vfunc f19_SetLooping;          // from zCSoundFX   ?SetLooping@zCSoundFX@@UAEXH@Z
         vfunc f20_IsLooping;           // from zCSoundFX   ?IsLooping@zCSoundFX@@UBEHXZ
+        vfunc f21_SetIsFixed;          // from zCSoundFX   ?SetIsFixed@zCSoundFX@@UAEXH@Z
+        vfunc f22_GetIsFixed;          // from zCSoundFX   ?GetIsFixed@zCSoundFX@@UBEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DC214;
+      return 0x0082C75C;
     }
 
     static uint GetFuncsNum() {
-      return 21;
+      return 23;
     }
 
     static vftable_zCSoundFXDummy& GetTable() {
       MemUnlock;
       return *(vftable_zCSoundFXDummy*)GetAddress();
-    }
-  };
-
-
-  struct vftable_zCShowMemCallback {
-    union {
-      vfunc array[1];
-      group {
-        vfunc f00_DoWorldPerFrameCallback; // from zCShowMemCallback  ?DoWorldPerFrameCallback@zCShowMemCallback@@UAEXPAVzCWorld@@PAVzCCamera@@@Z
-      } names;
-    };
-
-    static uint GetAddress() {
-      return 0x007DC26C;
-    }
-
-    static uint GetFuncsNum() {
-      return 1;
-    }
-
-    static vftable_zCShowMemCallback& GetTable() {
-      MemUnlock;
-      return *(vftable_zCShowMemCallback*)GetAddress();
     }
   };
 
@@ -8778,7 +8795,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC274;
+      return 0x0082C7BC;
     }
 
     static uint GetFuncsNum() {
@@ -8832,7 +8849,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC28C;
+      return 0x0082C7D4;
     }
 
     static uint GetFuncsNum() {
@@ -8842,6 +8859,29 @@ namespace Gothic_I_Classic {
     static vftable_zCZoneZFogDefault& GetTable() {
       MemUnlock;
       return *(vftable_zCZoneZFogDefault*)GetAddress();
+    }
+  };
+
+
+  struct vftable_zCShowMemCallback {
+    union {
+      vfunc array[1];
+      group {
+        vfunc f00_DoWorldPerFrameCallback; // from zCShowMemCallback  ?DoWorldPerFrameCallback@zCShowMemCallback@@UAEXPAVzCWorld@@PAVzCCamera@@@Z
+      } names;
+    };
+
+    static uint GetAddress() {
+      return 0x0082C858;
+    }
+
+    static uint GetFuncsNum() {
+      return 1;
+    }
+
+    static vftable_zCShowMemCallback& GetTable() {
+      MemUnlock;
+      return *(vftable_zCShowMemCallback*)GetAddress();
     }
   };
 
@@ -8886,7 +8926,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC31C;
+      return 0x0082C874;
     }
 
     static uint GetFuncsNum() {
@@ -8940,7 +8980,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC3A4;
+      return 0x0082C8FC;
     }
 
     static uint GetFuncsNum() {
@@ -8994,7 +9034,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC42C;
+      return 0x0082C984;
     }
 
     static uint GetFuncsNum() {
@@ -9048,7 +9088,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC4B4;
+      return 0x0082CA0C;
     }
 
     static uint GetFuncsNum() {
@@ -9102,7 +9142,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC53C;
+      return 0x0082CA94;
     }
 
     static uint GetFuncsNum() {
@@ -9156,7 +9196,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC5C4;
+      return 0x0082CB1C;
     }
 
     static uint GetFuncsNum() {
@@ -9210,7 +9250,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC64C;
+      return 0x0082CBA4;
     }
 
     static uint GetFuncsNum() {
@@ -9265,7 +9305,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC6D4;
+      return 0x0082CC2C;
     }
 
     static uint GetFuncsNum() {
@@ -9289,7 +9329,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC75C;
+      return 0x0082CCB4;
     }
 
     static uint GetFuncsNum() {
@@ -9344,7 +9384,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC76C;
+      return 0x0082CCC4;
     }
 
     static uint GetFuncsNum() {
@@ -9360,7 +9400,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCAIHuman {
     union {
-      vfunc array[16];
+      vfunc array[17];
       group {
         vfunc f00_GetClassDef;                     // from oCAIHuman        ?_GetClassDef@oCAIHuman@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                         // from oCAIHuman        ?Archive@oCAIHuman@@MAEXAAVzCArchiver@@@Z
@@ -9378,15 +9418,16 @@ namespace Gothic_I_Classic {
         vfunc f13_Init;                            // from oCAIHuman        ?Init@oCAIHuman@@UAEXPAVoCNpc@@@Z
         vfunc f14_AddIgnoreCD;                     // from oCAIHuman        ?AddIgnoreCD@oCAIHuman@@UAEXPAVzCVob@@@Z
         vfunc f15_SubIgnoreCD;                     // from oCAIHuman        ?SubIgnoreCD@oCAIHuman@@UAEXPAVzCVob@@@Z
+        vfunc f16_DoHackSpecials;                  // from oCAIHuman        ?DoHackSpecials@oCAIHuman@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DC814;
+      return 0x0082CD74;
     }
 
     static uint GetFuncsNum() {
-      return 16;
+      return 17;
     }
 
     static vftable_oCAIHuman& GetTable() {
@@ -9415,7 +9456,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC860;
+      return 0x0082CDC0;
     }
 
     static uint GetFuncsNum() {
@@ -9448,7 +9489,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC894;
+      return 0x0082CDF0;
     }
 
     static uint GetFuncsNum() {
@@ -9482,7 +9523,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC8D8;
+      return 0x0082CE3C;
     }
 
     static uint GetFuncsNum() {
@@ -9515,7 +9556,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC90C;
+      return 0x0082CE70;
     }
 
     static uint GetFuncsNum() {
@@ -9549,7 +9590,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC93C;
+      return 0x0082CEA0;
     }
 
     static uint GetFuncsNum() {
@@ -9582,7 +9623,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC970;
+      return 0x0082CED4;
     }
 
     static uint GetFuncsNum() {
@@ -9615,7 +9656,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC9A4;
+      return 0x0082CF08;
     }
 
     static uint GetFuncsNum() {
@@ -9648,7 +9689,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DC9DC;
+      return 0x0082CF38;
     }
 
     static uint GetFuncsNum() {
@@ -9684,7 +9725,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCA24;
+      return 0x0082CF88;
     }
 
     static uint GetFuncsNum() {
@@ -9700,7 +9741,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCSkyControler_Barrier {
     union {
-      vfunc array[23];
+      vfunc array[37];
       group {
         vfunc f00_GetClassDef;                   // from zCSkyControler_Outdoor  ?_GetClassDef@zCSkyControler_Outdoor@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                       // from zCSkyControler_Outdoor  ?Archive@zCSkyControler_Outdoor@@MAEXAAVzCArchiver@@@Z
@@ -9715,25 +9756,39 @@ namespace Gothic_I_Classic {
         vfunc f10_GetFarZScalability;            // from zCSkyControler_Outdoor  ?GetFarZScalability@zCSkyControler_Outdoor@@UBEMXZ
         vfunc f11_SetBackgroundColor;            // from zCSkyControler_Outdoor  ?SetBackgroundColor@zCSkyControler_Outdoor@@UAEXUzCOLOR@@@Z
         vfunc f12_GetBackgroundColor;            // from zCSkyControler_Outdoor  ?GetBackgroundColor@zCSkyControler_Outdoor@@UBE?AUzCOLOR@@XZ
-        vfunc f13_SetFillBackground;             // from zCSkyControler          ?SetFillBackground@zCSkyControler@@UAEXH@Z
-        vfunc f14_GetFillBackground;             // from zCSkyControler          ?GetFillBackground@zCSkyControler@@UBEHXZ
-        vfunc f15_SetUnderwaterFX;               // from zCSkyControler_Mid      ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
-        vfunc f16_GetUnderwaterFX;               // from zCSkyControler_Mid      ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
-        vfunc f17_UpdateWorldDependencies;       // from zCSkyControler_Outdoor  ?UpdateWorldDependencies@zCSkyControler_Outdoor@@UAEXXZ
-        vfunc f18_GetRelightCtr;                 // from zCSkyControler_Outdoor  ?GetRelightCtr@zCSkyControler_Outdoor@@UAEHXZ
-        vfunc f19_GetDaylightColorFromIntensity; // from zCSkyControler_Outdoor  ?GetDaylightColorFromIntensity@zCSkyControler_Outdoor@@UAE?AUzCOLOR@@H@Z
-        vfunc f20_RenderSkyPre;                  // from oCSkyControler_Barrier  ?RenderSkyPre@oCSkyControler_Barrier@@UAEXXZ
-        vfunc f21_RenderSkyPost;                 // from zCSkyControler_Outdoor  ?RenderSkyPost@zCSkyControler_Outdoor@@UAEXXZ
-        vfunc f22_SetCameraLocationHint;         // from zCSkyControler_Outdoor  ?SetCameraLocationHint@zCSkyControler_Outdoor@@UAEXW4zTCamLocationHint@zCSkyControler@@@Z
+        vfunc f13_GetBackgroundColorDef;         // from zCSkyControler_Outdoor  ?GetBackgroundColorDef@zCSkyControler_Outdoor@@UBE?AUzCOLOR@@XZ
+        vfunc f14_SetOverrideColor;              // from zCSkyControler_Outdoor  ?SetOverrideColor@zCSkyControler_Outdoor@@UAEXVzVEC3@@@Z
+        vfunc f15_SetOverrideColorFlag;          // from zCSkyControler_Outdoor  ?SetOverrideColorFlag@zCSkyControler_Outdoor@@UAEXH@Z
+        vfunc f16_GetCloudShadowScale;           // from zCSkyControler_Outdoor  ?GetCloudShadowScale@zCSkyControler_Outdoor@@UBEMXZ
+        vfunc f17_SetCloudShadowScale;           // from zCSkyControler_Outdoor  ?SetCloudShadowScale@zCSkyControler_Outdoor@@UAEXM@Z
+        vfunc f18_SetFillBackground;             // from zCSkyControler          ?SetFillBackground@zCSkyControler@@UAEXH@Z
+        vfunc f19_GetFillBackground;             // from zCSkyControler          ?GetFillBackground@zCSkyControler@@UBEHXZ
+        vfunc f20_SetUnderwaterFX;               // from zCSkyControler_Mid      ?SetUnderwaterFX@zCSkyControler_Mid@@UAEXH@Z
+        vfunc f21_GetUnderwaterFX;               // from zCSkyControler_Mid      ?GetUnderwaterFX@zCSkyControler_Mid@@UBEHXZ
+        vfunc f22_UpdateWorldDependencies;       // from zCSkyControler_Outdoor  ?UpdateWorldDependencies@zCSkyControler_Outdoor@@UAEXXZ
+        vfunc f23_SetLightDirty;                 // from zCSkyControler          ?SetLightDirty@zCSkyControler@@UAEXXZ
+        vfunc f24_SetRelightTime;                // from zCSkyControler          ?SetRelightTime@zCSkyControler@@UAEXM@Z
+        vfunc f25_GetRelightCtr;                 // from zCSkyControler          ?GetRelightCtr@zCSkyControler@@UAEHXZ
+        vfunc f26_GetDaylightColorFromIntensity; // from zCSkyControler_Outdoor  ?GetDaylightColorFromIntensity@zCSkyControler_Outdoor@@UAE?AUzCOLOR@@H@Z
+        vfunc f27_RenderSkyPre;                  // from oCSkyControler_Barrier  ?RenderSkyPre@oCSkyControler_Barrier@@UAEXXZ
+        vfunc f28_RenderSkyPost;                 // from zCSkyControler_Outdoor  ?RenderSkyPost@zCSkyControler_Outdoor@@UAEXH@Z
+        vfunc f29_GetGlobalWindVec;              // from zCSkyControler_Outdoor  ?GetGlobalWindVec@zCSkyControler_Outdoor@@UAEHAAVzVEC3@@W4zTAnimationMode@@@Z
+        vfunc f30_SetGlobalSkyScale;             // from zCSkyControler_Outdoor  ?SetGlobalSkyScale@zCSkyControler_Outdoor@@UAEXM@Z
+        vfunc f31_GetGlobalSkyScale;             // from zCSkyControler_Outdoor  ?GetGlobalSkyScale@zCSkyControler_Outdoor@@UBEMXZ
+        vfunc f32_GetGlobalSkyScaleChanged;      // from zCSkyControler_Outdoor  ?GetGlobalSkyScaleChanged@zCSkyControler_Outdoor@@UBEHXZ
+        vfunc f33_SetCameraLocationHint;         // from zCSkyControler_Outdoor  ?SetCameraLocationHint@zCSkyControler_Outdoor@@UAEXW4zTCamLocationHint@zCSkyControler@@@Z
+        vfunc f34_SetWeatherType;                // from zCSkyControler_Outdoor  ?SetWeatherType@zCSkyControler_Outdoor@@UAEXW4zTWeather@@@Z
+        vfunc f35_GetWeatherType;                // from zCSkyControler          ?GetWeatherType@zCSkyControler@@UBE?AW4zTWeather@@XZ
+        vfunc f36_GetRenderLightning;            // from zCSkyControler_Outdoor  ?GetRenderLightning@zCSkyControler_Outdoor@@UBEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DCAC4;
+      return 0x0082D02C;
     }
 
     static uint GetFuncsNum() {
-      return 23;
+      return 37;
     }
 
     static vftable_oCSkyControler_Barrier& GetTable() {
@@ -9762,7 +9817,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCB48;
+      return 0x0082D0E8;
     }
 
     static uint GetFuncsNum() {
@@ -9785,7 +9840,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCB8C;
+      return 0x0082D134;
     }
 
     static uint GetFuncsNum() {
@@ -9801,28 +9856,29 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCDoc_for_zCViewBase {
     union {
-      vfunc array[11];
+      vfunc array[12];
       group {
-        vfunc f00_anx;               // from zCView  ?anx@zCView@@UAEHH@Z
-        vfunc f01_any;               // from zCView  ?any@zCView@@UAEHH@Z
-        vfunc f02_nax;               // from zCView  ?nax@zCView@@UAEHH@Z
-        vfunc f03_nay;               // from zCView  ?nay@zCView@@UAEHH@Z
-        vfunc f04_ClipLine;          // from zCView  ?ClipLine@zCView@@UAEHAAH000@Z
-        vfunc f05_Line;              // from zCView  ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
-        vfunc f06_GetViewport;       // from zCView  ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView  ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base    
-        vfunc f09_Blit;              // from zCView  ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView  ?DrawItems@zCView@@UAEXXZ
+        vfunc f00_anx;               // from zCView      ?anx@zCView@@UAEHH@Z
+        vfunc f01_any;               // from zCView      ?any@zCView@@UAEHH@Z
+        vfunc f02_nax;               // from zCView      ?nax@zCView@@UAEHH@Z
+        vfunc f03_nay;               // from zCView      ?nay@zCView@@UAEHH@Z
+        vfunc f04_ClipLine;          // from zCView      ?ClipLine@zCView@@UAEHAAH000@Z
+        vfunc f05_Line;              // from zCView      ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
+        vfunc f06_GetViewport;       // from zCView      ?GetViewport@zCView@@UAIXAAH000@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase  ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView      ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base        
+        vfunc f10_Blit;              // from zCView      ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView      ?DrawItems@zCView@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DCB94;
+      return 0x0082D13C;
     }
 
     static uint GetFuncsNum() {
-      return 11;
+      return 12;
     }
 
     static vftable_oCDoc_for_zCViewBase& GetTable() {
@@ -9859,7 +9915,7 @@ namespace Gothic_I_Classic {
         vfunc f20_DesktopInit;            // from oCGame     ?DesktopInit@oCGame@@EAEXXZ
         vfunc f21_CutsceneSystemInit;     // from zCSession  ?CutsceneSystemInit@zCSession@@MAEXXZ
         vfunc f22_EnterWorld;             // from oCGame     ?EnterWorld@oCGame@@UAEXPAVoCNpc@@HABVzSTRING@@@Z
-        vfunc f23_Pause;                  // from oCGame     ?Pause@oCGame@@UAEXXZ
+        vfunc f23_Pause;                  // from oCGame     ?Pause@oCGame@@UAEXH@Z
         vfunc f24_Unpause;                // from oCGame     ?Unpause@oCGame@@UAEXXZ
         vfunc f25_SetDrawWaynet;          // from oCGame     ?SetDrawWaynet@oCGame@@UAEXH@Z
         vfunc f26_GetDrawWaynet;          // from oCGame     ?GetDrawWaynet@oCGame@@UAEHXZ
@@ -9893,7 +9949,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCBEC;
+      return 0x0082D1AC;
     }
 
     static uint GetFuncsNum() {
@@ -9916,7 +9972,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCCC4;
+      return 0x0082D284;
     }
 
     static uint GetFuncsNum() {
@@ -9932,7 +9988,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewGothicProgressBar_for_zCViewBase {
     union {
-      vfunc array[14];
+      vfunc array[15];
       group {
         vfunc f00_anx;               // from zCView                   ?anx@zCView@@UAEHH@Z
         vfunc f01_any;               // from zCView                   ?any@zCView@@UAEHH@Z
@@ -9941,22 +9997,23 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;          // from zCView                   ?ClipLine@zCView@@UAEHAAH000@Z
         vfunc f05_Line;              // from zCView                   ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport;       // from zCView                   ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView                   ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base                     
-        vfunc f09_Blit;              // from zCView                   ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView                   ?DrawItems@zCView@@UAEXXZ
-        vfunc f11_Init;              // from oCViewGothicProgressBar  ?Init@oCViewGothicProgressBar@@UAEXXZ
-        vfunc f12_HandleChange;      // from oCViewGothicProgressBar  ?HandleChange@oCViewGothicProgressBar@@UAEXXZ
-        vfunc f13_Draw;              // from zCViewProgressBar        ?Draw@zCViewProgressBar@@UAEXXZ
+        vfunc f07_FillZBuffer;       // from zCViewBase               ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView                   ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base                     
+        vfunc f10_Blit;              // from zCView                   ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView                   ?DrawItems@zCView@@UAEXXZ
+        vfunc f12_Init;              // from oCViewGothicProgressBar  ?Init@oCViewGothicProgressBar@@UAEXXZ
+        vfunc f13_HandleChange;      // from oCViewGothicProgressBar  ?HandleChange@oCViewGothicProgressBar@@UAEXXZ
+        vfunc f14_Draw;              // from zCViewProgressBar        ?Draw@zCViewProgressBar@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DCCCC;
+      return 0x0082D28C;
     }
 
     static uint GetFuncsNum() {
-      return 14;
+      return 15;
     }
 
     static vftable_oCViewGothicProgressBar_for_zCViewBase& GetTable() {
@@ -9977,7 +10034,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCD7C;
+      return 0x0082D35C;
     }
 
     static uint GetFuncsNum() {
@@ -10002,7 +10059,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DCD8C;
+      return 0x0082D36C;
     }
 
     static uint GetFuncsNum() {
@@ -10018,56 +10075,64 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCItemContainer {
     union {
-      vfunc array[39];
+      vfunc array[47];
       group {
         vfunc f00_HandleEvent;                    // from oCItemContainer  ?HandleEvent@oCItemContainer@@MAEHH@Z
         vfunc f01_scalar_destructor;              // from base             
-        vfunc f02_Open;                           // from oCItemContainer  ?Open@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f03_OpenPassive;                    // from oCItemContainer  ?OpenPassive@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f04_Close;                          // from oCItemContainer  ?Close@oCItemContainer@@UAEXXZ
-        vfunc f05_Activate;                       // from oCItemContainer  ?Activate@oCItemContainer@@UAEXXZ
-        vfunc f06_Deactivate;                     // from oCItemContainer  ?Deactivate@oCItemContainer@@UAEXXZ
-        vfunc f07_IsOpen;                         // from oCItemContainer  ?IsOpen@oCItemContainer@@UAEHXZ
-        vfunc f08_IsActive;                       // from oCItemContainer  ?IsActive@oCItemContainer@@UAEHXZ
-        vfunc f09_IsEmpty;                        // from oCItemContainer  ?IsEmpty@oCItemContainer@@UAEHXZ
-        vfunc f10_SetContents;                    // from oCItemContainer  ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
-        vfunc f11_GetContents;                    // from oCItemContainer  ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
-        vfunc f12_Insert;                         // from oCItemContainer  ?Insert@oCItemContainer@@UAEPAVoCItem@@PAV2@@Z
-        vfunc f13_Remove;                         // from oCItemContainer  ?Remove@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f14_Remove;                         // from oCItemContainer  ?Remove@oCItemContainer@@UAEXPAVoCItem@@@Z
-        vfunc f15_RemoveByPtr;                    // from oCItemContainer  ?RemoveByPtr@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f16_GetSelectedItem;                // from oCItemContainer  ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
-        vfunc f17_GetSelectedItemCount;           // from oCItemContainer  ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
-        vfunc f18_GetSize;                        // from oCItemContainer  ?GetSize@oCItemContainer@@UAEXAAH0@Z
-        vfunc f19_DisableManipulateItems;         // from oCItemContainer  ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
-        vfunc f20_CanManipulateItems;             // from oCItemContainer  ?CanManipulateItems@oCItemContainer@@UAEHXZ
-        vfunc f21_DisableTransferMoreThanOneItem; // from oCItemContainer  ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
-        vfunc f22_CanTransferMoreThanOneItem;     // from oCItemContainer  ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
-        vfunc f23_IsPassive;                      // from oCItemContainer  ?IsPassive@oCItemContainer@@UAEHXZ
-        vfunc f24_Archive;                        // from oCItemContainer  ?Archive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
-        vfunc f25_Unarchive;                      // from oCItemContainer  ?Unarchive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
-        vfunc f26_Init;                           // from oCItemContainer  ?Init@oCItemContainer@@MAEXHHW4oTItemListMode@1@@Z
-        vfunc f27_Init;                           // from oCItemContainer  ?Init@oCItemContainer@@MAEXHH@Z
-        vfunc f28_GetPosition;                    // from oCItemContainer  ?GetPosition@oCItemContainer@@MAEXAAH0@Z
-        vfunc f29_LoadGrafix;                     // from oCItemContainer  ?LoadGrafix@oCItemContainer@@MAEXXZ
-        vfunc f30_DeleteContents;                 // from oCItemContainer  ?DeleteContents@oCItemContainer@@MAEXXZ
-        vfunc f31_NextItem;                       // from oCItemContainer  ?NextItem@oCItemContainer@@MAEXXZ
-        vfunc f32_PrevItem;                       // from oCItemContainer  ?PrevItem@oCItemContainer@@MAEXXZ
-        vfunc f33_CheckSelectedItem;              // from oCItemContainer  ?CheckSelectedItem@oCItemContainer@@MAEXXZ
-        vfunc f34_TransferItem;                   // from oCItemContainer  ?TransferItem@oCItemContainer@@MAEHHH@Z
-        vfunc f35_SetCategoryOnRightContainer;    // from oCItemContainer  ?SetCategoryOnRightContainer@oCItemContainer@@MAEXXZ
-        vfunc f36_Draw;                           // from oCItemContainer  ?Draw@oCItemContainer@@MAEXXZ
-        vfunc f37_DrawCategory;                   // from oCItemContainer  ?DrawCategory@oCItemContainer@@MAEXXZ
-        vfunc f38_DrawItemInfo;                   // from oCItemContainer  ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
+        vfunc f02_Open;                           // from oCItemContainer  ?Open@oCItemContainer@@UAEXHHH@Z
+        vfunc f03_OpenPassive;                    // from oCItemContainer  ?OpenPassive@oCItemContainer@@UAEXHHH@Z
+        vfunc f04_GetName;                        // from oCItemContainer  ?GetName@oCItemContainer@@UAE?AVzSTRING@@XZ
+        vfunc f05_SetName;                        // from oCItemContainer  ?SetName@oCItemContainer@@UAEXAAVzSTRING@@@Z
+        vfunc f06_GetMode;                        // from oCItemContainer  ?GetMode@oCItemContainer@@UAEHXZ
+        vfunc f07_SetMode;                        // from oCItemContainer  ?SetMode@oCItemContainer@@UAEXH@Z
+        vfunc f08_Close;                          // from oCItemContainer  ?Close@oCItemContainer@@UAEXXZ
+        vfunc f09_Activate;                       // from oCItemContainer  ?Activate@oCItemContainer@@UAEXXZ
+        vfunc f10_Deactivate;                     // from oCItemContainer  ?Deactivate@oCItemContainer@@UAEXXZ
+        vfunc f11_IsOpen;                         // from oCItemContainer  ?IsOpen@oCItemContainer@@UAEHXZ
+        vfunc f12_IsActive;                       // from oCItemContainer  ?IsActive@oCItemContainer@@UAEHXZ
+        vfunc f13_IsEmpty;                        // from oCItemContainer  ?IsEmpty@oCItemContainer@@UAEHXZ
+        vfunc f14_IsSplitScreen;                  // from oCItemContainer  ?IsSplitScreen@oCItemContainer@@UAEHXZ
+        vfunc f15_SetContents;                    // from oCItemContainer  ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
+        vfunc f16_GetContents;                    // from oCItemContainer  ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
+        vfunc f17_Insert;                         // from oCItemContainer  ?Insert@oCItemContainer@@UAEPAVoCItem@@PAV2@@Z
+        vfunc f18_Remove;                         // from oCItemContainer  ?Remove@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f19_Remove;                         // from oCItemContainer  ?Remove@oCItemContainer@@UAEXPAVoCItem@@@Z
+        vfunc f20_RemoveByPtr;                    // from oCItemContainer  ?RemoveByPtr@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f21_GetSelectedItem;                // from oCItemContainer  ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
+        vfunc f22_GetSelectedItemCount;           // from oCItemContainer  ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
+        vfunc f23_GetSize;                        // from oCItemContainer  ?GetSize@oCItemContainer@@UAEXAAH0@Z
+        vfunc f24_DisableManipulateItems;         // from oCItemContainer  ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
+        vfunc f25_CanManipulateItems;             // from oCItemContainer  ?CanManipulateItems@oCItemContainer@@UAEHXZ
+        vfunc f26_DisableTransferMoreThanOneItem; // from oCItemContainer  ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
+        vfunc f27_CanTransferMoreThanOneItem;     // from oCItemContainer  ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
+        vfunc f28_IsPassive;                      // from oCItemContainer  ?IsPassive@oCItemContainer@@UAEHXZ
+        vfunc f29_GetTransferCount;               // from oCItemContainer  ?GetTransferCount@oCItemContainer@@UAEFXZ
+        vfunc f30_SetTransferCount;               // from oCItemContainer  ?SetTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f31_IncTransferCount;               // from oCItemContainer  ?IncTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f32_Archive;                        // from oCItemContainer  ?Archive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
+        vfunc f33_Unarchive;                      // from oCItemContainer  ?Unarchive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
+        vfunc f34_Init;                           // from oCItemContainer  ?Init@oCItemContainer@@MAEXHHH@Z
+        vfunc f35_GetPosition;                    // from oCItemContainer  ?GetPosition@oCItemContainer@@MAEXAAH0@Z
+        vfunc f36_LoadGrafix;                     // from oCItemContainer  ?LoadGrafix@oCItemContainer@@MAEXXZ
+        vfunc f37_DeleteContents;                 // from oCItemContainer  ?DeleteContents@oCItemContainer@@MAEXXZ
+        vfunc f38_NextItem;                       // from oCItemContainer  ?NextItem@oCItemContainer@@MAEXXZ
+        vfunc f39_NextItemLine;                   // from oCItemContainer  ?NextItemLine@oCItemContainer@@MAEXXZ
+        vfunc f40_PrevItem;                       // from oCItemContainer  ?PrevItem@oCItemContainer@@MAEXXZ
+        vfunc f41_PrevItemLine;                   // from oCItemContainer  ?PrevItemLine@oCItemContainer@@MAEXXZ
+        vfunc f42_CheckSelectedItem;              // from oCItemContainer  ?CheckSelectedItem@oCItemContainer@@MAEXXZ
+        vfunc f43_TransferItem;                   // from oCItemContainer  ?TransferItem@oCItemContainer@@MAEHHH@Z
+        vfunc f44_Draw;                           // from oCItemContainer  ?Draw@oCItemContainer@@MAEXXZ
+        vfunc f45_DrawCategory;                   // from oCItemContainer  ?DrawCategory@oCItemContainer@@MAEXXZ
+        vfunc f46_DrawItemInfo;                   // from oCItemContainer  ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DCDFC;
+      return 0x0082D3CC;
     }
 
     static uint GetFuncsNum() {
-      return 39;
+      return 47;
     }
 
     static vftable_oCItemContainer& GetTable() {
@@ -10079,59 +10144,67 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCStealContainer {
     union {
-      vfunc array[42];
+      vfunc array[50];
       group {
         vfunc f00_HandleEvent;                    // from oCStealContainer  ?HandleEvent@oCStealContainer@@UAEHH@Z
         vfunc f01_scalar_destructor;              // from base              
-        vfunc f02_Open;                           // from oCItemContainer   ?Open@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f03_OpenPassive;                    // from oCItemContainer   ?OpenPassive@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f04_Close;                          // from oCItemContainer   ?Close@oCItemContainer@@UAEXXZ
-        vfunc f05_Activate;                       // from oCItemContainer   ?Activate@oCItemContainer@@UAEXXZ
-        vfunc f06_Deactivate;                     // from oCItemContainer   ?Deactivate@oCItemContainer@@UAEXXZ
-        vfunc f07_IsOpen;                         // from oCItemContainer   ?IsOpen@oCItemContainer@@UAEHXZ
-        vfunc f08_IsActive;                       // from oCItemContainer   ?IsActive@oCItemContainer@@UAEHXZ
-        vfunc f09_IsEmpty;                        // from oCItemContainer   ?IsEmpty@oCItemContainer@@UAEHXZ
-        vfunc f10_SetContents;                    // from oCItemContainer   ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
-        vfunc f11_GetContents;                    // from oCItemContainer   ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
-        vfunc f12_Insert;                         // from oCItemContainer   ?Insert@oCItemContainer@@UAEPAVoCItem@@PAV2@@Z
-        vfunc f13_Remove;                         // from oCItemContainer   ?Remove@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f14_Remove;                         // from oCItemContainer   ?Remove@oCItemContainer@@UAEXPAVoCItem@@@Z
-        vfunc f15_RemoveByPtr;                    // from oCItemContainer   ?RemoveByPtr@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f16_GetSelectedItem;                // from oCItemContainer   ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
-        vfunc f17_GetSelectedItemCount;           // from oCItemContainer   ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
-        vfunc f18_GetSize;                        // from oCItemContainer   ?GetSize@oCItemContainer@@UAEXAAH0@Z
-        vfunc f19_DisableManipulateItems;         // from oCItemContainer   ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
-        vfunc f20_CanManipulateItems;             // from oCItemContainer   ?CanManipulateItems@oCItemContainer@@UAEHXZ
-        vfunc f21_DisableTransferMoreThanOneItem; // from oCItemContainer   ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
-        vfunc f22_CanTransferMoreThanOneItem;     // from oCItemContainer   ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
-        vfunc f23_IsPassive;                      // from oCItemContainer   ?IsPassive@oCItemContainer@@UAEHXZ
-        vfunc f24_Archive;                        // from oCItemContainer   ?Archive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
-        vfunc f25_Unarchive;                      // from oCItemContainer   ?Unarchive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
-        vfunc f26_Init;                           // from oCItemContainer   ?Init@oCItemContainer@@MAEXHHW4oTItemListMode@1@@Z
-        vfunc f27_Init;                           // from oCItemContainer   ?Init@oCItemContainer@@MAEXHH@Z
-        vfunc f28_GetPosition;                    // from oCItemContainer   ?GetPosition@oCItemContainer@@MAEXAAH0@Z
-        vfunc f29_LoadGrafix;                     // from oCItemContainer   ?LoadGrafix@oCItemContainer@@MAEXXZ
-        vfunc f30_DeleteContents;                 // from oCItemContainer   ?DeleteContents@oCItemContainer@@MAEXXZ
-        vfunc f31_NextItem;                       // from oCItemContainer   ?NextItem@oCItemContainer@@MAEXXZ
-        vfunc f32_PrevItem;                       // from oCItemContainer   ?PrevItem@oCItemContainer@@MAEXXZ
-        vfunc f33_CheckSelectedItem;              // from oCItemContainer   ?CheckSelectedItem@oCItemContainer@@MAEXXZ
-        vfunc f34_TransferItem;                   // from oCItemContainer   ?TransferItem@oCItemContainer@@MAEHHH@Z
-        vfunc f35_SetCategoryOnRightContainer;    // from oCItemContainer   ?SetCategoryOnRightContainer@oCItemContainer@@MAEXXZ
-        vfunc f36_Draw;                           // from oCItemContainer   ?Draw@oCItemContainer@@MAEXXZ
-        vfunc f37_DrawCategory;                   // from oCItemContainer   ?DrawCategory@oCItemContainer@@MAEXXZ
-        vfunc f38_DrawItemInfo;                   // from oCItemContainer   ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
-        vfunc f39_SetOwner;                       // from oCStealContainer  ?SetOwner@oCStealContainer@@UAEXPAVoCNpc@@@Z
-        vfunc f40_GetOwner;                       // from oCStealContainer  ?GetOwner@oCStealContainer@@UAEPAVoCNpc@@XZ
-        vfunc f41_CreateList;                     // from oCStealContainer  ?CreateList@oCStealContainer@@UAEXXZ
+        vfunc f02_Open;                           // from oCItemContainer   ?Open@oCItemContainer@@UAEXHHH@Z
+        vfunc f03_OpenPassive;                    // from oCItemContainer   ?OpenPassive@oCItemContainer@@UAEXHHH@Z
+        vfunc f04_GetName;                        // from oCItemContainer   ?GetName@oCItemContainer@@UAE?AVzSTRING@@XZ
+        vfunc f05_SetName;                        // from oCItemContainer   ?SetName@oCItemContainer@@UAEXAAVzSTRING@@@Z
+        vfunc f06_GetMode;                        // from oCItemContainer   ?GetMode@oCItemContainer@@UAEHXZ
+        vfunc f07_SetMode;                        // from oCItemContainer   ?SetMode@oCItemContainer@@UAEXH@Z
+        vfunc f08_Close;                          // from oCItemContainer   ?Close@oCItemContainer@@UAEXXZ
+        vfunc f09_Activate;                       // from oCItemContainer   ?Activate@oCItemContainer@@UAEXXZ
+        vfunc f10_Deactivate;                     // from oCItemContainer   ?Deactivate@oCItemContainer@@UAEXXZ
+        vfunc f11_IsOpen;                         // from oCItemContainer   ?IsOpen@oCItemContainer@@UAEHXZ
+        vfunc f12_IsActive;                       // from oCItemContainer   ?IsActive@oCItemContainer@@UAEHXZ
+        vfunc f13_IsEmpty;                        // from oCItemContainer   ?IsEmpty@oCItemContainer@@UAEHXZ
+        vfunc f14_IsSplitScreen;                  // from oCItemContainer   ?IsSplitScreen@oCItemContainer@@UAEHXZ
+        vfunc f15_SetContents;                    // from oCItemContainer   ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
+        vfunc f16_GetContents;                    // from oCItemContainer   ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
+        vfunc f17_Insert;                         // from oCItemContainer   ?Insert@oCItemContainer@@UAEPAVoCItem@@PAV2@@Z
+        vfunc f18_Remove;                         // from oCItemContainer   ?Remove@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f19_Remove;                         // from oCItemContainer   ?Remove@oCItemContainer@@UAEXPAVoCItem@@@Z
+        vfunc f20_RemoveByPtr;                    // from oCItemContainer   ?RemoveByPtr@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f21_GetSelectedItem;                // from oCItemContainer   ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
+        vfunc f22_GetSelectedItemCount;           // from oCItemContainer   ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
+        vfunc f23_GetSize;                        // from oCItemContainer   ?GetSize@oCItemContainer@@UAEXAAH0@Z
+        vfunc f24_DisableManipulateItems;         // from oCItemContainer   ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
+        vfunc f25_CanManipulateItems;             // from oCItemContainer   ?CanManipulateItems@oCItemContainer@@UAEHXZ
+        vfunc f26_DisableTransferMoreThanOneItem; // from oCItemContainer   ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
+        vfunc f27_CanTransferMoreThanOneItem;     // from oCItemContainer   ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
+        vfunc f28_IsPassive;                      // from oCItemContainer   ?IsPassive@oCItemContainer@@UAEHXZ
+        vfunc f29_GetTransferCount;               // from oCItemContainer   ?GetTransferCount@oCItemContainer@@UAEFXZ
+        vfunc f30_SetTransferCount;               // from oCItemContainer   ?SetTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f31_IncTransferCount;               // from oCItemContainer   ?IncTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f32_Archive;                        // from oCItemContainer   ?Archive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
+        vfunc f33_Unarchive;                      // from oCItemContainer   ?Unarchive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
+        vfunc f34_Init;                           // from oCItemContainer   ?Init@oCItemContainer@@MAEXHHH@Z
+        vfunc f35_GetPosition;                    // from oCItemContainer   ?GetPosition@oCItemContainer@@MAEXAAH0@Z
+        vfunc f36_LoadGrafix;                     // from oCItemContainer   ?LoadGrafix@oCItemContainer@@MAEXXZ
+        vfunc f37_DeleteContents;                 // from oCItemContainer   ?DeleteContents@oCItemContainer@@MAEXXZ
+        vfunc f38_NextItem;                       // from oCItemContainer   ?NextItem@oCItemContainer@@MAEXXZ
+        vfunc f39_NextItemLine;                   // from oCItemContainer   ?NextItemLine@oCItemContainer@@MAEXXZ
+        vfunc f40_PrevItem;                       // from oCItemContainer   ?PrevItem@oCItemContainer@@MAEXXZ
+        vfunc f41_PrevItemLine;                   // from oCItemContainer   ?PrevItemLine@oCItemContainer@@MAEXXZ
+        vfunc f42_CheckSelectedItem;              // from oCItemContainer   ?CheckSelectedItem@oCItemContainer@@MAEXXZ
+        vfunc f43_TransferItem;                   // from oCItemContainer   ?TransferItem@oCItemContainer@@MAEHHH@Z
+        vfunc f44_Draw;                           // from oCItemContainer   ?Draw@oCItemContainer@@MAEXXZ
+        vfunc f45_DrawCategory;                   // from oCItemContainer   ?DrawCategory@oCItemContainer@@MAEXXZ
+        vfunc f46_DrawItemInfo;                   // from oCItemContainer   ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
+        vfunc f47_SetOwner;                       // from oCStealContainer  ?SetOwner@oCStealContainer@@UAEXPAVoCNpc@@@Z
+        vfunc f48_GetOwner;                       // from oCStealContainer  ?GetOwner@oCStealContainer@@UAEPAVoCNpc@@XZ
+        vfunc f49_CreateList;                     // from oCStealContainer  ?CreateList@oCStealContainer@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DCEA4;
+      return 0x0082D494;
     }
 
     static uint GetFuncsNum() {
-      return 42;
+      return 50;
     }
 
     static vftable_oCStealContainer& GetTable() {
@@ -10143,59 +10216,67 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCNpcContainer {
     union {
-      vfunc array[42];
+      vfunc array[50];
       group {
         vfunc f00_HandleEvent;                    // from oCNpcContainer    ?HandleEvent@oCNpcContainer@@UAEHH@Z
         vfunc f01_scalar_destructor;              // from base              
-        vfunc f02_Open;                           // from oCItemContainer   ?Open@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f03_OpenPassive;                    // from oCItemContainer   ?OpenPassive@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f04_Close;                          // from oCItemContainer   ?Close@oCItemContainer@@UAEXXZ
-        vfunc f05_Activate;                       // from oCItemContainer   ?Activate@oCItemContainer@@UAEXXZ
-        vfunc f06_Deactivate;                     // from oCItemContainer   ?Deactivate@oCItemContainer@@UAEXXZ
-        vfunc f07_IsOpen;                         // from oCItemContainer   ?IsOpen@oCItemContainer@@UAEHXZ
-        vfunc f08_IsActive;                       // from oCItemContainer   ?IsActive@oCItemContainer@@UAEHXZ
-        vfunc f09_IsEmpty;                        // from oCItemContainer   ?IsEmpty@oCItemContainer@@UAEHXZ
-        vfunc f10_SetContents;                    // from oCItemContainer   ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
-        vfunc f11_GetContents;                    // from oCItemContainer   ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
-        vfunc f12_Insert;                         // from oCNpcContainer    ?Insert@oCNpcContainer@@UAEPAVoCItem@@PAV2@@Z
-        vfunc f13_Remove;                         // from oCItemContainer   ?Remove@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f14_Remove;                         // from oCNpcContainer    ?Remove@oCNpcContainer@@UAEXPAVoCItem@@@Z
-        vfunc f15_RemoveByPtr;                    // from oCItemContainer   ?RemoveByPtr@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f16_GetSelectedItem;                // from oCItemContainer   ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
-        vfunc f17_GetSelectedItemCount;           // from oCItemContainer   ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
-        vfunc f18_GetSize;                        // from oCItemContainer   ?GetSize@oCItemContainer@@UAEXAAH0@Z
-        vfunc f19_DisableManipulateItems;         // from oCItemContainer   ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
-        vfunc f20_CanManipulateItems;             // from oCItemContainer   ?CanManipulateItems@oCItemContainer@@UAEHXZ
-        vfunc f21_DisableTransferMoreThanOneItem; // from oCItemContainer   ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
-        vfunc f22_CanTransferMoreThanOneItem;     // from oCItemContainer   ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
-        vfunc f23_IsPassive;                      // from oCItemContainer   ?IsPassive@oCItemContainer@@UAEHXZ
-        vfunc f24_Archive;                        // from oCItemContainer   ?Archive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
-        vfunc f25_Unarchive;                      // from oCItemContainer   ?Unarchive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
-        vfunc f26_Init;                           // from oCItemContainer   ?Init@oCItemContainer@@MAEXHHW4oTItemListMode@1@@Z
-        vfunc f27_Init;                           // from oCItemContainer   ?Init@oCItemContainer@@MAEXHH@Z
-        vfunc f28_GetPosition;                    // from oCItemContainer   ?GetPosition@oCItemContainer@@MAEXAAH0@Z
-        vfunc f29_LoadGrafix;                     // from oCItemContainer   ?LoadGrafix@oCItemContainer@@MAEXXZ
-        vfunc f30_DeleteContents;                 // from oCItemContainer   ?DeleteContents@oCItemContainer@@MAEXXZ
-        vfunc f31_NextItem;                       // from oCItemContainer   ?NextItem@oCItemContainer@@MAEXXZ
-        vfunc f32_PrevItem;                       // from oCItemContainer   ?PrevItem@oCItemContainer@@MAEXXZ
-        vfunc f33_CheckSelectedItem;              // from oCItemContainer   ?CheckSelectedItem@oCItemContainer@@MAEXXZ
-        vfunc f34_TransferItem;                   // from oCItemContainer   ?TransferItem@oCItemContainer@@MAEHHH@Z
-        vfunc f35_SetCategoryOnRightContainer;    // from oCItemContainer   ?SetCategoryOnRightContainer@oCItemContainer@@MAEXXZ
-        vfunc f36_Draw;                           // from oCItemContainer   ?Draw@oCItemContainer@@MAEXXZ
-        vfunc f37_DrawCategory;                   // from oCItemContainer   ?DrawCategory@oCItemContainer@@MAEXXZ
-        vfunc f38_DrawItemInfo;                   // from oCItemContainer   ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
-        vfunc f39_SetOwner;                       // from oCStealContainer  ?SetOwner@oCStealContainer@@UAEXPAVoCNpc@@@Z
-        vfunc f40_GetOwner;                       // from oCStealContainer  ?GetOwner@oCStealContainer@@UAEPAVoCNpc@@XZ
-        vfunc f41_CreateList;                     // from oCNpcContainer    ?CreateList@oCNpcContainer@@UAEXXZ
+        vfunc f02_Open;                           // from oCItemContainer   ?Open@oCItemContainer@@UAEXHHH@Z
+        vfunc f03_OpenPassive;                    // from oCItemContainer   ?OpenPassive@oCItemContainer@@UAEXHHH@Z
+        vfunc f04_GetName;                        // from oCItemContainer   ?GetName@oCItemContainer@@UAE?AVzSTRING@@XZ
+        vfunc f05_SetName;                        // from oCItemContainer   ?SetName@oCItemContainer@@UAEXAAVzSTRING@@@Z
+        vfunc f06_GetMode;                        // from oCItemContainer   ?GetMode@oCItemContainer@@UAEHXZ
+        vfunc f07_SetMode;                        // from oCItemContainer   ?SetMode@oCItemContainer@@UAEXH@Z
+        vfunc f08_Close;                          // from oCItemContainer   ?Close@oCItemContainer@@UAEXXZ
+        vfunc f09_Activate;                       // from oCItemContainer   ?Activate@oCItemContainer@@UAEXXZ
+        vfunc f10_Deactivate;                     // from oCItemContainer   ?Deactivate@oCItemContainer@@UAEXXZ
+        vfunc f11_IsOpen;                         // from oCItemContainer   ?IsOpen@oCItemContainer@@UAEHXZ
+        vfunc f12_IsActive;                       // from oCItemContainer   ?IsActive@oCItemContainer@@UAEHXZ
+        vfunc f13_IsEmpty;                        // from oCItemContainer   ?IsEmpty@oCItemContainer@@UAEHXZ
+        vfunc f14_IsSplitScreen;                  // from oCItemContainer   ?IsSplitScreen@oCItemContainer@@UAEHXZ
+        vfunc f15_SetContents;                    // from oCItemContainer   ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
+        vfunc f16_GetContents;                    // from oCItemContainer   ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
+        vfunc f17_Insert;                         // from oCNpcContainer    ?Insert@oCNpcContainer@@UAEPAVoCItem@@PAV2@@Z
+        vfunc f18_Remove;                         // from oCItemContainer   ?Remove@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f19_Remove;                         // from oCNpcContainer    ?Remove@oCNpcContainer@@UAEXPAVoCItem@@@Z
+        vfunc f20_RemoveByPtr;                    // from oCItemContainer   ?RemoveByPtr@oCItemContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f21_GetSelectedItem;                // from oCItemContainer   ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
+        vfunc f22_GetSelectedItemCount;           // from oCItemContainer   ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
+        vfunc f23_GetSize;                        // from oCItemContainer   ?GetSize@oCItemContainer@@UAEXAAH0@Z
+        vfunc f24_DisableManipulateItems;         // from oCItemContainer   ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
+        vfunc f25_CanManipulateItems;             // from oCItemContainer   ?CanManipulateItems@oCItemContainer@@UAEHXZ
+        vfunc f26_DisableTransferMoreThanOneItem; // from oCItemContainer   ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
+        vfunc f27_CanTransferMoreThanOneItem;     // from oCItemContainer   ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
+        vfunc f28_IsPassive;                      // from oCItemContainer   ?IsPassive@oCItemContainer@@UAEHXZ
+        vfunc f29_GetTransferCount;               // from oCItemContainer   ?GetTransferCount@oCItemContainer@@UAEFXZ
+        vfunc f30_SetTransferCount;               // from oCItemContainer   ?SetTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f31_IncTransferCount;               // from oCItemContainer   ?IncTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f32_Archive;                        // from oCItemContainer   ?Archive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
+        vfunc f33_Unarchive;                      // from oCItemContainer   ?Unarchive@oCItemContainer@@UAEXAAVzCArchiver@@@Z
+        vfunc f34_Init;                           // from oCItemContainer   ?Init@oCItemContainer@@MAEXHHH@Z
+        vfunc f35_GetPosition;                    // from oCItemContainer   ?GetPosition@oCItemContainer@@MAEXAAH0@Z
+        vfunc f36_LoadGrafix;                     // from oCItemContainer   ?LoadGrafix@oCItemContainer@@MAEXXZ
+        vfunc f37_DeleteContents;                 // from oCItemContainer   ?DeleteContents@oCItemContainer@@MAEXXZ
+        vfunc f38_NextItem;                       // from oCItemContainer   ?NextItem@oCItemContainer@@MAEXXZ
+        vfunc f39_NextItemLine;                   // from oCItemContainer   ?NextItemLine@oCItemContainer@@MAEXXZ
+        vfunc f40_PrevItem;                       // from oCItemContainer   ?PrevItem@oCItemContainer@@MAEXXZ
+        vfunc f41_PrevItemLine;                   // from oCItemContainer   ?PrevItemLine@oCItemContainer@@MAEXXZ
+        vfunc f42_CheckSelectedItem;              // from oCItemContainer   ?CheckSelectedItem@oCItemContainer@@MAEXXZ
+        vfunc f43_TransferItem;                   // from oCItemContainer   ?TransferItem@oCItemContainer@@MAEHHH@Z
+        vfunc f44_Draw;                           // from oCItemContainer   ?Draw@oCItemContainer@@MAEXXZ
+        vfunc f45_DrawCategory;                   // from oCItemContainer   ?DrawCategory@oCItemContainer@@MAEXXZ
+        vfunc f46_DrawItemInfo;                   // from oCItemContainer   ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
+        vfunc f47_SetOwner;                       // from oCStealContainer  ?SetOwner@oCStealContainer@@UAEXPAVoCNpc@@@Z
+        vfunc f48_GetOwner;                       // from oCStealContainer  ?GetOwner@oCStealContainer@@UAEPAVoCNpc@@XZ
+        vfunc f49_CreateList;                     // from oCNpcContainer    ?CreateList@oCNpcContainer@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DCF54;
+      return 0x0082D564;
     }
 
     static uint GetFuncsNum() {
-      return 42;
+      return 50;
     }
 
     static vftable_oCNpcContainer& GetTable() {
@@ -10207,61 +10288,70 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCNpcInventory {
     union {
-      vfunc array[44];
+      vfunc array[53];
       group {
         vfunc f00_HandleEvent;                    // from oCNpcInventory   ?HandleEvent@oCNpcInventory@@UAEHH@Z
         vfunc f01_scalar_destructor;              // from base             
-        vfunc f02_Open;                           // from oCItemContainer  ?Open@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f03_OpenPassive;                    // from oCItemContainer  ?OpenPassive@oCItemContainer@@UAEXHHW4oTItemListMode@1@@Z
-        vfunc f04_Close;                          // from oCNpcInventory   ?Close@oCNpcInventory@@UAEXXZ
-        vfunc f05_Activate;                       // from oCItemContainer  ?Activate@oCItemContainer@@UAEXXZ
-        vfunc f06_Deactivate;                     // from oCItemContainer  ?Deactivate@oCItemContainer@@UAEXXZ
-        vfunc f07_IsOpen;                         // from oCItemContainer  ?IsOpen@oCItemContainer@@UAEHXZ
-        vfunc f08_IsActive;                       // from oCItemContainer  ?IsActive@oCItemContainer@@UAEHXZ
-        vfunc f09_IsEmpty;                        // from oCNpcInventory   ?IsEmpty@oCNpcInventory@@UAEHXZ
-        vfunc f10_SetContents;                    // from oCItemContainer  ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
-        vfunc f11_GetContents;                    // from oCItemContainer  ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
-        vfunc f12_Insert;                         // from oCNpcInventory   ?Insert@oCNpcInventory@@UAEPAVoCItem@@PAV2@@Z
-        vfunc f13_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f14_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEXPAVoCItem@@@Z
-        vfunc f15_RemoveByPtr;                    // from oCNpcInventory   ?RemoveByPtr@oCNpcInventory@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f16_GetSelectedItem;                // from oCItemContainer  ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
-        vfunc f17_GetSelectedItemCount;           // from oCItemContainer  ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
-        vfunc f18_GetSize;                        // from oCItemContainer  ?GetSize@oCItemContainer@@UAEXAAH0@Z
-        vfunc f19_DisableManipulateItems;         // from oCItemContainer  ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
-        vfunc f20_CanManipulateItems;             // from oCItemContainer  ?CanManipulateItems@oCItemContainer@@UAEHXZ
-        vfunc f21_DisableTransferMoreThanOneItem; // from oCItemContainer  ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
-        vfunc f22_CanTransferMoreThanOneItem;     // from oCItemContainer  ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
-        vfunc f23_IsPassive;                      // from oCItemContainer  ?IsPassive@oCItemContainer@@UAEHXZ
-        vfunc f24_Archive;                        // from oCNpcInventory   ?Archive@oCNpcInventory@@UAEXAAVzCArchiver@@@Z
-        vfunc f25_Unarchive;                      // from oCNpcInventory   ?Unarchive@oCNpcInventory@@UAEXAAVzCArchiver@@@Z
-        vfunc f26_Init;                           // from oCItemContainer  ?Init@oCItemContainer@@MAEXHHW4oTItemListMode@1@@Z
-        vfunc f27_Init;                           // from oCItemContainer  ?Init@oCItemContainer@@MAEXHH@Z
-        vfunc f28_GetPosition;                    // from oCItemContainer  ?GetPosition@oCItemContainer@@MAEXAAH0@Z
-        vfunc f29_LoadGrafix;                     // from oCItemContainer  ?LoadGrafix@oCItemContainer@@MAEXXZ
-        vfunc f30_DeleteContents;                 // from oCItemContainer  ?DeleteContents@oCItemContainer@@MAEXXZ
-        vfunc f31_NextItem;                       // from oCItemContainer  ?NextItem@oCItemContainer@@MAEXXZ
-        vfunc f32_PrevItem;                       // from oCItemContainer  ?PrevItem@oCItemContainer@@MAEXXZ
-        vfunc f33_CheckSelectedItem;              // from oCItemContainer  ?CheckSelectedItem@oCItemContainer@@MAEXXZ
-        vfunc f34_TransferItem;                   // from oCItemContainer  ?TransferItem@oCItemContainer@@MAEHHH@Z
-        vfunc f35_SetCategoryOnRightContainer;    // from oCItemContainer  ?SetCategoryOnRightContainer@oCItemContainer@@MAEXXZ
-        vfunc f36_Draw;                           // from oCNpcInventory   ?Draw@oCNpcInventory@@MAEXXZ
-        vfunc f37_DrawCategory;                   // from oCNpcInventory   ?DrawCategory@oCNpcInventory@@MAEXXZ
-        vfunc f38_DrawItemInfo;                   // from oCItemContainer  ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
-        vfunc f39_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEPAVoCItem@@ABVzSTRING@@H@Z
-        vfunc f40_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEPAVoCItem@@HH@Z
-        vfunc f41_IsIn;                           // from oCNpcInventory   ?IsIn@oCNpcInventory@@UAEPAVoCItem@@ABVzSTRING@@H@Z
-        vfunc f42_IsIn;                           // from oCNpcInventory   ?IsIn@oCNpcInventory@@UAEPAVoCItem@@HH@Z
-        vfunc f43_IsIn;                           // from oCNpcInventory   ?IsIn@oCNpcInventory@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f02_Open;                           // from oCNpcInventory   ?Open@oCNpcInventory@@UAEXHHH@Z
+        vfunc f03_OpenPassive;                    // from oCItemContainer  ?OpenPassive@oCItemContainer@@UAEXHHH@Z
+        vfunc f04_GetName;                        // from oCItemContainer  ?GetName@oCItemContainer@@UAE?AVzSTRING@@XZ
+        vfunc f05_SetName;                        // from oCItemContainer  ?SetName@oCItemContainer@@UAEXAAVzSTRING@@@Z
+        vfunc f06_GetMode;                        // from oCItemContainer  ?GetMode@oCItemContainer@@UAEHXZ
+        vfunc f07_SetMode;                        // from oCItemContainer  ?SetMode@oCItemContainer@@UAEXH@Z
+        vfunc f08_Close;                          // from oCNpcInventory   ?Close@oCNpcInventory@@UAEXXZ
+        vfunc f09_Activate;                       // from oCItemContainer  ?Activate@oCItemContainer@@UAEXXZ
+        vfunc f10_Deactivate;                     // from oCItemContainer  ?Deactivate@oCItemContainer@@UAEXXZ
+        vfunc f11_IsOpen;                         // from oCItemContainer  ?IsOpen@oCItemContainer@@UAEHXZ
+        vfunc f12_IsActive;                       // from oCItemContainer  ?IsActive@oCItemContainer@@UAEHXZ
+        vfunc f13_IsEmpty;                        // from oCItemContainer  ?IsEmpty@oCItemContainer@@UAEHXZ
+        vfunc f14_IsSplitScreen;                  // from oCItemContainer  ?IsSplitScreen@oCItemContainer@@UAEHXZ
+        vfunc f15_SetContents;                    // from oCItemContainer  ?SetContents@oCItemContainer@@UAEXPAV?$zCListSort@VoCItem@@@@@Z
+        vfunc f16_GetContents;                    // from oCItemContainer  ?GetContents@oCItemContainer@@UAEPAV?$zCListSort@VoCItem@@@@XZ
+        vfunc f17_Insert;                         // from oCNpcInventory   ?Insert@oCNpcInventory@@UAEPAVoCItem@@PAV2@@Z
+        vfunc f18_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f19_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEXPAVoCItem@@@Z
+        vfunc f20_RemoveByPtr;                    // from oCNpcInventory   ?RemoveByPtr@oCNpcInventory@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f21_GetSelectedItem;                // from oCItemContainer  ?GetSelectedItem@oCItemContainer@@UAEPAVoCItem@@XZ
+        vfunc f22_GetSelectedItemCount;           // from oCItemContainer  ?GetSelectedItemCount@oCItemContainer@@UAEHXZ
+        vfunc f23_GetSize;                        // from oCItemContainer  ?GetSize@oCItemContainer@@UAEXAAH0@Z
+        vfunc f24_DisableManipulateItems;         // from oCItemContainer  ?DisableManipulateItems@oCItemContainer@@UAEXH@Z
+        vfunc f25_CanManipulateItems;             // from oCItemContainer  ?CanManipulateItems@oCItemContainer@@UAEHXZ
+        vfunc f26_DisableTransferMoreThanOneItem; // from oCItemContainer  ?DisableTransferMoreThanOneItem@oCItemContainer@@UAEXH@Z
+        vfunc f27_CanTransferMoreThanOneItem;     // from oCItemContainer  ?CanTransferMoreThanOneItem@oCItemContainer@@UAEHXZ
+        vfunc f28_IsPassive;                      // from oCItemContainer  ?IsPassive@oCItemContainer@@UAEHXZ
+        vfunc f29_GetTransferCount;               // from oCItemContainer  ?GetTransferCount@oCItemContainer@@UAEFXZ
+        vfunc f30_SetTransferCount;               // from oCItemContainer  ?SetTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f31_IncTransferCount;               // from oCItemContainer  ?IncTransferCount@oCItemContainer@@UAEXF@Z
+        vfunc f32_Archive;                        // from oCNpcInventory   ?Archive@oCNpcInventory@@UAEXAAVzCArchiver@@@Z
+        vfunc f33_Unarchive;                      // from oCNpcInventory   ?Unarchive@oCNpcInventory@@UAEXAAVzCArchiver@@@Z
+        vfunc f34_Init;                           // from oCItemContainer  ?Init@oCItemContainer@@MAEXHHH@Z
+        vfunc f35_GetPosition;                    // from oCItemContainer  ?GetPosition@oCItemContainer@@MAEXAAH0@Z
+        vfunc f36_LoadGrafix;                     // from oCItemContainer  ?LoadGrafix@oCItemContainer@@MAEXXZ
+        vfunc f37_DeleteContents;                 // from oCItemContainer  ?DeleteContents@oCItemContainer@@MAEXXZ
+        vfunc f38_NextItem;                       // from oCItemContainer  ?NextItem@oCItemContainer@@MAEXXZ
+        vfunc f39_NextItemLine;                   // from oCItemContainer  ?NextItemLine@oCItemContainer@@MAEXXZ
+        vfunc f40_PrevItem;                       // from oCItemContainer  ?PrevItem@oCItemContainer@@MAEXXZ
+        vfunc f41_PrevItemLine;                   // from oCItemContainer  ?PrevItemLine@oCItemContainer@@MAEXXZ
+        vfunc f42_CheckSelectedItem;              // from oCItemContainer  ?CheckSelectedItem@oCItemContainer@@MAEXXZ
+        vfunc f43_TransferItem;                   // from oCItemContainer  ?TransferItem@oCItemContainer@@MAEHHH@Z
+        vfunc f44_Draw;                           // from oCNpcInventory   ?Draw@oCNpcInventory@@MAEXXZ
+        vfunc f45_DrawCategory;                   // from oCNpcInventory   ?DrawCategory@oCNpcInventory@@MAEXXZ
+        vfunc f46_DrawItemInfo;                   // from oCItemContainer  ?DrawItemInfo@oCItemContainer@@MAEXPAVoCItem@@PAVzCWorld@@@Z
+        vfunc f47_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEPAVoCItem@@ABVzSTRING@@H@Z
+        vfunc f48_Remove;                         // from oCNpcInventory   ?Remove@oCNpcInventory@@UAEPAVoCItem@@HH@Z
+        vfunc f49_IsIn;                           // from oCNpcInventory   ?IsIn@oCNpcInventory@@UAEPAVoCItem@@ABVzSTRING@@H@Z
+        vfunc f50_IsIn;                           // from oCNpcInventory   ?IsIn@oCNpcInventory@@UAEPAVoCItem@@HH@Z
+        vfunc f51_IsIn;                           // from oCNpcInventory   ?IsIn@oCNpcInventory@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f52_IsEmpty;                        // from oCNpcInventory   ?IsEmpty@oCNpcInventory@@UAEHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD004;
+      return 0x0082D634;
     }
 
     static uint GetFuncsNum() {
-      return 44;
+      return 53;
     }
 
     static vftable_oCNpcInventory& GetTable() {
@@ -10318,7 +10408,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DD0CC;
+      return 0x0082D724;
     }
 
     static uint GetFuncsNum() {
@@ -10342,7 +10432,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DD19C;
+      return 0x0082D804;
     }
 
     static uint GetFuncsNum() {
@@ -10366,7 +10456,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DD1A8;
+      return 0x0082D810;
     }
 
     static uint GetFuncsNum() {
@@ -10382,7 +10472,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobBed {
     union {
-      vfunc array[68];
+      vfunc array[72];
       group {
         vfunc f00_GetClassDef;              // from oCMobBed    ?_GetClassDef@oCMobBed@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobInter  ?Archive@oCMobInter@@MAEXAAVzCArchiver@@@Z
@@ -10426,41 +10516,45 @@ namespace Gothic_I_Classic {
         vfunc f39_SetName;                  // from oCMOB       ?SetName@oCMOB@@UAEXABVzSTRING@@@Z
         vfunc f40_GetName;                  // from oCMOB       ?GetName@oCMOB@@UAE?AVzSTRING@@XZ
         vfunc f41_GetModel;                 // from oCMOB       ?GetModel@oCMOB@@UAEPAVzCModel@@XZ
-        vfunc f42_GetScemeName;             // from oCMobInter  ?GetScemeName@oCMobInter@@UAE?AVzSTRING@@XZ
+        vfunc f42_GetScemeName;             // from oCMobBed    ?GetScemeName@oCMobBed@@UAE?AVzSTRING@@XZ
         vfunc f43_Destroy;                  // from oCMOB       ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB       ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter  ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobInter  ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobBed    ?StartInteraction@oCMobBed@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobBed    ?OnBeginStateChange@oCMobBed@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobBed    ?OnEndStateChange@oCMobBed@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
+        vfunc f46_GetStateNum;              // from oCMobInter  ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter  ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter  ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobInter  ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter  ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobBed    ?StartInteraction@oCMobBed@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@UAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobBed    ?OnBeginStateChange@oCMobBed@@MAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobBed    ?OnEndStateChange@oCMobBed@@MAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobBed    ?SearchFreePosition@oCMobBed@@MAEPAUTMobOptPos@@PAVoCNpc@@M@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD1CC;
+      return 0x0082D83C;
     }
 
     static uint GetFuncsNum() {
-      return 68;
+      return 72;
     }
 
     static vftable_oCMobBed& GetTable() {
@@ -10472,7 +10566,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobSwitch {
     union {
-      vfunc array[68];
+      vfunc array[72];
       group {
         vfunc f00_GetClassDef;              // from oCMobSwitch  ?_GetClassDef@oCMobSwitch@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobSwitch  ?Archive@oCMobSwitch@@MAEXAAVzCArchiver@@@Z
@@ -10520,37 +10614,41 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB        ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB        ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter   ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter   ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter   ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter   ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobInter   ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter   ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter   ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter   ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobInter   ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter   ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter   ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter   ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter   ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter   ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter   ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter   ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobInter   ?CanChangeState@oCMobInter@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter   ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter   ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobInter   ?OnEndStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter   ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter   ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter   ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
+        vfunc f46_GetStateNum;              // from oCMobInter   ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter   ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter   ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter   ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter   ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter   ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobInter   ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter   ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter   ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter   ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobInter   ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter   ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter   ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter   ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter   ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter   ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter   ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter   ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter   ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobInter   ?CanChangeState@oCMobInter@@UAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter   ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter   ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobInter   ?OnEndStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter   ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter   ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter   ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD2E4;
+      return 0x0082D964;
     }
 
     static uint GetFuncsNum() {
-      return 68;
+      return 72;
     }
 
     static vftable_oCMobSwitch& GetTable() {
@@ -10562,7 +10660,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobContainer {
     union {
-      vfunc array[80];
+      vfunc array[84];
       group {
         vfunc f00_GetClassDef;              // from oCMobContainer  ?_GetClassDef@oCMobContainer@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobContainer  ?Archive@oCMobContainer@@MAEXAAVzCArchiver@@@Z
@@ -10610,49 +10708,53 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMobContainer  ?Destroy@oCMobContainer@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB           ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter      ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter      ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter      ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobContainer  ?Reset@oCMobContainer@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobLockable   ?Interact@oCMobLockable@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter      ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter      ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter      ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobLockable   ?CanInteractWith@oCMobLockable@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter      ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter      ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobContainer  ?IsIn@oCMobContainer@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter      ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter      ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter      ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter      ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobLockable   ?CanChangeState@oCMobLockable@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter      ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter      ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobLockable   ?OnEndStateChange@oCMobLockable@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter      ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter      ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter      ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
-        vfunc f68_SetLocked;                // from oCMobLockable   ?SetLocked@oCMobLockable@@UAEXH@Z
-        vfunc f69_SetKeyInstance;           // from oCMobLockable   ?SetKeyInstance@oCMobLockable@@UAEXABVzSTRING@@@Z
-        vfunc f70_SetPickLockStr;           // from oCMobLockable   ?SetPickLockStr@oCMobLockable@@UAEXABVzSTRING@@@Z
-        vfunc f71_Open;                     // from oCMobContainer  ?Open@oCMobContainer@@MAEXPAVoCNpc@@@Z
-        vfunc f72_Close;                    // from oCMobContainer  ?Close@oCMobContainer@@UAEXPAVoCNpc@@@Z
-        vfunc f73_Lock;                     // from oCMobLockable   ?Lock@oCMobLockable@@MAEXPAVoCNpc@@@Z
-        vfunc f74_Unlock;                   // from oCMobLockable   ?Unlock@oCMobLockable@@MAEXPAVoCNpc@@H@Z
-        vfunc f75_PickLock;                 // from oCMobLockable   ?PickLock@oCMobLockable@@MAEHPAVoCNpc@@D@Z
-        vfunc f76_Insert;                   // from oCMobContainer  ?Insert@oCMobContainer@@UAEXPAVoCItem@@@Z
-        vfunc f77_Remove;                   // from oCMobContainer  ?Remove@oCMobContainer@@UAEPAVoCItem@@PAV2@H@Z
-        vfunc f78_Remove;                   // from oCMobContainer  ?Remove@oCMobContainer@@UAEXPAVoCItem@@@Z
-        vfunc f79_CreateContents;           // from oCMobContainer  ?CreateContents@oCMobContainer@@UAEXABVzSTRING@@@Z
+        vfunc f46_GetStateNum;              // from oCMobInter      ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter      ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter      ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter      ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter      ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobContainer  ?Reset@oCMobContainer@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobLockable   ?Interact@oCMobLockable@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter      ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter      ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter      ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobLockable   ?CanInteractWith@oCMobLockable@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter      ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter      ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter      ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobContainer  ?IsIn@oCMobContainer@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter      ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter      ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter      ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter      ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobLockable   ?CanChangeState@oCMobLockable@@MAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter      ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter      ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobLockable   ?OnEndStateChange@oCMobLockable@@MAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter      ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter      ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter      ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
+        vfunc f72_SetLocked;                // from oCMobLockable   ?SetLocked@oCMobLockable@@UAEXH@Z
+        vfunc f73_SetKeyInstance;           // from oCMobLockable   ?SetKeyInstance@oCMobLockable@@UAEXABVzSTRING@@@Z
+        vfunc f74_SetPickLockStr;           // from oCMobLockable   ?SetPickLockStr@oCMobLockable@@UAEXABVzSTRING@@@Z
+        vfunc f75_Open;                     // from oCMobContainer  ?Open@oCMobContainer@@MAEXPAVoCNpc@@@Z
+        vfunc f76_Close;                    // from oCMobContainer  ?Close@oCMobContainer@@UAEXPAVoCNpc@@@Z
+        vfunc f77_Lock;                     // from oCMobLockable   ?Lock@oCMobLockable@@MAEXPAVoCNpc@@@Z
+        vfunc f78_Unlock;                   // from oCMobLockable   ?Unlock@oCMobLockable@@MAEXPAVoCNpc@@H@Z
+        vfunc f79_PickLock;                 // from oCMobLockable   ?PickLock@oCMobLockable@@MAEHPAVoCNpc@@D@Z
+        vfunc f80_Insert;                   // from oCMobContainer  ?Insert@oCMobContainer@@UAEXPAVoCItem@@@Z
+        vfunc f81_Remove;                   // from oCMobContainer  ?Remove@oCMobContainer@@UAEPAVoCItem@@PAV2@H@Z
+        vfunc f82_Remove;                   // from oCMobContainer  ?Remove@oCMobContainer@@UAEXPAVoCItem@@@Z
+        vfunc f83_CreateContents;           // from oCMobContainer  ?CreateContents@oCMobContainer@@UAEXABVzSTRING@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD3FC;
+      return 0x0082DA8C;
     }
 
     static uint GetFuncsNum() {
-      return 80;
+      return 84;
     }
 
     static vftable_oCMobContainer& GetTable() {
@@ -10664,7 +10766,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobLockable {
     union {
-      vfunc array[76];
+      vfunc array[80];
       group {
         vfunc f00_GetClassDef;              // from oCMobLockable  ?_GetClassDef@oCMobLockable@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobLockable  ?Archive@oCMobLockable@@MAEXAAVzCArchiver@@@Z
@@ -10712,45 +10814,49 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB          ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB          ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter     ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter     ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter     ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter     ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobLockable  ?Interact@oCMobLockable@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter     ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter     ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter     ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobLockable  ?CanInteractWith@oCMobLockable@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter     ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter     ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter     ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter     ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter     ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter     ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter     ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobLockable  ?CanChangeState@oCMobLockable@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter     ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter     ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobLockable  ?OnEndStateChange@oCMobLockable@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter     ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter     ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter     ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
-        vfunc f68_SetLocked;                // from oCMobLockable  ?SetLocked@oCMobLockable@@UAEXH@Z
-        vfunc f69_SetKeyInstance;           // from oCMobLockable  ?SetKeyInstance@oCMobLockable@@UAEXABVzSTRING@@@Z
-        vfunc f70_SetPickLockStr;           // from oCMobLockable  ?SetPickLockStr@oCMobLockable@@UAEXABVzSTRING@@@Z
-        vfunc f71_Open;                     // from base           purecall
-        vfunc f72_Close;                    // from base           purecall
-        vfunc f73_Lock;                     // from oCMobLockable  ?Lock@oCMobLockable@@MAEXPAVoCNpc@@@Z
-        vfunc f74_Unlock;                   // from oCMobLockable  ?Unlock@oCMobLockable@@MAEXPAVoCNpc@@H@Z
-        vfunc f75_PickLock;                 // from oCMobLockable  ?PickLock@oCMobLockable@@MAEHPAVoCNpc@@D@Z
+        vfunc f46_GetStateNum;              // from oCMobInter     ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter     ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter     ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter     ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter     ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter     ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobLockable  ?Interact@oCMobLockable@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter     ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter     ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter     ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobLockable  ?CanInteractWith@oCMobLockable@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter     ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter     ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter     ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter     ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter     ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter     ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter     ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter     ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobLockable  ?CanChangeState@oCMobLockable@@MAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter     ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter     ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobLockable  ?OnEndStateChange@oCMobLockable@@MAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter     ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter     ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter     ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
+        vfunc f72_SetLocked;                // from oCMobLockable  ?SetLocked@oCMobLockable@@UAEXH@Z
+        vfunc f73_SetKeyInstance;           // from oCMobLockable  ?SetKeyInstance@oCMobLockable@@UAEXABVzSTRING@@@Z
+        vfunc f74_SetPickLockStr;           // from oCMobLockable  ?SetPickLockStr@oCMobLockable@@UAEXABVzSTRING@@@Z
+        vfunc f75_Open;                     // from base           purecall
+        vfunc f76_Close;                    // from base           purecall
+        vfunc f77_Lock;                     // from oCMobLockable  ?Lock@oCMobLockable@@MAEXPAVoCNpc@@@Z
+        vfunc f78_Unlock;                   // from oCMobLockable  ?Unlock@oCMobLockable@@MAEXPAVoCNpc@@H@Z
+        vfunc f79_PickLock;                 // from oCMobLockable  ?PickLock@oCMobLockable@@MAEHPAVoCNpc@@D@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD544;
+      return 0x0082DBE4;
     }
 
     static uint GetFuncsNum() {
-      return 76;
+      return 80;
     }
 
     static vftable_oCMobLockable& GetTable() {
@@ -10762,7 +10868,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobWheel {
     union {
-      vfunc array[68];
+      vfunc array[72];
       group {
         vfunc f00_GetClassDef;              // from oCMobWheel  ?_GetClassDef@oCMobWheel@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobInter  ?Archive@oCMobInter@@MAEXAAVzCArchiver@@@Z
@@ -10810,37 +10916,41 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB       ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB       ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter  ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobWheel  ?Interact@oCMobWheel@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter  ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter  ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobInter  ?OnEndStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
+        vfunc f46_GetStateNum;              // from oCMobInter  ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter  ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter  ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobWheel  ?Interact@oCMobWheel@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter  ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter  ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@UAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter  ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobInter  ?OnEndStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD67C;
+      return 0x0082DD2C;
     }
 
     static uint GetFuncsNum() {
-      return 68;
+      return 72;
     }
 
     static vftable_oCMobWheel& GetTable() {
@@ -10852,7 +10962,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobLadder {
     union {
-      vfunc array[68];
+      vfunc array[72];
       group {
         vfunc f00_GetClassDef;              // from oCMobLadder  ?_GetClassDef@oCMobLadder@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobInter   ?Archive@oCMobInter@@MAEXAAVzCArchiver@@@Z
@@ -10900,37 +11010,41 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB        ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB        ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter   ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter   ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter   ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter   ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobLadder  ?Interact@oCMobLadder@@MAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter   ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter   ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter   ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobLadder  ?CanInteractWith@oCMobLadder@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter   ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter   ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter   ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter   ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobLadder  ?StartInteraction@oCMobLadder@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter   ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter   ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobLadder  ?CanChangeState@oCMobLadder@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter   ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter   ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobInter   ?OnEndStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter   ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter   ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobLadder  ?SearchFreePosition@oCMobLadder@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
+        vfunc f46_GetStateNum;              // from oCMobInter   ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter   ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter   ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter   ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter   ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter   ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobLadder  ?Interact@oCMobLadder@@MAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobLadder  ?EndInteraction@oCMobLadder@@MAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter   ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter   ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobLadder  ?CanInteractWith@oCMobLadder@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter   ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter   ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter   ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter   ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter   ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobLadder  ?StartInteraction@oCMobLadder@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter   ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter   ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobLadder  ?CanChangeState@oCMobLadder@@MAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter   ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter   ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobInter   ?OnEndStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter   ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter   ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobLadder  ?SearchFreePosition@oCMobLadder@@MAEPAUTMobOptPos@@PAVoCNpc@@M@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD794;
+      return 0x0082DE54;
     }
 
     static uint GetFuncsNum() {
-      return 68;
+      return 72;
     }
 
     static vftable_oCMobLadder& GetTable() {
@@ -10942,7 +11056,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobDoor {
     union {
-      vfunc array[76];
+      vfunc array[80];
       group {
         vfunc f00_GetClassDef;              // from oCMobDoor      ?_GetClassDef@oCMobDoor@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobLockable  ?Archive@oCMobLockable@@MAEXAAVzCArchiver@@@Z
@@ -10990,45 +11104,49 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB          ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB          ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter     ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter     ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter     ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter     ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobLockable  ?Interact@oCMobLockable@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter     ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter     ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter     ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobLockable  ?CanInteractWith@oCMobLockable@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter     ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter     ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter     ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter     ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter     ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter     ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter     ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobLockable  ?CanChangeState@oCMobLockable@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter     ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter     ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobLockable  ?OnEndStateChange@oCMobLockable@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter     ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter     ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobDoor      ?SearchFreePosition@oCMobDoor@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
-        vfunc f68_SetLocked;                // from oCMobLockable  ?SetLocked@oCMobLockable@@UAEXH@Z
-        vfunc f69_SetKeyInstance;           // from oCMobLockable  ?SetKeyInstance@oCMobLockable@@UAEXABVzSTRING@@@Z
-        vfunc f70_SetPickLockStr;           // from oCMobLockable  ?SetPickLockStr@oCMobLockable@@UAEXABVzSTRING@@@Z
-        vfunc f71_Open;                     // from oCMobDoor      ?Open@oCMobDoor@@MAEXPAVoCNpc@@@Z
-        vfunc f72_Close;                    // from oCMobDoor      ?Close@oCMobDoor@@MAEXPAVoCNpc@@@Z
-        vfunc f73_Lock;                     // from oCMobLockable  ?Lock@oCMobLockable@@MAEXPAVoCNpc@@@Z
-        vfunc f74_Unlock;                   // from oCMobLockable  ?Unlock@oCMobLockable@@MAEXPAVoCNpc@@H@Z
-        vfunc f75_PickLock;                 // from oCMobLockable  ?PickLock@oCMobLockable@@MAEHPAVoCNpc@@D@Z
+        vfunc f46_GetStateNum;              // from oCMobInter     ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter     ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter     ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter     ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter     ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter     ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobLockable  ?Interact@oCMobLockable@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter     ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter     ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter     ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobLockable  ?CanInteractWith@oCMobLockable@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter     ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter     ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter     ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter     ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter     ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter     ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter     ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter     ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobLockable  ?CanChangeState@oCMobLockable@@MAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter     ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter     ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobLockable  ?OnEndStateChange@oCMobLockable@@MAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter     ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter     ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobDoor      ?SearchFreePosition@oCMobDoor@@MAEPAUTMobOptPos@@PAVoCNpc@@M@Z
+        vfunc f72_SetLocked;                // from oCMobLockable  ?SetLocked@oCMobLockable@@UAEXH@Z
+        vfunc f73_SetKeyInstance;           // from oCMobLockable  ?SetKeyInstance@oCMobLockable@@UAEXABVzSTRING@@@Z
+        vfunc f74_SetPickLockStr;           // from oCMobLockable  ?SetPickLockStr@oCMobLockable@@UAEXABVzSTRING@@@Z
+        vfunc f75_Open;                     // from oCMobDoor      ?Open@oCMobDoor@@MAEXPAVoCNpc@@@Z
+        vfunc f76_Close;                    // from oCMobDoor      ?Close@oCMobDoor@@MAEXPAVoCNpc@@@Z
+        vfunc f77_Lock;                     // from oCMobLockable  ?Lock@oCMobLockable@@MAEXPAVoCNpc@@@Z
+        vfunc f78_Unlock;                   // from oCMobLockable  ?Unlock@oCMobLockable@@MAEXPAVoCNpc@@H@Z
+        vfunc f79_PickLock;                 // from oCMobLockable  ?PickLock@oCMobLockable@@MAEHPAVoCNpc@@D@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD8AC;
+      return 0x0082DF7C;
     }
 
     static uint GetFuncsNum() {
-      return 76;
+      return 80;
     }
 
     static vftable_oCMobDoor& GetTable() {
@@ -11040,7 +11158,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobFire {
     union {
-      vfunc array[70];
+      vfunc array[74];
       group {
         vfunc f00_GetClassDef;              // from oCMobFire   ?_GetClassDef@oCMobFire@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobFire   ?Archive@oCMobFire@@MAEXAAVzCArchiver@@@Z
@@ -11088,39 +11206,43 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB       ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB       ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter  ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobInter  ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter  ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter  ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobFire   ?OnEndStateChange@oCMobFire@@UAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
-        vfunc f68_PreSave;                  // from oCMobFire   ?PreSave@oCMobFire@@UAEXXZ
-        vfunc f69_PostSave;                 // from oCMobFire   ?PostSave@oCMobFire@@UAEXXZ
+        vfunc f46_GetStateNum;              // from oCMobInter  ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter  ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter  ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobInter  ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter  ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter  ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@UAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter  ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobFire   ?OnEndStateChange@oCMobFire@@UAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
+        vfunc f72_PreSave;                  // from oCMobFire   ?PreSave@oCMobFire@@UAEXXZ
+        vfunc f73_PostSave;                 // from oCMobFire   ?PostSave@oCMobFire@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DD9E4;
+      return 0x0082E0C4;
     }
 
     static uint GetFuncsNum() {
-      return 70;
+      return 74;
     }
 
     static vftable_oCMobFire& GetTable() {
@@ -11132,7 +11254,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobItemSlot {
     union {
-      vfunc array[71];
+      vfunc array[75];
       group {
         vfunc f00_GetClassDef;              // from oCMobItemSlot  ?_GetClassDef@oCMobItemSlot@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobItemSlot  ?Archive@oCMobItemSlot@@MAEXAAVzCArchiver@@@Z
@@ -11180,40 +11302,44 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB          ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB          ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter     ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter     ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobItemSlot  ?GetUseWithItem@oCMobItemSlot@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter     ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobInter     ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter     ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter     ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter     ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobItemSlot  ?CanInteractWith@oCMobItemSlot@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter     ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter     ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobItemSlot  ?IsIn@oCMobItemSlot@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter     ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter     ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter     ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter     ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobInter     ?CanChangeState@oCMobInter@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter     ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter     ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobInter     ?OnEndStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter     ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter     ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter     ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
-        vfunc f68_GetInsertedItem;          // from oCMobItemSlot  ?GetInsertedItem@oCMobItemSlot@@UAEPAVoCItem@@XZ
-        vfunc f69_PlaceItem;                // from oCMobItemSlot  ?PlaceItem@oCMobItemSlot@@UAEHPAVoCItem@@@Z
-        vfunc f70_RemoveItem;               // from oCMobItemSlot  ?RemoveItem@oCMobItemSlot@@UAEPAVoCItem@@XZ
+        vfunc f46_GetStateNum;              // from oCMobInter     ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter     ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter     ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter     ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobItemSlot  ?GetUseWithItem@oCMobItemSlot@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter     ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobInter     ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter     ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter     ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter     ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobItemSlot  ?CanInteractWith@oCMobItemSlot@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter     ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter     ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter     ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobItemSlot  ?IsIn@oCMobItemSlot@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter     ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter     ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter     ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter     ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobInter     ?CanChangeState@oCMobInter@@UAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter     ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter     ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobInter     ?OnEndStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter     ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter     ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter     ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
+        vfunc f72_GetInsertedItem;          // from oCMobItemSlot  ?GetInsertedItem@oCMobItemSlot@@UAEPAVoCItem@@XZ
+        vfunc f73_PlaceItem;                // from oCMobItemSlot  ?PlaceItem@oCMobItemSlot@@UAEHPAVoCItem@@@Z
+        vfunc f74_RemoveItem;               // from oCMobItemSlot  ?RemoveItem@oCMobItemSlot@@UAEPAVoCItem@@XZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DDB04;
+      return 0x0082E1F4;
     }
 
     static uint GetFuncsNum() {
-      return 71;
+      return 75;
     }
 
     static vftable_oCMobItemSlot& GetTable() {
@@ -11259,7 +11385,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DDC24;
+      return 0x0082E324;
     }
 
     static uint GetFuncsNum() {
@@ -11275,39 +11401,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobMsg {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from oCMobMsg        ?_GetClassDef@oCMobMsg@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from oCMobMsg        ?IsNetRelevant@oCMobMsg@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMobMsg        ?MD_GetNumOfSubTypes@oCMobMsg@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMobMsg        ?MD_GetSubTypeString@oCMobMsg@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from oCMobMsg        ?Pack@oCMobMsg@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from oCMobMsg        ?Unpack@oCMobMsg@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from oCMobMsg        ?_GetClassDef@oCMobMsg@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventMessage  ?Archive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventMessage  ?Unarchive@zCEventMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from zCEventMessage  ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from oCMobMsg        ?IsNetRelevant@oCMobMsg@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage  ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage  ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage  ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage  ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage  ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage  ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMobMsg        ?MD_GetNumOfSubTypes@oCMobMsg@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMobMsg        ?MD_GetSubTypeString@oCMobMsg@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from oCMobMsg        ?Pack@oCMobMsg@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from oCMobMsg        ?Unpack@oCMobMsg@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DDC9C;
+      return 0x0082E39C;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_oCMobMsg& GetTable() {
@@ -11370,7 +11497,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DDCFC;
+      return 0x0082E3FC;
     }
 
     static uint GetFuncsNum() {
@@ -11386,7 +11513,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMobInter {
     union {
-      vfunc array[68];
+      vfunc array[72];
       group {
         vfunc f00_GetClassDef;              // from oCMobInter  ?_GetClassDef@oCMobInter@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCMobInter  ?Archive@oCMobInter@@MAEXAAVzCArchiver@@@Z
@@ -11434,37 +11561,41 @@ namespace Gothic_I_Classic {
         vfunc f43_Destroy;                  // from oCMOB       ?Destroy@oCMOB@@UAEXXZ
         vfunc f44_AllowDiscardingOfSubtree; // from oCMOB       ?AllowDiscardingOfSubtree@oCMOB@@UAEHXZ
         vfunc f45_GetState;                 // from oCMobInter  ?GetState@oCMobInter@@UAEHXZ
-        vfunc f46_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
-        vfunc f47_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
-        vfunc f48_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
-        vfunc f49_Interact;                 // from oCMobInter  ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
-        vfunc f50_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
-        vfunc f51_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f52_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
-        vfunc f53_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f54_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
-        vfunc f55_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f56_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
-        vfunc f57_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
-        vfunc f58_StartInteraction;         // from oCMobInter  ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f59_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f60_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@MAEXPAVoCNpc@@@Z
-        vfunc f61_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@MAEHPAVoCNpc@@HH@Z
-        vfunc f62_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@MAEXHHAAVzSTRING@@0@Z
-        vfunc f63_OnBeginStateChange;       // from oCMobInter  ?OnBeginStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f64_OnEndStateChange;         // from oCMobInter  ?OnEndStateChange@oCMobInter@@MAEXPAVoCNpc@@HH@Z
-        vfunc f65_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f66_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@MAEXPAVoCNpc@@H@Z
-        vfunc f67_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@MAEPAUTMobOptPos@@PAVoCNpc@@@Z
+        vfunc f46_GetStateNum;              // from oCMobInter  ?GetStateNum@oCMobInter@@UAEHXZ
+        vfunc f47_GetDirection;             // from oCMobInter  ?GetDirection@oCMobInter@@UAE?AW4TMobInterDirection@1@XZ
+        vfunc f48_SetDirection;             // from oCMobInter  ?SetDirection@oCMobInter@@UAEXW4TMobInterDirection@1@@Z
+        vfunc f49_SetUseWithItem;           // from oCMobInter  ?SetUseWithItem@oCMobInter@@UAEXABVzSTRING@@@Z
+        vfunc f50_GetUseWithItem;           // from oCMobInter  ?GetUseWithItem@oCMobInter@@UAEHXZ
+        vfunc f51_Reset;                    // from oCMobInter  ?Reset@oCMobInter@@UAEXXZ
+        vfunc f52_Interact;                 // from oCMobInter  ?Interact@oCMobInter@@UAEXPAVoCNpc@@HHHHH@Z
+        vfunc f53_EndInteraction;           // from oCMobInter  ?EndInteraction@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f54_InterruptInteraction;     // from oCMobInter  ?InterruptInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f55_StopInteraction;          // from oCMobInter  ?StopInteraction@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f56_CanInteractWith;          // from oCMobInter  ?CanInteractWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f57_IsInteractingWith;        // from oCMobInter  ?IsInteractingWith@oCMobInter@@UAEHPAVoCNpc@@@Z
+        vfunc f58_IsOccupied;               // from oCMobInter  ?IsOccupied@oCMobInter@@UAEHXZ
+        vfunc f59_AI_UseMobToState;         // from oCMobInter  ?AI_UseMobToState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f60_IsIn;                     // from oCMobInter  ?IsIn@oCMobInter@@UAEHH@Z
+        vfunc f61_IsInState;                // from oCMobInter  ?IsInState@oCMobInter@@UAEHPAVoCNpc@@H@Z
+        vfunc f62_StartInteraction;         // from oCMobInter  ?StartInteraction@oCMobInter@@MAEXPAVoCNpc@@@Z
+        vfunc f63_StartStateChange;         // from oCMobInter  ?StartStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f64_CheckStateChange;         // from oCMobInter  ?CheckStateChange@oCMobInter@@UAEXPAVoCNpc@@@Z
+        vfunc f65_CanChangeState;           // from oCMobInter  ?CanChangeState@oCMobInter@@UAEHPAVoCNpc@@HH@Z
+        vfunc f66_GetTransitionNames;       // from oCMobInter  ?GetTransitionNames@oCMobInter@@UAEXHHAAVzSTRING@@0@Z
+        vfunc f67_OnBeginStateChange;       // from oCMobInter  ?OnBeginStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f68_OnEndStateChange;         // from oCMobInter  ?OnEndStateChange@oCMobInter@@UAEXPAVoCNpc@@HH@Z
+        vfunc f69_CallOnStateFunc;          // from oCMobInter  ?CallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f70_SendCallOnStateFunc;      // from oCMobInter  ?SendCallOnStateFunc@oCMobInter@@UAEXPAVoCNpc@@H@Z
+        vfunc f71_SearchFreePosition;       // from oCMobInter  ?SearchFreePosition@oCMobInter@@UAEPAUTMobOptPos@@PAVoCNpc@@M@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DDDB4;
+      return 0x0082E4B4;
     }
 
     static uint GetFuncsNum() {
-      return 68;
+      return 72;
     }
 
     static vftable_oCMobInter& GetTable() {
@@ -11484,7 +11615,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DDEE4;
+      return 0x0082E5F8;
     }
 
     static uint GetFuncsNum() {
@@ -11508,7 +11639,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DDEF0;
+      return 0x0082E604;
     }
 
     static uint GetFuncsNum() {
@@ -11534,7 +11665,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DDF1C;
+      return 0x0082E638;
     }
 
     static uint GetFuncsNum() {
@@ -11620,19 +11751,19 @@ namespace Gothic_I_Classic {
         vfunc f65_IsSelfPlayer;             // from oCNpc  ?IsSelfPlayer@oCNpc@@UAEHXZ
         vfunc f66_SetAsPlayer;              // from oCNpc  ?SetAsPlayer@oCNpc@@UAEXXZ
         vfunc f67_IsMonster;                // from oCNpc  ?IsMonster@oCNpc@@UAEHXZ
-        vfunc f68_IsHalfMonster;            // from oCNpc  ?IsHalfMonster@oCNpc@@UAEHXZ
-        vfunc f69_IsHuman;                  // from oCNpc  ?IsHuman@oCNpc@@UAEHXZ
-        vfunc f70_IsGoblin;                 // from oCNpc  ?IsGoblin@oCNpc@@UAEHXZ
-        vfunc f71_IsOrc;                    // from oCNpc  ?IsOrc@oCNpc@@UAEHXZ
-        vfunc f72_IsSkeleton;               // from oCNpc  ?IsSkeleton@oCNpc@@UAEHXZ
-        vfunc f73_GetPlayerNumber;          // from oCNpc  ?GetPlayerNumber@oCNpc@@UAEHXZ
+        vfunc f68_IsHuman;                  // from oCNpc  ?IsHuman@oCNpc@@UAEHXZ
+        vfunc f69_IsGoblin;                 // from oCNpc  ?IsGoblin@oCNpc@@UAEHXZ
+        vfunc f70_IsOrc;                    // from oCNpc  ?IsOrc@oCNpc@@UAEHXZ
+        vfunc f71_IsSkeleton;               // from oCNpc  ?IsSkeleton@oCNpc@@UAEHXZ
+        vfunc f72_GetPlayerNumber;          // from oCNpc  ?GetPlayerNumber@oCNpc@@UAEHXZ
+        vfunc f73_IsAniMessageRunning;      // from oCNpc  ?IsAniMessageRunning@oCNpc@@UAEHXZ
         vfunc f74_ProcessNpc;               // from oCNpc  ?ProcessNpc@oCNpc@@UAEXXZ
         vfunc f75_AllowDiscardingOfSubtree; // from oCNpc  ?AllowDiscardingOfSubtree@oCNpc@@MAEHXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DDF34;
+      return 0x0082E64C;
     }
 
     static uint GetFuncsNum() {
@@ -11648,42 +11779,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCNpcMessage {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCNpcMessage    ?_GetClassDef@oCNpcMessage@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCNpcMessage    ?Archive@oCNpcMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCNpcMessage    ?Unarchive@oCNpcMessage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventMessage  ?MD_GetNumOfSubTypes@zCEventMessage@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventMessage  ?MD_GetSubTypeString@zCEventMessage@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCNpcMessage    ?_GetClassDef@oCNpcMessage@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCNpcMessage    ?Archive@oCNpcMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCNpcMessage    ?Unarchive@oCNpcMessage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventMessage  ?MD_GetNumOfSubTypes@zCEventMessage@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventMessage  ?MD_GetSubTypeString@zCEventMessage@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE28C;
+      return 0x0082E9B4;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCNpcMessage& GetTable() {
@@ -11695,42 +11827,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgDamage {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgDamage     ?_GetClassDef@oCMsgDamage@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgDamage     ?Archive@oCMsgDamage@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgDamage     ?Unarchive@oCMsgDamage@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCMsgDamage     ?IsOverlay@oCMsgDamage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from oCMsgDamage     ?IsNetRelevant@oCMsgDamage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCMsgDamage     ?IsHighPriority@oCMsgDamage@@UAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCMsgDamage     ?IsDeleteable@oCMsgDamage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgDamage     ?MD_GetNumOfSubTypes@oCMsgDamage@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgDamage     ?MD_GetSubTypeString@oCMsgDamage@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from oCMsgDamage     ?Pack@oCMsgDamage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from oCMsgDamage     ?Unpack@oCMsgDamage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgDamage     ?_GetClassDef@oCMsgDamage@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgDamage     ?Archive@oCMsgDamage@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgDamage     ?Unarchive@oCMsgDamage@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCMsgDamage     ?IsOverlay@oCMsgDamage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from oCMsgDamage     ?IsNetRelevant@oCMsgDamage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCMsgDamage     ?IsHighPriority@oCMsgDamage@@UAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCMsgDamage     ?IsDeleteable@oCMsgDamage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgDamage     ?MD_GetNumOfSubTypes@oCMsgDamage@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgDamage     ?MD_GetSubTypeString@oCMsgDamage@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from oCMsgDamage     ?Pack@oCMsgDamage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from oCMsgDamage     ?Unpack@oCMsgDamage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE2F4;
+      return 0x0082EA24;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgDamage& GetTable() {
@@ -11742,42 +11875,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgWeapon {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgWeapon     ?_GetClassDef@oCMsgWeapon@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgWeapon     ?Archive@oCMsgWeapon@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgWeapon     ?Unarchive@oCMsgWeapon@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgWeapon     ?MD_GetNumOfSubTypes@oCMsgWeapon@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgWeapon     ?MD_GetSubTypeString@oCMsgWeapon@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from oCMsgWeapon     ?MD_GetTimeBehavior@oCMsgWeapon@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from oCMsgWeapon     ?MD_GetMinTime@oCMsgWeapon@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgWeapon     ?_GetClassDef@oCMsgWeapon@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgWeapon     ?Archive@oCMsgWeapon@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgWeapon     ?Unarchive@oCMsgWeapon@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgWeapon     ?MD_GetNumOfSubTypes@oCMsgWeapon@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgWeapon     ?MD_GetSubTypeString@oCMsgWeapon@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from oCMsgWeapon     ?MD_GetTimeBehavior@oCMsgWeapon@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from oCMsgWeapon     ?MD_GetMinTime@oCMsgWeapon@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE35C;
+      return 0x0082EA94;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgWeapon& GetTable() {
@@ -11789,42 +11923,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgMovement {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgMovement   ?_GetClassDef@oCMsgMovement@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgMovement   ?Archive@oCMsgMovement@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgMovement   ?Unarchive@oCMsgMovement@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCMsgMovement   ?Delete@oCMsgMovement@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgMovement   ?MD_GetNumOfSubTypes@oCMsgMovement@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgMovement   ?MD_GetSubTypeString@oCMsgMovement@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from oCMsgMovement   ?MD_GetVobRefName@oCMsgMovement@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from oCMsgMovement   ?MD_SetVobRefName@oCMsgMovement@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from oCMsgMovement   ?MD_SetVobParam@oCMsgMovement@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from oCMsgMovement   ?MD_GetTimeBehavior@oCMsgMovement@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from oCMsgMovement   ?MD_GetMinTime@oCMsgMovement@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgMovement   ?_GetClassDef@oCMsgMovement@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgMovement   ?Archive@oCMsgMovement@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgMovement   ?Unarchive@oCMsgMovement@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCMsgMovement   ?Delete@oCMsgMovement@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgMovement   ?MD_GetNumOfSubTypes@oCMsgMovement@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgMovement   ?MD_GetSubTypeString@oCMsgMovement@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from oCMsgMovement   ?MD_GetVobRefName@oCMsgMovement@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from oCMsgMovement   ?MD_SetVobRefName@oCMsgMovement@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from oCMsgMovement   ?MD_SetVobParam@oCMsgMovement@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from oCMsgMovement   ?MD_GetTimeBehavior@oCMsgMovement@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from oCMsgMovement   ?MD_GetMinTime@oCMsgMovement@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE3C4;
+      return 0x0082EB04;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgMovement& GetTable() {
@@ -11836,42 +11971,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgAttack {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgAttack     ?_GetClassDef@oCMsgAttack@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgAttack     ?Archive@oCMsgAttack@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgAttack     ?Unarchive@oCMsgAttack@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCMsgAttack     ?IsOverlay@oCMsgAttack@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from oCMsgAttack     ?IsNetRelevant@oCMsgAttack@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgAttack     ?MD_GetNumOfSubTypes@oCMsgAttack@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgAttack     ?MD_GetSubTypeString@oCMsgAttack@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from oCMsgAttack     ?Pack@oCMsgAttack@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from oCMsgAttack     ?Unpack@oCMsgAttack@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgAttack     ?_GetClassDef@oCMsgAttack@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgAttack     ?Archive@oCMsgAttack@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgAttack     ?Unarchive@oCMsgAttack@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCMsgAttack     ?IsOverlay@oCMsgAttack@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from oCMsgAttack     ?IsNetRelevant@oCMsgAttack@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgAttack     ?MD_GetNumOfSubTypes@oCMsgAttack@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgAttack     ?MD_GetSubTypeString@oCMsgAttack@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from oCMsgAttack     ?Pack@oCMsgAttack@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from oCMsgAttack     ?Unpack@oCMsgAttack@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE42C;
+      return 0x0082EB74;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgAttack& GetTable() {
@@ -11883,42 +12019,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgUseItem {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgUseItem    ?_GetClassDef@oCMsgUseItem@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgUseItem    ?Archive@oCMsgUseItem@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgUseItem    ?Unarchive@oCMsgUseItem@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from oCMsgUseItem    ?IsNetRelevant@oCMsgUseItem@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventMessage  ?MD_GetNumOfSubTypes@zCEventMessage@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventMessage  ?MD_GetSubTypeString@zCEventMessage@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from oCMsgUseItem    ?Pack@oCMsgUseItem@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from oCMsgUseItem    ?Unpack@oCMsgUseItem@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgUseItem    ?_GetClassDef@oCMsgUseItem@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgUseItem    ?Archive@oCMsgUseItem@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgUseItem    ?Unarchive@oCMsgUseItem@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from oCMsgUseItem    ?IsNetRelevant@oCMsgUseItem@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventMessage  ?MD_GetNumOfSubTypes@zCEventMessage@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventMessage  ?MD_GetSubTypeString@zCEventMessage@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from oCMsgUseItem    ?Pack@oCMsgUseItem@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from oCMsgUseItem    ?Unpack@oCMsgUseItem@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE494;
+      return 0x0082EBE4;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgUseItem& GetTable() {
@@ -11930,42 +12067,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgState {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgState      ?_GetClassDef@oCMsgState@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgState      ?Archive@oCMsgState@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgState      ?Unarchive@oCMsgState@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCMsgState      ?IsOverlay@oCMsgState@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgState      ?MD_GetNumOfSubTypes@oCMsgState@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgState      ?MD_GetSubTypeString@oCMsgState@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from oCMsgState      ?MD_GetTimeBehavior@oCMsgState@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from oCMsgState      ?MD_GetMinTime@oCMsgState@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgState      ?_GetClassDef@oCMsgState@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgState      ?Archive@oCMsgState@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgState      ?Unarchive@oCMsgState@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCMsgState      ?IsOverlay@oCMsgState@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage  ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage    ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage    ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgState      ?MD_GetNumOfSubTypes@oCMsgState@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgState      ?MD_GetSubTypeString@oCMsgState@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from oCMsgState      ?MD_GetTimeBehavior@oCMsgState@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from oCMsgState      ?MD_GetMinTime@oCMsgState@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage  ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage  ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE4FC;
+      return 0x0082EC54;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgState& GetTable() {
@@ -11977,42 +12115,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgManipulate {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgManipulate  ?_GetClassDef@oCMsgManipulate@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgManipulate  ?Archive@oCMsgManipulate@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgManipulate  ?Unarchive@oCMsgManipulate@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base             
-        vfunc f04_IsOverlay;           // from oCNpcMessage     ?IsOverlay@oCNpcMessage@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from oCMsgManipulate  ?IsNetRelevant@oCMsgManipulate@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage     ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage     ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage     ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage     ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage     ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage   ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage   ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgManipulate  ?MD_GetNumOfSubTypes@oCMsgManipulate@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgManipulate  ?MD_GetSubTypeString@oCMsgManipulate@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from oCMsgManipulate  ?MD_GetVobRefName@oCMsgManipulate@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from oCMsgManipulate  ?MD_SetVobRefName@oCMsgManipulate@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from oCMsgManipulate  ?MD_SetVobParam@oCMsgManipulate@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from oCMsgManipulate  ?MD_GetTimeBehavior@oCMsgManipulate@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from oCMsgManipulate  ?MD_GetMinTime@oCMsgManipulate@@UAEMXZ
-        vfunc f20_Pack;                // from oCMsgManipulate  ?Pack@oCMsgManipulate@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from oCMsgManipulate  ?Unpack@oCMsgManipulate@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage     ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage     ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage     ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgManipulate  ?_GetClassDef@oCMsgManipulate@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgManipulate  ?Archive@oCMsgManipulate@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgManipulate  ?Unarchive@oCMsgManipulate@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base             
+        vfunc f04_IsOverlay;             // from oCNpcMessage     ?IsOverlay@oCNpcMessage@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from oCMsgManipulate  ?IsNetRelevant@oCMsgManipulate@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage     ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage     ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage     ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage     ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage     ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage     ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage   ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage   ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgManipulate  ?MD_GetNumOfSubTypes@oCMsgManipulate@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgManipulate  ?MD_GetSubTypeString@oCMsgManipulate@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from oCMsgManipulate  ?MD_GetVobRefName@oCMsgManipulate@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from oCMsgManipulate  ?MD_SetVobRefName@oCMsgManipulate@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from oCMsgManipulate  ?MD_SetVobParam@oCMsgManipulate@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from oCMsgManipulate  ?MD_GetTimeBehavior@oCMsgManipulate@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from oCMsgManipulate  ?MD_GetMinTime@oCMsgManipulate@@UAEMXZ
+        vfunc f21_Pack;                  // from oCMsgManipulate  ?Pack@oCMsgManipulate@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from oCMsgManipulate  ?Unpack@oCMsgManipulate@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage     ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage     ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage     ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE564;
+      return 0x0082ECC4;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgManipulate& GetTable() {
@@ -12024,42 +12163,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgConversation {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgConversation  ?_GetClassDef@oCMsgConversation@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgConversation  ?Archive@oCMsgConversation@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgConversation  ?Unarchive@oCMsgConversation@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base               
-        vfunc f04_IsOverlay;           // from oCMsgConversation  ?IsOverlay@oCMsgConversation@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage     ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCNpcMessage       ?IsHighPriority@oCNpcMessage@@MAEHXZ
-        vfunc f07_IsJob;               // from oCNpcMessage       ?IsJob@oCNpcMessage@@MAEHXZ
-        vfunc f08_Delete;              // from oCMsgConversation  ?Delete@oCMsgConversation@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage       ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage       ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage     ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage     ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgConversation  ?MD_GetNumOfSubTypes@oCMsgConversation@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgConversation  ?MD_GetSubTypeString@oCMsgConversation@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from oCMsgConversation  ?MD_GetVobRefName@oCMsgConversation@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from oCMsgConversation  ?MD_SetVobRefName@oCMsgConversation@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from oCMsgConversation  ?MD_SetVobParam@oCMsgConversation@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from oCMsgConversation  ?MD_GetTimeBehavior@oCMsgConversation@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from oCMsgConversation  ?MD_GetMinTime@oCMsgConversation@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage     ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage     ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage       ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage       ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage       ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgConversation  ?_GetClassDef@oCMsgConversation@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgConversation  ?Archive@oCMsgConversation@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgConversation  ?Unarchive@oCMsgConversation@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base               
+        vfunc f04_IsOverlay;             // from oCMsgConversation  ?IsOverlay@oCMsgConversation@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage     ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCNpcMessage       ?IsHighPriority@oCNpcMessage@@MAEHXZ
+        vfunc f07_IsJob;                 // from oCNpcMessage       ?IsJob@oCNpcMessage@@MAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage       ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCMsgConversation  ?Delete@oCMsgConversation@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage       ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage       ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage     ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage     ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgConversation  ?MD_GetNumOfSubTypes@oCMsgConversation@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgConversation  ?MD_GetSubTypeString@oCMsgConversation@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from oCMsgConversation  ?MD_GetVobRefName@oCMsgConversation@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from oCMsgConversation  ?MD_SetVobRefName@oCMsgConversation@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from oCMsgConversation  ?MD_SetVobParam@oCMsgConversation@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from oCMsgConversation  ?MD_GetTimeBehavior@oCMsgConversation@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from oCMsgConversation  ?MD_GetMinTime@oCMsgConversation@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage     ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage     ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage       ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage       ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage       ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE5CC;
+      return 0x0082ED34;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgConversation& GetTable() {
@@ -12071,42 +12211,43 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCMsgMagic {
     union {
-      vfunc array[25];
+      vfunc array[26];
       group {
-        vfunc f00_GetClassDef;         // from oCMsgMagic      ?_GetClassDef@oCMsgMagic@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from oCMsgMagic      ?Archive@oCMsgMagic@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from oCMsgMagic      ?Unarchive@oCMsgMagic@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base            
-        vfunc f04_IsOverlay;           // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
-        vfunc f05_IsNetRelevant;       // from oCMsgMagic      ?IsNetRelevant@oCMsgMagic@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from oCMsgMagic      ?IsHighPriority@oCMsgMagic@@UAEHXZ
-        vfunc f07_IsJob;               // from oCMsgMagic      ?IsJob@oCMsgMagic@@UAEHXZ
-        vfunc f08_Delete;              // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
-        vfunc f10_IsDeleted;           // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from oCMsgMagic      ?MD_GetNumOfSubTypes@oCMsgMagic@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from oCMsgMagic      ?MD_GetSubTypeString@oCMsgMagic@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
-        vfunc f20_Pack;                // from oCMsgMagic      ?Pack@oCMsgMagic@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from oCMsgMagic      ?Unpack@oCMsgMagic@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f22_SetInUse;            // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
-        vfunc f23_IsInUse;             // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
-        vfunc f24_SetHighPriority;     // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
+        vfunc f00_GetClassDef;           // from oCMsgMagic      ?_GetClassDef@oCMsgMagic@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from oCMsgMagic      ?Archive@oCMsgMagic@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from oCMsgMagic      ?Unarchive@oCMsgMagic@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base            
+        vfunc f04_IsOverlay;             // from oCNpcMessage    ?IsOverlay@oCNpcMessage@@MAEHXZ
+        vfunc f05_IsNetRelevant;         // from oCMsgMagic      ?IsNetRelevant@oCMsgMagic@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from oCMsgMagic      ?IsHighPriority@oCMsgMagic@@UAEHXZ
+        vfunc f07_IsJob;                 // from oCMsgMagic      ?IsJob@oCMsgMagic@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from oCNpcMessage    ?GetIgnoreCutsceneMode@oCNpcMessage@@UAEHXZ
+        vfunc f09_Delete;                // from oCNpcMessage    ?Delete@oCNpcMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from oCNpcMessage    ?IsDeleteable@oCNpcMessage@@MAEHXZ
+        vfunc f11_IsDeleted;             // from oCNpcMessage    ?IsDeleted@oCNpcMessage@@MAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage  ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage  ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from oCMsgMagic      ?MD_GetNumOfSubTypes@oCMsgMagic@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from oCMsgMagic      ?MD_GetSubTypeString@oCMsgMagic@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage  ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage  ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage  ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMessage  ?MD_GetTimeBehavior@zCEventMessage@@UAE?AW4zTTimeBehavior@1@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMessage  ?MD_GetMinTime@zCEventMessage@@UAEMXZ
+        vfunc f21_Pack;                  // from oCMsgMagic      ?Pack@oCMsgMagic@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from oCMsgMagic      ?Unpack@oCMsgMagic@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f23_SetInUse;              // from oCNpcMessage    ?SetInUse@oCNpcMessage@@UAEXH@Z
+        vfunc f24_IsInUse;               // from oCNpcMessage    ?IsInUse@oCNpcMessage@@UAEHXZ
+        vfunc f25_SetHighPriority;       // from oCNpcMessage    ?SetHighPriority@oCNpcMessage@@UAEXH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE634;
+      return 0x0082EDA4;
     }
 
     static uint GetFuncsNum() {
-      return 25;
+      return 26;
     }
 
     static vftable_oCMsgMagic& GetTable() {
@@ -12128,7 +12269,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE6B4;
+      return 0x0082EE30;
     }
 
     static uint GetFuncsNum() {
@@ -12151,7 +12292,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE70C;
+      return 0x0082EEA8;
     }
 
     static uint GetFuncsNum() {
@@ -12212,7 +12353,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE74C;
+      return 0x0082EF0C;
     }
 
     static uint GetFuncsNum() {
@@ -12263,7 +12404,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE7F4;
+      return 0x0082EFB4;
     }
 
     static uint GetFuncsNum() {
@@ -12290,7 +12431,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE880;
+      return 0x0082F048;
     }
 
     static uint GetFuncsNum() {
@@ -12319,7 +12460,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE898;
+      return 0x0082F060;
     }
 
     static uint GetFuncsNum() {
@@ -12335,7 +12476,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCWorld {
     union {
-      vfunc array[30];
+      vfunc array[31];
       group {
         vfunc f00_GetClassDef;              // from oCWorld  ?_GetClassDef@oCWorld@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                  // from oCWorld  ?Archive@oCWorld@@UAEXAAVzCArchiver@@@Z
@@ -12347,35 +12488,36 @@ namespace Gothic_I_Classic {
         vfunc f07_SaveVobSubtree;           // from zCWorld  ?SaveVobSubtree@zCWorld@@UAEHABVzSTRING@@PAVzCVob@@HH@Z
         vfunc f08_DisposeWorld;             // from oCWorld  ?DisposeWorld@oCWorld@@UAEXXZ
         vfunc f09_DisposeVobs;              // from zCWorld  ?DisposeVobs@zCWorld@@UAEHPAV?$zCTree@VzCVob@@@@@Z
-        vfunc f10_DisposeStaticWorld;       // from zCWorld  ?DisposeStaticWorld@zCWorld@@UAEXXZ
-        vfunc f11_AddVobAsChild;            // from oCWorld  ?AddVobAsChild@oCWorld@@UAEPAV?$zCTree@VzCVob@@@@PAVzCVob@@PAV2@@Z
-        vfunc f12_RemoveVob;                // from oCWorld  ?RemoveVob@oCWorld@@UAEXPAVzCVob@@@Z
-        vfunc f13_RemoveVobSubtree;         // from zCWorld  ?RemoveVobSubtree@zCWorld@@UAEXPAVzCVob@@@Z
-        vfunc f14_MoveVobSubtreeTo;         // from zCWorld  ?MoveVobSubtreeTo@zCWorld@@UAEXPAVzCVob@@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f15_GetPlayerGroup;           // from zCWorld  ?GetPlayerGroup@zCWorld@@UAEPAVzCPlayerGroup@@XZ
-        vfunc f16_SearchVob;                // from oCWorld  ?SearchVob@oCWorld@@UAEPAVzCVob@@PAV2@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f17_SearchVobByID;            // from oCWorld  ?SearchVobByID@oCWorld@@UAEPAVzCVob@@KPAV?$zCTree@VzCVob@@@@@Z
-        vfunc f18_SearchVobByName;          // from oCWorld  ?SearchVobByName@oCWorld@@UAEPAVzCVob@@ABVzSTRING@@@Z
-        vfunc f19_SearchVobListByName;      // from oCWorld  ?SearchVobListByName@oCWorld@@UAEXABVzSTRING@@AAV?$zCArray@PAVzCVob@@@@@Z
-        vfunc f20_SearchVobListByClass;     // from zCWorld  ?SearchVobListByClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f21_SearchVobListByBaseClass; // from zCWorld  ?SearchVobListByBaseClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
-        vfunc f22_VobAddedToWorld;          // from zCWorld  ?VobAddedToWorld@zCWorld@@MAEXPAVzCVob@@@Z
-        vfunc f23_VobRemovedFromWorld;      // from zCWorld  ?VobRemovedFromWorld@zCWorld@@MAEXPAVzCVob@@@Z
-        vfunc f24_RenderWaynet;             // from zCWorld  ?RenderWaynet@zCWorld@@MAEXPAVzCCamera@@@Z
-        vfunc f25_CreateVob;                // from oCWorld  ?CreateVob@oCWorld@@UAEPAVoCVob@@W4zTVobType@@H@Z
-        vfunc f26_InsertVobInWorld;         // from oCWorld  ?InsertVobInWorld@oCWorld@@UAEXPAVzCVob@@@Z
-        vfunc f27_EnableVob;                // from oCWorld  ?EnableVob@oCWorld@@UAEXPAVzCVob@@0@Z
-        vfunc f28_DisableVob;               // from oCWorld  ?DisableVob@oCWorld@@UAEXPAVzCVob@@@Z
-        vfunc f29_TraverseVobList;          // from oCWorld  ?TraverseVobList@oCWorld@@UAEXAAVzCVobCallback@@PAX@Z
+        vfunc f10_DisposeVobsDbg;           // from zCWorld  ?DisposeVobsDbg@zCWorld@@UAEHPAV?$zCTree@VzCVob@@@@@Z
+        vfunc f11_DisposeStaticWorld;       // from zCWorld  ?DisposeStaticWorld@zCWorld@@UAEXXZ
+        vfunc f12_AddVobAsChild;            // from oCWorld  ?AddVobAsChild@oCWorld@@UAEPAV?$zCTree@VzCVob@@@@PAVzCVob@@PAV2@@Z
+        vfunc f13_RemoveVob;                // from oCWorld  ?RemoveVob@oCWorld@@UAEXPAVzCVob@@@Z
+        vfunc f14_RemoveVobSubtree;         // from zCWorld  ?RemoveVobSubtree@zCWorld@@UAEXPAVzCVob@@@Z
+        vfunc f15_MoveVobSubtreeTo;         // from zCWorld  ?MoveVobSubtreeTo@zCWorld@@UAEXPAVzCVob@@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f16_GetPlayerGroup;           // from zCWorld  ?GetPlayerGroup@zCWorld@@UAEPAVzCPlayerGroup@@XZ
+        vfunc f17_SearchVob;                // from oCWorld  ?SearchVob@oCWorld@@UAEPAVzCVob@@PAV2@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f18_SearchVobByID;            // from oCWorld  ?SearchVobByID@oCWorld@@UAEPAVzCVob@@KPAV?$zCTree@VzCVob@@@@@Z
+        vfunc f19_SearchVobByName;          // from oCWorld  ?SearchVobByName@oCWorld@@UAEPAVzCVob@@ABVzSTRING@@@Z
+        vfunc f20_SearchVobListByName;      // from oCWorld  ?SearchVobListByName@oCWorld@@UAEXABVzSTRING@@AAV?$zCArray@PAVzCVob@@@@@Z
+        vfunc f21_SearchVobListByClass;     // from zCWorld  ?SearchVobListByClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f22_SearchVobListByBaseClass; // from zCWorld  ?SearchVobListByBaseClass@zCWorld@@UAEXPAVzCClassDef@@AAV?$zCArray@PAVzCVob@@@@PAV?$zCTree@VzCVob@@@@@Z
+        vfunc f23_VobAddedToWorld;          // from zCWorld  ?VobAddedToWorld@zCWorld@@MAEXPAVzCVob@@@Z
+        vfunc f24_VobRemovedFromWorld;      // from zCWorld  ?VobRemovedFromWorld@zCWorld@@MAEXPAVzCVob@@@Z
+        vfunc f25_RenderWaynet;             // from zCWorld  ?RenderWaynet@zCWorld@@MAEXPAVzCCamera@@@Z
+        vfunc f26_CreateVob;                // from oCWorld  ?CreateVob@oCWorld@@UAEPAVoCVob@@W4zTVobType@@H@Z
+        vfunc f27_InsertVobInWorld;         // from oCWorld  ?InsertVobInWorld@oCWorld@@UAEXPAVzCVob@@@Z
+        vfunc f28_EnableVob;                // from oCWorld  ?EnableVob@oCWorld@@UAEXPAVzCVob@@0@Z
+        vfunc f29_DisableVob;               // from oCWorld  ?DisableVob@oCWorld@@UAEXPAVzCVob@@@Z
+        vfunc f30_TraverseVobList;          // from oCWorld  ?TraverseVobList@oCWorld@@UAEXAAVzCVobCallback@@PAX@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DE8CC;
+      return 0x0082F09C;
     }
 
     static uint GetFuncsNum() {
-      return 30;
+      return 31;
     }
 
     static vftable_oCWorld& GetTable() {
@@ -12394,7 +12536,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE964;
+      return 0x0082F148;
     }
 
     static uint GetFuncsNum() {
@@ -12444,7 +12586,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DE97C;
+      return 0x0082F164;
     }
 
     static uint GetFuncsNum() {
@@ -12467,7 +12609,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEA10;
+      return 0x0082F224;
     }
 
     static uint GetFuncsNum() {
@@ -12490,7 +12632,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEA18;
+      return 0x0082F22C;
     }
 
     static uint GetFuncsNum() {
@@ -12506,28 +12648,29 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCView_for_zCViewBase {
     union {
-      vfunc array[11];
+      vfunc array[12];
       group {
-        vfunc f00_anx;               // from zCView  ?anx@zCView@@UAEHH@Z
-        vfunc f01_any;               // from zCView  ?any@zCView@@UAEHH@Z
-        vfunc f02_nax;               // from zCView  ?nax@zCView@@UAEHH@Z
-        vfunc f03_nay;               // from zCView  ?nay@zCView@@UAEHH@Z
-        vfunc f04_ClipLine;          // from zCView  ?ClipLine@zCView@@UAEHAAH000@Z
-        vfunc f05_Line;              // from zCView  ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
-        vfunc f06_GetViewport;       // from zCView  ?GetViewport@zCView@@UAIXAAH000@Z
-        vfunc f07_GetCode;           // from zCView  ?GetCode@zCView@@EAEHHH@Z
-        vfunc f08_scalar_destructor; // from base    
-        vfunc f09_Blit;              // from zCView  ?Blit@zCView@@UAEXXZ
-        vfunc f10_DrawItems;         // from zCView  ?DrawItems@zCView@@UAEXXZ
+        vfunc f00_anx;               // from zCView      ?anx@zCView@@UAEHH@Z
+        vfunc f01_any;               // from zCView      ?any@zCView@@UAEHH@Z
+        vfunc f02_nax;               // from zCView      ?nax@zCView@@UAEHH@Z
+        vfunc f03_nay;               // from zCView      ?nay@zCView@@UAEHH@Z
+        vfunc f04_ClipLine;          // from zCView      ?ClipLine@zCView@@UAEHAAH000@Z
+        vfunc f05_Line;              // from zCView      ?Line@zCView@@UAEXHHHHABUzCOLOR@@@Z
+        vfunc f06_GetViewport;       // from zCView      ?GetViewport@zCView@@UAIXAAH000@Z
+        vfunc f07_FillZBuffer;       // from zCViewBase  ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;           // from zCView      ?GetCode@zCView@@EAEHHH@Z
+        vfunc f09_scalar_destructor; // from base        
+        vfunc f10_Blit;              // from zCView      ?Blit@zCView@@UAEXXZ
+        vfunc f11_DrawItems;         // from zCView      ?DrawItems@zCView@@UAEXXZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DEA20;
+      return 0x0082F234;
     }
 
     static uint GetFuncsNum() {
-      return 11;
+      return 12;
     }
 
     static vftable_zCView_for_zCViewBase& GetTable() {
@@ -12546,7 +12689,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEA54;
+      return 0x0082F26C;
     }
 
     static uint GetFuncsNum() {
@@ -12596,7 +12739,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEA6C;
+      return 0x0082F28C;
     }
 
     static uint GetFuncsNum() {
@@ -12622,7 +12765,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEAE0;
+      return 0x0082F300;
     }
 
     static uint GetFuncsNum() {
@@ -12651,7 +12794,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEAF4;
+      return 0x0082F314;
     }
 
     static uint GetFuncsNum() {
@@ -12678,7 +12821,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEB18;
+      return 0x0082F338;
     }
 
     static uint GetFuncsNum() {
@@ -12701,7 +12844,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEB30;
+      return 0x0082F350;
     }
 
     static uint GetFuncsNum() {
@@ -12751,7 +12894,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEB3C;
+      return 0x0082F35C;
     }
 
     static uint GetFuncsNum() {
@@ -12801,7 +12944,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEBB4;
+      return 0x0082F3D4;
     }
 
     static uint GetFuncsNum() {
@@ -12857,7 +13000,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DEC3C;
+      return 0x0082F46C;
     }
 
     static uint GetFuncsNum() {
@@ -12913,7 +13056,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DECCC;
+      return 0x0082F4FC;
     }
 
     static uint GetFuncsNum() {
@@ -12963,7 +13106,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DED64;
+      return 0x0082F59C;
     }
 
     static uint GetFuncsNum() {
@@ -12979,39 +13122,40 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCEventMusicControler {
     union {
-      vfunc array[22];
+      vfunc array[23];
       group {
-        vfunc f00_GetClassDef;         // from zCEventMusicControler  ?_GetClassDef@zCEventMusicControler@@EBEPAVzCClassDef@@XZ
-        vfunc f01_Archive;             // from zCEventMusicControler  ?Archive@zCEventMusicControler@@MAEXAAVzCArchiver@@@Z
-        vfunc f02_Unarchive;           // from zCEventMusicControler  ?Unarchive@zCEventMusicControler@@MAEXAAVzCArchiver@@@Z
-        vfunc f03_scalar_destructor;   // from base                   
-        vfunc f04_IsOverlay;           // from zCEventMessage         ?IsOverlay@zCEventMessage@@UAEHXZ
-        vfunc f05_IsNetRelevant;       // from zCEventMessage         ?IsNetRelevant@zCEventMessage@@UAEHXZ
-        vfunc f06_IsHighPriority;      // from zCEventMessage         ?IsHighPriority@zCEventMessage@@UAEHXZ
-        vfunc f07_IsJob;               // from zCEventMessage         ?IsJob@zCEventMessage@@UAEHXZ
-        vfunc f08_Delete;              // from zCEventMessage         ?Delete@zCEventMessage@@UAEXXZ
-        vfunc f09_IsDeleteable;        // from zCEventMessage         ?IsDeleteable@zCEventMessage@@UAEHXZ
-        vfunc f10_IsDeleted;           // from zCEventMessage         ?IsDeleted@zCEventMessage@@UAEHXZ
-        vfunc f11_SetCutsceneMode;     // from zCEventMessage         ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
-        vfunc f12_GetCutsceneMode;     // from zCEventMessage         ?GetCutsceneMode@zCEventMessage@@UAEHXZ
-        vfunc f13_MD_GetNumOfSubTypes; // from zCEventMusicControler  ?MD_GetNumOfSubTypes@zCEventMusicControler@@UAEHXZ
-        vfunc f14_MD_GetSubTypeString; // from zCEventMusicControler  ?MD_GetSubTypeString@zCEventMusicControler@@UAE?AVzSTRING@@H@Z
-        vfunc f15_MD_GetVobRefName;    // from zCEventMessage         ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
-        vfunc f16_MD_SetVobRefName;    // from zCEventMessage         ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
-        vfunc f17_MD_SetVobParam;      // from zCEventMessage         ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
-        vfunc f18_MD_GetTimeBehavior;  // from zCEventMusicControler  ?MD_GetTimeBehavior@zCEventMusicControler@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
-        vfunc f19_MD_GetMinTime;       // from zCEventMusicControler  ?MD_GetMinTime@zCEventMusicControler@@UAEMXZ
-        vfunc f20_Pack;                // from zCEventMessage         ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
-        vfunc f21_Unpack;              // from zCEventMessage         ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f00_GetClassDef;           // from zCEventMusicControler  ?_GetClassDef@zCEventMusicControler@@EBEPAVzCClassDef@@XZ
+        vfunc f01_Archive;               // from zCEventMusicControler  ?Archive@zCEventMusicControler@@MAEXAAVzCArchiver@@@Z
+        vfunc f02_Unarchive;             // from zCEventMusicControler  ?Unarchive@zCEventMusicControler@@MAEXAAVzCArchiver@@@Z
+        vfunc f03_scalar_destructor;     // from base                   
+        vfunc f04_IsOverlay;             // from zCEventMessage         ?IsOverlay@zCEventMessage@@UAEHXZ
+        vfunc f05_IsNetRelevant;         // from zCEventMessage         ?IsNetRelevant@zCEventMessage@@UAEHXZ
+        vfunc f06_IsHighPriority;        // from zCEventMessage         ?IsHighPriority@zCEventMessage@@UAEHXZ
+        vfunc f07_IsJob;                 // from zCEventMessage         ?IsJob@zCEventMessage@@UAEHXZ
+        vfunc f08_GetIgnoreCutsceneMode; // from zCEventMessage         ?GetIgnoreCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f09_Delete;                // from zCEventMessage         ?Delete@zCEventMessage@@UAEXXZ
+        vfunc f10_IsDeleteable;          // from zCEventMessage         ?IsDeleteable@zCEventMessage@@UAEHXZ
+        vfunc f11_IsDeleted;             // from zCEventMessage         ?IsDeleted@zCEventMessage@@UAEHXZ
+        vfunc f12_SetCutsceneMode;       // from zCEventMessage         ?SetCutsceneMode@zCEventMessage@@UAEXH@Z
+        vfunc f13_GetCutsceneMode;       // from zCEventMessage         ?GetCutsceneMode@zCEventMessage@@UAEHXZ
+        vfunc f14_MD_GetNumOfSubTypes;   // from zCEventMusicControler  ?MD_GetNumOfSubTypes@zCEventMusicControler@@UAEHXZ
+        vfunc f15_MD_GetSubTypeString;   // from zCEventMusicControler  ?MD_GetSubTypeString@zCEventMusicControler@@UAE?AVzSTRING@@H@Z
+        vfunc f16_MD_GetVobRefName;      // from zCEventMessage         ?MD_GetVobRefName@zCEventMessage@@UAE?AVzSTRING@@XZ
+        vfunc f17_MD_SetVobRefName;      // from zCEventMessage         ?MD_SetVobRefName@zCEventMessage@@UAEXABVzSTRING@@@Z
+        vfunc f18_MD_SetVobParam;        // from zCEventMessage         ?MD_SetVobParam@zCEventMessage@@UAEXPAVzCVob@@@Z
+        vfunc f19_MD_GetTimeBehavior;    // from zCEventMusicControler  ?MD_GetTimeBehavior@zCEventMusicControler@@UAE?AW4zTTimeBehavior@zCEventMessage@@XZ
+        vfunc f20_MD_GetMinTime;         // from zCEventMusicControler  ?MD_GetMinTime@zCEventMusicControler@@UAEMXZ
+        vfunc f21_Pack;                  // from zCEventMessage         ?Pack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
+        vfunc f22_Unpack;                // from zCEventMessage         ?Unpack@zCEventMessage@@MAEXAAVzCBuffer@@PAVzCEventManager@@@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DEDDC;
+      return 0x0082F614;
     }
 
     static uint GetFuncsNum() {
-      return 22;
+      return 23;
     }
 
     static vftable_zCEventMusicControler& GetTable() {
@@ -13023,107 +13167,120 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCRnd_D3D {
     union {
-      vfunc array[90];
+      vfunc array[103];
       group {
-        vfunc f00_scalar_destructor;             // from base        
-        vfunc f01_BeginFrame;                    // from zCRnd_D3D   ?BeginFrame@zCRnd_D3D@@UAEXXZ
-        vfunc f02_EndFrame;                      // from zCRnd_D3D   ?EndFrame@zCRnd_D3D@@UAEXXZ
-        vfunc f03_FlushPolys;                    // from zCRnd_D3D   ?FlushPolys@zCRnd_D3D@@UAEXXZ
-        vfunc f04_DrawPoly;                      // from zCRnd_D3D   ?DrawPoly@zCRnd_D3D@@UAEXPAVzCPolygon@@@Z
-        vfunc f05_DrawLightmapList;              // from zCRnd_D3D   ?DrawLightmapList@zCRnd_D3D@@UAEXPAPAVzCPolygon@@H@Z
-        vfunc f06_DrawLine;                      // from zCRnd_D3D   ?DrawLine@zCRnd_D3D@@UAEXMMMMUzCOLOR@@@Z
-        vfunc f07_DrawLineZ;                     // from zCRnd_D3D   ?DrawLineZ@zCRnd_D3D@@UAEXMMMMMMUzCOLOR@@@Z
-        vfunc f08_SetPixel;                      // from zCRnd_D3D   ?SetPixel@zCRnd_D3D@@UAEXMMUzCOLOR@@@Z
-        vfunc f09_DrawPolySimple;                // from zCRnd_D3D   ?DrawPolySimple@zCRnd_D3D@@UAEXPAVzCTexture@@PAUzTRndSimpleVertex@@H@Z
-        vfunc f10_SetFog;                        // from zCRnd_D3D   ?SetFog@zCRnd_D3D@@UAEXH@Z
-        vfunc f11_GetFog;                        // from zCRnd_D3D   ?GetFog@zCRnd_D3D@@UBEHXZ
-        vfunc f12_SetFogColor;                   // from zCRnd_D3D   ?SetFogColor@zCRnd_D3D@@UAEXABUzCOLOR@@@Z
-        vfunc f13_GetFogColor;                   // from zCRnd_D3D   ?GetFogColor@zCRnd_D3D@@UBE?AUzCOLOR@@XZ
-        vfunc f14_SetFogRange;                   // from zCRnd_D3D   ?SetFogRange@zCRnd_D3D@@UAEXMMW4zTRnd_FogMode@@@Z
-        vfunc f15_GetFogRange;                   // from zCRnd_D3D   ?GetFogRange@zCRnd_D3D@@UAEXAAM0AAW4zTRnd_FogMode@@@Z
-        vfunc f16_GetPolyDrawMode;               // from zCRnd_D3D   ?GetPolyDrawMode@zCRnd_D3D@@UBE?AW4zTRnd_PolyDrawMode@@XZ
-        vfunc f17_SetPolyDrawMode;               // from zCRnd_D3D   ?SetPolyDrawMode@zCRnd_D3D@@UAEXABW4zTRnd_PolyDrawMode@@@Z
-        vfunc f18_SetTextureWrapEnabled;         // from zCRnd_D3D   ?SetTextureWrapEnabled@zCRnd_D3D@@UAEXH@Z
-        vfunc f19_GetTextureWrapEnabled;         // from zCRnd_D3D   ?GetTextureWrapEnabled@zCRnd_D3D@@UBEHXZ
-        vfunc f20_SetBilerpFilterEnabled;        // from zCRnd_D3D   ?SetBilerpFilterEnabled@zCRnd_D3D@@UAEXH@Z
-        vfunc f21_GetBilerpFilterEnabled;        // from zCRnd_D3D   ?GetBilerpFilterEnabled@zCRnd_D3D@@UBEHXZ
-        vfunc f22_SetDitherEnabled;              // from zCRnd_D3D   ?SetDitherEnabled@zCRnd_D3D@@UAEXH@Z
-        vfunc f23_GetDitherEnabled;              // from zCRnd_D3D   ?GetDitherEnabled@zCRnd_D3D@@UBEHXZ
-        vfunc f24_GetPolySortMode;               // from zCRnd_D3D   ?GetPolySortMode@zCRnd_D3D@@UBE?AW4zTRnd_PolySortMode@@XZ
-        vfunc f25_SetPolySortMode;               // from zCRnd_D3D   ?SetPolySortMode@zCRnd_D3D@@UAEXABW4zTRnd_PolySortMode@@@Z
-        vfunc f26_GetZBufferWriteEnabled;        // from zCRnd_D3D   ?GetZBufferWriteEnabled@zCRnd_D3D@@UBEHXZ
-        vfunc f27_SetZBufferWriteEnabled;        // from zCRnd_D3D   ?SetZBufferWriteEnabled@zCRnd_D3D@@UAEXH@Z
-        vfunc f28_GetZBufferCompare;             // from zCRnd_D3D   ?GetZBufferCompare@zCRnd_D3D@@UAE?AW4zTRnd_ZBufferCmp@@XZ
-        vfunc f29_SetZBufferCompare;             // from zCRnd_D3D   ?SetZBufferCompare@zCRnd_D3D@@UAEXABW4zTRnd_ZBufferCmp@@@Z
-        vfunc f30_GetPixelWriteEnabled;          // from zCRnd_D3D   ?GetPixelWriteEnabled@zCRnd_D3D@@UBEHXZ
-        vfunc f31_SetPixelWriteEnabled;          // from zCRnd_D3D   ?SetPixelWriteEnabled@zCRnd_D3D@@UAEXH@Z
-        vfunc f32_SetAlphaBlendSource;           // from zCRnd_D3D   ?SetAlphaBlendSource@zCRnd_D3D@@UAEXABW4zTRnd_AlphaBlendSource@@@Z
-        vfunc f33_GetAlphaBlendSource;           // from zCRnd_D3D   ?GetAlphaBlendSource@zCRnd_D3D@@UBE?AW4zTRnd_AlphaBlendSource@@XZ
-        vfunc f34_SetAlphaBlendFunc;             // from zCRnd_D3D   ?SetAlphaBlendFunc@zCRnd_D3D@@UAEXABW4zTRnd_AlphaBlendFunc@@@Z
-        vfunc f35_GetAlphaBlendFunc;             // from zCRnd_D3D   ?GetAlphaBlendFunc@zCRnd_D3D@@UBE?AW4zTRnd_AlphaBlendFunc@@XZ
-        vfunc f36_GetAlphaBlendFactor;           // from zCRnd_D3D   ?GetAlphaBlendFactor@zCRnd_D3D@@UBEMXZ
-        vfunc f37_SetAlphaBlendFactor;           // from zCRnd_D3D   ?SetAlphaBlendFactor@zCRnd_D3D@@UAEXABM@Z
-        vfunc f38_GetCacheAlphaPolys;            // from zCRenderer  ?GetCacheAlphaPolys@zCRenderer@@UBEHXZ
-        vfunc f39_SetCacheAlphaPolys;            // from zCRenderer  ?SetCacheAlphaPolys@zCRenderer@@UAEXH@Z
-        vfunc f40_SetRenderMode;                 // from zCRnd_D3D   ?SetRenderMode@zCRnd_D3D@@UAEXW4zTRnd_RenderMode@@@Z
-        vfunc f41_GetRenderMode;                 // from zCRnd_D3D   ?GetRenderMode@zCRnd_D3D@@UBE?AW4zTRnd_RenderMode@@XZ
-        vfunc f42_HasCapability;                 // from zCRnd_D3D   ?HasCapability@zCRnd_D3D@@UBEHW4zTRnd_Capability@@@Z
-        vfunc f43_GetGuardBandBorders;           // from zCRnd_D3D   ?GetGuardBandBorders@zCRnd_D3D@@UAEXAAM000@Z
-        vfunc f44_ResetZTest;                    // from zCRnd_D3D   ?ResetZTest@zCRnd_D3D@@UAEXXZ
-        vfunc f45_HasPassedZTest;                // from zCRnd_D3D   ?HasPassedZTest@zCRnd_D3D@@UAEHXZ
-        vfunc f46_CreateTexture;                 // from zCRnd_D3D   ?CreateTexture@zCRnd_D3D@@UAEPAVzCTexture@@XZ
-        vfunc f47_CreateTextureConvert;          // from zCRnd_D3D   ?CreateTextureConvert@zCRnd_D3D@@UAEPAVzCTextureConvert@@XZ
-        vfunc f48_GetTotalTextureMem;            // from zCRnd_D3D   ?GetTotalTextureMem@zCRnd_D3D@@UAEHXZ
-        vfunc f49_SupportsTextureFormat;         // from zCRnd_D3D   ?SupportsTextureFormat@zCRnd_D3D@@UAEHW4zTRnd_TextureFormat@@@Z
-        vfunc f50_SupportsTextureFormatHardware; // from zCRnd_D3D   ?SupportsTextureFormatHardware@zCRnd_D3D@@UAEHW4zTRnd_TextureFormat@@@Z
-        vfunc f51_GetMaxTextureSize;             // from zCRnd_D3D   ?GetMaxTextureSize@zCRnd_D3D@@UAEHXZ
-        vfunc f52_GetStatistics;                 // from zCRnd_D3D   ?GetStatistics@zCRnd_D3D@@UAEXAAUzTRnd_Stats@@@Z
-        vfunc f53_ResetStatistics;               // from zCRnd_D3D   ?ResetStatistics@zCRnd_D3D@@UAEXXZ
-        vfunc f54_Vid_Blit;                      // from zCRnd_D3D   ?Vid_Blit@zCRnd_D3D@@UAEXHPAUtagRECT@@0@Z
-        vfunc f55_Vid_Clear;                     // from zCRnd_D3D   ?Vid_Clear@zCRnd_D3D@@UAEXAAUzCOLOR@@H@Z
-        vfunc f56_Vid_Lock;                      // from zCRnd_D3D   ?Vid_Lock@zCRnd_D3D@@UAEHAAUzTRndSurfaceDesc@@@Z
-        vfunc f57_Vid_Unlock;                    // from zCRnd_D3D   ?Vid_Unlock@zCRnd_D3D@@UAEHXZ
-        vfunc f58_Vid_IsLocked;                  // from zCRnd_D3D   ?Vid_IsLocked@zCRnd_D3D@@UAEHXZ
-        vfunc f59_Vid_GetFrontBufferCopy;        // from zCRnd_D3D   ?Vid_GetFrontBufferCopy@zCRnd_D3D@@UAEHAAVzCTextureConvert@@@Z
-        vfunc f60_Vid_GetNumDevices;             // from zCRnd_D3D   ?Vid_GetNumDevices@zCRnd_D3D@@UAEHXZ
-        vfunc f61_Vid_GetActiveDeviceNr;         // from zCRnd_D3D   ?Vid_GetActiveDeviceNr@zCRnd_D3D@@UAEHXZ
-        vfunc f62_Vid_SetDevice;                 // from zCRnd_D3D   ?Vid_SetDevice@zCRnd_D3D@@UAEHH@Z
-        vfunc f63_Vid_GetDeviceInfo;             // from zCRnd_D3D   ?Vid_GetDeviceInfo@zCRnd_D3D@@UAEHAAUzTRnd_DeviceInfo@@H@Z
-        vfunc f64_Vid_GetNumModes;               // from zCRnd_D3D   ?Vid_GetNumModes@zCRnd_D3D@@UAEHXZ
-        vfunc f65_Vid_GetModeInfo;               // from zCRnd_D3D   ?Vid_GetModeInfo@zCRnd_D3D@@UAEHAAUzTRnd_VidModeInfo@@H@Z
-        vfunc f66_Vid_GetActiveModeNr;           // from zCRnd_D3D   ?Vid_GetActiveModeNr@zCRnd_D3D@@UAEHXZ
-        vfunc f67_Vid_SetMode;                   // from zCRnd_D3D   ?Vid_SetMode@zCRnd_D3D@@UAEHHPAPAUHWND_@@@Z
-        vfunc f68_Vid_SetScreenMode;             // from zCRnd_D3D   ?Vid_SetScreenMode@zCRnd_D3D@@UAEXW4zTRnd_ScreenMode@@@Z
-        vfunc f69_Vid_GetScreenMode;             // from zCRnd_D3D   ?Vid_GetScreenMode@zCRnd_D3D@@UAE?AW4zTRnd_ScreenMode@@XZ
-        vfunc f70_Vid_SetGammaCorrection;        // from zCRnd_D3D   ?Vid_SetGammaCorrection@zCRnd_D3D@@UAEXMMM@Z
-        vfunc f71_Vid_GetGammaCorrection;        // from zCRnd_D3D   ?Vid_GetGammaCorrection@zCRnd_D3D@@UAEMXZ
-        vfunc f72_Vid_BeginLfbAccess;            // from zCRnd_D3D   ?Vid_BeginLfbAccess@zCRnd_D3D@@UAEXXZ
-        vfunc f73_Vid_EndLfbAccess;              // from zCRnd_D3D   ?Vid_EndLfbAccess@zCRnd_D3D@@UAEXXZ
-        vfunc f74_Vid_SetLfbAlpha;               // from zCRnd_D3D   ?Vid_SetLfbAlpha@zCRnd_D3D@@UAEXH@Z
-        vfunc f75_Vid_SetLfbAlphaFunc;           // from zCRnd_D3D   ?Vid_SetLfbAlphaFunc@zCRnd_D3D@@UAEXABW4zTRnd_AlphaBlendFunc@@@Z
-        vfunc f76_SetTransform;                  // from zCRnd_D3D   ?SetTransform@zCRnd_D3D@@UAEHW4zTRnd_TrafoType@@ABVzMAT4@@@Z
-        vfunc f77_SetViewport;                   // from zCRnd_D3D   ?SetViewport@zCRnd_D3D@@UAEHHHHH@Z
-        vfunc f78_SetLight;                      // from zCRnd_D3D   ?SetLight@zCRnd_D3D@@UAEHKPAVzCRenderLight@@@Z
-        vfunc f79_GetMaterial;                   // from zCRnd_D3D   ?GetMaterial@zCRnd_D3D@@UAEHAAUzTMaterial@zCRenderer@@@Z
-        vfunc f80_SetMaterial;                   // from zCRnd_D3D   ?SetMaterial@zCRnd_D3D@@UAEHABUzTMaterial@zCRenderer@@@Z
-        vfunc f81_SetTexture;                    // from zCRnd_D3D   ?SetTexture@zCRnd_D3D@@UAEHKPAVzCTexture@@@Z
-        vfunc f82_SetTextureStageState;          // from zCRnd_D3D   ?SetTextureStageState@zCRnd_D3D@@UAEHKW4zTRnd_TextureStageState@@K@Z
-        vfunc f83_SetAlphaBlendFuncImmed;        // from zCRnd_D3D   ?SetAlphaBlendFuncImmed@zCRnd_D3D@@UAEHW4zTRnd_AlphaBlendFunc@@@Z
-        vfunc f84_SetRenderState;                // from zCRnd_D3D   ?SetRenderState@zCRnd_D3D@@UAEHW4zTRnd_RenderStateType@@K@Z
-        vfunc f85_GetRenderState;                // from zCRnd_D3D   ?GetRenderState@zCRnd_D3D@@UAEKW4zTRnd_RenderStateType@@@Z
-        vfunc f86_AddAlphaSortObject;            // from zCRnd_D3D   ?AddAlphaSortObject@zCRnd_D3D@@UAEXPAVzCRndAlphaSortObject@@@Z
-        vfunc f87_RenderAlphaSortList;           // from zCRnd_D3D   ?RenderAlphaSortList@zCRnd_D3D@@UAEXXZ
-        vfunc f88_DrawVertexBuffer;              // from zCRnd_D3D   ?DrawVertexBuffer@zCRnd_D3D@@UAEHPAVzCVertexBuffer@@HHPAGK@Z
-        vfunc f89_CreateVertexBuffer;            // from zCRnd_D3D   ?CreateVertexBuffer@zCRnd_D3D@@UAEPAVzCVertexBuffer@@XZ
+        vfunc f00_scalar_destructor;             // from base       
+        vfunc f01_BeginFrame;                    // from zCRnd_D3D  ?BeginFrame@zCRnd_D3D@@UAEXXZ
+        vfunc f02_EndFrame;                      // from zCRnd_D3D  ?EndFrame@zCRnd_D3D@@UAEXXZ
+        vfunc f03_FlushPolys;                    // from zCRnd_D3D  ?FlushPolys@zCRnd_D3D@@UAEXXZ
+        vfunc f04_DrawPoly;                      // from zCRnd_D3D  ?DrawPoly@zCRnd_D3D@@UAEXPAVzCPolygon@@@Z
+        vfunc f05_DrawLightmapList;              // from zCRnd_D3D  ?DrawLightmapList@zCRnd_D3D@@UAEXPAPAVzCPolygon@@H@Z
+        vfunc f06_DrawLine;                      // from zCRnd_D3D  ?DrawLine@zCRnd_D3D@@UAEXMMMMUzCOLOR@@@Z
+        vfunc f07_DrawLineZ;                     // from zCRnd_D3D  ?DrawLineZ@zCRnd_D3D@@UAEXMMMMMMUzCOLOR@@@Z
+        vfunc f08_SetPixel;                      // from zCRnd_D3D  ?SetPixel@zCRnd_D3D@@UAEXMMUzCOLOR@@@Z
+        vfunc f09_DrawPolySimple;                // from zCRnd_D3D  ?DrawPolySimple@zCRnd_D3D@@UAEXPAVzCTexture@@PAUzTRndSimpleVertex@@H@Z
+        vfunc f10_SetFog;                        // from zCRnd_D3D  ?SetFog@zCRnd_D3D@@UAEXH@Z
+        vfunc f11_GetFog;                        // from zCRnd_D3D  ?GetFog@zCRnd_D3D@@UBEHXZ
+        vfunc f12_SetRadialFog;                  // from zCRnd_D3D  ?SetRadialFog@zCRnd_D3D@@UAEXH@Z
+        vfunc f13_GetRadialFog;                  // from zCRnd_D3D  ?GetRadialFog@zCRnd_D3D@@UBEHXZ
+        vfunc f14_SetFogColor;                   // from zCRnd_D3D  ?SetFogColor@zCRnd_D3D@@UAEXABUzCOLOR@@@Z
+        vfunc f15_GetFogColor;                   // from zCRnd_D3D  ?GetFogColor@zCRnd_D3D@@UBE?AUzCOLOR@@XZ
+        vfunc f16_SetFogRange;                   // from zCRnd_D3D  ?SetFogRange@zCRnd_D3D@@UAEXMMW4zTRnd_FogMode@@@Z
+        vfunc f17_GetFogRange;                   // from zCRnd_D3D  ?GetFogRange@zCRnd_D3D@@UAEXAAM0AAW4zTRnd_FogMode@@@Z
+        vfunc f18_GetPolyDrawMode;               // from zCRnd_D3D  ?GetPolyDrawMode@zCRnd_D3D@@UBE?AW4zTRnd_PolyDrawMode@@XZ
+        vfunc f19_SetPolyDrawMode;               // from zCRnd_D3D  ?SetPolyDrawMode@zCRnd_D3D@@UAEXABW4zTRnd_PolyDrawMode@@@Z
+        vfunc f20_GetSurfaceLost;                // from zCRnd_D3D  ?GetSurfaceLost@zCRnd_D3D@@UBEHXZ
+        vfunc f21_SetSurfaceLost;                // from zCRnd_D3D  ?SetSurfaceLost@zCRnd_D3D@@UAEXH@Z
+        vfunc f22_GetSyncOnAmbientCol;           // from zCRnd_D3D  ?GetSyncOnAmbientCol@zCRnd_D3D@@UBEHXZ
+        vfunc f23_SetSyncOnAmbientCol;           // from zCRnd_D3D  ?SetSyncOnAmbientCol@zCRnd_D3D@@UAEXH@Z
+        vfunc f24_SetTextureWrapEnabled;         // from zCRnd_D3D  ?SetTextureWrapEnabled@zCRnd_D3D@@UAEXH@Z
+        vfunc f25_GetTextureWrapEnabled;         // from zCRnd_D3D  ?GetTextureWrapEnabled@zCRnd_D3D@@UBEHXZ
+        vfunc f26_SetBilerpFilterEnabled;        // from zCRnd_D3D  ?SetBilerpFilterEnabled@zCRnd_D3D@@UAEXH@Z
+        vfunc f27_GetBilerpFilterEnabled;        // from zCRnd_D3D  ?GetBilerpFilterEnabled@zCRnd_D3D@@UBEHXZ
+        vfunc f28_SetDitherEnabled;              // from zCRnd_D3D  ?SetDitherEnabled@zCRnd_D3D@@UAEXH@Z
+        vfunc f29_GetDitherEnabled;              // from zCRnd_D3D  ?GetDitherEnabled@zCRnd_D3D@@UBEHXZ
+        vfunc f30_GetPolySortMode;               // from zCRnd_D3D  ?GetPolySortMode@zCRnd_D3D@@UBE?AW4zTRnd_PolySortMode@@XZ
+        vfunc f31_SetPolySortMode;               // from zCRnd_D3D  ?SetPolySortMode@zCRnd_D3D@@UAEXABW4zTRnd_PolySortMode@@@Z
+        vfunc f32_GetZBufferWriteEnabled;        // from zCRnd_D3D  ?GetZBufferWriteEnabled@zCRnd_D3D@@UBEHXZ
+        vfunc f33_SetZBufferWriteEnabled;        // from zCRnd_D3D  ?SetZBufferWriteEnabled@zCRnd_D3D@@UAEXH@Z
+        vfunc f34_SetZBias;                      // from zCRnd_D3D  ?SetZBias@zCRnd_D3D@@UAEXH@Z
+        vfunc f35_GetZBias;                      // from zCRnd_D3D  ?GetZBias@zCRnd_D3D@@UBEHXZ
+        vfunc f36_GetZBufferCompare;             // from zCRnd_D3D  ?GetZBufferCompare@zCRnd_D3D@@UAE?AW4zTRnd_ZBufferCmp@@XZ
+        vfunc f37_SetZBufferCompare;             // from zCRnd_D3D  ?SetZBufferCompare@zCRnd_D3D@@UAEXABW4zTRnd_ZBufferCmp@@@Z
+        vfunc f38_GetPixelWriteEnabled;          // from zCRnd_D3D  ?GetPixelWriteEnabled@zCRnd_D3D@@UBEHXZ
+        vfunc f39_SetPixelWriteEnabled;          // from zCRnd_D3D  ?SetPixelWriteEnabled@zCRnd_D3D@@UAEXH@Z
+        vfunc f40_SetAlphaBlendSource;           // from zCRnd_D3D  ?SetAlphaBlendSource@zCRnd_D3D@@UAEXABW4zTRnd_AlphaBlendSource@@@Z
+        vfunc f41_GetAlphaBlendSource;           // from zCRnd_D3D  ?GetAlphaBlendSource@zCRnd_D3D@@UBE?AW4zTRnd_AlphaBlendSource@@XZ
+        vfunc f42_SetAlphaBlendFunc;             // from zCRnd_D3D  ?SetAlphaBlendFunc@zCRnd_D3D@@UAEXABW4zTRnd_AlphaBlendFunc@@@Z
+        vfunc f43_GetAlphaBlendFunc;             // from zCRnd_D3D  ?GetAlphaBlendFunc@zCRnd_D3D@@UBE?AW4zTRnd_AlphaBlendFunc@@XZ
+        vfunc f44_GetAlphaBlendFactor;           // from zCRnd_D3D  ?GetAlphaBlendFactor@zCRnd_D3D@@UBEMXZ
+        vfunc f45_SetAlphaBlendFactor;           // from zCRnd_D3D  ?SetAlphaBlendFactor@zCRnd_D3D@@UAEXABM@Z
+        vfunc f46_SetAlphaReference;             // from zCRnd_D3D  ?SetAlphaReference@zCRnd_D3D@@UAEXK@Z
+        vfunc f47_GetAlphaReference;             // from zCRnd_D3D  ?GetAlphaReference@zCRnd_D3D@@UBEKXZ
+        vfunc f48_GetCacheAlphaPolys;            // from zCRnd_D3D  ?GetCacheAlphaPolys@zCRnd_D3D@@UBEHXZ
+        vfunc f49_SetCacheAlphaPolys;            // from zCRnd_D3D  ?SetCacheAlphaPolys@zCRnd_D3D@@UAEXH@Z
+        vfunc f50_GetAlphaLimitReached;          // from zCRnd_D3D  ?GetAlphaLimitReached@zCRnd_D3D@@UBEHXZ
+        vfunc f51_AddAlphaPoly;                  // from zCRnd_D3D  ?AddAlphaPoly@zCRnd_D3D@@UAEXPBVzCPolygon@@@Z
+        vfunc f52_FlushAlphaPolys;               // from zCRnd_D3D  ?FlushAlphaPolys@zCRnd_D3D@@UAEXXZ
+        vfunc f53_SetRenderMode;                 // from zCRnd_D3D  ?SetRenderMode@zCRnd_D3D@@UAEXW4zTRnd_RenderMode@@@Z
+        vfunc f54_GetRenderMode;                 // from zCRnd_D3D  ?GetRenderMode@zCRnd_D3D@@UBE?AW4zTRnd_RenderMode@@XZ
+        vfunc f55_HasCapability;                 // from zCRnd_D3D  ?HasCapability@zCRnd_D3D@@UBEHW4zTRnd_Capability@@@Z
+        vfunc f56_GetGuardBandBorders;           // from zCRnd_D3D  ?GetGuardBandBorders@zCRnd_D3D@@UAEXAAM000@Z
+        vfunc f57_ResetZTest;                    // from zCRnd_D3D  ?ResetZTest@zCRnd_D3D@@UAEXXZ
+        vfunc f58_HasPassedZTest;                // from zCRnd_D3D  ?HasPassedZTest@zCRnd_D3D@@UAEHXZ
+        vfunc f59_CreateTexture;                 // from zCRnd_D3D  ?CreateTexture@zCRnd_D3D@@UAEPAVzCTexture@@XZ
+        vfunc f60_CreateTextureConvert;          // from zCRnd_D3D  ?CreateTextureConvert@zCRnd_D3D@@UAEPAVzCTextureConvert@@XZ
+        vfunc f61_GetTotalTextureMem;            // from zCRnd_D3D  ?GetTotalTextureMem@zCRnd_D3D@@UAEHXZ
+        vfunc f62_SupportsTextureFormat;         // from zCRnd_D3D  ?SupportsTextureFormat@zCRnd_D3D@@UAEHW4zTRnd_TextureFormat@@@Z
+        vfunc f63_SupportsTextureFormatHardware; // from zCRnd_D3D  ?SupportsTextureFormatHardware@zCRnd_D3D@@UAEHW4zTRnd_TextureFormat@@@Z
+        vfunc f64_GetMaxTextureSize;             // from zCRnd_D3D  ?GetMaxTextureSize@zCRnd_D3D@@UAEHXZ
+        vfunc f65_GetStatistics;                 // from zCRnd_D3D  ?GetStatistics@zCRnd_D3D@@UAEXAAUzTRnd_Stats@@@Z
+        vfunc f66_ResetStatistics;               // from zCRnd_D3D  ?ResetStatistics@zCRnd_D3D@@UAEXXZ
+        vfunc f67_Vid_Blit;                      // from zCRnd_D3D  ?Vid_Blit@zCRnd_D3D@@UAEXHPAUtagRECT@@0@Z
+        vfunc f68_Vid_Clear;                     // from zCRnd_D3D  ?Vid_Clear@zCRnd_D3D@@UAEXAAUzCOLOR@@H@Z
+        vfunc f69_Vid_Lock;                      // from zCRnd_D3D  ?Vid_Lock@zCRnd_D3D@@UAEHAAUzTRndSurfaceDesc@@@Z
+        vfunc f70_Vid_Unlock;                    // from zCRnd_D3D  ?Vid_Unlock@zCRnd_D3D@@UAEHXZ
+        vfunc f71_Vid_IsLocked;                  // from zCRnd_D3D  ?Vid_IsLocked@zCRnd_D3D@@UAEHXZ
+        vfunc f72_Vid_GetFrontBufferCopy;        // from zCRnd_D3D  ?Vid_GetFrontBufferCopy@zCRnd_D3D@@UAEHAAVzCTextureConvert@@@Z
+        vfunc f73_Vid_GetNumDevices;             // from zCRnd_D3D  ?Vid_GetNumDevices@zCRnd_D3D@@UAEHXZ
+        vfunc f74_Vid_GetActiveDeviceNr;         // from zCRnd_D3D  ?Vid_GetActiveDeviceNr@zCRnd_D3D@@UAEHXZ
+        vfunc f75_Vid_SetDevice;                 // from zCRnd_D3D  ?Vid_SetDevice@zCRnd_D3D@@UAEHH@Z
+        vfunc f76_Vid_GetDeviceInfo;             // from zCRnd_D3D  ?Vid_GetDeviceInfo@zCRnd_D3D@@UAEHAAUzTRnd_DeviceInfo@@H@Z
+        vfunc f77_Vid_GetNumModes;               // from zCRnd_D3D  ?Vid_GetNumModes@zCRnd_D3D@@UAEHXZ
+        vfunc f78_Vid_GetModeInfo;               // from zCRnd_D3D  ?Vid_GetModeInfo@zCRnd_D3D@@UAEHAAUzTRnd_VidModeInfo@@H@Z
+        vfunc f79_Vid_GetActiveModeNr;           // from zCRnd_D3D  ?Vid_GetActiveModeNr@zCRnd_D3D@@UAEHXZ
+        vfunc f80_Vid_SetMode;                   // from zCRnd_D3D  ?Vid_SetMode@zCRnd_D3D@@UAEHHPAPAUHWND_@@@Z
+        vfunc f81_Vid_SetScreenMode;             // from zCRnd_D3D  ?Vid_SetScreenMode@zCRnd_D3D@@UAEXW4zTRnd_ScreenMode@@@Z
+        vfunc f82_Vid_GetScreenMode;             // from zCRnd_D3D  ?Vid_GetScreenMode@zCRnd_D3D@@UAE?AW4zTRnd_ScreenMode@@XZ
+        vfunc f83_Vid_SetGammaCorrection;        // from zCRnd_D3D  ?Vid_SetGammaCorrection@zCRnd_D3D@@UAEXMMM@Z
+        vfunc f84_Vid_GetGammaCorrection;        // from zCRnd_D3D  ?Vid_GetGammaCorrection@zCRnd_D3D@@UAEMXZ
+        vfunc f85_Vid_BeginLfbAccess;            // from zCRnd_D3D  ?Vid_BeginLfbAccess@zCRnd_D3D@@UAEXXZ
+        vfunc f86_Vid_EndLfbAccess;              // from zCRnd_D3D  ?Vid_EndLfbAccess@zCRnd_D3D@@UAEXXZ
+        vfunc f87_Vid_SetLfbAlpha;               // from zCRnd_D3D  ?Vid_SetLfbAlpha@zCRnd_D3D@@UAEXH@Z
+        vfunc f88_Vid_SetLfbAlphaFunc;           // from zCRnd_D3D  ?Vid_SetLfbAlphaFunc@zCRnd_D3D@@UAEXABW4zTRnd_AlphaBlendFunc@@@Z
+        vfunc f89_SetTransform;                  // from zCRnd_D3D  ?SetTransform@zCRnd_D3D@@UAEHW4zTRnd_TrafoType@@ABVzMAT4@@@Z
+        vfunc f90_SetViewport;                   // from zCRnd_D3D  ?SetViewport@zCRnd_D3D@@UAEHHHHH@Z
+        vfunc f91_SetLight;                      // from zCRnd_D3D  ?SetLight@zCRnd_D3D@@UAEHKPAVzCRenderLight@@@Z
+        vfunc f92_GetMaterial;                   // from zCRnd_D3D  ?GetMaterial@zCRnd_D3D@@UAEHAAUzTMaterial@zCRenderer@@@Z
+        vfunc f93_SetMaterial;                   // from zCRnd_D3D  ?SetMaterial@zCRnd_D3D@@UAEHABUzTMaterial@zCRenderer@@@Z
+        vfunc f94_SetTexture;                    // from zCRnd_D3D  ?SetTexture@zCRnd_D3D@@UAEHKPAVzCTexture@@@Z
+        vfunc f95_SetTextureStageState;          // from zCRnd_D3D  ?SetTextureStageState@zCRnd_D3D@@UAEHKW4zTRnd_TextureStageState@@K@Z
+        vfunc f96_SetAlphaBlendFuncImmed;        // from zCRnd_D3D  ?SetAlphaBlendFuncImmed@zCRnd_D3D@@UAEHW4zTRnd_AlphaBlendFunc@@@Z
+        vfunc f97_SetRenderState;                // from zCRnd_D3D  ?SetRenderState@zCRnd_D3D@@UAEHW4zTRnd_RenderStateType@@K@Z
+        vfunc f98_GetRenderState;                // from zCRnd_D3D  ?GetRenderState@zCRnd_D3D@@UAEKW4zTRnd_RenderStateType@@@Z
+        vfunc f99_AddAlphaSortObject;            // from zCRnd_D3D  ?AddAlphaSortObject@zCRnd_D3D@@UAEXPAVzCRndAlphaSortObject@@@Z
+        vfunc f100_RenderAlphaSortList;          // from zCRnd_D3D  ?RenderAlphaSortList@zCRnd_D3D@@UAEXXZ
+        vfunc f101_DrawVertexBuffer;             // from zCRnd_D3D  ?DrawVertexBuffer@zCRnd_D3D@@UAEHPAVzCVertexBuffer@@HHPAGK@Z
+        vfunc f102_CreateVertexBuffer;           // from zCRnd_D3D  ?CreateVertexBuffer@zCRnd_D3D@@UAEPAVzCVertexBuffer@@XZ
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DEF54;
+      return 0x0082F7A4;
     }
 
     static uint GetFuncsNum() {
-      return 90;
+      return 103;
     }
 
     static vftable_zCRnd_D3D& GetTable() {
@@ -13135,7 +13292,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCRenderer {
     union {
-      vfunc array[90];
+      vfunc array[103];
       group {
         vfunc f00_scalar_destructor;             // from base        
         vfunc f01_BeginFrame;                    // from base        purecall
@@ -13149,93 +13306,106 @@ namespace Gothic_I_Classic {
         vfunc f09_DrawPolySimple;                // from zCRenderer  ?DrawPolySimple@zCRenderer@@UAEXPAVzCTexture@@PAUzTRndSimpleVertex@@H@Z
         vfunc f10_SetFog;                        // from base        purecall
         vfunc f11_GetFog;                        // from zCRenderer  ?GetFog@zCRenderer@@UBEHXZ
-        vfunc f12_SetFogColor;                   // from base        purecall
-        vfunc f13_GetFogColor;                   // from zCRenderer  ?GetFogColor@zCRenderer@@UBE?AUzCOLOR@@XZ
-        vfunc f14_SetFogRange;                   // from base        purecall
-        vfunc f15_GetFogRange;                   // from zCRenderer  ?GetFogRange@zCRenderer@@UAEXAAM0AAW4zTRnd_FogMode@@@Z
-        vfunc f16_GetPolyDrawMode;               // from zCRenderer  ?GetPolyDrawMode@zCRenderer@@UBE?AW4zTRnd_PolyDrawMode@@XZ
-        vfunc f17_SetPolyDrawMode;               // from zCRenderer  ?SetPolyDrawMode@zCRenderer@@UAEXABW4zTRnd_PolyDrawMode@@@Z
-        vfunc f18_SetTextureWrapEnabled;         // from zCRenderer  ?SetTextureWrapEnabled@zCRenderer@@UAEXH@Z
-        vfunc f19_GetTextureWrapEnabled;         // from zCRenderer  ?GetTextureWrapEnabled@zCRenderer@@UBEHXZ
-        vfunc f20_SetBilerpFilterEnabled;        // from base        purecall
-        vfunc f21_GetBilerpFilterEnabled;        // from base        purecall
-        vfunc f22_SetDitherEnabled;              // from zCRenderer  ?SetDitherEnabled@zCRenderer@@UAEXH@Z
-        vfunc f23_GetDitherEnabled;              // from zCRenderer  ?GetDitherEnabled@zCRenderer@@UBEHXZ
-        vfunc f24_GetPolySortMode;               // from zCRenderer  ?GetPolySortMode@zCRenderer@@UBE?AW4zTRnd_PolySortMode@@XZ
-        vfunc f25_SetPolySortMode;               // from zCRenderer  ?SetPolySortMode@zCRenderer@@UAEXABW4zTRnd_PolySortMode@@@Z
-        vfunc f26_GetZBufferWriteEnabled;        // from zCRenderer  ?GetZBufferWriteEnabled@zCRenderer@@UBEHXZ
-        vfunc f27_SetZBufferWriteEnabled;        // from zCRenderer  ?SetZBufferWriteEnabled@zCRenderer@@UAEXH@Z
-        vfunc f28_GetZBufferCompare;             // from zCRenderer  ?GetZBufferCompare@zCRenderer@@UAE?AW4zTRnd_ZBufferCmp@@XZ
-        vfunc f29_SetZBufferCompare;             // from zCRenderer  ?SetZBufferCompare@zCRenderer@@UAEXABW4zTRnd_ZBufferCmp@@@Z
-        vfunc f30_GetPixelWriteEnabled;          // from zCRenderer  ?GetPixelWriteEnabled@zCRenderer@@UBEHXZ
-        vfunc f31_SetPixelWriteEnabled;          // from zCRenderer  ?SetPixelWriteEnabled@zCRenderer@@UAEXH@Z
-        vfunc f32_SetAlphaBlendSource;           // from zCRenderer  ?SetAlphaBlendSource@zCRenderer@@UAEXABW4zTRnd_AlphaBlendSource@@@Z
-        vfunc f33_GetAlphaBlendSource;           // from zCRenderer  ?GetAlphaBlendSource@zCRenderer@@UBE?AW4zTRnd_AlphaBlendSource@@XZ
-        vfunc f34_SetAlphaBlendFunc;             // from zCRenderer  ?SetAlphaBlendFunc@zCRenderer@@UAEXABW4zTRnd_AlphaBlendFunc@@@Z
-        vfunc f35_GetAlphaBlendFunc;             // from zCRenderer  ?GetAlphaBlendFunc@zCRenderer@@UBE?AW4zTRnd_AlphaBlendFunc@@XZ
-        vfunc f36_GetAlphaBlendFactor;           // from zCRenderer  ?GetAlphaBlendFactor@zCRenderer@@UBEMXZ
-        vfunc f37_SetAlphaBlendFactor;           // from zCRenderer  ?SetAlphaBlendFactor@zCRenderer@@UAEXABM@Z
-        vfunc f38_GetCacheAlphaPolys;            // from zCRenderer  ?GetCacheAlphaPolys@zCRenderer@@UBEHXZ
-        vfunc f39_SetCacheAlphaPolys;            // from zCRenderer  ?SetCacheAlphaPolys@zCRenderer@@UAEXH@Z
-        vfunc f40_SetRenderMode;                 // from zCRenderer  ?SetRenderMode@zCRenderer@@UAEXW4zTRnd_RenderMode@@@Z
-        vfunc f41_GetRenderMode;                 // from zCRenderer  ?GetRenderMode@zCRenderer@@UBE?AW4zTRnd_RenderMode@@XZ
-        vfunc f42_HasCapability;                 // from zCRenderer  ?HasCapability@zCRenderer@@UBEHW4zTRnd_Capability@@@Z
-        vfunc f43_GetGuardBandBorders;           // from zCRenderer  ?GetGuardBandBorders@zCRenderer@@UAEXAAM000@Z
-        vfunc f44_ResetZTest;                    // from zCRenderer  ?ResetZTest@zCRenderer@@UAEXXZ
-        vfunc f45_HasPassedZTest;                // from zCRenderer  ?HasPassedZTest@zCRenderer@@UAEHXZ
-        vfunc f46_CreateTexture;                 // from base        purecall
-        vfunc f47_CreateTextureConvert;          // from zCRenderer  ?CreateTextureConvert@zCRenderer@@UAEPAVzCTextureConvert@@XZ
-        vfunc f48_GetTotalTextureMem;            // from base        purecall
-        vfunc f49_SupportsTextureFormat;         // from zCRenderer  ?SupportsTextureFormat@zCRenderer@@UAEHW4zTRnd_TextureFormat@@@Z
-        vfunc f50_SupportsTextureFormatHardware; // from zCRenderer  ?SupportsTextureFormatHardware@zCRenderer@@UAEHW4zTRnd_TextureFormat@@@Z
-        vfunc f51_GetMaxTextureSize;             // from zCRenderer  ?GetMaxTextureSize@zCRenderer@@UAEHXZ
-        vfunc f52_GetStatistics;                 // from base        purecall
-        vfunc f53_ResetStatistics;               // from base        purecall
-        vfunc f54_Vid_Blit;                      // from base        purecall
-        vfunc f55_Vid_Clear;                     // from base        purecall
-        vfunc f56_Vid_Lock;                      // from base        purecall
-        vfunc f57_Vid_Unlock;                    // from base        purecall
-        vfunc f58_Vid_IsLocked;                  // from base        purecall
-        vfunc f59_Vid_GetFrontBufferCopy;        // from base        purecall
-        vfunc f60_Vid_GetNumDevices;             // from base        purecall
-        vfunc f61_Vid_GetActiveDeviceNr;         // from base        purecall
-        vfunc f62_Vid_SetDevice;                 // from base        purecall
-        vfunc f63_Vid_GetDeviceInfo;             // from base        purecall
-        vfunc f64_Vid_GetNumModes;               // from base        purecall
-        vfunc f65_Vid_GetModeInfo;               // from base        purecall
-        vfunc f66_Vid_GetActiveModeNr;           // from base        purecall
-        vfunc f67_Vid_SetMode;                   // from base        purecall
-        vfunc f68_Vid_SetScreenMode;             // from base        purecall
-        vfunc f69_Vid_GetScreenMode;             // from base        purecall
-        vfunc f70_Vid_SetGammaCorrection;        // from base        purecall
-        vfunc f71_Vid_GetGammaCorrection;        // from base        purecall
-        vfunc f72_Vid_BeginLfbAccess;            // from base        purecall
-        vfunc f73_Vid_EndLfbAccess;              // from base        purecall
-        vfunc f74_Vid_SetLfbAlpha;               // from base        purecall
-        vfunc f75_Vid_SetLfbAlphaFunc;           // from base        purecall
-        vfunc f76_SetTransform;                  // from zCRenderer  ?SetTransform@zCRenderer@@UAEHW4zTRnd_TrafoType@@ABVzMAT4@@@Z
-        vfunc f77_SetViewport;                   // from zCRenderer  ?SetViewport@zCRenderer@@UAEHHHHH@Z
-        vfunc f78_SetLight;                      // from zCRenderer  ?SetLight@zCRenderer@@UAEHKPAVzCRenderLight@@@Z
-        vfunc f79_GetMaterial;                   // from zCRenderer  ?GetMaterial@zCRenderer@@UAEHAAUzTMaterial@1@@Z
-        vfunc f80_SetMaterial;                   // from zCRenderer  ?SetMaterial@zCRenderer@@UAEHABUzTMaterial@1@@Z
-        vfunc f81_SetTexture;                    // from zCRenderer  ?SetTexture@zCRenderer@@UAEHKPAVzCTexture@@@Z
-        vfunc f82_SetTextureStageState;          // from zCRenderer  ?SetTextureStageState@zCRenderer@@UAEHKW4zTRnd_TextureStageState@@K@Z
-        vfunc f83_SetAlphaBlendFuncImmed;        // from zCRenderer  ?SetAlphaBlendFuncImmed@zCRenderer@@UAEHW4zTRnd_AlphaBlendFunc@@@Z
-        vfunc f84_SetRenderState;                // from zCRenderer  ?SetRenderState@zCRenderer@@UAEHW4zTRnd_RenderStateType@@K@Z
-        vfunc f85_GetRenderState;                // from zCRenderer  ?GetRenderState@zCRenderer@@UAEKW4zTRnd_RenderStateType@@@Z
-        vfunc f86_AddAlphaSortObject;            // from zCRenderer  ?AddAlphaSortObject@zCRenderer@@UAEXPAVzCRndAlphaSortObject@@@Z
-        vfunc f87_RenderAlphaSortList;           // from zCRenderer  ?RenderAlphaSortList@zCRenderer@@UAEXXZ
-        vfunc f88_DrawVertexBuffer;              // from base        purecall
-        vfunc f89_CreateVertexBuffer;            // from base        purecall
+        vfunc f12_SetRadialFog;                  // from base        purecall
+        vfunc f13_GetRadialFog;                  // from zCRenderer  ?GetRadialFog@zCRenderer@@UBEHXZ
+        vfunc f14_SetFogColor;                   // from base        purecall
+        vfunc f15_GetFogColor;                   // from zCRenderer  ?GetFogColor@zCRenderer@@UBE?AUzCOLOR@@XZ
+        vfunc f16_SetFogRange;                   // from base        purecal
+        vfunc f17_GetFogRange;                   // from zCRenderer  ?GetFogRange@zCRenderer@@UAEXAAM0AAW4zTRnd_FogMode@@@Z
+        vfunc f18_GetPolyDrawMode;               // from zCRenderer  ?GetPolyDrawMode@zCRenderer@@UBE?AW4zTRnd_PolyDrawMode@@XZ
+        vfunc f19_SetPolyDrawMode;               // from zCRenderer  ?SetPolyDrawMode@zCRenderer@@UAEXABW4zTRnd_PolyDrawMode@@@Z
+        vfunc f20_GetSurfaceLost;                // from zCRenderer  ?GetSurfaceLost@zCRenderer@@UBEHXZ
+        vfunc f21_SetSurfaceLost;                // from zCRenderer  ?SetSurfaceLost@zCRenderer@@UAEXH@Z
+        vfunc f22_GetSyncOnAmbientCol;           // from zCRenderer  ?GetSyncOnAmbientCol@zCRenderer@@UBEHXZ
+        vfunc f23_SetSyncOnAmbientCol;           // from zCRenderer  ?SetSyncOnAmbientCol@zCRenderer@@UAEXH@Z
+        vfunc f24_SetTextureWrapEnabled;         // from zCRenderer  ?SetTextureWrapEnabled@zCRenderer@@UAEXH@Z
+        vfunc f25_GetTextureWrapEnabled;         // from zCRenderer  ?GetTextureWrapEnabled@zCRenderer@@UBEHXZ
+        vfunc f26_SetBilerpFilterEnabled;        // from base        purecall
+        vfunc f27_GetBilerpFilterEnabled;        // from base        purecall
+        vfunc f28_SetDitherEnabled;              // from zCRenderer  ?SetDitherEnabled@zCRenderer@@UAEXH@Z
+        vfunc f29_GetDitherEnabled;              // from zCRenderer  ?GetDitherEnabled@zCRenderer@@UBEHXZ
+        vfunc f30_GetPolySortMode;               // from zCRenderer  ?GetPolySortMode@zCRenderer@@UBE?AW4zTRnd_PolySortMode@@XZ
+        vfunc f31_SetPolySortMode;               // from zCRenderer  ?SetPolySortMode@zCRenderer@@UAEXABW4zTRnd_PolySortMode@@@Z
+        vfunc f32_GetZBufferWriteEnabled;        // from zCRenderer  ?GetZBufferWriteEnabled@zCRenderer@@UBEHXZ
+        vfunc f33_SetZBufferWriteEnabled;        // from zCRenderer  ?SetZBufferWriteEnabled@zCRenderer@@UAEXH@Z
+        vfunc f34_SetZBias;                      // from zCRenderer  ?SetZBias@zCRenderer@@UAEXH@Z
+        vfunc f35_GetZBias;                      // from zCRenderer  ?GetZBias@zCRenderer@@UBEHXZ
+        vfunc f36_GetZBufferCompare;             // from zCRenderer  ?GetZBufferCompare@zCRenderer@@UAE?AW4zTRnd_ZBufferCmp@@XZ
+        vfunc f37_SetZBufferCompare;             // from zCRenderer  ?SetZBufferCompare@zCRenderer@@UAEXABW4zTRnd_ZBufferCmp@@@Z
+        vfunc f38_GetPixelWriteEnabled;          // from zCRenderer  ?GetPixelWriteEnabled@zCRenderer@@UBEHXZ
+        vfunc f39_SetPixelWriteEnabled;          // from zCRenderer  ?SetPixelWriteEnabled@zCRenderer@@UAEXH@Z
+        vfunc f40_SetAlphaBlendSource;           // from zCRenderer  ?SetAlphaBlendSource@zCRenderer@@UAEXABW4zTRnd_AlphaBlendSource@@@Z
+        vfunc f41_GetAlphaBlendSource;           // from zCRenderer  ?GetAlphaBlendSource@zCRenderer@@UBE?AW4zTRnd_AlphaBlendSource@@XZ
+        vfunc f42_SetAlphaBlendFunc;             // from zCRenderer  ?SetAlphaBlendFunc@zCRenderer@@UAEXABW4zTRnd_AlphaBlendFunc@@@Z
+        vfunc f43_GetAlphaBlendFunc;             // from zCRenderer  ?GetAlphaBlendFunc@zCRenderer@@UBE?AW4zTRnd_AlphaBlendFunc@@XZ
+        vfunc f44_GetAlphaBlendFactor;           // from zCRenderer  ?GetAlphaBlendFactor@zCRenderer@@UBEMXZ
+        vfunc f45_SetAlphaBlendFactor;           // from zCRenderer  ?SetAlphaBlendFactor@zCRenderer@@UAEXABM@Z
+        vfunc f46_SetAlphaReference;             // from zCRenderer  ?SetAlphaReference@zCRenderer@@UAEXK@Z
+        vfunc f47_GetAlphaReference;             // from zCRenderer  ?GetAlphaReference@zCRenderer@@UBEKXZ
+        vfunc f48_GetCacheAlphaPolys;            // from zCRenderer  ?GetCacheAlphaPolys@zCRenderer@@UBEHXZ
+        vfunc f49_SetCacheAlphaPolys;            // from zCRenderer  ?SetCacheAlphaPolys@zCRenderer@@UAEXH@Z
+        vfunc f50_GetAlphaLimitReached;          // from zCRenderer  ?GetAlphaLimitReached@zCRenderer@@UBEHXZ
+        vfunc f51_AddAlphaPoly;                  // from zCRenderer  ?AddAlphaPoly@zCRenderer@@UAEXPBVzCPolygon@@@Z
+        vfunc f52_FlushAlphaPolys;               // from zCRenderer  ?FlushAlphaPolys@zCRenderer@@UAEXXZ
+        vfunc f53_SetRenderMode;                 // from zCRenderer  ?SetRenderMode@zCRenderer@@UAEXW4zTRnd_RenderMode@@@Z
+        vfunc f54_GetRenderMode;                 // from zCRenderer  ?GetRenderMode@zCRenderer@@UBE?AW4zTRnd_RenderMode@@XZ
+        vfunc f55_HasCapability;                 // from zCRenderer  ?HasCapability@zCRenderer@@UBEHW4zTRnd_Capability@@@Z
+        vfunc f56_GetGuardBandBorders;           // from zCRenderer  ?GetGuardBandBorders@zCRenderer@@UAEXAAM000@Z
+        vfunc f57_ResetZTest;                    // from zCRenderer  ?ResetZTest@zCRenderer@@UAEXXZ
+        vfunc f58_HasPassedZTest;                // from zCRenderer  ?HasPassedZTest@zCRenderer@@UAEHXZ
+        vfunc f59_CreateTexture;                 // from base        purecall
+        vfunc f60_CreateTextureConvert;          // from zCRenderer  ?CreateTextureConvert@zCRenderer@@UAEPAVzCTextureConvert@@XZ
+        vfunc f61_GetTotalTextureMem;            // from base        purecall
+        vfunc f62_SupportsTextureFormat;         // from zCRenderer  ?SupportsTextureFormat@zCRenderer@@UAEHW4zTRnd_TextureFormat@@@Z
+        vfunc f63_SupportsTextureFormatHardware; // from zCRenderer  ?SupportsTextureFormatHardware@zCRenderer@@UAEHW4zTRnd_TextureFormat@@@Z
+        vfunc f64_GetMaxTextureSize;             // from zCRenderer  ?GetMaxTextureSize@zCRenderer@@UAEHXZ
+        vfunc f65_GetStatistics;                 // from base        purecall
+        vfunc f66_ResetStatistics;               // from base        purecall
+        vfunc f67_Vid_Blit;                      // from base        purecall
+        vfunc f68_Vid_Clear;                     // from base        purecall
+        vfunc f69_Vid_Lock;                      // from base        purecall
+        vfunc f70_Vid_Unlock;                    // from base        purecall
+        vfunc f71_Vid_IsLocked;                  // from base        purecall
+        vfunc f72_Vid_GetFrontBufferCopy;        // from base        purecall
+        vfunc f73_Vid_GetNumDevices;             // from base        purecall
+        vfunc f74_Vid_GetActiveDeviceNr;         // from base        purecall
+        vfunc f75_Vid_SetDevice;                 // from base        purecall
+        vfunc f76_Vid_GetDeviceInfo;             // from base        purecall
+        vfunc f77_Vid_GetNumModes;               // from base        purecall
+        vfunc f78_Vid_GetModeInfo;               // from base        purecall
+        vfunc f79_Vid_GetActiveModeNr;           // from base        purecall
+        vfunc f80_Vid_SetMode;                   // from base        purecall
+        vfunc f81_Vid_SetScreenMode;             // from base        purecall
+        vfunc f82_Vid_GetScreenMode;             // from base        purecall
+        vfunc f83_Vid_SetGammaCorrection;        // from base        purecall
+        vfunc f84_Vid_GetGammaCorrection;        // from base        purecall
+        vfunc f85_Vid_BeginLfbAccess;            // from base        purecall
+        vfunc f86_Vid_EndLfbAccess;              // from base        purecall
+        vfunc f87_Vid_SetLfbAlpha;               // from base        purecall
+        vfunc f88_Vid_SetLfbAlphaFunc;           // from base        purecall
+        vfunc f89_SetTransform;                  // from zCRenderer  ?SetTransform@zCRenderer@@UAEHW4zTRnd_TrafoType@@ABVzMAT4@@@Z
+        vfunc f90_SetViewport;                   // from zCRenderer  ?SetViewport@zCRenderer@@UAEHHHHH@Z
+        vfunc f91_SetLight;                      // from zCRenderer  ?SetLight@zCRenderer@@UAEHKPAVzCRenderLight@@@Z
+        vfunc f92_GetMaterial;                   // from zCRenderer  ?GetMaterial@zCRenderer@@UAEHAAUzTMaterial@1@@Z
+        vfunc f93_SetMaterial;                   // from zCRenderer  ?SetMaterial@zCRenderer@@UAEHABUzTMaterial@1@@Z
+        vfunc f94_SetTexture;                    // from zCRenderer  ?SetTexture@zCRenderer@@UAEHKPAVzCTexture@@@Z
+        vfunc f95_SetTextureStageState;          // from zCRenderer  ?SetTextureStageState@zCRenderer@@UAEHKW4zTRnd_TextureStageState@@K@Z
+        vfunc f96_SetAlphaBlendFuncImmed;        // from zCRenderer  ?SetAlphaBlendFuncImmed@zCRenderer@@UAEHW4zTRnd_AlphaBlendFunc@@@Z
+        vfunc f97_SetRenderState;                // from zCRenderer  ?SetRenderState@zCRenderer@@UAEHW4zTRnd_RenderStateType@@K@Z
+        vfunc f98_GetRenderState;                // from zCRenderer  ?GetRenderState@zCRenderer@@UAEKW4zTRnd_RenderStateType@@@Z
+        vfunc f99_AddAlphaSortObject;            // from zCRenderer  ?AddAlphaSortObject@zCRenderer@@UAEXPAVzCRndAlphaSortObject@@@Z
+        vfunc f100_RenderAlphaSortList;          // from zCRenderer  ?RenderAlphaSortList@zCRenderer@@UAEXXZ
+        vfunc f101_DrawVertexBuffer;             // from base        purecall
+        vfunc f102_CreateVertexBuffer;           // from base        purecall
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF0C4;
+      return 0x0082F944;
     }
 
     static uint GetFuncsNum() {
-      return 90;
+      return 103;
     }
 
     static vftable_zCRenderer& GetTable() {
@@ -13256,7 +13426,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF230;
+      return 0x0082FAE4;
     }
 
     static uint GetFuncsNum() {
@@ -13289,7 +13459,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF264;
+      return 0x0082FB34;
     }
 
     static uint GetFuncsNum() {
@@ -13322,7 +13492,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF294;
+      return 0x0082FB64;
     }
 
     static uint GetFuncsNum() {
@@ -13362,7 +13532,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF2D4;
+      return 0x0082FBAC;
     }
 
     static uint GetFuncsNum() {
@@ -13397,7 +13567,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF33C;
+      return 0x0082FC24;
     }
 
     static uint GetFuncsNum() {
@@ -13420,7 +13590,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF390;
+      return 0x0082FC88;
     }
 
     static uint GetFuncsNum() {
@@ -13443,7 +13613,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF3A8;
+      return 0x0082FCA8;
     }
 
     static uint GetFuncsNum() {
@@ -13459,7 +13629,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDocument_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -13468,16 +13638,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF3B0;
+      return 0x0082FCB0;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDocument_for_zCViewBase& GetTable() {
@@ -13511,7 +13682,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF3D4;
+      return 0x0082FCDC;
     }
 
     static uint GetFuncsNum() {
@@ -13534,7 +13705,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF42C;
+      return 0x0082FD3C;
     }
 
     static uint GetFuncsNum() {
@@ -13550,7 +13721,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDocumentMap_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -13559,16 +13730,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF434;
+      return 0x0082FD44;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDocumentMap_for_zCViewBase& GetTable() {
@@ -13602,7 +13774,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF45C;
+      return 0x0082FD6C;
     }
 
     static uint GetFuncsNum() {
@@ -13625,7 +13797,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF4D0;
+      return 0x0082FDE8;
     }
 
     static uint GetFuncsNum() {
@@ -13641,7 +13813,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDialogInventory_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -13650,16 +13822,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF4D8;
+      return 0x0082FDF0;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDialogInventory_for_zCViewBase& GetTable() {
@@ -13692,7 +13865,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF4FC;
+      return 0x0082FE1C;
     }
 
     static uint GetFuncsNum() {
@@ -13715,7 +13888,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF548;
+      return 0x0082FE70;
     }
 
     static uint GetFuncsNum() {
@@ -13731,7 +13904,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDialogItem_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -13740,16 +13913,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF550;
+      return 0x0082FE78;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDialogItem_for_zCViewBase& GetTable() {
@@ -13782,7 +13956,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF574;
+      return 0x0082FEA4;
     }
 
     static uint GetFuncsNum() {
@@ -13805,7 +13979,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF5C0;
+      return 0x0082FEF8;
     }
 
     static uint GetFuncsNum() {
@@ -13821,7 +13995,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDialogItemContainer_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -13830,16 +14004,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF5C8;
+      return 0x0082FF00;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDialogItemContainer_for_zCViewBase& GetTable() {
@@ -13872,7 +14047,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF5EC;
+      return 0x0082FF2C;
     }
 
     static uint GetFuncsNum() {
@@ -13895,7 +14070,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF63C;
+      return 0x0082FF84;
     }
 
     static uint GetFuncsNum() {
@@ -13911,7 +14086,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDialogStealContainer_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -13920,16 +14095,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF644;
+      return 0x0082FF8C;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDialogStealContainer_for_zCViewBase& GetTable() {
@@ -13962,7 +14138,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF66C;
+      return 0x0082FFB4;
     }
 
     static uint GetFuncsNum() {
@@ -13985,7 +14161,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF6BC;
+      return 0x00830010;
     }
 
     static uint GetFuncsNum() {
@@ -14001,7 +14177,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDialogTrade_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14010,16 +14186,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF6C4;
+      return 0x00830018;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_oCViewDialogTrade_for_zCViewBase& GetTable() {
@@ -14031,7 +14208,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_oCViewDialogTrade_for_zCObject {
     union {
-      vfunc array[15];
+      vfunc array[18];
       group {
         vfunc f00_GetClassDef;             // from oCViewDialogTrade  ?_GetClassDef@oCViewDialogTrade@@EBEPAVzCClassDef@@XZ
         vfunc f01_Archive;                 // from zCObject           ?Archive@zCObject@@UAEXAAVzCArchiver@@@Z
@@ -14048,15 +14225,18 @@ namespace Gothic_I_Classic {
         vfunc f12_HasFinished;             // from zCViewDialog       ?HasFinished@zCViewDialog@@UAIHXZ
         vfunc f13_StartSelection;          // from oCViewDialogTrade  ?StartSelection@oCViewDialogTrade@@UAIXXZ
         vfunc f14_StopSelection;           // from zCViewDialog       ?StopSelection@zCViewDialog@@UAIXXZ
+        vfunc f15_GetTransferCount;        // from oCViewDialogTrade  ?GetTransferCount@oCViewDialogTrade@@UAEFXZ
+        vfunc f16_SetTransferCount;        // from oCViewDialogTrade  ?SetTransferCount@oCViewDialogTrade@@UAEXF@Z
+        vfunc f17_IncTransferCount;        // from oCViewDialogTrade  ?IncTransferCount@oCViewDialogTrade@@UAEXF@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF6EC;
+      return 0x00830044;
     }
 
     static uint GetFuncsNum() {
-      return 15;
+      return 18;
     }
 
     static vftable_oCViewDialogTrade_for_zCObject& GetTable() {
@@ -14068,7 +14248,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewBase  ?anx@zCViewBase@@UAEHH@Z
         vfunc f01_any;         // from zCViewBase  ?any@zCViewBase@@UAEHH@Z
@@ -14077,16 +14257,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewBase  ?ClipLine@zCViewBase@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewBase  ?Line@zCViewBase@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewBase  ?GetViewport@zCViewBase@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewBase  ?GetCode@zCViewBase@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase  ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewBase  ?GetCode@zCViewBase@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF798;
+      return 0x00830130;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewBase& GetTable() {
@@ -14098,7 +14279,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewDraw_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14107,16 +14288,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF7C8;
+      return 0x0083016C;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewDraw_for_zCViewBase& GetTable() {
@@ -14141,7 +14323,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF7EC;
+      return 0x00830194;
     }
 
     static uint GetFuncsNum() {
@@ -14157,7 +14339,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewFX_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14166,16 +14348,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF818;
+      return 0x008301C8;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewFX_for_zCViewBase& GetTable() {
@@ -14200,7 +14383,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF83C;
+      return 0x008301F0;
     }
 
     static uint GetFuncsNum() {
@@ -14216,7 +14399,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewObject_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14225,16 +14408,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF868;
+      return 0x00830224;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewObject_for_zCViewBase& GetTable() {
@@ -14256,7 +14440,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF88C;
+      return 0x0083024C;
     }
 
     static uint GetFuncsNum() {
@@ -14272,7 +14456,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewPrint_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14281,16 +14465,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF8AC;
+      return 0x00830274;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewPrint_for_zCViewBase& GetTable() {
@@ -14318,7 +14503,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF8D0;
+      return 0x0083029C;
     }
 
     static uint GetFuncsNum() {
@@ -14332,32 +14517,9 @@ namespace Gothic_I_Classic {
   };
 
 
-  struct vftable_zCViewDialog {
-    union {
-      vfunc array[1];
-      group {
-        vfunc f00_HandleEvent; // from zCInputCallback  ?HandleEvent@zCInputCallback@@UAEHH@Z
-      } names;
-    };
-
-    static uint GetAddress() {
-      return 0x007DF914;
-    }
-
-    static uint GetFuncsNum() {
-      return 1;
-    }
-
-    static vftable_zCViewDialog& GetTable() {
-      MemUnlock;
-      return *(vftable_zCViewDialog*)GetAddress();
-    }
-  };
-
-
   struct vftable_zCViewDialog_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14366,16 +14528,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF91C;
+      return 0x008302F0;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewDialog_for_zCViewBase& GetTable() {
@@ -14408,7 +14571,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF944;
+      return 0x0083031C;
     }
 
     static uint GetFuncsNum() {
@@ -14422,6 +14585,29 @@ namespace Gothic_I_Classic {
   };
 
 
+  struct vftable_zCViewDialog {
+    union {
+      vfunc array[1];
+      group {
+        vfunc f00_HandleEvent; // from zCInputCallback  ?HandleEvent@zCInputCallback@@UAEHH@Z
+      } names;
+    };
+
+    static uint GetAddress() {
+      return 0x0083035C;
+    }
+
+    static uint GetFuncsNum() {
+      return 1;
+    }
+
+    static vftable_zCViewDialog& GetTable() {
+      MemUnlock;
+      return *(vftable_zCViewDialog*)GetAddress();
+    }
+  };
+
+
   struct vftable_zCViewDialogChoice {
     union {
       vfunc array[1];
@@ -14431,7 +14617,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF990;
+      return 0x00830378;
     }
 
     static uint GetFuncsNum() {
@@ -14447,7 +14633,7 @@ namespace Gothic_I_Classic {
 
   struct vftable_zCViewDialogChoice_for_zCViewBase {
     union {
-      vfunc array[8];
+      vfunc array[9];
       group {
         vfunc f00_anx;         // from zCViewObject  ?anx@zCViewObject@@UAEHH@Z
         vfunc f01_any;         // from zCViewObject  ?any@zCViewObject@@UAEHH@Z
@@ -14456,16 +14642,17 @@ namespace Gothic_I_Classic {
         vfunc f04_ClipLine;    // from zCViewObject  ?ClipLine@zCViewObject@@UAEHAAH000@Z
         vfunc f05_Line;        // from zCViewObject  ?Line@zCViewObject@@UAEXHHHHABUzCOLOR@@@Z
         vfunc f06_GetViewport; // from zCViewObject  ?GetViewport@zCViewObject@@UAIXAAH000@Z
-        vfunc f07_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
+        vfunc f07_FillZBuffer; // from zCViewBase    ?FillZBuffer@zCViewBase@@UAEXXZ
+        vfunc f08_GetCode;     // from zCViewObject  ?GetCode@zCViewObject@@MAEHHH@Z
       } names;
     };
 
     static uint GetAddress() {
-      return 0x007DF998;
+      return 0x00830380;
     }
 
     static uint GetFuncsNum() {
-      return 8;
+      return 9;
     }
 
     static vftable_zCViewDialogChoice_for_zCViewBase& GetTable() {
@@ -14498,7 +14685,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DF9BC;
+      return 0x008303AC;
     }
 
     static uint GetFuncsNum() {
@@ -14532,7 +14719,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007DFAB4;
+      return 0x008304AC;
     }
 
     static uint GetFuncsNum() {
@@ -14559,7 +14746,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007E3920;
+      return 0x00834320;
     }
 
     static uint GetFuncsNum() {
@@ -14586,7 +14773,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007E39B4;
+      return 0x008343B4;
     }
 
     static uint GetFuncsNum() {
@@ -14613,7 +14800,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007E3B3C;
+      return 0x0083453C;
     }
 
     static uint GetFuncsNum() {
@@ -14640,7 +14827,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007E3B50;
+      return 0x00834550;
     }
 
     static uint GetFuncsNum() {
@@ -14687,7 +14874,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007E40B0;
+      return 0x00834AB0;
     }
 
     static uint GetFuncsNum() {
@@ -14714,7 +14901,7 @@ namespace Gothic_I_Classic {
     };
 
     static uint GetAddress() {
-      return 0x007E4D90;
+      return 0x00835790;
     }
 
     static uint GetFuncsNum() {
@@ -14727,7 +14914,8 @@ namespace Gothic_I_Classic {
     }
   };
 
-} // namespace Gothic_I_Classic
+} // namespace Gothic_II_Classic
 
 #undef MemUnlock
-#endif // __VFTABLE_STRUCTS_H__VER0__
+#endif // __VFTABLE_STRUCTS_H__VER2__
+#endif // __G2

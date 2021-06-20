@@ -10,8 +10,14 @@ namespace NAMESPACE
 		ZOPTION(LootItems, true);
 		ZOPTION(LootNpcs, true);
 		ZOPTION(LootContainers, true);
+
+#if ENGINE == Engine_G1
+		ZOPTION(Key, CKeyCombo({ { KEY_V } }));
+#else
 		ZOPTION(Key, CKeyCombo({ { MOUSE_BUTTONRIGHT }, { KEY_V } }));
-		ZOPTION(AnimatedText, 1);
+#endif
+
+		ZOPTION(AnimatedText, true);
 
 		std::unordered_set<int> Cats;
 	}

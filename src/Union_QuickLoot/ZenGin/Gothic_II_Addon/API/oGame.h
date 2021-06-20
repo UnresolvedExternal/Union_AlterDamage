@@ -176,7 +176,7 @@ namespace Gothic_II_Addon {
     virtual void GetTime( int&, int&, int& )                                     zCall( 0x006C4E70 );
     virtual void DesktopInit()                                                   zCall( 0x006C0680 );
     virtual void EnterWorld( oCNpc*, int, zSTRING const& )                       zCall( 0x006C96F0 );
-    virtual void Pause( int )                                                    zCall( 0x006C8AD0 );
+    virtual void Pause( int = 1 )                                                zCall( 0x006C8AD0 );
     virtual void Unpause()                                                       zCall( 0x006C8D50 );
     virtual void SetDrawWaynet( int )                                            zCall( 0x006BFE30 );
     virtual int GetDrawWaynet()                                                  zCall( 0x006BFE40 );

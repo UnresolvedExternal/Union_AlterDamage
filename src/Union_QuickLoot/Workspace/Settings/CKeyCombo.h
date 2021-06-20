@@ -1,6 +1,8 @@
+#include <sstream>
+
 namespace NAMESPACE
 {
-		class CKeyCombo
+	class CKeyCombo
 	{
 	private:
 		std::vector<std::vector<int>> combos;

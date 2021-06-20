@@ -26,10 +26,7 @@ namespace NAMESPACE
 			onOption = [event, delegate](const CSingleOption<T>& option)
 			{
 				if (*option)
-				{
-					CPublisher::GetInstance().Subs(event) -= delegate;
-					CPublisher::GetInstance().Subs(event) += delegate;
-				}
+					CPublisher::GetInstance().Subs(event) |= delegate;
 				else
 					CPublisher::GetInstance().Subs(event) -= delegate;
 			};

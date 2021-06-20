@@ -38,24 +38,33 @@ namespace NAMESPACE
 	};
 
 	std::vector<std::unique_ptr<TTemporayParserString>> parserStrings;
+	CSubscription cleanParserStrings;
 
-	CSubscription cleanParserStrings(ZSUB(Loop), []()
+	void CleanParserStrings()
+	{
+		size_t deleted = 0;
+
+		for (size_t i = 0; i < parserStrings.size(); i++)
 		{
-			size_t deleted = 0;
+			auto& ptr = parserStrings[i - deleted];
+			if (deleted)
+				ptr = std::move(parserStrings[i]);
 
-			for (size_t i = 0; i < parserStrings.size(); i++)
-			{
-				auto& ptr = parserStrings[i - deleted];
-				if (deleted)
-					ptr = std::move(parserStrings[i]);
+			ptr->liveCounter -= 1;
 
-				ptr->liveCounter -= 1;
-				
-				if (ptr->liveCounter <= 0)
-					deleted += 1;
-			}
+			if (ptr->liveCounter <= 0)
+				deleted += 1;
+		}
 
-			parserStrings.erase(parserStrings.begin() + (parserStrings.size() - deleted), parserStrings.end());
+		parserStrings.erase(parserStrings.begin() + (parserStrings.size() - deleted), parserStrings.end());
+		
+		if (parserStrings.empty())
+			cleanParserStrings.Reset();
+	}
+
+	CSubscription cleanParserStrigsOnExit(ZSUB(Exit), []()
+		{
+			parserStrings.clear();
 		});
 
 	template <class T> void PushArgument(zCParser* parser, const T& arg) { static_assert(std::is_pointer_v<T>, "Wrong type"); parser->SetReturn((void*)arg); }
@@ -65,6 +74,9 @@ namespace NAMESPACE
 	
 	template <> void PushArgument(zCParser* parser, const char* const& arg)
 	{
+		if (parserStrings.empty())
+			cleanParserStrings.Reset(ZSUB(Loop), &CleanParserStrings);
+
 		parserStrings.push_back(std::make_unique<TTemporayParserString>(arg));
 		parser->SetReturn(parserStrings.back()->string);
 	}
@@ -128,9 +140,7 @@ namespace NAMESPACE
 			if (!CHECK_THIS_ENGINE)
 				return;
 
-			ASSERT(parser == ::NAMESPACE::parser || parser == parserCamera || parser == parserMenu || parser == parserMusic || 
-				parser == parserParticleFX || parser == parserSoundFX || parser == parserVisualFX);
-
+			ASSERT(parser);
 			ASSERT(name.Length());
 			ASSERT(func);
 			ADDSUB(DefineExternals);
@@ -138,4 +148,5 @@ namespace NAMESPACE
 	};
 
 #define ZEXTERNAL(name, ...) CExternalRegistration<__VA_ARGS__> name ## _reg(parser, #name, &name)
+#define ZEXTERNAL_MENU(name, ...) CExternalRegistration<__VA_ARGS__> name ## _regMenu(parserMenu, #name, &name)
 }

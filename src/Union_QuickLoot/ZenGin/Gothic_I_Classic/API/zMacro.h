@@ -10,7 +10,7 @@ namespace Gothic_I_Classic {
 #define zNEW( obj ) new obj
 #define zDELETE( obj ) delete obj
 #ifndef SAFE_DELETE
-#define SAFE_DELETE( obj ) if( obj ) { delete obj; obj = 0 }
+#define SAFE_DELETE( obj ) if( obj ) { delete obj; obj = 0; }
 #endif
 #define zCall( address ) { XCALL( address ); }
 #define zInit( call ) { if( Union.GetEngineVersion() == Engine_G1 ) call; }
@@ -37,14 +37,28 @@ namespace Gothic_I_Classic {
 #define sqr(a) (a * a)
 
 
-#define CalcAngle(a, b)                 \
-    float angle = atan (SafeDiv(a, b)); \
-    if (a >= 0 && b < 0)                \
-    angle = 180.0f / DEGREE + angle;    \
-    else if (a < 0 && b <= 0)           \
-    angle = 180.0f / DEGREE + angle;    \
-    else if (a <= 0 && b > 0)           \
-    angle = 360.0f / DEGREE + angle;    \
+#define CalcAngle(a, b)                     \
+    if( b == 0.0f ) {                       \
+      if( a == 0.0f )                       \
+        return 0.0f;                        \
+                                            \
+      if( a > 0 )                           \
+        return RAD90;                       \
+      return RAD270;                        \
+     }                                      \
+                                            \
+    if( a == 0.0f ) {                       \
+      if( b > 0.0f )                        \
+        return 0.0f;                        \
+      return RAD180;                        \
+    }                                       \
+                                            \
+    float angle = atan( SafeDiv( a, b ) );  \
+    if( b < 0.0f )                          \
+      angle += RAD180;                      \
+    else if( a < 0.0f )                     \
+      angle += RAD360;                      \
+                                            \
     return angle;
 
 

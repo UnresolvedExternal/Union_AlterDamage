@@ -1,5 +1,7 @@
 namespace NAMESPACE
 {
+	const float PIF = (float)PI;
+
 	zSTRING GetFocusText(oCItem* item)
 	{
 		zSTRING text;
@@ -45,7 +47,7 @@ namespace NAMESPACE
 			width(screen->FontSize(text)),
 			color(255, 255, 255)
 		{
-
+			
 		}
 
 		TLootInfo(const TLootInfo& right) = default;
@@ -208,9 +210,9 @@ namespace NAMESPACE
 		{
 			size_t maxSize = 0;
 			for (const std::vector<TLootInfo>& bucket : buckets)
-				maxSize = MAX(maxSize, bucket.size());
+				maxSize = std::max(maxSize, bucket.size());
 
-			const float mult = MAX(1.0f, maxSize);
+			const float mult = std::max(1.0f, (float)maxSize);
 			mainTimer += ztimer->frameTimeFloat / ztimer->factorMotion / 1000.0f * mult;
 		}
 
@@ -296,7 +298,7 @@ namespace NAMESPACE
 			mainTimer(0.0f)
 		{
 			int size = (int)((viewPort[3] - viewPort[1]) / screen->FontY());
-			size = MAX(1, size);
+			size = std::max(1, size);
 			buckets.resize(size);
 			ADDSUB(Loop);
 			ADDSUB(LoadBegin);
@@ -320,7 +322,24 @@ namespace NAMESPACE
 	CLootInformer* lootInformer;
 	CSubscription deleteLootInformer(ZSUB(Exit), []() { if (lootInformer) delete lootInformer; });
 
-	Array<oCItem*> GetDrop(oCNpc * npc)
+	void CreateLootInformer()
+	{
+		lootInformer = new CLootInformer(8192 / 4 * 3, 8192 / 4, 8192, 8192 / 4 * 3);
+	}
+
+	void PrintItemName(void* pItem)
+	{
+		if (!pItem)
+			return;
+
+		if (!lootInformer)
+			CreateLootInformer();
+
+		oCItem* const item = static_cast<oCItem*>(pItem);
+		lootInformer->AddLoot(item, item->GetPositionWorld());
+	}
+
+	Array<oCItem*> GetDrop(oCNpc* npc)
 	{
 		Array<oCItem*> drop;
 
@@ -406,7 +425,7 @@ namespace NAMESPACE
 
 		~TKeyToggler()
 		{
-			if (toggle && COA3(player, GetEM(true), messageList).GetNum())
+			if (toggle && COA3(player, GetEM(false), messageList).GetNum())
 				Settings::Key->GetToggled();
 		}
 	};
@@ -416,20 +435,36 @@ namespace NAMESPACE
 			if (!Settings::LootItems && !Settings::LootContainers && !Settings::LootNpcs)
 				return;
 
+			if (!oCInformationManager::GetInformationManager().HasFinished())
+				return;
+
 			if (ogame->singleStep)
 				return;
 
 			if (!Settings::Key->GetPressed())
 				return;
 			
-			if (!COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE || player->interactMob)
+			if (!oCNpcFocus::focus || (void*)oCNpcFocus::focus != (void*)&oCNpcFocus::focuslist[FOCUS_NORMAL])
 				return;
-			
+
+			if (!COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE || player->interactMob || player->IsUnconscious())
+				return;
+
+			if (player->attribute[NPC_ATR_HITPOINTS] <= 0)
+				return;
+
 			Array<oCItem*> drop;
 			zVEC3 pos;
+
 			oCItem* item = Settings::LootItems ? COA3(player, focus_vob, CastTo<oCItem>()) : nullptr;
 			oCNpc* npc = Settings::LootNpcs ? COA3(player, focus_vob, CastTo<oCNpc>()) : nullptr;
 			oCMobContainer* chest = Settings::LootContainers ? COA3(player, focus_vob, CastTo<oCMobContainer>()) : nullptr;
+
+			if (!item && !npc && !chest)
+				return;
+
+			if (!oCNpcFocus::focus->IsInRange(player->focus_vob->type, player->GetDistanceToVob2(*player->focus_vob)))
+				return;
 			
 			if (npc || chest)
 				pos = player->focus_vob->GetPositionWorld();
@@ -442,7 +477,7 @@ namespace NAMESPACE
 				{
 					pos = item->GetPositionWorld();
 					pos[1] += model->bbox3DLocalFixed.maxs[1] * 1.6f;
-					pos[1] = MIN(pos[1], item->bbox3D.maxs[1] + 100.0f);
+					pos[1] = std::min(pos[1], item->bbox3D.maxs[1] + 100.0f);
 				}
 				else
 				{
@@ -527,11 +562,10 @@ namespace NAMESPACE
 			}
 
 			if (drop.GetNum() && !lootInformer)
-				lootInformer = new CLootInformer(8192 / 4 * 3, 8192 / 4, 8192, 8192 / 4 * 3);
+				CreateLootInformer();
 
 			for (oCItem* item : drop)
 			{
-				// Argh! Fackel!
 				if (item->objectName.CompareI("ITLSTORCHBURNING"))
 				{
 					if (player->HasTorch())
@@ -557,4 +591,5 @@ namespace NAMESPACE
 				player->CollectFocusVob(true);
 #endif
 		});
+
 }

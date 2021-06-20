@@ -12,7 +12,8 @@ public:
 	TScope(T& var);
 	TScope(TScope&& scope);
 	TScope& operator=(TScope&& right);
-	void Reset();
+	void Restore();
+	void Disable();
 	~TScope();
 };
 
@@ -43,7 +44,7 @@ inline TScope<T>::TScope(TScope&& scope) :
 template<class T>
 inline TScope<T>& TScope<T>::operator=(TScope<T>&& right)
 {
-	Reset();
+	Restore();
 	var = right.var;
 	value = std::move(right.value);
 	right.var = nullptr;
@@ -51,7 +52,7 @@ inline TScope<T>& TScope<T>::operator=(TScope<T>&& right)
 }
 
 template <class T>
-inline void TScope<T>::Reset()
+inline void TScope<T>::Restore()
 {
 	if (var)
 	{
@@ -61,9 +62,15 @@ inline void TScope<T>::Reset()
 }
 
 template <class T>
+inline void TScope<T>::Disable()
+{
+	var = nullptr;
+}
+
+template <class T>
 inline TScope<T>::~TScope()
 {
-	Reset();
+	Restore();
 }
 
 template <class T>

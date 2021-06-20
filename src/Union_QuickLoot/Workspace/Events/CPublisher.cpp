@@ -1,4 +1,4 @@
-#include "CSubscription.h"
+#include "CPublisher.h"
 
 CPublisher::CPublisher() :
 	dllDetached(false),
@@ -21,6 +21,5 @@ void CPublisher::Raise(const TGameEvent& event)
 	nesting += 1;
 	Subs(event)();
 	nesting -= 1;
-
 	dllDetached = dllDetached || event == TGameEvent::DetachDll && nesting == 0;
 }

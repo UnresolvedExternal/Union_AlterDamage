@@ -1,5 +1,5 @@
 #pragma once
-#include "UnionAfx.h"
+
 #include <vector>
 
 #define MEMPOOL_DECL(className)					\
@@ -52,7 +52,7 @@ void CMemPool<T>::EnsureSpace()
 {
 	if (segments.empty())
 	{
-		void* page = new byte[pageSize];
+		void* page = new unsigned char[pageSize];
 		pages.push_back(page);
 
 		for (size_t i = 0; i < perPage; i++)
