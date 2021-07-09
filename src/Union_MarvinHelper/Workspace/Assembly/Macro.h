@@ -28,3 +28,5 @@ inline void Assert(bool result, const char* file, const char* func, int line, co
 #define ASSERT(exp) ((void)0)
 
 #endif
+
+#define ZENFOR(g1, g1a, g2, g2a) CHECK_THIS_ENGINE ? ZenDef(g1, g1a, g2, g2a) : 0x00000000

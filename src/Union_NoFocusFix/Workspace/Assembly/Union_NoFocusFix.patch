@@ -1,5 +1,0 @@
-#engine
-	#patch
-		LoadPlugins("Union_NoFocusFix.dll")
-	#/patch
-#/engine

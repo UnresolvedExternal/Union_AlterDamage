@@ -245,4 +245,104 @@ namespace NAMESPACE
 	{
 		return TInventoryIterator(nullptr);
 	}
+
+	template <class T>
+	struct TTreeIterator
+	{
+	private:
+		zCTree<T>* node;
+
+	public:
+		typedef TTreeIterator self_type;
+		typedef zCVob* value_type;
+		typedef zCVob*& reference;
+		typedef zCVob** pointer;
+		typedef std::input_iterator_tag iterator_category;
+
+		TTreeIterator(zCTree<T>* tree) :
+			node(tree)
+		{
+
+		}
+
+		TTreeIterator(const TTreeIterator&) = default;
+		TTreeIterator(TTreeIterator&&) = default;
+		TTreeIterator& operator=(const TTreeIterator&) = default;
+		TTreeIterator& operator=(TTreeIterator&&) = default;
+
+		self_type& operator++()
+		{
+			if (node->GetFirstChild())
+			{
+				node = node->GetFirstChild();
+				return *this;
+			}
+
+			if (node->GetNextChild())
+			{
+				node = node->GetNextChild();
+				return *this;
+			}
+
+			while (node = node->GetParent())
+				if (node->GetNextChild())
+				{
+					node = node->GetNextChild();
+					return *this;
+				}
+
+			return *this;
+		}
+
+		self_type operator++(int junk)
+		{
+			self_type backup = *this;
+			++*this;
+			return backup;
+		}
+
+		value_type operator*()
+		{
+			return node->GetData();
+		}
+
+		bool operator==(const self_type& right)
+		{
+			return node == right.node;
+		}
+
+		bool operator!=(const self_type& right)
+		{
+			return node != right.node;
+		}
+
+		zCTree<T>* GetNode()
+		{
+			return node;
+		}
+	};
+
+	template <class T>
+	TTreeIterator<T> begin(zCTree<T>& root)
+	{
+		return TTreeIterator<T>(&root);
+	}
+
+	template <class T>
+	TTreeIterator<T> end(zCTree<T>& root)
+	{
+		return TTreeIterator<T>(nullptr);
+	}
+
+	template <class T>
+	TTreeIterator<T> begin(zCTree<T>* root)
+	{
+		return TTreeIterator<T>(root);
+	}
+
+	template <class T>
+	TTreeIterator<T> end(zCTree<T>* root)
+	{
+		return TTreeIterator<T>(nullptr);
+	}
 }

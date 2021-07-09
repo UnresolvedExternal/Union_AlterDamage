@@ -2,10 +2,13 @@
 
 MEMPOOL_DEF(CSubscription)
 
+static std::unique_ptr<CMemPool<std::function<void()>>> delegatesPool;
+
 CMemPool<std::function<void()>>& CSubscription::GetDelegatesPool()
 {
-	static CMemPool<std::function<void()>> pool;
-	return pool;
+	if (!delegatesPool)
+		delegatesPool.reset(new CMemPool<std::function<void()>>());
+	return *delegatesPool;
 }
 
 CSubscription::CSubscription() :

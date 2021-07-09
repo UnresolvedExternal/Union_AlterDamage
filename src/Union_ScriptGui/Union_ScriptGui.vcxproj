@@ -474,9 +474,9 @@
     <ClInclude Include="Workspace\Utility\Engine\EngineIterators.h" />
     <ClInclude Include="Workspace\Utility\Engine\Misc.h" />
     <ClInclude Include="Workspace\Utility\Engine\PointPath.h" />
-    <ClInclude Include="Workspace\Utility\Engine\PopArguments.h" />
+    <ClInclude Include="Workspace\Utility\Engine\PushPop.h" />
     <ClInclude Include="Workspace\Utility\Engine\TPathOverlay.h" />
-    <ClInclude Include="Workspace\Utility\Engine\CSymbolHelper.h" />
+    <ClInclude Include="Workspace\Utility\Engine\CSymbol.h" />
     <ClInclude Include="Workspace\Utility\Engine\ZOwner.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\oAiHuman.h" />
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\oAiShoot.h" />

@@ -1,0 +1,6 @@
+#define ZOPTION
+#define ZPOP
+#define ZEXTERNAL
+#define ZEXTERNAL
+#define MEMPOOL_DECL
+#define FASTHOOK

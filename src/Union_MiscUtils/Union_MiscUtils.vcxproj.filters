@@ -7,56 +7,95 @@
     <Filter Include="Engine SDK\1. Gothic I">
       <UniqueIdentifier>{8ae688d0-f012-4090-9f6b-596aa73c5f2a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\1. Gothic I\Headers">
-      <UniqueIdentifier>{469ecd4f-9e74-49ce-8db6-618b2100025a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\1. Gothic I\Headers\zEngine">
-      <UniqueIdentifier>{429ba208-0f9f-4a19-a5c0-1fc686019f78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\1. Gothic I\Headers\oGame">
-      <UniqueIdentifier>{fcf0e97c-702d-4342-ba1b-717d29a44eaa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine SDK\2. Gothic Sequel">
       <UniqueIdentifier>{b237b2d6-9d5b-404f-91c2-51a1f2aa9116}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\2. Gothic Sequel\Headers">
-      <UniqueIdentifier>{dbfe3a93-38b1-4917-8cab-135ef78f0ca4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\2. Gothic Sequel\Headers\zEngine">
-      <UniqueIdentifier>{b8f90196-3569-4cbd-890d-69aa004ddf99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\2. Gothic Sequel\Headers\oGame">
-      <UniqueIdentifier>{b4e948f5-6f8e-459e-a3f9-cc73da81f00f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine SDK\3. Gothic II">
       <UniqueIdentifier>{51baf81c-3f08-46d5-8e92-54ddd6c41e19}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\3. Gothic II\Headers">
-      <UniqueIdentifier>{f64edacd-ecca-4ff7-a2dc-3e539e8a3275}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\3. Gothic II\Headers\zEngine">
-      <UniqueIdentifier>{ba1839c4-52a0-4ee2-b0a4-3a6d4a755627}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine SDK\3. Gothic II\Headers\oGame">
-      <UniqueIdentifier>{9dd283f4-07a3-4a5b-8b71-f92227d737b5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine SDK\4. Gothic II NoTR">
       <UniqueIdentifier>{989c18e5-e317-40b6-b32c-51d61539f2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\3. Gothic II\Headers">
+      <UniqueIdentifier>{f64edacd-ecca-4ff7-a2dc-3e539e8a3275}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine SDK\4. Gothic II NoTR\Headers">
       <UniqueIdentifier>{8a83fd2c-b4de-4e74-880e-8e830c6c412a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\4. Gothic II NoTR\Headers\oGame">
-      <UniqueIdentifier>{c59f028f-bc9d-4e42-a077-bd79a8242d69}</UniqueIdentifier>
+    <Filter Include="Engine SDK\2. Gothic Sequel\Headers">
+      <UniqueIdentifier>{dbfe3a93-38b1-4917-8cab-135ef78f0ca4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\4. Gothic II NoTR\Headers\zEngine">
-      <UniqueIdentifier>{597e84a6-ed4d-4b64-a62e-280b77b4ff0a}</UniqueIdentifier>
+    <Filter Include="Plugin">
+      <UniqueIdentifier>{6a8c8225-5d9d-4d0e-baf6-f26c361efd5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin\Workspace">
+      <UniqueIdentifier>{dd92377e-a7cf-4d61-9b0f-9a39be264f02}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine SDK\User API">
       <UniqueIdentifier>{14c9ae7c-6c4c-4745-bb82-31c1e4af5913}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine SDK\User API\zEngine">
       <UniqueIdentifier>{d8d8201b-5e48-4793-89d8-080e99b611c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame">
+      <UniqueIdentifier>{23e971ae-12be-4a58-a5f6-c4c740f08bee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\A">
+      <UniqueIdentifier>{0c6e33be-e511-4518-8787-87d1f7cebf5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\B">
+      <UniqueIdentifier>{5b1af8be-c18b-40d9-bf5c-b7a0d0489de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\C">
+      <UniqueIdentifier>{ca2547f2-da95-4016-b122-7095d5147f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\D">
+      <UniqueIdentifier>{7d3c0a5e-cb72-4efb-b3e7-d0558ab0d658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\E">
+      <UniqueIdentifier>{abc2351e-af74-4406-8259-547938b93681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\G">
+      <UniqueIdentifier>{92a80354-f5c9-4f72-9fa0-f5847e8f62ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\H">
+      <UniqueIdentifier>{5a78e229-d286-4e58-b022-7ab8a81c34ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\I">
+      <UniqueIdentifier>{8ad92949-8bea-422f-a0f6-9f381642bfca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\L">
+      <UniqueIdentifier>{5de850fa-976c-49e6-865e-7983abc5ad60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\M">
+      <UniqueIdentifier>{56c2524f-0b91-44e8-913c-2401d0d6f3c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\N">
+      <UniqueIdentifier>{e9a229ff-c8d0-4344-b417-4c0507f430b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\O">
+      <UniqueIdentifier>{7c195310-0229-47bc-954d-a8e897fe3bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\P">
+      <UniqueIdentifier>{1a8f4573-82bc-477a-a504-5ae76d799bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\R">
+      <UniqueIdentifier>{8932e6ae-2756-484e-9daa-f8a46f718a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\S">
+      <UniqueIdentifier>{21653968-c42b-454b-aed7-0fa0717e844d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\T">
+      <UniqueIdentifier>{98cf67df-5f6b-4eb2-a429-35e6370acba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\V">
+      <UniqueIdentifier>{95da9095-38d6-4adb-b64a-d776411502ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\W">
+      <UniqueIdentifier>{236ef3b8-aac7-42d3-baaf-047f17ad48d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine SDK\User API\oGame\Z">
+      <UniqueIdentifier>{781c993c-3ddf-4af1-a72e-40008e1445d5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine SDK\User API\zEngine\A">
       <UniqueIdentifier>{0d0e561c-e4bb-4f10-99c1-6e365865b64c}</UniqueIdentifier>
@@ -127,226 +166,120 @@
     <Filter Include="Engine SDK\User API\zEngine\Z">
       <UniqueIdentifier>{ec427b2f-575d-497e-b1e4-de00985f33a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame">
-      <UniqueIdentifier>{23e971ae-12be-4a58-a5f6-c4c740f08bee}</UniqueIdentifier>
+    <Filter Include="Engine SDK\4. Gothic II NoTR\Headers\oGame">
+      <UniqueIdentifier>{c59f028f-bc9d-4e42-a077-bd79a8242d69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\A">
-      <UniqueIdentifier>{0c6e33be-e511-4518-8787-87d1f7cebf5d}</UniqueIdentifier>
+    <Filter Include="Engine SDK\4. Gothic II NoTR\Headers\zEngine">
+      <UniqueIdentifier>{597e84a6-ed4d-4b64-a62e-280b77b4ff0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\B">
-      <UniqueIdentifier>{5b1af8be-c18b-40d9-bf5c-b7a0d0489de2}</UniqueIdentifier>
+    <Filter Include="Engine SDK\3. Gothic II\Headers\zEngine">
+      <UniqueIdentifier>{ba1839c4-52a0-4ee2-b0a4-3a6d4a755627}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\C">
-      <UniqueIdentifier>{ca2547f2-da95-4016-b122-7095d5147f4a}</UniqueIdentifier>
+    <Filter Include="Engine SDK\3. Gothic II\Headers\oGame">
+      <UniqueIdentifier>{9dd283f4-07a3-4a5b-8b71-f92227d737b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\D">
-      <UniqueIdentifier>{7d3c0a5e-cb72-4efb-b3e7-d0558ab0d658}</UniqueIdentifier>
+    <Filter Include="Engine SDK\2. Gothic Sequel\Headers\zEngine">
+      <UniqueIdentifier>{b8f90196-3569-4cbd-890d-69aa004ddf99}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\E">
-      <UniqueIdentifier>{abc2351e-af74-4406-8259-547938b93681}</UniqueIdentifier>
+    <Filter Include="Engine SDK\2. Gothic Sequel\Headers\oGame">
+      <UniqueIdentifier>{b4e948f5-6f8e-459e-a3f9-cc73da81f00f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\G">
-      <UniqueIdentifier>{92a80354-f5c9-4f72-9fa0-f5847e8f62ce}</UniqueIdentifier>
+    <Filter Include="Engine SDK\1. Gothic I\Overloads">
+      <UniqueIdentifier>{c1ba7fba-84ec-45e6-95c1-a3c022e23f2a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\H">
-      <UniqueIdentifier>{5a78e229-d286-4e58-b022-7ab8a81c34ec}</UniqueIdentifier>
+    <Filter Include="Engine SDK\2. Gothic Sequel\Overloads">
+      <UniqueIdentifier>{7a029f27-42fb-47ad-a1e7-06c206bc04fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\I">
-      <UniqueIdentifier>{8ad92949-8bea-422f-a0f6-9f381642bfca}</UniqueIdentifier>
+    <Filter Include="Engine SDK\3. Gothic II\Overloads">
+      <UniqueIdentifier>{8a3901e7-2b1a-449e-94c4-de733336fe67}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\L">
-      <UniqueIdentifier>{5de850fa-976c-49e6-865e-7983abc5ad60}</UniqueIdentifier>
+    <Filter Include="Engine SDK\4. Gothic II NoTR\Overloads">
+      <UniqueIdentifier>{225cc81e-eae0-432b-9f39-e93512644977}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\M">
-      <UniqueIdentifier>{56c2524f-0b91-44e8-913c-2401d0d6f3c4}</UniqueIdentifier>
+    <Filter Include="Engine SDK\1. Gothic I\Headers">
+      <UniqueIdentifier>{469ecd4f-9e74-49ce-8db6-618b2100025a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\N">
-      <UniqueIdentifier>{e9a229ff-c8d0-4344-b417-4c0507f430b3}</UniqueIdentifier>
+    <Filter Include="Engine SDK\1. Gothic I\Headers\zEngine">
+      <UniqueIdentifier>{429ba208-0f9f-4a19-a5c0-1fc686019f78}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\O">
-      <UniqueIdentifier>{7c195310-0229-47bc-954d-a8e897fe3bc9}</UniqueIdentifier>
+    <Filter Include="Engine SDK\1. Gothic I\Headers\oGame">
+      <UniqueIdentifier>{fcf0e97c-702d-4342-ba1b-717d29a44eaa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\P">
-      <UniqueIdentifier>{1a8f4573-82bc-477a-a504-5ae76d799bcc}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Assembly">
+      <UniqueIdentifier>{b7400756-92f7-4ad6-8086-b0ff17073240}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\R">
-      <UniqueIdentifier>{8932e6ae-2756-484e-9daa-f8a46f718a6d}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Entry">
+      <UniqueIdentifier>{6c69f77f-aeeb-4de5-8865-a20999a9a0cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\S">
-      <UniqueIdentifier>{21653968-c42b-454b-aed7-0fa0717e844d}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Events">
+      <UniqueIdentifier>{1af94b96-9fdd-463b-a5b1-171c2cae6d44}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\T">
-      <UniqueIdentifier>{98cf67df-5f6b-4eb2-a429-35e6370acba7}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Utility">
+      <UniqueIdentifier>{03c13667-b380-416f-b909-f05ddff57b70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\V">
-      <UniqueIdentifier>{95da9095-38d6-4adb-b64a-d776411502ea}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Settings">
+      <UniqueIdentifier>{70ddaef1-ca41-4aee-bb8c-93f74c80f543}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\W">
-      <UniqueIdentifier>{236ef3b8-aac7-42d3-baaf-047f17ad48d6}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Utility\Common">
+      <UniqueIdentifier>{7f6b01e7-a90d-4ea3-bf8d-11c784742698}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine SDK\User API\oGame\Z">
-      <UniqueIdentifier>{781c993c-3ddf-4af1-a72e-40008e1445d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace">
-      <UniqueIdentifier>{dd92377e-a7cf-4d61-9b0f-9a39be264f02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Assembly">
-      <UniqueIdentifier>{e7225be9-bd30-470d-a48e-b1f831783398}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Utility">
-      <UniqueIdentifier>{03aa2c6a-da20-4a4a-a10a-ce6489f25016}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Utility\Common">
-      <UniqueIdentifier>{49420d27-2bc5-4283-9d57-44020083115b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Utility\Engine">
-      <UniqueIdentifier>{5ee00f2f-4241-4bd2-8b2e-0c660c1ff30e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Savegame">
-      <UniqueIdentifier>{08faf17a-f049-442d-841c-6939221913ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Events">
-      <UniqueIdentifier>{dd71a1be-dfcb-48cf-8fbc-6dd74beb04d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Entry">
-      <UniqueIdentifier>{36c053c8-b222-41dc-b503-79a782cf1fe6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Settings">
-      <UniqueIdentifier>{2bf3066c-a852-4838-b964-6178c10244dc}</UniqueIdentifier>
+    <Filter Include="Plugin\Workspace\Utility\Engine">
+      <UniqueIdentifier>{153cf099-8bb8-40af-9c90-e7062a09073e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ZenGin\Gothic_I_Classic\staticDef_Ver0.cpp">
-      <Filter>Engine SDK\1. Gothic I</Filter>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\Statics_G1A.cpp">
+      <Filter>Engine SDK\2. Gothic Sequel\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_I_Classic\classDef_Ver0.cpp">
-      <Filter>Engine SDK\1. Gothic I</Filter>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\Globals_G1A.cpp">
+      <Filter>Engine SDK\2. Gothic Sequel\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_I_Addon\classDef_Ver1.cpp">
-      <Filter>Engine SDK\2. Gothic Sequel</Filter>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\ClassDeclarators_G1A.cpp">
+      <Filter>Engine SDK\2. Gothic Sequel\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_I_Addon\staticDef_Ver1.cpp">
-      <Filter>Engine SDK\2. Gothic Sequel</Filter>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\ClassDeclarators_G1.cpp">
+      <Filter>Engine SDK\1. Gothic I\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_II_Classic\classDef_Ver2.cpp">
-      <Filter>Engine SDK\3. Gothic II</Filter>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\Globals_G1.cpp">
+      <Filter>Engine SDK\1. Gothic I\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_II_Classic\staticDef_Ver2.cpp">
-      <Filter>Engine SDK\3. Gothic II</Filter>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\Statics_G1.cpp">
+      <Filter>Engine SDK\1. Gothic I\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_II_Addon\classDef_Ver3.cpp">
-      <Filter>Engine SDK\4. Gothic II NoTR</Filter>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\ClassDeclarators_G2.cpp">
+      <Filter>Engine SDK\3. Gothic II\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="ZenGin\Gothic_II_Addon\staticDef_Ver3.cpp">
-      <Filter>Engine SDK\4. Gothic II NoTR</Filter>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\Globals_G2.cpp">
+      <Filter>Engine SDK\3. Gothic II\Overloads</Filter>
     </ClCompile>
-    <ClCompile Include="DllMain.cpp" />
+    <ClCompile Include="ZenGin\Gothic_II_Classic\Statics_G2.cpp">
+      <Filter>Engine SDK\3. Gothic II\Overloads</Filter>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Addon\ClassDeclarators_G2A.cpp">
+      <Filter>Engine SDK\4. Gothic II NoTR\Overloads</Filter>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Addon\Globals_G2A.cpp">
+      <Filter>Engine SDK\4. Gothic II NoTR\Overloads</Filter>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Addon\Statics_G2A.cpp">
+      <Filter>Engine SDK\4. Gothic II NoTR\Overloads</Filter>
+    </ClCompile>
+    <ClCompile Include="DllMain.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
     <ClCompile Include="Workspace\Assembly\Assembly.cpp">
-      <Filter>Workspace\Assembly</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGGlobal.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGInstanceSet.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGInventoryMonitor.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Utility\Common\CBinSeqGen.cpp">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Utility\Common\CThreadPool.cpp">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Utility\Common\Misc.cpp">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Utility\Common\StringComparer.cpp">
-      <Filter>Workspace\Utility\Common</Filter>
+      <Filter>Plugin\Workspace\Assembly</Filter>
     </ClCompile>
     <ClCompile Include="Workspace\Events\Application.cpp">
-      <Filter>Workspace\Events</Filter>
+      <Filter>Plugin\Workspace\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace\Events\CPublisher.cpp">
-      <Filter>Workspace\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Events\CSubscription.cpp">
-      <Filter>Workspace\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Utility\Engine\Misc.cpp">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Savegame\CSGOverlaySet.cpp">
-      <Filter>Workspace\Savegame</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\DrawItem.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\FastFood.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\InventoryFix.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\ManageDocs.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\ManageInventory.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\MidnightFix.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\MoveLogEntry.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\PrintFocus.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\RemoveKeys.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\SaveTorches.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\ThrottleEvents.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\UnconsciousFix.cpp">
-      <Filter>Workspace\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="Workspace\Entry\WaterWeaponFix.cpp">
-      <Filter>Workspace\Entry</Filter>
+    <ClCompile Include="Workspace\Events\Publisher.cpp">
+      <Filter>Plugin\Workspace\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ZenGin\Gothic_I_Classic\engineNames_Ver0.hpp">
-      <Filter>Engine SDK\1. Gothic I</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_I_Addon\engineNames_Ver1.hpp">
-      <Filter>Engine SDK\2. Gothic Sequel</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_II_Classic\engineNames_Ver2.hpp">
-      <Filter>Engine SDK\3. Gothic II</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_II_Addon\engineNames_Ver3.hpp">
-      <Filter>Engine SDK\4. Gothic II NoTR</Filter>
-    </ClInclude>
     <ClInclude Include="ZenGin\zGothicAPI.h">
       <Filter>Engine SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_II_Addon\vtable_Ver3.h">
-      <Filter>Engine SDK\4. Gothic II NoTR</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_II_Classic\vtable_Ver2.h">
-      <Filter>Engine SDK\3. Gothic II</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_I_Addon\vtable_Ver1.h">
-      <Filter>Engine SDK\2. Gothic Sequel</Filter>
-    </ClInclude>
-    <ClInclude Include="ZenGin\Gothic_I_Classic\vtable_Ver0.h">
-      <Filter>Engine SDK\1. Gothic I</Filter>
     </ClInclude>
     <ClInclude Include="ZenGin\Gothic_II_Addon\API\oAiHuman.h">
       <Filter>Engine SDK\4. Gothic II NoTR\Headers\oGame</Filter>
@@ -2823,111 +2756,158 @@
     <ClInclude Include="ZenGin\Gothic_I_Classic\API\zZone.h">
       <Filter>Engine SDK\1. Gothic I\Headers\zEngine</Filter>
     </ClInclude>
-    <ClInclude Include="UnionAfx.h" />
+    <ClInclude Include="ZenGin\Gothic_I_Addon\VFTable_G1A.h">
+      <Filter>Engine SDK\2. Gothic Sequel\Overloads</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_I_Addon\Names_G1A.hpp">
+      <Filter>Engine SDK\2. Gothic Sequel</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_I_Classic\VFTable_G1.h">
+      <Filter>Engine SDK\1. Gothic I\Overloads</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_I_Classic\Names_G1.hpp">
+      <Filter>Engine SDK\1. Gothic I</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_II_Classic\VFTable_G2.h">
+      <Filter>Engine SDK\3. Gothic II\Overloads</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_II_Classic\Names_G2.hpp">
+      <Filter>Engine SDK\3. Gothic II</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_II_Addon\VFTable_G2A.h">
+      <Filter>Engine SDK\4. Gothic II NoTR\Overloads</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenGin\Gothic_II_Addon\Names_G2A.hpp">
+      <Filter>Engine SDK\4. Gothic II NoTR</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionAfx.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
     <ClInclude Include="Workspace\Assembly\Headers.h">
-      <Filter>Workspace\Assembly</Filter>
+      <Filter>Plugin\Workspace\Assembly</Filter>
     </ClInclude>
     <ClInclude Include="Workspace\Assembly\Macro.h">
-      <Filter>Workspace\Assembly</Filter>
+      <Filter>Plugin\Workspace\Assembly</Filter>
     </ClInclude>
     <ClInclude Include="Workspace\Assembly\Sources.h">
-      <Filter>Workspace\Assembly</Filter>
+      <Filter>Plugin\Workspace\Assembly</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGGlobal.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGInstanceSet.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGInventoryMonitor.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\CBinSeqGen.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\CMemoryStream.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\CMemPool.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\CThreadPool.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\Macro.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\Misc.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\StringComparer.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Common\TScope.h">
-      <Filter>Workspace\Utility\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\EngineIterators.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Events\CPublisher.h">
-      <Filter>Workspace\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Events\CSubscription.h">
-      <Filter>Workspace\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\Misc.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\ZOwner.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\TPathOverlay.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\PointPath.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Savegame\CSGOverlaySet.h">
-      <Filter>Workspace\Savegame</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\CGridView.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\CVobTraverser.h">
-      <Filter>Workspace\Utility\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\CSymbolHelper.h">
-      <Filter>Workspace\Utility\Engine</Filter>
+    <ClInclude Include="Workspace\Events\Publisher.h">
+      <Filter>Plugin\Workspace\Events</Filter>
     </ClInclude>
     <ClInclude Include="Workspace\Events\Delegate.h">
-      <Filter>Workspace\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\COptionSubscription.h">
-      <Filter>Workspace\Utility\Engine</Filter>
+      <Filter>Plugin\Workspace\Events</Filter>
     </ClInclude>
     <ClInclude Include="Workspace\Settings\Settings.h">
-      <Filter>Workspace\Settings</Filter>
+      <Filter>Plugin\Workspace\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Settings\SingleOption.h">
-      <Filter>Workspace\Settings</Filter>
+    <ClInclude Include="Workspace\Utility\Common\Coalesce.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Utility\Engine\COptionInvoke.h">
-      <Filter>Workspace\Utility\Engine</Filter>
+    <ClInclude Include="Workspace\Utility\Common\StringComparer.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Settings\CKeyCombo.h">
-      <Filter>Workspace\Settings</Filter>
+    <ClInclude Include="Workspace\Utility\Common\Scope.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Settings\CKeyHelper.h">
-      <Filter>Workspace\Settings</Filter>
+    <ClInclude Include="Workspace\Utility\Common\VectorOperators.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Settings\Serializing.h">
-      <Filter>Workspace\Settings</Filter>
+    <ClInclude Include="Workspace\Utility\Engine\ParserScope.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Settings\CVectorSetting.h">
-      <Filter>Workspace\Settings</Filter>
+    <ClInclude Include="Workspace\Utility\Engine\Symbol.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Entry\LoadSettings.cpp">
-      <Filter>Workspace\Entry</Filter>
+    <ClInclude Include="Workspace\Utility\Engine\VobTraverser.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\Iterators.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\PushPop.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\Misc.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\Hook.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Common\Math.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Common\ZOwner.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Common\Serializing.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\SaveData.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Common\Unlocked.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Events\Sub.h">
+      <Filter>Plugin\Workspace\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\ManageDocs.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\DrawItem.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\ManageInventory.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\RemoveKeys.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\ManageTorches.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\PrintFocusName.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\WaterWeaponFix.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\InventoryFix.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\ThrottleEvents.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\UnconsciousFix.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\MidnightFix.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\MoveLogEntry.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\FastFood.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\SkipDialog.h">
+      <Filter>Plugin\Workspace\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\KeyCombo.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\KeyHelper.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\VectorOption.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Engine\ActiveOption.h">
+      <Filter>Plugin\Workspace\Utility\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace\Utility\Common\ActiveValue.h">
+      <Filter>Plugin\Workspace\Utility\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -4800,10 +4780,19 @@
     <None Include="ZenGin\Gothic_UserAPI\zVEC4.inl">
       <Filter>Engine SDK\User API\zEngine\V</Filter>
     </None>
-    <None Include=".build_settings.inl" />
-    <None Include="Workspace\Assembly\Union_MiscUtils.patch">
-      <Filter>Workspace\Assembly</Filter>
+    <None Include="ZenGin\Gothic_UserAPI\zCLine2D.inl">
+      <Filter>Engine SDK\User API\zEngine\L</Filter>
     </None>
-    <None Include="cpp.hint" />
+    <None Include=".build_settings.inl">
+      <Filter>Plugin</Filter>
+    </None>
+    <None Include="cpp.hint">
+      <Filter>Plugin</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="Workspace\Assembly\Union_MiscUtils.patch">
+      <Filter>Plugin\Workspace\Assembly</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

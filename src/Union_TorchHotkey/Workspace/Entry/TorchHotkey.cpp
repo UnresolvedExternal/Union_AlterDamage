@@ -5,6 +5,12 @@ namespace NAMESPACE
 
 	CSubscription useTorch(TGameEvent::Loop, []()
 		{
+			if (!player)
+				return;
+			if (!ogame)
+				return;
+			if (player->sleepingMode != zTVobSleepingMode::zVOB_AWAKE)
+				return;
 			if (ogame->singleStep) 
 				return;
 			if (player->anictrl && player->anictrl->IsInWeaponChoose()) 

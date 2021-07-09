@@ -1,0 +1,5 @@
+﻿#engine
+	#patch
+		LoadPlugins("Union_ScriptClass.dll")
+	#/patch
+#/engine

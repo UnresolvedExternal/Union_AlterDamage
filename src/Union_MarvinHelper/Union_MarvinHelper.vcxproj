@@ -458,6 +458,7 @@
     <ClInclude Include="Workspace\Console\Commands.h" />
     <ClInclude Include="Workspace\Console\ObjectCash.h" />
     <ClInclude Include="Workspace\Console\Parser.h" />
+    <ClInclude Include="Workspace\Entry\DrawWaypoints.h" />
     <ClInclude Include="Workspace\Entry\EditItemAmount.h" />
     <ClInclude Include="Workspace\Entry\InitConsole.h" />
     <ClInclude Include="Workspace\Entry\KeepConsoleHistoryCase.h" />

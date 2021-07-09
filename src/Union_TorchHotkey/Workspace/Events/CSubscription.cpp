@@ -2,17 +2,20 @@
 
 MEMPOOL_DEF(CSubscription)
 
+//static std::unique_ptr<CMemPool<std::function<void()>>> delegatesPool;
+CMemPool<std::function<void()>>* delegatesPool;
+
 CMemPool<std::function<void()>>& CSubscription::GetDelegatesPool()
 {
-	static CMemPool<std::function<void()>> pool;
-	return pool;
+	if (!delegatesPool)
+		//delegatesPool.reset(new CMemPool<std::function<void()>>());
+		delegatesPool = new CMemPool<std::function<void()>>();
+	return *delegatesPool;
 }
 
 CSubscription::CSubscription() :
 	event(TGameEvent::NoEvent)
 {
-	CPublisher::GetInstance();
-	GetDelegatesPool();
 }
 
 CSubscription::CSubscription(const TGameEvent& event, const std::function<void()>& delegate, bool enabled) :
@@ -23,8 +26,7 @@ CSubscription::CSubscription(const TGameEvent& event, const std::function<void()
 
 CSubscription::CSubscription(CSubscription&& subscription) :
 	event(subscription.event),
-	delegate(subscription.delegate),
-	helperDelegate(subscription.helperDelegate)
+	delegate(subscription.delegate)
 {
 	subscription.event = TGameEvent::NoEvent;
 }
@@ -39,14 +41,8 @@ void CSubscription::Reset(const TGameEvent& event, const std::function<void()>& 
 
 	if (event != TGameEvent::NoEvent)
 	{
-		this->delegate = delegate;
-
-		helperDelegate = GetDelegatesPool().New([&]()
-		{
-			this->delegate();
-		});
-
-		CPublisher::GetInstance().Subscribe(event, helperDelegate);
+		this->delegate = GetDelegatesPool().New(delegate);
+		CPublisher::GetInstance().Subscribe(event, this->delegate);
 	}
 }
 
@@ -54,9 +50,9 @@ void CSubscription::Reset()
 {
 	if (event != TGameEvent::NoEvent)
 	{
-		CPublisher::GetInstance().Unsubscribe(event, this->helperDelegate);
+		CPublisher::GetInstance().Unsubscribe(event, delegate);
+		GetDelegatesPool().Delete(delegate);
 		event = TGameEvent::NoEvent;
-		GetDelegatesPool().Delete(this->helperDelegate);
 	}
 }
 

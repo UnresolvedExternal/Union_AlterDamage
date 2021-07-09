@@ -1,0 +1,23 @@
+﻿#engine [G1]
+	#patch
+		LoadPlugins("Union_DontKillInDuel.dll")
+	#/patch
+#/engine
+
+#engine [G1A]
+	#patch
+		LoadPlugins("Union_DontKillInDuel.dll")
+	#/patch
+#/engine
+
+#engine [G2]
+	#patch
+		LoadPlugins("Union_DontKillInDuel.dll")
+	#/patch
+#/engine
+
+#engine [G2A]
+	#patch
+		LoadPlugins("Union_DontKillInDuel.dll")
+	#/patch
+#/engine

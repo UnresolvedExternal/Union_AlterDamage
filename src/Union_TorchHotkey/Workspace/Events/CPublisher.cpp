@@ -2,6 +2,9 @@
 #include <algorithm>
 #include <unordered_set>
 
+static std::unique_ptr<CPublisher> instance;
+//static CPublisher* instance;
+
 CPublisher::CPublisher() :
 	dllDetached(false),
 	nesting(0)
@@ -11,8 +14,10 @@ CPublisher::CPublisher() :
 
 CPublisher& CPublisher::GetInstance()
 {
-	static CPublisher instance;
-	return instance;
+	if (!instance)
+		instance.reset(new CPublisher());
+		//instance = new CPublisher();
+	return *instance;
 }
 
 void CPublisher::Subscribe(const TGameEvent& event, const std::function<void()>* delegate)

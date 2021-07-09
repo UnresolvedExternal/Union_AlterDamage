@@ -1022,9 +1022,12 @@ namespace NAMESPACE
 		virtual string Execute() override
 		{
 			if (args.size() < 2)
-				return "Fail! Expected at lest 2 arguments.";
+				return "Fail! Expected at least 2 arguments.";
 
-			oCNpc* npc = dynamic_cast<oCNpc*>(ogame->GetGameWorld()->SearchVobByName((A args[0]).Upper()));
+			string name = args[0];
+			name.Upper();
+
+			oCNpc* npc = dynamic_cast<oCNpc*>(ogame->GetGameWorld()->SearchVobByName(name));
 
 			if (!npc)
 				return "Fail! Npc not found.";
@@ -1061,7 +1064,7 @@ namespace NAMESPACE
 
 	bool connectionMode = true;
 
-	class CConnectWp : public CConsoleCommand
+	class CWpConnectCommand : public CConsoleCommand
 	{
 	protected:
 		virtual void AddHints(std::vector<string>& hints) override
@@ -1069,126 +1072,482 @@ namespace NAMESPACE
 			if (args.size() > 2)
 				return;
 
-			if (args.size() == 1)
-			{
-				for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
-					if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
-						hints.push_back((A wp->name).Lower());
-
-				CVobTraverser traverser;
-
-				traverser.handle = [&](zCVob* vob)
-				{
-					zCVobSpot* fp = COA2(vob, CastTo<zCVobSpot>());
-					if (fp && fp->objectName.Length() && HasWordI(fp->objectName, args.back()))
-						hints.push_back((A fp->objectName).Lower());
-				};
-
-				traverser.TraverseVobTree();
-				return;
-			}
-			if (args.size() == 2)
-			{
-				for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
-					if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
-						hints.push_back((A wp->name).Lower());
-
-				CVobTraverser traverser;
-
-				traverser.handle = [&](zCVob* vob)
-				{
-					zCVobSpot* fp = COA2(vob, CastTo<zCVobSpot>());
-					if (fp && fp->objectName.Length() && HasWordI(fp->objectName, args.back()))
-						hints.push_back((A fp->objectName).Lower());
-				};
-
-				traverser.TraverseVobTree();
-				return;
-			}
-
+			for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
+				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()) && (args.size() == 1 || !args[0].CompareI(A wp->name)))
+					hints.push_back((A wp->name).Lower());
 		}
 
 		virtual string Execute() override
 		{
-			static zCWaypoint* mwp1, * mwp2;
-
 			if (args.size() < 2)
-				return "Fail! Expected at lest 2 arguments.";
-			mwp1 = ogame->GetWorld()->wayNet->GetWaypoint(A args[0].Upper());
-			mwp2 = ogame->GetWorld()->wayNet->GetWaypoint(A args[1].Upper());
+				return "Fail! Expected 2 arguments!";
 
-			if ((mwp1) && (mwp2)) {
-				ogame->GetTextView()->Printwin("Connected waypoints " + mwp1->GetName() + " - " + mwp2->GetName());
-				ogame->GetWorld()->wayNet->CreateWay(mwp1, mwp2);
+			zCWaypoint* const mwp1 = ogame->GetWorld()->wayNet->GetWaypoint(A args[0].Upper());
+
+			if (!mwp1)
+				return A"Fail! Waypoint doesn't exists: " + args[0];
+
+			zCWaypoint* const mwp2 = ogame->GetWorld()->wayNet->GetWaypoint(A args[1].Upper());
+
+			if (!mwp2)
+				return A"Fail! Waypoint doesn't exists: " + args[1];
+
+			if (mwp1 == mwp2)
+				return "Fail! Waypoints are same!";
+
+			if (mwp1->HasWay(mwp2))
+			{
+				ogame->GetWorld()->wayNet->DeleteWay(mwp1, mwp2);
+				return "Disconnected waypoints: " + mwp1->GetName() + " - " + mwp2->GetName();
 			}
+
+			ogame->GetWorld()->wayNet->CreateWay(mwp1, mwp2);
+			return "Connected waypoints: " + mwp1->GetName() + " - " + mwp2->GetName();
+		}
+
+	public:
+		CWpConnectCommand() :
+			CConsoleCommand("wp connect", "connects or disconnects two waypoints")
+		{
+
+		}
+	};
+
+	class CWpAddCommand : public CConsoleCommand
+	{
+	protected:
+		friend class CWpRenameCommand;
+		friend class CFpAddCommand;
+
+		static bool IsFreeWaypointName(const zSTRING& name)
+		{
+			return !ogame->world->wayNet->GetWaypoint(name);
+		}
+
+		static zCWaypoint* AddWaypoint(const string& name, const zVEC3& position, const zVEC3& atVector)
+		{
+			zCVobWaypoint* const vobWp = new zCVobWaypoint();
+			vobWp->SetVobName(name);
+			ogame->world->AddVob(vobWp);
+			vobWp->SetCollDet(false);
+			vobWp->SetPositionWorld(position);
+			vobWp->SetHeadingAtWorld(atVector);
+
+			zCWaypoint* const wp = zfactory->CreateWaypoint();
+			wp->Init(vobWp);
+			wp->SetName(Z name);
+			ogame->world->wayNet->InsertWaypoint(wp);
+			vobWp->Release();
+
+			return wp;
+		}
+
+		static zSTRING IncrementName(const zSTRING& name, const std::function<bool(const zSTRING&)>& predicate)
+		{
+			zSTRING newName = name;
+
+			if (!isdigit(name.Last()))
+				newName += "_01";
+
+			while (!predicate(newName))
+			{
+				int i;
+				int overflow;
+
+				for (i = newName.Length() - 1, overflow = 1; i >= 0 && isdigit(newName[static_cast<unsigned>(i)]); i--)
+				{
+					int digit = newName[static_cast<unsigned>(i)] - '0' + overflow;
+					overflow = digit / 10;
+					digit %= 10;
+
+					newName[static_cast<unsigned>(i)] = '0' + digit;
+				}
+
+				if (overflow)
+				{
+					newName[static_cast<unsigned>(i + 1)] = '1';
+					newName += "0";
+				}
+			}
+
+			return newName;
+		}
+
+		static zSTRING GenerateWaypointName()
+		{
+			static int counter = 0;
+			counter += 1;
+			
+			zSTRING name = "WP_";
+
+			for (int i = 100; i > counter; i /= 10)
+				name += "0";
+
+			name += counter;
+
+			if (IsFreeWaypointName(name))
+				return name;
+
+			return IncrementName(name, &CWpAddCommand::IsFreeWaypointName);
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() > 1)
+				return;
+
+			for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
+				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
+					hints.push_back((A wp->name).Lower());
+		}
+
+		virtual string Execute() override
+		{
+			zSTRING wpName;
+
+			if (args.empty())
+				wpName = GenerateWaypointName();
 			else
 			{
-				return "You have to select 2 waypoints to make connection!";
+				wpName = (Z args[0]).Upper();
+
+				if (!IsFreeWaypointName(wpName))
+					wpName = IncrementName(wpName, &CWpAddCommand::IsFreeWaypointName);
 			}
-			return "Connected waypoints " + mwp1->GetName() + " - " + mwp2->GetName();
+
+			zCWaypoint* const connectedWp = connectionMode ? ogame->world->wayNet->GetNearestWaypoint(player->GetPositionWorld()) : nullptr;
+			zCWaypoint* const wp = AddWaypoint(wpName, player->GetPositionWorld(), player->GetAtVectorWorld());
+
+			if (connectedWp)
+				ogame->world->wayNet->CreateWay(connectedWp, wp);
+
+			if (connectedWp)
+				return A"Waypoints connected: " + (A connectedWp->GetName()).Lower() + " - " + (A wpName).Lower();
+
+			return A"Waypoint created: " + (A wpName).Lower();
 		}
 
 	public:
-		CConnectWp() :
-			CConsoleCommand("connect_wp", "ai command for npc")
+		CWpAddCommand() :
+			CConsoleCommand("wp add", "adds a new waypoint")
 		{
 
 		}
 	};
 
-	class CDeleteWp : public CConsoleCommand
+	class CWpRemoveCommand : public CConsoleCommand
 	{
 	protected:
+		string Remove(zCWaypoint* wp)
+		{
+			const string message = "Waypoint removed: " + wp->name;
+			ogame->world->wayNet->DeleteWaypoint(wp);
+			return message;
+		}
+
 		virtual void AddHints(std::vector<string>& hints) override
 		{
 			if (args.size() > 1)
 				return;
 
-			if (args.size() == 1)
-			{
-				for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
-					if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
-						hints.push_back((A wp->name).Lower());
-
-				CVobTraverser traverser;
-
-				traverser.handle = [&](zCVob* vob)
-				{
-					zCVobSpot* fp = COA2(vob, CastTo<zCVobSpot>());
-					if (fp && fp->objectName.Length() && HasWordI(fp->objectName, args.back()))
-						hints.push_back((A fp->objectName).Lower());
-				};
-
-				traverser.TraverseVobTree();
-				return;
-			}
+			for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
+				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
+					hints.push_back((A wp->name).Lower());
 		}
 
 		virtual string Execute() override
 		{
-			static zCWaypoint* mwp1;
+			if (args.empty())
+			{
+				zCWaypoint* const nearestWp = ogame->world->wayNet->GetNearestWaypoint(player->GetPositionWorld());
 
-			if (args.size() < 1)
-				return "Fail! Expected at lest 1 argument.";
-			mwp1 = ogame->GetWorld()->wayNet->GetWaypoint(A args[0].Upper());
+				if (!nearestWp)
+					return "Fail! No waypoint found!";
 
-			if (mwp1) {
-				ogame->GetWorld()->wayNet->DeleteWaypoint(mwp1);
-				return "Deleted waypoint " + mwp1->GetName();
+				return Remove(nearestWp);
 			}
 
-			return "No waypoint found";
+			zCWaypoint* const wp = ogame->GetWorld()->wayNet->GetWaypoint(A args[0].Upper());
+
+			if (!wp)
+				return A"Fail! No waypoint found: " + (A args[0]).Lower();
+
+			return Remove(wp);
 		}
 
 	public:
-		CDeleteWp() :
-			CConsoleCommand("delete_wp", "delete typed waypoint")
+		CWpRemoveCommand() :
+			CConsoleCommand("wp remove", "removes a waypoint")
 		{
 
 		}
 	};
 
-	class CAddWpFp : public CConsoleCommand
+	class CWpRenameCommand : public CConsoleCommand
+	{
+	protected:
+		friend class CWpMoveCommand;
+
+		static zCWaypoint* Recreate(zCWaypoint* wp, string name, const zVEC3& position, const zVEC3& atVector)
+		{
+			std::vector<zCWaypoint*> left;
+			std::vector<zCWaypoint*> right;
+
+			for (zCWay* way : ogame->world->wayNet->waylist)
+			{
+				if (!way)
+					continue;
+
+				if (way->left == wp)
+					right.push_back(way->right);
+
+				if (way->right == wp)
+					left.push_back(way->left);
+			}
+
+			ogame->world->wayNet->DeleteWaypoint(wp);
+
+			if (!CWpAddCommand::IsFreeWaypointName(name))
+				name = CWpAddCommand::IncrementName(name, &CWpAddCommand::IsFreeWaypointName).ToChar();
+
+			wp = CWpAddCommand::AddWaypoint(name, position, atVector);
+
+			for (zCWaypoint* connected : left)
+				ogame->world->wayNet->CreateWay(connected, wp);
+
+			for (zCWaypoint* connected : right)
+				ogame->world->wayNet->CreateWay(wp, connected);
+
+			return wp;
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() > 2)
+				return;
+
+			for (zCWaypoint* wp : ogame->world->wayNet->wplist)
+				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
+					hints.push_back((A wp->name).Lower());
+		}
+
+		virtual string Execute() override
+		{
+			if (args.size() < 2)
+				return "Fail! Not enough arguments.";
+
+			zCWaypoint* wp = ogame->world->wayNet->GetWaypoint((Z args[0]).Upper());
+
+			if (!wp)
+				return A"Fail! Waypoint not found: " + args[0];
+
+			const zVEC3 position = wp->GetPositionWorld();
+			const zVEC3 atVector = wp->wpvob ? wp->wpvob->GetAtVectorWorld() : zVEC3{ 1, 0, 0 };
+
+			string name = args[1];
+			name.Upper();
+
+			wp = Recreate(wp, name, position, atVector);
+			return A"Waypoint renamed to " + (A wp->name).Lower();
+		}
+
+	public:
+		CWpRenameCommand() :
+			CConsoleCommand("wp rename", "renames a waypoint")
+		{
+
+		}
+	};
+
+	class CWpMoveCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1)
+				return;
+
+			for (zCWaypoint* wp : ogame->world->wayNet->wplist)
+				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
+					hints.push_back((A wp->name).Lower());
+		}
+
+		virtual string Execute() override
+		{
+			if (args.empty())
+				return "Fail! Not enough arguments.";
+
+			zCWaypoint* wp = ogame->world->wayNet->GetWaypoint((Z args[0]).Upper());
+
+			if (!wp)
+				return A"Fail! Waypoint not found: " + args[0];
+
+			CWpRenameCommand::Recreate(wp, wp->name, player->GetPositionWorld(), player->GetAtVectorWorld());
+			return A"Waypoint moved: " + (A wp->name).Lower();
+		}
+
+	public:
+		CWpMoveCommand() :
+			CConsoleCommand("wp move", "moves a waypoint to player position")
+		{
+
+		}
+	};
+
+	class CFpAddCommand : public CConsoleCommand
+	{
+	protected:
+		friend class CFpRemoveCommand;
+		friend class CFpRenameCommand;
+		friend class CFpMoveCommand;
+
+		static void AddHints(std::vector<string>& hints, const string& arg)
+		{
+			const size_t size = hints.size();
+
+			for (zCVob* vob : ogame->world->globalVobTree)
+				if (dynamic_cast<zCVobSpot*>(vob) && vob->objectName.Length() && HasWordI(vob->objectName, arg))
+					hints.push_back((A vob->objectName).Lower());
+
+			std::sort(hints.begin() + size, hints.end());
+		}
+
+		static std::unordered_set<std::string> GetAllFreepointNames()
+		{
+			std::unordered_set<std::string> names;
+			names.reserve(512);
+
+			for (zCVob* vob : ogame->world->globalVobTree)
+				if (dynamic_cast<zCVobSpot*>(vob))
+					names.insert(vob->objectName.ToChar());
+
+			return names;
+		}
+
+		static string GenerateFreepointName(const std::unordered_set<std::string>& names, const string& proposal)
+		{
+			string name = proposal;
+			name.Upper();
+
+			if (!name.StartWith("FP_"))
+				name = A"FP_" + name;
+
+			if (names.find(name.GetVector()) == names.end())
+				return name;
+
+			return CWpAddCommand::IncrementName(name, [&names](const zSTRING& name) { return names.find(name.ToChar()) == names.end(); });
+		}
+
+		static zSTRING GenerateFreepointName(const std::unordered_set<std::string>& names)
+		{
+			static int counter = 0;
+			counter += 1;
+			zSTRING name = "FP_";
+
+			for (int i = 100; i > counter; i /= 10)
+				name += "0";
+
+			name += counter;
+
+			if (names.find(name.ToChar()) == names.end())
+				return name;
+
+			return CWpAddCommand::IncrementName(name, [&names](const zSTRING& name) { return names.find(name.ToChar()) == names.end(); });
+		}
+
+		static void AddFreepoint(const string& name, const zVEC3& position, const zVEC3& atVector)
+		{
+			zCVobSpot* const fp = new zCVobSpot();
+			fp->SetVobName(name);
+			ogame->world->AddVob(fp);
+			fp->SetCollDet(false);
+			fp->SetPositionWorld(position);
+			fp->SetHeadingAtWorld(atVector);
+			fp->Release();
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() > 1)
+				return;
+
+			AddHints(hints, args[0]);
+		}
+
+		virtual string Execute() override
+		{
+			std::unordered_set<std::string> names = GetAllFreepointNames();
+			const string fpName = args.empty() ? GenerateFreepointName(names) : GenerateFreepointName(names, args[0]);
+			AddFreepoint(fpName, player->GetPositionWorld(), player->GetAtVectorWorld());
+			return A"Freepoint created: " + (A fpName).Lower();
+		}
+
+	public:
+		CFpAddCommand() :
+			CConsoleCommand("fp add", "adds a new freepoint")
+		{
+
+		}
+	};
+
+	class CFpRemoveCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1)
+				return;
+
+			CFpAddCommand::AddHints(hints, args[0]);
+		}
+
+		virtual string Execute() override
+		{
+			zCVobSpot* fp = nullptr;
+
+			if (args.empty())
+			{
+				float fpDistance = 0.0f;
+				
+				for (zCVob* vob : ogame->world->globalVobTree)
+				{
+					if (!dynamic_cast<zCVobSpot*>(vob))
+						continue;
+
+					const float currentDistance = player->GetDistanceToVob(*vob);
+
+					if (!fp || currentDistance < fpDistance)
+					{
+						fp = static_cast<zCVobSpot*>(vob);
+						fpDistance = currentDistance;
+					}
+				};
+			}
+			else
+				for (zCVob* vob : ogame->world->globalVobTree)
+					if (dynamic_cast<zCVobSpot*>(vob) && vob->objectName.CompareI(Z args[0]))
+					{
+						fp = static_cast<zCVobSpot*>(vob);
+						break;
+					}
+
+			if (!fp)
+				return "Fail! No freepoint found!";
+
+			const string message = "Freepoint removed: " + A fp->objectName;
+			ogame->world->RemoveVob(fp);
+			return message;
+		}
+
+	public:
+		CFpRemoveCommand() :
+			CConsoleCommand("fp remove", "removes a freepoint")
+		{
+
+		}
+	};
+
+	class CFpRenameCommand : public CConsoleCommand
 	{
 	protected:
 		virtual void AddHints(std::vector<string>& hints) override
@@ -1196,189 +1555,91 @@ namespace NAMESPACE
 			if (args.size() > 2)
 				return;
 
-			if (args.size() == 1)
-			{
-				if (HasWordI("wp", args.back()))
-					hints.push_back("wp");
-
-				if (HasWordI("fp", args.back()))
-					hints.push_back("fp");
-
-				return;
-			}
-
-			if (args.size() == 2)
-			{
-				for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
-					if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
-						hints.push_back((A wp->name).Lower());
-
-				CVobTraverser traverser;
-
-				traverser.handle = [&](zCVob* vob)
-				{
-					zCVobSpot* fp = COA2(vob, CastTo<zCVobSpot>());
-					if (fp && fp->objectName.Length() && HasWordI(fp->objectName, args.back()))
-						hints.push_back((A fp->objectName).Lower());
-				};
-
-				traverser.TraverseVobTree();
-				return;
-			}
+			return CFpAddCommand::AddHints(hints, args.back());
 		}
 
 		virtual string Execute() override
 		{
-			zSTRING vobname = "WP_00";
-			zSTRING vobname2 = "FP_00";
-			static zCWaypoint* mwp1, * mwp2;
-			zCVobWaypoint* vobwp;
-			zCVobSpot* fp;
-			zCWaypoint* wp;
-			static int i = 0;
-			static int j = 0;
-			bool mode = false;
-			if (args.size() < 1)
-				return "Fail! Expected at lest 1 argument.";
-			if (args.size() >= 1)
-			{
-				const string& arg = args[0];
-
-				if (arg.CompareI(A"wp"))
-					mode = true;
-				else
-					if (arg.CompareI(A"fp"))
-						mode = false;
-			}
 			if (args.size() < 2)
-			{
-				if (mode) {
-					if (connectionMode) {
-						if (!mwp1)
-							mwp1 = wp = ogame->GetWorld()->wayNet->GetNearestWaypoint(oCNpc::player->GetPositionWorld());
-						if (mwp1) {
-							vobwp = zNEW(zCVobWaypoint)	();
-							vobname = vobname + Z i;
-							vobwp->SetVobName(vobname);
-							ogame->GetWorld()->AddVob(vobwp);
-							vobwp->SetCollDet(false);
-							vobwp->SetPositionWorld(oCNpc::player->GetPositionWorld());
-							vobwp->SetHeadingAtWorld(oCNpc::player->GetAtVectorWorld());   // [Moos] 20.12.00 Anpassung an Vob-Änderung
-							mwp2 = wp = zfactory->CreateWaypoint();
-							wp->Init(vobwp);
-							wp->SetName(vobname);
-							i++;
-							ogame->GetTextView()->Printwin("Connected waypoints " + mwp1->GetName() + " - " + mwp2->GetName());
-							ogame->GetWorld()->wayNet->InsertWaypoint(wp);
-							ogame->GetWorld()->wayNet->CreateWay(mwp1, mwp2);
-							mwp1 = mwp2;
-							vobwp->Release();
-						}
-						return "Connected waypoints " + mwp1->GetName() + " - " + mwp2->GetName();
-					}
-					else
-					{
-						vobwp = zNEW(zCVobWaypoint)	();
-						vobname = vobname + Z i;
-						vobwp->SetVobName(vobname);
-						ogame->GetWorld()->AddVob(vobwp);
-						vobwp->SetCollDet(false);
-						vobwp->SetPositionWorld(oCNpc::player->GetPositionWorld());
-						vobwp->SetHeadingAtWorld(oCNpc::player->GetAtVectorWorld());   // [Moos] 20.12.00 Anpassung an Vob-Änderung	
-						mwp1 = wp = zfactory->CreateWaypoint();
-						wp->Init(vobwp);
-						wp->SetName(vobname);
-						i++;
-						ogame->GetTextView()->Printwin("Created WP " + wp->GetName());
-						ogame->GetWorld()->wayNet->InsertWaypoint(wp);
-						vobwp->Release();
-						return "Created waypoint " + vobname2;
-					}
-				}
-				else
-				{
-					ogame->GetTextView()->Printwin("Created FP " + (zSTRING)vobname2);
-					fp = zNEW(zCVobSpot)();
-					vobname2 = vobname2 + Z j;
-					fp->SetVobName(vobname2);
-					j++;
-					ogame->GetWorld()->AddVob(fp);
-					fp->SetCollDet(false);
-					fp->SetPositionWorld(oCNpc::player->GetPositionWorld());
-					fp->SetHeadingAtWorld(oCNpc::player->GetAtVectorWorld());
-					fp->Release();
-					return "Created freepoint " + vobname2;
-				}
-			}
+				return "Fail! Not enough arguments.";
 
-			if (args.size() == 2)
-			{
-				zSTRING tempName = "vob_00";
-				tempName = Z args[1].Upper();
-				if (mode) {
-					if (connectionMode) {
-						mwp1 = wp = ogame->GetWorld()->wayNet->GetNearestWaypoint(oCNpc::player->GetPositionWorld());
-						if (mwp1) {
-							vobwp = zNEW(zCVobWaypoint)	();
-							vobwp->SetVobName(tempName);
-							ogame->GetWorld()->AddVob(vobwp);
-							vobwp->SetCollDet(false);
-							vobwp->SetPositionWorld(oCNpc::player->GetPositionWorld());
-							vobwp->SetHeadingAtWorld(oCNpc::player->GetAtVectorWorld());   // [Moos] 20.12.00 Anpassung an Vob-Änderung
-							mwp2 = wp = zfactory->CreateWaypoint();
-							wp->Init(vobwp);
-							wp->SetName(tempName);
-							ogame->GetTextView()->Printwin("Connected waypoints " + mwp1->GetName() + " - " + mwp2->GetName());
-							ogame->GetWorld()->wayNet->InsertWaypoint(wp);
-							ogame->GetWorld()->wayNet->CreateWay(mwp1, mwp2);
-							mwp1 = mwp2;
-							vobwp->Release();
-							return "Connected waypoints " + mwp1->GetName() + " - " + mwp2->GetName();
-						}
-					}
-					else
-					{
-						vobwp = zNEW(zCVobWaypoint)	();
-						vobwp->SetVobName(tempName);
-						ogame->GetWorld()->AddVob(vobwp);
-						vobwp->SetCollDet(false);
-						vobwp->SetPositionWorld(oCNpc::player->GetPositionWorld());
-						vobwp->SetHeadingAtWorld(oCNpc::player->GetAtVectorWorld());   // [Moos] 20.12.00 Anpassung an Vob-Änderung			
-						mwp1 = wp = zfactory->CreateWaypoint();
-						wp->Init(vobwp);
-						wp->wpvob->showVisual;
-						wp->SetName(tempName);
-						ogame->GetTextView()->Printwin("Created WP " + wp->GetName());
-						ogame->GetWorld()->wayNet->InsertWaypoint(wp);
-						vobwp->Release();
-						return "Created waypoint vis" + tempName;
-					}
-				}
-				else
-				{
-					ogame->GetTextView()->Printwin("Created FP " + (zSTRING)tempName);
-					fp = zNEW(zCVobSpot)();
-					fp->SetVobName(tempName);
-					ogame->GetWorld()->AddVob(fp);
-					fp->SetCollDet(false);
-					fp->SetPositionWorld(oCNpc::player->GetPositionWorld());
-					fp->SetHeadingAtWorld(oCNpc::player->GetAtVectorWorld());
-					fp->Release();
-					return "Created freepoint " + tempName;
-				}
-			}
-			return "OK";
+			zCVobSpot* fp = dynamic_cast<zCVobSpot*>(ogame->world->SearchVobByName((Z args[0]).Upper()));
+
+			if (!fp)
+				return A"Fail! Freepoint not found: " + args[0];
+
+			const zVEC3 position = fp->GetPositionWorld();
+			const zVEC3 atVector = fp->GetAtVectorWorld();
+			
+			ogame->world->RemoveVob(fp);
+
+			std::unordered_set<std::string> names = CFpAddCommand::GetAllFreepointNames();
+			const string name = CFpAddCommand::GenerateFreepointName(names, args[1]);
+			CFpAddCommand::AddFreepoint(name, position, atVector);
+			return A"Freepoint renamed to " + (A name).Lower();
 		}
 
 	public:
-		CAddWpFp() :
-			CConsoleCommand("add", "add new waypoint or freepoint")
+		CFpRenameCommand() :
+			CConsoleCommand("fp rename", "renames a freepoint")
 		{
 
 		}
 	};
 
-	class CWpConnection : public CConsoleCommand
+	class CFpMoveCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1)
+				return;
+
+			const size_t size = hints.size();
+
+			for (zCVob* vob : ogame->world->globalVobTree)
+				if (zCVobSpot* fp = dynamic_cast<zCVobSpot*>(vob))
+					if (fp->objectName.Length() && HasWordI(fp->objectName, args[0]))
+					{
+						hints.emplace_back(fp->objectName);
+						hints.back().Lower();
+					}
+
+			std::sort(hints.begin() + size, hints.end());
+		}
+
+		virtual string Execute() override
+		{
+			if (args.empty())
+				return A"Fail! Not enough arguments.";
+
+			zCArray<zCVob*> vobs;
+			ogame->world->SearchVobListByName((Z args[0]).Upper(), vobs);
+			
+			for (zCVob* vob : vobs)
+				if (zCVobSpot* fp = dynamic_cast<zCVobSpot*>(vob))
+				{
+					string name = fp->objectName;
+					
+					ogame->world->RemoveVob(fp);
+					CFpAddCommand::AddFreepoint(name, player->GetPositionWorld(), player->GetAtVectorWorld());
+
+					name.Lower();
+					return A"Freepoint moved: " + name;
+				}
+
+			return A"Fail! Freepoint not found: " + args[0];
+		}
+
+	public:
+		CFpMoveCommand() :
+			CConsoleCommand("fp move", "moves a freepoint to player position")
+		{
+
+		}
+	};
+
+	class CWpLinkingCommand : public CConsoleCommand
 	{
 	protected:
 		virtual void AddHints(std::vector<string>& hints) override
@@ -1386,44 +1647,36 @@ namespace NAMESPACE
 			if (args.size() > 1)
 				return;
 
-			if (args.size() == 1)
-			{
-				if (HasWordI("on", args.back()))
-					hints.push_back("on");
+			if (HasWordI("on", args.back()))
+				hints.push_back("on");
 
-				if (HasWordI("off", args.back()))
-					hints.push_back("off");
-
-				return;
-			}
+			if (HasWordI("off", args.back()))
+				hints.push_back("off");
 		}
 
 		virtual string Execute() override
 		{
-			if (args.size() < 1)
-				return "Fail! Expected at lest 1 argument.";
+			if (args.empty())
+				return "Fail! Argument missing!";
 
-			if (args.size() >= 1)
+			if (args[0].CompareI(A"on"))
 			{
-				const string& arg = args[0];
-
-				if (arg.CompareI(A"on")) {
-					connectionMode = true;
-					return "Waypoints connection ON";
-				}
-				else
-					if (arg.CompareI(A"off")) {
-						connectionMode = false;
-						return "Waypoints connection OFF";
-					}
-
+				connectionMode = true;
+				return "Waypoint linking ON";
 			}
-			return "Wrong parameter name";
+				
+			if (args[0].CompareI(A"off"))
+			{
+				connectionMode = false;
+				return "Waypoint linking OFF";
+			}
+
+			return "Fail! Wrong parameter!";
 		}
 
 	public:
-		CWpConnection() :
-			CConsoleCommand("wpconnect", "waypoint connection on/off")
+		CWpLinkingCommand() :
+			CConsoleCommand("wp linking", "sets waypoint autoconnection mode for 'wp add' command")
 		{
 
 		}

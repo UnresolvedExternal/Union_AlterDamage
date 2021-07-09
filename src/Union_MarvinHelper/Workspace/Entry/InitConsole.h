@@ -19,7 +19,7 @@ namespace NAMESPACE
 	}
 
 	void __cdecl Hook__Game_InitConsole();
-	CInvoke<void(__cdecl*)()> Ivk__Game_InitConsole(ZenDef<TInstance>(0x00645280, 0x0066CBA0, 0x00673470, 0x006D01F0), &Hook__Game_InitConsole, IvkEnabled(ENGINE));
+	ModulePatchCallInvoker<void(__cdecl*)()> Ivk__Game_InitConsole(ZENFOR(0x00645280, 0x0066CBA0, 0x00673470, 0x006D01F0), &Hook__Game_InitConsole, IvkEnabled(ENGINE));
 	void __cdecl Hook__Game_InitConsole()
 	{
 		CConsoleContext& context = CConsoleContext::GetInstance();
@@ -44,10 +44,16 @@ namespace NAMESPACE
 		
 #pragma region Zuku05
 
-		context.AddCommand<CConnectWp>();
-		context.AddCommand<CDeleteWp>();
-		context.AddCommand<CAddWpFp>();
-		context.AddCommand<CWpConnection>();
+		context.AddCommand<CWpConnectCommand>();
+		context.AddCommand<CWpAddCommand>();
+		context.AddCommand<CWpRemoveCommand>();
+		context.AddCommand<CWpRenameCommand>();
+		context.AddCommand<CWpMoveCommand>();
+		context.AddCommand<CFpAddCommand>();
+		context.AddCommand<CFpRemoveCommand>();
+		context.AddCommand<CFpRenameCommand>();
+		context.AddCommand<CFpMoveCommand>();
+		context.AddCommand<CWpLinkingCommand>();
 
 #pragma endregion
 

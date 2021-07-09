@@ -3,6 +3,7 @@
 #include "Workspace\Utility\Common\CMemPool.h"
 #include <functional>
 #include <vector>
+#include <memory>
 
 enum class TGameEvent
 {

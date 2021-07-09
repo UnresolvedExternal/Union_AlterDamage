@@ -11,11 +11,11 @@
 #include "Workspace\Utility\Engine\TPathOverlay.h"
 #include "Workspace\Utility\Engine\PointPath.h"
 #include "Workspace\Utility\Engine\CGridView.h"
-#include "Workspace\Utility\Engine\CSymbolHelper.h"
+#include "Workspace\Utility\Engine\CSymbol.h"
 #include "Workspace\Utility\Engine\COptionSubscription.h"
 #include "Workspace\Utility\Engine\COptionInvoke.h"
 #include "Workspace\Utility\Engine\CParserScope.h"
 #include "Workspace\Utility\Engine\CSGGlobal.h"
-#include "Workspace\Utility\Engine\PopArguments.h"
+#include "Workspace\Utility\Engine\PushPop.h"
 
 #include "Workspace\Entry\Entry.h"

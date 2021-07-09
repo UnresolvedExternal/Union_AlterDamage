@@ -1,0 +1,10 @@
+#include "Workspace\Utility\Engine\Misc.cpp"
+#include "Workspace\Utility\Engine\CSGGlobal.cpp"
+
+#include "Workspace\Class\CFieldCoreInfo.cpp"
+#include "Workspace\Class\CFieldValue.cpp"
+#include "Workspace\Class\CFieldInfo.cpp"
+#include "Workspace\Class\CClassDescription.cpp"
+#include "Workspace\Class\CInstanceValue.cpp"
+#include "Workspace\Class\CInstance.cpp"
+#include "Workspace\Class\CInstanceManager.cpp"
