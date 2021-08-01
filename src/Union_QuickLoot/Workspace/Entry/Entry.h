@@ -2,11 +2,11 @@ namespace NAMESPACE
 {
 	const float PIF = (float)PI;
 
-	zSTRING GetFocusText(oCItem* item)
+	string GetFocusText(oCItem* item)
 	{
 		zSTRING text;
 
-		if (Settings::Cats.count(item->mainflag))
+		if (Settings::Cats.find(item->mainflag) != Settings::Cats.end())
 			text += item->description;
 		else
 			text += item->name;
@@ -346,7 +346,7 @@ namespace NAMESPACE
 		if (npc && (npc->IsUnconscious() || npc->attribute[NPC_ATR_HITPOINTS] <= 0))
 		{
 			for (oCItem& item : npc->inventory2)
-				if ((!item.HasFlag(ITM_FLAG_ACTIVE) || Union.GetEngineVersion() <= Engine_G1A) && (item.mainflag != ITM_CAT_ARMOR || Settings::DropArmor))
+				if ((!item.HasFlag(ITM_FLAG_ACTIVE) || Union.GetEngineVersion() <= Engine_G1A) && (!item.HasFlag(ITM_CAT_ARMOR) || Settings::DropArmor))
 					drop.InsertEnd(&item);
 
 			for (oCItem*& item : drop)

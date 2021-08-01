@@ -490,7 +490,7 @@
     <ClCompile Include="Workspace\Utility\Common\CThreadPool.cpp" />
     <ClCompile Include="Workspace\Utility\Common\Misc.cpp" />
     <ClCompile Include="Workspace\Utility\Common\StringComparer.cpp" />
-    <ClInclude Include="Export.h" />
+    <ClInclude Include="Workspace\Assembly\Export.h" />
     <ClInclude Include="Workspace\Utility\Engine\CSGGlobal.hpp" />
     <ClInclude Include="Workspace\Utility\Engine\Misc.hpp" />
     <ClCompile Include="ZenGin\Gothic_II_Addon\ClassDeclarators_G2A.cpp">

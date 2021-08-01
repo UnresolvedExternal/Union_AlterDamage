@@ -2,10 +2,11 @@ namespace NAMESPACE
 {
 	namespace Settings
 	{
+		bool DropArmor = false;
+		bool zMiscUtilsLoaded = false;
 		string XChar = "";
 		bool AppendAmountInfo = false;
-		bool DropArmor = false;
-		bool RemoveKeys = false;
+		bool RemoveKeys;
 
 		ZOPTION(LootItems, true);
 		ZOPTION(LootNpcs, true);
@@ -24,31 +25,43 @@ namespace NAMESPACE
 
 	namespace Settings
 	{
+
+#if ENGINE == Engine_G2A
+		CSubscription loadShowArmor(ZSUB(Entry), []()
+			{
+				Union.GetSysPackOption().Read(DropArmor, "PARAMETERS", "ShowArmor", false);
+			});
+#endif
+
 		extern CSubscription load;
 		CSubscription load(ZSUB(LoadBegin), []()
 			{
 				load.Reset();
 
-				bool miscUtilsLoad = false;
 				for (const CList<CPlugin>* list = CPlugin::GetPluginList().GetNext(); list; list = list->GetNext())
-					if (list->GetData()->GetName().CompareI("Union_MiscUtils.dll"))
+					if (list->GetData()->GetName().CompareI("zMiscUtils.dll"))
 					{
-						miscUtilsLoad = true;
+						zMiscUtilsLoaded = true;
 						break;
 					}
 
-				if (!miscUtilsLoad)
+				if (!zMiscUtilsLoaded)
 				{
 					CSingleOptionBase::LoadAll();
 					return;
 				}
 
-				auto XChar = CreateOption(zoptions, "UNION_MISCUTILS", "XChar", A"");
-				auto NameToDescCats = CreateOption(zoptions, "UNION_MISCUTILS", "NameToDescCats", CVectorSetting<string>());
-				auto AppendAmountInfo = CreateOption(zoptions, "UNION_MISCUTILS", "AppendAmountInfo", false);
-				auto RemoveKeys = CreateOption(zoptions, "UNION_MISCUTILS", "RemoveKeys", false);
+				static auto XChar = CreateOption(zoptions, "ZMISCUTILS", "XChar", A"");
+				static auto NameToDescCats = CreateOption(zoptions, "ZMISCUTILS", "NameToDescCats", CVectorSetting<string>());
+				static auto AppendAmountInfo = CreateOption(zoptions, "ZMISCUTILS", "AppendAmountInfo", false);
+				static auto RemoveKeys = CreateOption(zoptions, "ZMISCUTILS", "RemoveKeys", false);
 
-				NameToDescCats.onChange += [&NameToDescCats](const CSingleOption<CVectorSetting<string>>& opt)
+				XChar.onChange += [](const auto& opt)
+				{
+					::NAMESPACE::Settings::XChar = *XChar;
+				};
+
+				NameToDescCats.onChange += [](const auto& opt)
 				{
 					Cats.clear();
 
@@ -69,14 +82,17 @@ namespace NAMESPACE
 					}
 				};
 
+				AppendAmountInfo.onChange += [](const auto& opt)
+				{
+					::NAMESPACE::Settings::AppendAmountInfo = *AppendAmountInfo;
+				};
+
+				RemoveKeys.onChange += [](const auto& opt)
+				{
+					::NAMESPACE::Settings::RemoveKeys = *RemoveKeys;
+				};
+
 				CSingleOptionBase::LoadAll();
-
-				::NAMESPACE::Settings::XChar = XChar;
-				::NAMESPACE::Settings::AppendAmountInfo = AppendAmountInfo;
-				::NAMESPACE::Settings::RemoveKeys = RemoveKeys;
-
-				if (Union.GetEngineVersion() == Engine_G2A)
-					Union.GetSysPackOption().Read(DropArmor, "PARAMETERS", "ShowArmor", false);
 			});
 	}
 }

@@ -2906,7 +2906,7 @@
     <ClInclude Include="Workspace\Utility\Engine\Misc.hpp">
       <Filter>Plugin\Workspace\Utility\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Export.h">
+    <ClInclude Include="Workspace\Assembly\Export.h">
       <Filter>Plugin\Workspace\Assembly</Filter>
     </ClInclude>
   </ItemGroup>
