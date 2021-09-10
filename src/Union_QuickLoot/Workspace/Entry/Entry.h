@@ -453,7 +453,7 @@ namespace NAMESPACE
 			if (player->attribute[NPC_ATR_HITPOINTS] <= 0)
 				return;
 
-			if (!Settings::LootInDanger && !ogame->GetHeroStatus() != oHERO_STATUS_STD)
+			if (!Settings::LootInDanger && ogame->GetHeroStatus() != oHERO_STATUS_STD)
 				return;
 
 			Array<oCItem*> drop;
