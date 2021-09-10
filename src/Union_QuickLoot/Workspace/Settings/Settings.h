@@ -4,13 +4,14 @@ namespace NAMESPACE
 	{
 		bool DropArmor = false;
 		bool zMiscUtilsLoaded = false;
-		string XChar = "";
+		string XChar = "x";
 		bool AppendAmountInfo = false;
 		bool RemoveKeys;
 
 		ZOPTION(LootItems, true);
 		ZOPTION(LootNpcs, true);
 		ZOPTION(LootContainers, true);
+		ZOPTION(LootInDanger, true);
 
 #if ENGINE == Engine_G1
 		ZOPTION(Key, CKeyCombo({ { KEY_V } }));
@@ -19,6 +20,7 @@ namespace NAMESPACE
 #endif
 
 		ZOPTION(AnimatedText, true);
+		ZOPTION(ForceAmountInfo, true);
 
 		std::unordered_set<int> Cats;
 	}

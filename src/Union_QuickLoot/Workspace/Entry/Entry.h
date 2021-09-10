@@ -11,10 +11,10 @@ namespace NAMESPACE
 		else
 			text += item->name;
 
-		if (Settings::AppendAmountInfo && item->amount != 1)
+		if ((Settings::AppendAmountInfo || Settings::ForceAmountInfo) && item->amount != 1)
 		{
 			text += " (";
-			text += Settings::XChar.GetVector();
+			text += Settings::AppendAmountInfo ? Settings::XChar.GetVector() : "x";
 			text += item->amount;
 			text += ")";
 		}
@@ -451,6 +451,9 @@ namespace NAMESPACE
 				return;
 
 			if (player->attribute[NPC_ATR_HITPOINTS] <= 0)
+				return;
+
+			if (!Settings::LootInDanger && !ogame->GetHeroStatus() != oHERO_STATUS_STD)
 				return;
 
 			Array<oCItem*> drop;
