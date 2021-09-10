@@ -18,12 +18,24 @@ namespace NAMESPACE
 		return false;
 	}
 
-	void __cdecl Hook__Game_InitConsole();
-	ModulePatchCallInvoker<void(__cdecl*)()> Ivk__Game_InitConsole(ZENFOR(0x00645280, 0x0066CBA0, 0x00673470, 0x006D01F0), &Hook__Game_InitConsole, IvkEnabled(ENGINE));
-	void __cdecl Hook__Game_InitConsole()
+	void RegisterEvalFunc()
 	{
+		int evalNum = 0;
+
+		for (int i = 1; i < zCON_MAX_EVAL; i++)
+			if (zcon->evalfunc[i])
+				evalNum = i;
+
+		innerEvalFunc = zcon->evalfunc[evalNum];
+		zcon->evalfunc[evalNum] = &ConsoleEvalFunc;
+	}
+
+	void InitConsole()
+	{
+		RegisterEvalFunc();
+
 		CConsoleContext& context = CConsoleContext::GetInstance();
-		
+
 		context.AddCommand<CConDatCommand>();
 		context.AddCommand<CShowVarsCommand>();
 		context.AddCommand<CHideVarsCommand>();
@@ -40,8 +52,8 @@ namespace NAMESPACE
 		context.AddCommand<CShowCursorCommand>();
 		context.AddCommand<CHideCursorCommand>();
 		context.AddCommand<CPrintWeaponsCommand>();
-		context.AddCommand<CGoRouteCommand>();		
-		
+		context.AddCommand<CGoRouteCommand>();
+
 #pragma region Zuku05
 
 		context.AddCommand<CWpConnectCommand>();
@@ -56,16 +68,15 @@ namespace NAMESPACE
 		context.AddCommand<CWpLinkingCommand>();
 
 #pragma endregion
-
-		int evalNum = 0;
-
-		for (int i = 1; i < zCON_MAX_EVAL; i++)
-			if (zcon->evalfunc[i])
-				evalNum = i;
-
-		innerEvalFunc = zcon->evalfunc[evalNum];
-		zcon->evalfunc[evalNum] = &ConsoleEvalFunc;
-
-		Ivk__Game_InitConsole();
 	}
+
+	extern CSubscription initConsole;
+	CSubscription initConsole(ZSUB(PreLoop), []()
+		{
+			if (!zcon || zCConsole::cur_console != zcon)
+				return;
+
+			initConsole.Reset();
+			InitConsole();
+		});
 }
