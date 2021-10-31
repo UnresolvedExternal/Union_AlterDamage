@@ -14,8 +14,6 @@ namespace NAMESPACE
 		ZOPTION(KeyConsoleDeleteWord, CKeyCombo({ {KEY_RCONTROL, KEY_BACK}, {KEY_LCONTROL, KEY_BACK}, {KEY_LEFT} }));
 
 		ZOPTION(ChangeSelectionThrottleMs, 50);
-
-		ZOPTION(SkipInputFrames, 2);
 	}
 
 	namespace Settings

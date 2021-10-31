@@ -68,6 +68,9 @@ namespace NAMESPACE
 		context.AddCommand<CWpLinkingCommand>();
 
 #pragma endregion
+
+		context.AddCommand<CPlayAniCommand>();
+		context.AddCommand<CPlayFaceAniCommand>();
 	}
 
 	extern CSubscription initConsole;

@@ -2899,9 +2899,6 @@
     <ClInclude Include="Workspace\Entry\KeepConsoleHistoryCase.h">
       <Filter>Workspace\Entry</Filter>
     </ClInclude>
-    <ClInclude Include="Workspace\Entry\SkipInputFrames.h">
-      <Filter>Workspace\Entry</Filter>
-    </ClInclude>
     <ClInclude Include="Workspace\Entry\ToggleConsole.h">
       <Filter>Workspace\Entry</Filter>
     </ClInclude>
@@ -4805,5 +4802,8 @@
       <Filter>Workspace\Assembly</Filter>
     </None>
     <None Include="cpp.hint" />
+    <None Include="Workspace\Assembly\Union_ConsoleKeepHistoryCase.patch">
+      <Filter>Workspace\Assembly</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,38 @@
+#engine
+	#patch [ConsoleKeepHistoryCase]
+		OptionDef(BOOL @GAME:UNION_MARVINHELPER:ConsoleKeepHistoryCase, 1)
+	#/patch
+#/engine
+
+#engine [G1]
+	#patch [ConsoleKeepHistoryCase]
+		IF BOOL @GAME:UNION_MARVINHELPER:ConsoleKeepHistoryCase
+			HEX @0x006D9415 = '90 90 90 90 90'
+		END
+	#/patch
+#/engine
+
+#engine [G1A]
+	#patch [ConsoleKeepHistoryCase]
+		IF BOOL @GAME:UNION_MARVINHELPER:ConsoleKeepHistoryCase
+			HEX @0x0071104F = '90 90 90 90 90'
+		END
+	#/patch
+#/engine
+
+#engine [G2]
+	#patch [ConsoleKeepHistoryCase]
+		IF BOOL @GAME:UNION_MARVINHELPER:ConsoleKeepHistoryCase
+			HEX @0x00722BA1 = '90 90 90 90 90'
+		END
+	#/patch
+#/engine
+
+
+#engine [G2A]
+	#patch [ConsoleKeepHistoryCase]
+		IF BOOL @GAME:UNION_MARVINHELPER:ConsoleKeepHistoryCase
+			HEX @0x007825E1 = '90 90 90 90 90'
+		END
+	#/patch
+#/engine

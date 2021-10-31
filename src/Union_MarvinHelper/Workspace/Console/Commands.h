@@ -1683,4 +1683,63 @@ namespace NAMESPACE
 	};
 
 #pragma endregion
+
+	class CPlayAniCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1 || !player || !player->GetModel())
+				return;
+
+			const size_t oldSize = hints.size();
+
+			for (zCModelPrototype* proto : player->GetModel()->modelProtoList)
+				if (proto)
+					for (int i = 0; i < proto->protoAnis.GetNum(); i++)
+						if (zCModelAni* ani = proto->protoAnis[i])
+							if (HasWordI(ani->aniName, args.back()))
+							{
+								hints.push_back(ani->aniName);
+								hints.back().Lower();
+							}
+
+			std::sort(hints.begin() + oldSize, hints.end());
+		}
+
+	public:
+		CPlayAniCommand() :
+			CConsoleCommand("play ani")
+		{
+
+		}
+	};
+
+	class CPlayFaceAniCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1 || !player || !player->GetModel())
+				return;
+
+			if (zCModelNodeInst* head = player->GetModel()->SearchNode("BIP01 HEAD"))
+				if (zCMorphMesh* mesh = dynamic_cast<zCMorphMesh*>(head->nodeVisual))
+					if (mesh->morphProto)
+						for (int i = 0; i < mesh->morphProto->aniList.GetNum(); i++)
+							if (zCMorphMeshAni* ani = mesh->morphProto->aniList[i])
+								if (HasWordI(ani->aniName, args.back()))
+								{
+									hints.push_back(ani->aniName);
+									hints.back().Lower();
+								}
+		}
+
+	public:
+		CPlayFaceAniCommand() :
+			CConsoleCommand("play faceani")
+		{
+
+		}
+	};
 }

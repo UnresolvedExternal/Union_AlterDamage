@@ -181,7 +181,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g2a_nb\System\</OutDir>
+    <OutDir>D:\Gothic\g2a\System\</OutDir>
     <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -463,7 +463,6 @@
     <ClInclude Include="Workspace\Entry\InitConsole.h" />
     <ClInclude Include="Workspace\Entry\KeepConsoleHistoryCase.h" />
     <ClInclude Include="Workspace\Entry\LoadSettings.h" />
-    <ClInclude Include="Workspace\Entry\SkipInputFrames.h" />
     <ClInclude Include="Workspace\Entry\ToggleConsole.h" />
     <ClInclude Include="Workspace\Events\CPublisher.h" />
     <ClInclude Include="Workspace\Events\CSubscription.h" />
@@ -1334,6 +1333,7 @@
   <ItemGroup>
     <None Include=".build_settings.inl" />
     <None Include="cpp.hint" />
+    <None Include="Workspace\Assembly\Union_ConsoleKeepHistoryCase.patch" />
     <None Include="Workspace\Assembly\Union_MarvinHelper.patch" />
     <None Include="ZenGin\Gothic_UserAPI\CGameManager.inl" />
     <None Include="ZenGin\Gothic_UserAPI\oCAIArrow.inl" />

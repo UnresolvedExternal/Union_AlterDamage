@@ -31,6 +31,5 @@
 #include "Workspace\Entry\EditItemAmount.h"
 #include "Workspace\Entry\InitConsole.h"
 #include "Workspace\Entry\ToggleConsole.h"
-#include "Workspace\Entry\SkipInputFrames.h"
 #include "Workspace\Entry\KeepConsoleHistoryCase.h"
 #include "Workspace\Entry\DrawWaypoints.h"
