@@ -22,7 +22,7 @@ namespace NAMESPACE
 		ZOPTION(AnimatedText, true);
 		ZOPTION(ForceAmountInfo, true);
 
-		zCOLOR textColor = GFX_WHITE;
+		zCOLOR textColor = zCOLOR(255, 255, 255);
 		ZOPTION(TextColorARGB, CVectorSetting<int>({ 255, 255, 255, 255 }));
 
 		std::unordered_set<int> Cats;
