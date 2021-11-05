@@ -22,6 +22,9 @@ namespace NAMESPACE
 		ZOPTION(AnimatedText, true);
 		ZOPTION(ForceAmountInfo, true);
 
+		zCOLOR textColor = GFX_WHITE;
+		ZOPTION(TextColorARGB, CVectorSetting<int>({ 255, 255, 255, 255 }));
+
 		std::unordered_set<int> Cats;
 	}
 
@@ -92,6 +95,19 @@ namespace NAMESPACE
 				RemoveKeys.onChange += [](const auto& opt)
 				{
 					::NAMESPACE::Settings::RemoveKeys = *RemoveKeys;
+				};
+
+				TextColorARGB.onChange += [](const auto& opt)
+				{
+					std::vector<int> values = *TextColorARGB;
+
+					for (int& value : values)
+						value = CoerceInRange(value, 0, 0, 255);
+
+					if ((*TextColorARGB).size() == 4)
+						textColor = zCOLOR(values[1], values[2], values[3], values[0]);
+					else
+						textColor = GFX_WHITE;
 				};
 
 				CSingleOptionBase::LoadAll();

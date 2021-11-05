@@ -52,8 +52,20 @@ namespace NAMESPACE
 		bool IsPressed(const std::vector<int>& combo) const
 		{
 			for (int key : combo)
-				if (!zKeyPressed(key))
+			{
+				bool pressed;
+
+				switch (key)
+				{
+				case MOUSE_BUTTONLEFT: pressed = zinput->GetMouseButtonPressedLeft(); break;
+				case MOUSE_BUTTONMID: pressed = zinput->GetMouseButtonPressedMid(); break;
+				case MOUSE_BUTTONRIGHT: pressed = zinput->GetMouseButtonPressedRight(); break;
+				default: pressed = zKeyPressed(key); break;
+				}
+
+				if (!pressed)
 					return false;
+			}
 
 			return true;
 		}

@@ -45,7 +45,7 @@ namespace NAMESPACE
 			worldPos(worldPos),
 			text(GetFocusText(item)),
 			width(screen->FontSize(text)),
-			color(255, 255, 255)
+			color(Settings::textColor)
 		{
 			
 		}
@@ -429,10 +429,13 @@ namespace NAMESPACE
 				Settings::Key->GetToggled();
 		}
 	};
-
+	
 	CSubscription quickLoot(ZSUB(Loop), []()
 		{
 			if (!Settings::LootItems && !Settings::LootContainers && !Settings::LootNpcs)
+				return;
+
+			if (!ogame || !player)
 				return;
 
 			if (!oCInformationManager::GetInformationManager().HasFinished())
@@ -447,7 +450,10 @@ namespace NAMESPACE
 			if (!oCNpcFocus::focus || (void*)oCNpcFocus::focus != (void*)&oCNpcFocus::focuslist[FOCUS_NORMAL])
 				return;
 
-			if (!COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE || player->interactMob || player->IsUnconscious())
+			if (!COA2(player, focus_vob) || player->GetWeaponMode() != NPC_WEAPON_NONE || player->IsUnconscious())
+				return;
+
+			if (player->interactMob)
 				return;
 
 			if (player->attribute[NPC_ATR_HITPOINTS] <= 0)
@@ -489,17 +495,21 @@ namespace NAMESPACE
 				}
 			}
 			
-			if (item)
+			if (item && !player->inventory2.IsOpen())
 				drop.InsertEnd(item);
 			
 			if (npc)
 			{
 				drop = GetDrop(npc);
+
 				if (drop.GetNum())
+				{
 					npc->AssessTheft_S(player);
+					player->CloseDeadNpc();
+				}
 			}
 			
-			if (chest && chest->containList.next)
+			if (chest && chest->containList.next && !player->inventory2.IsOpen())
 			{
 				TKeyToggler keyToggler;
 
@@ -534,7 +544,7 @@ namespace NAMESPACE
 					player->GetEM(false)->OnMessage(message, player);
 
 					if (Settings::RemoveKeys && TryRemoveKey(player, chest->keyInstance) && ogame->GetTextView())
-						ogame->GetTextView()->PrintTimedCXY(Z"Key removed: " + chest->keyInstance, 5000.0f, nullptr);
+						ogame->GetTextView()->PrintTimedCXY(Z"Key removed: " + chest->keyInstance, 5000.0f, &Settings::textColor);
 				}
 
 				drop = GetDrop(chest);
