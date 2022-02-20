@@ -23,6 +23,7 @@
 #include "Workspace\Console\ObjectCash.h"
 #include "Workspace\Console\CConsoleContext.h"
 #include "Workspace\Console\CConsoleCommand.h"
+#include "Workspace\Console\CShowAnictrlCommand.h"
 #include "Workspace\Console\ArgumentHelpers.h"
 #include "Workspace\Console\Decompiler.h"
 #include "Workspace\Console\Commands.h"

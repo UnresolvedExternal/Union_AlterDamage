@@ -30,10 +30,8 @@ namespace NAMESPACE
 		zcon->evalfunc[evalNum] = &ConsoleEvalFunc;
 	}
 
-	void InitConsole()
+	void RegisterCommands()
 	{
-		RegisterEvalFunc();
-
 		CConsoleContext& context = CConsoleContext::GetInstance();
 
 		context.AddCommand<CConDatCommand>();
@@ -54,7 +52,7 @@ namespace NAMESPACE
 		context.AddCommand<CPrintWeaponsCommand>();
 		context.AddCommand<CGoRouteCommand>();
 
-#pragma region Zuku05
+#pragma region zuku05
 
 		context.AddCommand<CWpConnectCommand>();
 		context.AddCommand<CWpAddCommand>();
@@ -71,12 +69,32 @@ namespace NAMESPACE
 
 		context.AddCommand<CPlayAniCommand>();
 		context.AddCommand<CPlayFaceAniCommand>();
+		context.AddCommand<CAiGotoCommand>();
+		context.AddCommand<CShowAnictrlCommand>();
+	}
+
+	void InitConsole()
+	{
+		RegisterEvalFunc();
+		RegisterCommands();
+
+		if (ogame && Settings::ActivateMarvinMode)
+			ogame->game_testmode = true;
+
+		if (zcon && Settings::ExecuteStartupScript)
+		{
+			zSTRING text = zcon->instr;
+			auto scope = AssignTemp(CConsoleContext::GetInstance().GetCommand(), CConsoleContext::GetInstance().GetCommand());
+			CConsoleContext::GetInstance().GetCommand().Parse("execute startup");
+			zcon->Evaluate("execute startup");
+			zcon->instr = text;
+		}
 	}
 
 	extern CSubscription initConsole;
 	CSubscription initConsole(ZSUB(PreLoop), []()
 		{
-			if (!zcon || zCConsole::cur_console != zcon)
+			if (!zcon)
 				return;
 
 			initConsole.Reset();

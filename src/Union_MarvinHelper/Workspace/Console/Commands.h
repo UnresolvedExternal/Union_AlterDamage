@@ -588,6 +588,7 @@ namespace NAMESPACE
 				return "Fail: cant read the file";
 
 			auto commandScope = AssignTemp(context.GetCommand(), context.GetCommand());
+
 			std::string line;
 			int commands = 0;
 
@@ -597,6 +598,7 @@ namespace NAMESPACE
 					continue;
 
 				commands += 1;
+
 				context.GetCommand().Parse(line.c_str());
 				zcon->Evaluate(Z context.GetCommand().ToString());
 			}
@@ -1738,6 +1740,27 @@ namespace NAMESPACE
 	public:
 		CPlayFaceAniCommand() :
 			CConsoleCommand("play faceani")
+		{
+
+		}
+	};
+
+	class CAiGotoCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() > 1)
+				return;
+
+			for (zCWaypoint* wp : ogame->GetGameWorld()->wayNet->wplist)
+				if (wp && wp->name.Length() && HasWordI(wp->name, args.back()))
+					hints.push_back((A wp->name).Lower());
+		}
+
+	public:
+		CAiGotoCommand() :
+			CConsoleCommand("aigoto", "")
 		{
 
 		}
