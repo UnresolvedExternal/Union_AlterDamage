@@ -152,63 +152,63 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>D:\Gothic\g2a_dirty\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>D:\Gothic\g2a_dirty\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>D:\Gothic\g2\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>D:\Gothic\g1a\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>D:\Gothic\g1\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\Gothic\g2a\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\Gothic\g2a\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\Gothic\g2\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\Gothic\g1a\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\Gothic\g1\system\</OutDir>
-    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0i\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MP Debug|Win32'">
     <ClCompile>

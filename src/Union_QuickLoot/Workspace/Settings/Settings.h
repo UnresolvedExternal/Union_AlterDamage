@@ -43,6 +43,19 @@ namespace NAMESPACE
 			{
 				load.Reset();
 
+				TextColorARGB.onChange += [](const auto& opt)
+				{
+					std::vector<int> values = *TextColorARGB;
+
+					for (int& value : values)
+						value = CoerceInRange(value, 0, 0, 255);
+
+					if ((*TextColorARGB).size() == 4)
+						textColor = zCOLOR(values[1], values[2], values[3], values[0]);
+					else
+						textColor = GFX_WHITE;
+				};
+
 				for (const CList<CPlugin>* list = CPlugin::GetPluginList().GetNext(); list; list = list->GetNext())
 					if (list->GetData()->GetName().CompareI("zMiscUtils.dll"))
 					{
@@ -95,19 +108,6 @@ namespace NAMESPACE
 				RemoveKeys.onChange += [](const auto& opt)
 				{
 					::NAMESPACE::Settings::RemoveKeys = *RemoveKeys;
-				};
-
-				TextColorARGB.onChange += [](const auto& opt)
-				{
-					std::vector<int> values = *TextColorARGB;
-
-					for (int& value : values)
-						value = CoerceInRange(value, 0, 0, 255);
-
-					if ((*TextColorARGB).size() == 4)
-						textColor = zCOLOR(values[1], values[2], values[3], values[0]);
-					else
-						textColor = GFX_WHITE;
 				};
 
 				CSingleOptionBase::LoadAll();
