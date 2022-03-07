@@ -73,31 +73,42 @@ namespace NAMESPACE
 		context.AddCommand<CShowAnictrlCommand>();
 	}
 
-	void InitConsole()
-	{
-		RegisterEvalFunc();
-		RegisterCommands();
-
-		if (ogame && Settings::ActivateMarvinMode)
-			ogame->game_testmode = true;
-
-		if (zcon && Settings::ExecuteStartupScript)
-		{
-			zSTRING text = zcon->instr;
-			auto scope = AssignTemp(CConsoleContext::GetInstance().GetCommand(), CConsoleContext::GetInstance().GetCommand());
-			CConsoleContext::GetInstance().GetCommand().Parse("execute startup");
-			zcon->Evaluate("execute startup");
-			zcon->instr = text;
-		}
-	}
+	void(__cdecl* Game_OpenConsole)() = reinterpret_cast<void(__cdecl*)()>(ZENFOR(0x00647120, 0x0066EDB0, 0x00675310, 0x006D2090));
 
 	extern CSubscription initConsole;
-	CSubscription initConsole(ZSUB(PreLoop), []()
+	CSubscription initConsole(ZSUB(LoadBegin), []()
 		{
 			if (!zcon)
 				return;
 
 			initConsole.Reset();
-			InitConsole();
+			RegisterEvalFunc();
+			RegisterCommands();
+		});
+
+	extern CSubscription executeStartupScript;
+	CSubscription executeStartupScript(ZSUB(LoadEnd), []()
+		{
+			executeStartupScript.Reset();
+
+			if (!zcon || !Settings::ExecuteStartupScript)
+				return;
+
+			Game_OpenConsole();
+			Game_OpenConsole();
+
+			auto scope = AssignTemp(CConsoleContext::GetInstance().GetCommand(), CConsoleContext::GetInstance().GetCommand());
+			CConsoleContext::GetInstance().GetCommand().Parse("EXECUTE STARTUP");
+			zcon->Evaluate("EXECUTE STARTUP");
+			zcon->instr = "";
+		});
+
+	extern CSubscription activateMarvinMode;
+	CSubscription activateMarvinMode(ZSUB(PostLoop), []()
+		{
+			activateMarvinMode.Reset();
+			
+			if (ogame && Settings::ActivateMarvinMode)
+				ogame->game_testmode = true;
 		});
 }

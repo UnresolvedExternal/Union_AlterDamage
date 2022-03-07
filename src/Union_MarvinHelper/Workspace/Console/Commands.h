@@ -583,27 +583,38 @@ namespace NAMESPACE
 			string name = args.front();
 			name.Lower();
 
+			args.clear();
+
 			std::ifstream in(GetFolder() + name.GetVector() + ".console");
 			if (in.fail())
 				return "Fail: cant read the file";
 
-			auto commandScope = AssignTemp(context.GetCommand(), context.GetCommand());
-
 			std::string line;
-			int commands = 0;
+
+			std::vector<std::string> lines;
+			lines.reserve(16u);
 
 			while (std::getline(in, line))
 			{
 				if (line.empty())
 					continue;
 
-				commands += 1;
-
-				context.GetCommand().Parse(line.c_str());
-				zcon->Evaluate(Z context.GetCommand().ToString());
+				lines.push_back(std::move(line));
 			}
 
-			return A commands + " commands have been executed";
+			in.close();
+
+			auto commandScope = AssignTemp(context.GetCommand(), context.GetCommand());
+
+			for (const std::string& line : lines)
+			{
+				context.GetCommand().Parse(line.c_str());
+				zSTRING text = context.GetCommand().ToString();
+				text.Upper();
+				zcon->Evaluate(text);
+			}
+
+			return A lines.size() + " commands have been executed";
 		}
 
 	public:

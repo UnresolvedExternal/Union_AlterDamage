@@ -2,8 +2,8 @@ namespace NAMESPACE
 {
 	namespace Settings
 	{
-		ZOPTION(ExecuteStartupScript, true);
-		ZOPTION(ActivateMarvinMode, true);
+		ZOPTION(ExecuteStartupScript, false);
+		ZOPTION(ActivateMarvinMode, false);
 		ZOPTION(ConsoleFreezePlayer, true);
 		ZOPTION(ConsoleShowHints, true);
 		ZOPTION(ConsoleEditItemAmount, true);

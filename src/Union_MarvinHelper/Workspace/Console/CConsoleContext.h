@@ -125,8 +125,8 @@ namespace NAMESPACE
 			for (const auto& entity : showList)
 				entries.InsertEnd(A (++i) + ". " + entity->ToString());
 
-			gridView->SetPos(0, 0);
-			gridView->SetSize(8192, 7900);
+			gridView->SetPos(0, 400);
+			gridView->SetSize(8192, 8192 - 400);
 			gridView->selection.index = -1;
 			Print(entries);
 			return true;

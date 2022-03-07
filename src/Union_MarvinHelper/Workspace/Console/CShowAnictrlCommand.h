@@ -301,6 +301,40 @@ namespace NAMESPACE
 			return anis;
 		}
 
+		std::string GetWeightString(zCModelAniActive* ani)
+		{
+			if (!ani->protoAni)
+				return "";
+
+			float minWeight = +1e9f;
+			float maxWeight = -1e9f;
+
+			for (int index : ani->protoAni->nodeIndexList)
+			{
+				zCModelNodeInst* const node = player->GetModel()->nodeList[index];
+				
+				for (int i = 0; i < node->numNodeAnis; i++)
+					if (node->nodeAniList[i].modelAni == ani)
+					{
+						minWeight = std::min(minWeight, node->nodeAniList[i].weight);
+						maxWeight = std::max(maxWeight, node->nodeAniList[i].weight);
+					}
+			}
+
+			minWeight *= 100.0f;
+			maxWeight *= 100.0f;
+
+			if (minWeight > 0.0f && minWeight < 1.0f)
+				minWeight = 1.0f;
+
+			if (maxWeight < 100.0f && maxWeight > 99.0f)
+				maxWeight = 99.0f;
+
+			std::ostringstream out;
+			out << std::fixed << std::setprecision(0) << minWeight << "% / " << maxWeight << "%";
+			return out.str();
+		}
+
 		void DrawTable(const std::vector<std::vector<std::string>>& table, int startX, int startY)
 		{
 			if (table.empty())
@@ -370,7 +404,7 @@ namespace NAMESPACE
 			row.emplace_back("BlendOut");
 			row.emplace_back("Type");
 			row.emplace_back("NextAni");
-			row.emplace_back("Proto");
+			row.emplace_back("Weight");
 
 			std::unordered_set<zCModelAniActive*> visitedAnis;
 
@@ -416,12 +450,55 @@ namespace NAMESPACE
 						else
 							row.emplace_back(activeAni->nextAni ? activeAni->nextAni->aniName : "");
 
-						row.emplace_back(AHEX32(ani).GetVector());
+						row.emplace_back(GetWeightString(activeAni));
 					}
 			}
 
-			DrawTable(table, 64, 4000);
+			table.push_back(std::vector<std::string>(table.front().size()));
 
+			for (int i = 0; i < player->GetModel()->numActiveAnis; i++)
+				if (zCModelAniActive* const activeAni = player->GetModel()->aniChannels[i])
+					if (activeAni && activeAni->protoAni && visitedAnis.find(activeAni) == visitedAnis.end())
+					{
+						zCModelAni* const ani = activeAni->protoAni;
+
+						table.emplace_back();
+						auto& row = table.back();
+
+						row.emplace_back(A activeAni->protoAni->layer);
+						row.emplace_back(A ani->aniID);
+						row.emplace_back("");
+						row.emplace_back(ani->aniName);
+
+						if (activeAni->isFadingOut)
+							row.back() += " (F)";
+
+						row.emplace_back((
+							std::ostringstream{} <<
+							std::fixed << std::setw(4) << std::setprecision(1) << activeAni->actFrame <<
+							" / " << ani->numFrames
+							).str()
+						);
+
+						std::ostringstream out;
+						out << std::setprecision(2) << GetBlendInValue(activeAni->blendInOverride) << " / " << (ani ? GetBlendInValue(ani->blendInSpeed) : 0.0f);
+						row.emplace_back(out.str());
+
+						out = {};
+						out << std::setprecision(2) << GetBlendOutValue(activeAni->blendOutOverride) << " / " << (ani ? GetBlendOutValue(ani->blendOutSpeed) : 0.0f);
+						row.emplace_back(out.str());
+
+						row.emplace_back(GetType(ani));
+
+						if (activeAni->nextAniOverride)
+							row.emplace_back(activeAni->nextAniOverride->aniName);
+						else
+							row.emplace_back(activeAni->nextAni ? activeAni->nextAni->aniName : "");
+
+						row.emplace_back(GetWeightString(activeAni));
+					}
+
+			DrawTable(table, 64, 4000);
 		}
 
 		virtual string Execute() override
