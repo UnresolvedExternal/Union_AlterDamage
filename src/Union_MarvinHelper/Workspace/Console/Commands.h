@@ -1776,4 +1776,74 @@ namespace NAMESPACE
 
 		}
 	};
+
+	class CPlayThemeCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (!parserMusic)
+				return;
+
+			const int baseClass = parserMusic->GetIndex("C_MUSICTHEME");
+
+			if (baseClass < 0)
+				return;
+
+			const size_t size = hints.size();
+
+			for (int i = 0; i < parserMusic->symtab.GetNumInList(); i++)
+			{
+				CSymbol symbol{ parserMusic, i };
+
+				if (symbol.GetType() == CSymbol::Type::Instance)
+					if (parserMusic->GetBaseClass(i) == baseClass)
+						hints.push_back((A symbol.GetSymbol()->name).Lower());
+			}
+
+			std::sort(hints.begin() + size, hints.end());
+		}
+
+	public:
+		CPlayThemeCommand() :
+			CConsoleCommand("play theme")
+		{
+
+		}
+	};
+
+	class CPlayJingleCommand : public CConsoleCommand
+	{
+	protected:
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (!parserMusic)
+				return;
+
+			const int baseClass = parserMusic->GetIndex("C_MUSICJINGLE");
+
+			if (baseClass < 0)
+				return;
+
+			const size_t size = hints.size();
+
+			for (int i = 0; i < parserMusic->symtab.GetNumInList(); i++)
+			{
+				CSymbol symbol{ parserMusic, i };
+
+				if (symbol.GetType() == CSymbol::Type::Instance)
+					if (parserMusic->GetBaseClass(i) == baseClass)
+						hints.push_back((A symbol.GetSymbol()->name).Lower());
+			}
+
+			std::sort(hints.begin() + size, hints.end());
+		}
+
+	public:
+		CPlayJingleCommand() :
+			CConsoleCommand("play jingle")
+		{
+
+		}
+	};
 }

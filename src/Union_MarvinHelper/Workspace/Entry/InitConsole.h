@@ -71,6 +71,8 @@ namespace NAMESPACE
 		context.AddCommand<CPlayFaceAniCommand>();
 		context.AddCommand<CAiGotoCommand>();
 		context.AddCommand<CShowAnictrlCommand>();
+		context.AddCommand<CPlayThemeCommand>();
+		context.AddCommand<CPlayJingleCommand>();
 	}
 
 	void(__cdecl* Game_OpenConsole)() = reinterpret_cast<void(__cdecl*)()>(ZENFOR(0x00647120, 0x0066EDB0, 0x00675310, 0x006D2090));
