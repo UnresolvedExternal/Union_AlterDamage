@@ -12,7 +12,7 @@ namespace NAMESPACE
 		CSubscription onLoop;
 
 		std::shared_ptr<TDamageInfo> info;
-		CTimer timer;
+		Timer timer;
 		bool sendMessages;
 		float creationTimeInSecs;
 		const float durationInSecs;

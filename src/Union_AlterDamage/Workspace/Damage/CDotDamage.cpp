@@ -6,9 +6,8 @@ namespace NAMESPACE
 
 	void CDotDamage::OnLoop()
 	{
-		timer.Attach();
-		timer.Suspend(0, ogame->singleStep);
-		sendMessages = timer(0, 200);
+		timer[0u].Suspend(ogame->singleStep);
+		sendMessages = timer[0u].Await(200);
 
 		if (ogame->singleStep)
 			return;

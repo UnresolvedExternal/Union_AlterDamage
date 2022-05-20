@@ -48,6 +48,10 @@ namespace NAMESPACE
 		if (TGlobals::disableOnHitHook)
 			return Ivk_oCNpc_OnDamage_Hit(_this, desc);
 
+		int oldHitpoints = _this->attribute[NPC_ATR_HITPOINTS];
+		Ivk_oCNpc_OnDamage_Hit(_this, desc);
+		_this->attribute[NPC_ATR_HITPOINTS] = oldHitpoints;
+
 		if (desc.dwFieldsValid & oCNpc::oEDescDamageFlags::oEDamageDescFlag_OverlayActivate)
 			return;
 

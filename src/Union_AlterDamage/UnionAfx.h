@@ -59,10 +59,11 @@ using namespace Vdfs32;
 using namespace SystemPack;
 
 
-
+#pragma warning(push)
+#pragma warning(disable:4244)
 // gothic engine classes for g1, g1a, g2 and g2a
 #include "ZenGin\zGothicAPI.h"
-
+#pragma warning(pop)
 
 
 #endif // __UNION_AFX_H__

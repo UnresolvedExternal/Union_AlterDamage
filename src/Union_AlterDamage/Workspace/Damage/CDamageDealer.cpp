@@ -197,6 +197,8 @@ namespace NAMESPACE
 	{
 		float chance;
 #if (CurrentEngine == Engine_G2) || (CurrentEngine == Engine_G2A)
+		if (npc->IsMonster())
+			return 1.0f;
 		chance = npc->GetHitChance(talent) / 100.0f;
 #else
 		chance = npc->GetTalentValue(talent) / 100.0f;
@@ -381,11 +383,6 @@ namespace NAMESPACE
 			!info.target->IsHostile(info.npcAttacker) &&
 			!info.target->IsMonster();
 #endif
-
-		if (info.mustNotKill && maxDamage > 0)
-		{
-			maxDamage -= 1;
-		}
 
 		zCPar_Symbol* minDamageVar = parser->GetSymbol(TGlobals::pluginSettings.minDamageVarName.GetVector());
 		int minDamage = minDamageVar ? minDamageVar->single_intdata : 0;
