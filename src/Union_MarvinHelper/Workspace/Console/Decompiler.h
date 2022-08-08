@@ -264,6 +264,68 @@ namespace NAMESPACE
 				break;
 			}
 		}
+
+		std::string ToString()
+		{
+			std::ostringstream out;
+			out << std::setw(8) << address;
+
+#define TOKEN_NAME(name) case TInstructionType::name: out << std::setw(24) << #name; break;
+
+			switch (token)
+			{
+			TOKEN_NAME(PushInt)
+			TOKEN_NAME(PushFloat)
+			TOKEN_NAME(PushVar)
+			TOKEN_NAME(PushArrayVar)
+			TOKEN_NAME(PushInst)
+			TOKEN_NAME(AssignString)
+			TOKEN_NAME(AssignStringPtr)
+			TOKEN_NAME(AssignFunc)
+			TOKEN_NAME(AssignFloat)
+			TOKEN_NAME(AssignInt)
+			TOKEN_NAME(AssignPlus)
+			TOKEN_NAME(AssignMinus)
+			TOKEN_NAME(AssignMul)
+			TOKEN_NAME(AssignDiv)
+			TOKEN_NAME(AssignInst)
+			TOKEN_NAME(Plus)
+			TOKEN_NAME(Minus)
+			TOKEN_NAME(Mul)
+			TOKEN_NAME(Div)
+			TOKEN_NAME(Mod)
+			TOKEN_NAME(ShiftLeft)
+			TOKEN_NAME(ShiftRight)
+			TOKEN_NAME(BitOr)
+			TOKEN_NAME(BitAnd)
+			TOKEN_NAME(BitNot)
+			TOKEN_NAME(Less)
+			TOKEN_NAME(More)
+			TOKEN_NAME(LessEqual)
+			TOKEN_NAME(Equal)
+			TOKEN_NAME(NotEqual)
+			TOKEN_NAME(MoreEqual)
+			TOKEN_NAME(LogOr)
+			TOKEN_NAME(LogAnd)
+			TOKEN_NAME(LogNot)
+			TOKEN_NAME(UnaryMinus)
+			TOKEN_NAME(UnaryPlus)
+			TOKEN_NAME(Call)
+			TOKEN_NAME(CallExternal)
+			TOKEN_NAME(Return)
+			TOKEN_NAME(Jump)
+			TOKEN_NAME(JumpFalse)
+			TOKEN_NAME(SetInstance)
+			default: ASSERT(false); break;
+			}
+
+#undef TOKEN_NAME
+
+			out << std::setw(16) << argument;
+			out << std::setw(8) << static_cast<int>(index);
+
+			return out.str();
+		}
 	};
 
 	enum class TNodeType
@@ -843,7 +905,7 @@ namespace NAMESPACE
 			{
 				CSymbol var(func.GetParser(), node->instruction.argument);
 
-				if (var.GetSymbol() && var.GetSymbol()->name.First() == (char)255)
+				if (var.GetSymbol() && var.GetType() == CSymbol::Type::VarString && var.GetSymbol()->name.First() == (char)255)
 				{
 					out << "\"" << var.GetValue<string>(0) << "\"";
 					break;

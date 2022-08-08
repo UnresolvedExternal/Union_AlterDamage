@@ -1,3 +1,5 @@
+#include "resource.h"
+
 #include <regex>
 #include <future>
 #include <sstream>

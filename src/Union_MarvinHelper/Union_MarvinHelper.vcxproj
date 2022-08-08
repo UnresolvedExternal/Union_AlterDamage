@@ -151,7 +151,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Gothic\g2a_odyssee\System\</OutDir>
+    <OutDir>D:\Gothic\g2a\System\</OutDir>
     <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -176,18 +176,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>D:\Gothic\g1\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\Gothic\g2a\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Gothic\g2a\System\</OutDir>
+    <OutDir>D:\Gothic\g2a_dirty\System\</OutDir>
     <IncludePath>$(SolutionDir)\$(ProjectName)\;$(SolutionDir)\$(ProjectName)\ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath);D:\My\Projects\Union\boost_1_74_0\</IncludePath>
     <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)</TargetName>
@@ -342,7 +342,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G2;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
@@ -384,9 +384,9 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS </PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -444,6 +444,7 @@
     <ClCompile Include="ZenGin\Gothic_I_Classic\staticDef_Ver0.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Workspace\Console\Decompiler.h" />
     <ClInclude Include="UnionAfx.h" />
     <ClInclude Include="Workspace\Assembly\Headers.h" />
@@ -459,6 +460,10 @@
     <ClInclude Include="Workspace\Console\ObjectCash.h" />
     <ClInclude Include="Workspace\Console\Parser.h" />
     <ClInclude Include="Workspace\Console\CShowAnictrlCommand.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Workspace\Entry\ConsoleHistory.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -1339,6 +1344,7 @@
     <None Include="cpp.hint" />
     <None Include="Workspace\Assembly\Union_ConsoleKeepHistoryCase.patch" />
     <None Include="Workspace\Assembly\Union_MarvinHelper.patch" />
+    <None Include="Workspace\Assembly\zConsoleHistory.hiddenpatch" />
     <None Include="ZenGin\Gothic_UserAPI\CGameManager.inl" />
     <None Include="ZenGin\Gothic_UserAPI\oCAIArrow.inl" />
     <None Include="ZenGin\Gothic_UserAPI\oCAIArrowBase.inl" />
@@ -1963,6 +1969,9 @@
     <None Include="ZenGin\Gothic_UserAPI\zVEC3.inl" />
     <None Include="ZenGin\Gothic_UserAPI\zVEC4.inl" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Union_MarvinHelper.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
@@ -1985,6 +1994,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">
       </PrecompiledHeaderFile>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">false</WholeProgramOptimization>
     </ClCompile>
     <ClCompile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">
@@ -2005,6 +2015,9 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">
       </PrecompiledHeaderFile>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">/Zc:__cplusplus /Zc:threadSafeInit-</AdditionalOptions>
+      <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">Disabled</InlineFunctionExpansion>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">Size</FavorSizeOrSpeed>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">false</WholeProgramOptimization>
     </ClCompile>
     <ClCompile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">

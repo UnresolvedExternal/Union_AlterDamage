@@ -2929,6 +2929,10 @@
     <ClInclude Include="Workspace\Console\CShowAnictrlCommand.h">
       <Filter>Workspace\Console</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Workspace\Entry\ConsoleHistory.h">
+      <Filter>Workspace\Entry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ZenGin\Gothic_UserAPI\CGameManager.inl">
@@ -4808,5 +4812,11 @@
     <None Include="Workspace\Assembly\Union_ConsoleKeepHistoryCase.patch">
       <Filter>Workspace\Assembly</Filter>
     </None>
+    <None Include="Workspace\Assembly\zConsoleHistory.hiddenpatch">
+      <Filter>Workspace\Assembly</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Union_MarvinHelper.rc" />
   </ItemGroup>
 </Project>

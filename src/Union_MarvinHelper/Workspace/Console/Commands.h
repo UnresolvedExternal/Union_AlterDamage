@@ -6,6 +6,25 @@ namespace fs = std::experimental::filesystem;
 
 namespace NAMESPACE
 {
+	struct HintsSorter
+	{
+		std::vector<string>& hints;
+		size_t oldSize;
+
+		HintsSorter(std::vector<string>& hints) :
+			hints{ hints },
+			oldSize{ hints.size() }
+		{
+
+		}
+
+		~HintsSorter()
+		{
+			std::sort(hints.begin() + oldSize, hints.end());
+			hints.erase(std::unique(hints.begin() + oldSize, hints.end()), hints.end());
+		}
+	};
+
 	class CConDatCommand : public CConsoleCommand
 	{
 	protected:
@@ -815,6 +834,63 @@ namespace NAMESPACE
 	public:
 		CDecompileCommand() :
 			CConsoleCommand("decompile", "decompiles a function")
+		{
+
+		}
+	};
+
+	class CFullDecompileCommand : public CConsoleCommand
+	{
+	protected:
+		static std::string GetFolder()
+		{
+			return (A zoptions->GetDirString(DIR_ROOT) + "\\Console\\").GetVector();
+		}
+
+		virtual string Execute() override
+		{
+			for (int i = 0; i < parser->symtab.GetNumInList(); i++)
+			{
+				CSymbol symbol(parser, i);
+
+				bool success = false;
+				success = success || symbol.GetType() == CSymbol::Type::Instance;
+				success = success || symbol.GetType() == CSymbol::Type::Prototype;
+				success = success || symbol.GetType() == CSymbol::Type::Func;
+
+				if (!success)
+					continue;
+
+				try
+				{
+					auto ast = BuildAst(symbol);
+					std::string path = GetFolder() + (A symbol.GetSymbol()->name).Lower().GetVector() + ".d";
+
+					{
+						auto file = std::make_unique<zFILE_FILE>(path.c_str());
+						file->DirCreate();
+					}
+
+					std::ofstream out(path);
+
+					CSymbol instance = symbol;
+					EmitCode(out, symbol, ast.get(), instance);
+				}
+				catch (const std::exception& e)
+				{
+					std::ofstream out(GetFolder() + "_decompiler.log", std::ios_base::app);
+					out << std::endl;
+					out << symbol.GetSymbol()->name.ToChar() << std::endl;
+					out << e.what() << std::endl;
+				}
+			}
+
+			return "Ok.";
+		}
+
+	public:
+		CFullDecompileCommand() :
+			CConsoleCommand("fulldecompile", "decompiles all the functions")
 		{
 
 		}
@@ -1842,6 +1918,304 @@ namespace NAMESPACE
 	public:
 		CPlayJingleCommand() :
 			CConsoleCommand("play jingle")
+		{
+
+		}
+	};
+
+	class CSetOptionCommand : public CConsoleCommand
+	{
+	protected:
+		// args[0] - config name
+		// args[1] - section name
+		// args[2] - entry name
+		// args[3...] - values
+
+		void AddHints(COption& options, std::vector<string>& hints)
+		{
+			if (args.size() <= 1)
+				return;
+
+			if (args.size() == 2)
+			{
+				for (auto* section = options.lstBlocks.GetNext(); section; section = section->GetNext())
+					if (section->GetData() && !section->GetData()->sBlockName.IsEmpty() && HasWordI(section->GetData()->sBlockName, args.back()))
+						hints.push_back(string{ section->GetData()->sBlockName }.Lower());
+
+				return;
+			}
+
+			string sectionName = args[1];
+			sectionName.Upper();
+
+			if (args.size() == 3)
+			{
+				for (auto* section = options.lstBlocks.GetNext(); section; section = section->GetNext())
+					if (section->GetData() && section->GetData()->sBlockName.Compare(sectionName))
+					{
+						for (auto* entry = section->GetData()->lstValues.GetNext(); entry; entry = entry->GetNext())
+							if (entry->GetData() && !entry->GetData()->sValueName.IsEmpty() && HasWordI(entry->GetData()->sValueName, args.back()))
+								hints.push_back(entry->GetData()->sValueName);
+
+						return;
+					}
+
+				return;
+			}
+
+			for (auto* section = options.lstBlocks.GetNext(); section; section = section->GetNext())
+				if (section->GetData() && section->GetData()->sBlockName.Compare(sectionName))
+				{
+					for (auto* entry = section->GetData()->lstValues.GetNext(); entry; entry = entry->GetNext())
+						if (entry->GetData() && entry->GetData()->sValueName.Compare(args[2]))
+							if (!entry->GetData()->sValue.IsEmpty())
+								return hints.push_back(entry->GetData()->sValue);
+				}
+		}
+
+		void AddHints(zCOption* options, std::vector<string>& hints)
+		{
+			if (args.size() <= 1 || !options)
+				return;
+
+			if (args.size() == 2)
+			{
+				for (auto* section : options->sectionList)
+					if (section && !section->secName.IsEmpty() && HasWordI(section->secName, args.back()))
+						hints.push_back(string{ section->secName }.Lower());
+
+				return;
+			}
+
+			zSTRING sectionName = args[1];
+			sectionName.Upper();
+
+			if (args.size() == 3)
+			{
+				for (auto* section : options->sectionList)
+					if (section && section->secName.Compare(sectionName))
+					{
+						for (auto* entry : section->entryList)
+							if (entry && !entry->varName.IsEmpty() && HasWordI(entry->varName, args.back()))
+								hints.push_back(entry->varName);
+
+						return;
+					}
+
+				return;
+			}
+
+			for (auto* section : options->sectionList)
+				if (section && section->secName.Compare(sectionName))
+				{
+					for (auto* entry : section->entryList)
+						if (entry && entry->varName.Compare(Z args[2]))
+						{
+							if (!entry->varValueTemp.IsEmpty())
+								hints.push_back(entry->varValueTemp);
+
+							if (!entry->varValue.IsEmpty() && !entry->varValue.Compare(entry->varValueTemp))
+								hints.push_back(entry->varValue);
+
+							return;
+						}
+
+					return;
+				}
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			HintsSorter hintsSorter{ hints };
+
+			if (args.empty())
+				return;
+
+			std::vector<std::pair<string, void*>> options
+			{
+				{ "systempack", &Union.GetSysPackOption() },
+				{ "gothic", zoptions },
+
+#if ENGINE == Engine_G2A
+				{ "mod", zgameoptions }
+#endif
+
+			};
+
+			if (args.size() == 1)
+			{
+				for (const auto& pair : options)
+					if (pair.second && HasWordI(pair.first, args.back()))
+						hints.push_back(pair.first);
+
+				return;
+			}
+
+			for (auto it = options.begin(); it != options.end(); it++)
+				if (it->second && it->first.CompareI(args[0]))
+				{
+					if (it == options.begin())
+						return AddHints(*static_cast<COption*>(it->second), hints);
+
+					return AddHints(static_cast<zCOption*>(it->second), hints);
+				}
+		}
+
+		string Execute(COption& options, const string& value)
+		{
+			string sectionName = args[1];
+			sectionName.Upper();
+
+			if (options.IsExists(sectionName, args[2]))
+			{
+				options.ChangeValue(sectionName, args[2], value);
+				return A"Ok. The value has been changed.";
+			}
+
+			return A"Error! It is not allowed to add new entries to SystemPack.";
+		}
+
+		string Execute(zCOption* options, const string& value)
+		{
+			if (!options)
+				return A"Error! Invalig config name.";
+
+			zSTRING sectionName = args[1];
+			sectionName.Upper();
+
+			options->WriteString(sectionName, Z args[2], Z value, false);
+			
+#if ENGINE == Engine_G2A
+			if (options == zgameoptions)
+				return A"Ok. The value has been changed, but probably will be not saved.";
+#endif
+
+			return A"Ok. The value has been written.";
+		}
+
+		virtual string Execute() override
+		{
+			if (args.size() < 4)
+				return A"Error! At least 4 arguments are required.";
+
+			string value;
+
+			for (size_t i = 3; i < args.size(); i++)
+			{
+				string arg = args[i];
+
+				if (arg.Length() >= 2 && arg.First() == '"' && arg.Last() == '"')
+					arg = arg.Cut(1, arg.Length() - 2);
+
+				if (i != 3)
+					value += '|';
+
+				value += arg;
+			}
+
+			string configName = args[0];
+			configName.Upper();
+
+			if (configName == "SYSTEMPACK")
+				return Execute(Union.GetSysPackOption(), value);
+
+			if (configName == "GOTHIC")
+				return Execute(zoptions, value);
+
+#if ENGINE == Engine_G2A
+			if (configName == "MOD")
+				return Execute(zgameoptions, value);
+#endif
+
+			return A"Error! Invalig config name.";
+		}
+
+	public:
+		CSetOptionCommand() :
+			CConsoleCommand("set option", "Sets a config option")
+		{
+
+		}
+	};
+
+	class CPlayAudio3dCommand : public CConsoleCommand
+	{
+	protected:
+		static std::string GetFileName(const std::string& fullName)
+		{
+			const size_t pos = fullName.rfind('\\');
+			return fullName.substr(pos + 1);
+		}
+
+		static std::vector<string> CreateSoundList()
+		{
+			std::vector<string> sounds;
+			
+			std::string prefix = zoptions->GetDirString(DIR_SOUND);
+
+			if (!prefix.empty())
+				prefix.erase(prefix.begin());
+
+			for (auto func : { &vdf_filelist_physical, &vdf_filelist_virtual })
+			{
+				char** files;
+				const long32 count = func(files);
+
+				for (long32 i = 0; i < count; i++)
+				{
+					std::string file(files[i]);
+
+					if (file.rfind(prefix, 0u) != 0u)
+						continue;
+
+					sounds.emplace_back(GetFileName(file).c_str());
+				}
+			}
+
+			std::sort(sounds.begin(), sounds.end());
+			sounds.erase(std::unique(sounds.begin(), sounds.end()), sounds.end());
+			std::for_each(sounds.begin(), sounds.end(), [](string& sound) { sound.Lower(); });
+
+			return sounds;
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1)
+				return;
+
+			static std::vector<string> sounds = CreateSoundList();
+
+			string argument = args.front();
+			argument.Lower();
+
+			for (const string& sound : sounds)
+				if (HasWord(sound, argument))
+					hints.emplace_back(sound);
+		}
+
+		virtual string Execute() override
+		{
+			if (!zsound)
+				return "Fail! Sound system is disabled.";
+
+			if (args.size() != 1)
+				return "Fail! Requires a single argument.";
+
+			zCVob* target = player;
+
+			if (player && player->focus_vob)
+				target = player->focus_vob;
+
+			if (zsound->PlaySound3D((Z args.front()).Upper(), target, zSND_SLOT_NONE, nullptr))
+				return "Ok.";
+			
+			return "Failed to start the sound.";
+		}
+
+	public:
+		CPlayAudio3dCommand() :
+			CConsoleCommand("play audio3d", "Plays a 3D sound file using focus vob or hero as a source")
 		{
 
 		}

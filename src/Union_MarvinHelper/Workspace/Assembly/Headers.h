@@ -19,6 +19,8 @@
 #include "Workspace\Utility\Engine\CSGGlobal.h"
 #include "Workspace\Utility\Engine\PushPop.h"
 
+#include "Workspace\Entry\ConsoleHistory.h"
+
 #include "Workspace\Console\CFpsCounter.h"
 #include "Workspace\Console\ObjectCash.h"
 #include "Workspace\Console\CConsoleContext.h"

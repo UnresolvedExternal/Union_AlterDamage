@@ -202,6 +202,12 @@ namespace NAMESPACE
 				zcon->instr += gridView->GetSelected().GetVector();
 				zcon->instr += " ";
 
+#if ENGINE == Engine_G1 || ENGINE == Engine_G1A
+				OnEdit(zcon);
+#else
+				zcon->lastCommandPos = zcon->lastcommand.GetNum();
+#endif
+
 				zcon->ShowInput();
 				return true;
 			}
@@ -241,6 +247,12 @@ namespace NAMESPACE
 
 					if (zcon->instr.Length())
 						zcon->instr += " ";
+
+#if ENGINE == Engine_G1 || ENGINE == Engine_G1A
+					OnEdit(zcon);
+#else
+					zcon->lastCommandPos = zcon->lastcommand.GetNum();
+#endif
 
 					zcon->ShowInput();
 					return true;
@@ -299,6 +311,12 @@ namespace NAMESPACE
 			ADDSUB(Exit);
 			ADDSUB(Loop);
 			ADDSUB(LoadBegin);
+
+			Settings::ConsoleFreezePlayer.onChange += [this](auto& option)
+			{
+				if (!Settings::ConsoleFreezePlayer && player && player->sleepingMode != zVOB_AWAKE && IsInConsole())
+					player->SetSleeping(false);
+			};
 		}
 	public:
 		std::vector<std::unique_ptr<CShowListEntry>>& GetShowList()

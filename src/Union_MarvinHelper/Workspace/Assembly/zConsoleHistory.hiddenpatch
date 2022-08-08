@@ -1,0 +1,88 @@
+#engine [G1]
+	#patch [zConsoleHistory]
+		#assembler [0x006D93A0]
+			orgcode
+			
+			push ebp
+			call $OnExecute
+		#/assembler
+		
+		#assembler [0x006D940E]
+			orgcode
+			
+			push ebp
+			call $OnInsert
+		#/assembler
+		
+		#assembler [0x006D9322]
+			push eax
+			
+			push ebp
+			call $OnEdit
+			
+			pop eax
+			
+			orgcode
+		#/assembler
+		
+		#assembler [0x006D941F]
+			push ecx
+			
+			push ebp
+			call $OnEdit
+			
+			pop ecx
+			
+			orgcode
+		#/assembler
+		
+		#assembler [0x006D92B0]
+			push ebp
+			call $OnEdit
+
+			orgcode
+		#/assembler
+	#/patch
+#/engine
+
+#engine [G1A]
+	#patch [zConsoleHistory]
+		#assembler [0x00710EC4]
+			push ebp
+			call $OnEdit
+			
+			orgcode
+		#/assembler
+		
+		#assembler [0x00710F67]
+			push ebp
+			call $OnEdit
+			
+			orgcode
+		#/assembler
+		
+		#assembler [0x00710FD1]
+			orgcode
+			
+			push ebp
+			call $OnExecute
+		#/assembler
+		
+		#assembler [0x00711054]
+			push ebp
+			call $OnInsert
+			
+			orgcode
+		#/assembler
+		
+		#assembler [0x00711059]
+			push ecx
+			
+			push ebp
+			call $OnEdit
+			
+			pop ecx
+			
+			orgcode
+	#/patch
+#/engine
