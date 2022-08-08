@@ -50,6 +50,11 @@ namespace NAMESPACE
 
 		int oldHitpoints = _this->attribute[NPC_ATR_HITPOINTS];
 		Ivk_oCNpc_OnDamage_Hit(_this, desc);
+
+		if (desc.dwFieldsValid & oCNpc::oEDescDamageFlags::oEDamageDescFlag_OverlayActivate)
+			if (TGlobals::pluginSettings.fireDotDuration < 0.0f)
+				return;
+
 		_this->attribute[NPC_ATR_HITPOINTS] = oldHitpoints;
 
 		if (desc.dwFieldsValid & oCNpc::oEDescDamageFlags::oEDamageDescFlag_OverlayActivate)

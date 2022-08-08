@@ -401,10 +401,10 @@ namespace NAMESPACE
 		float fireDotDamageMult = TGlobals::pluginSettings.fireDotDamageMult;
 		float fireDotDuration = TGlobals::pluginSettings.fireDotDuration;
 
-#if (CurrentEngine == Engine_G2) || (CurrentEngine == Engine_G2A)
-		if (!((string)info->strVisualFX).HasWordI("VOB_MAGICBURN"))
+		if (fireDotDuration < 0.0f)
 			return;
-#else
+
+#if CurrentEngine <= Engine_G1A
 		if (info->enuModeWeapon != NPC_WEAPON_MAG)
 			return;
 
@@ -422,13 +422,20 @@ namespace NAMESPACE
 			return;
 #endif
 
-		float dotDamage = info->effectiveDamage[(int)oEDamageIndex::oEDamageIndex_Magic];
-		dotDamage *= fireDotDamageMult;
+#if CurrentEngine >= Engine_G2
+		if (info->strVisualFX.HasWordI("VOB_MAGICBURN"))
+#else
+		if (true)
+#endif
+		{
+			float dotDamage = info->effectiveDamage[(int)oEDamageIndex::oEDamageIndex_Magic];
+			dotDamage *= fireDotDamageMult;
 
-		if (dotDamage >= 0.5f)
-			new CDotDamage(info, oEDamageIndex::oEDamageIndex_Magic, (int)(dotDamage + 0.5f), fireDotDuration);
+			if (dotDamage >= 0.5f)
+				new CDotDamage(info, oEDamageIndex::oEDamageIndex_Magic, (int)(dotDamage + 0.5f), fireDotDuration);
+		}
 
-		dotDamage = info->effectiveDamage[(int)oEDamageIndex::oEDamageIndex_Fire];
+		float dotDamage = info->effectiveDamage[(int)oEDamageIndex::oEDamageIndex_Fire];
 		dotDamage *= fireDotDamageMult;
 
 		if (dotDamage >= 0.5f)
