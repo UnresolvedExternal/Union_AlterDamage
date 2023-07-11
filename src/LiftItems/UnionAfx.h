@@ -74,6 +74,8 @@ using namespace SystemPack;
 
 
 // gothic engine classes for g1, g1a, g2 and g2a
+#pragma warning(disable:4244)
+#pragma warning(disable:4305)
 #include "ZenGin\zGothicAPI.h"
 
 

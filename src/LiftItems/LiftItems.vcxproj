@@ -50,73 +50,76 @@
     <ProjectGuid>{4519D013-5E53-4CB7-A3F8-492F6FED34E8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>LiftItems</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug G1|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
+    <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -155,67 +158,67 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug G1|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>D:\Gothic\g2\system\autorun\</OutDir>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\System\Programs\x86\Gothic2_LE\System\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1A Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G1 Debug|Win32'">
     <OutDir>$(SolutionDir)Bin\</OutDir>
-    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0k\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\$(ProjectName)\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Include\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0l\Lib\;$(ALLUSERSPROFILE)\Union\SDK\DirectX7\Lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

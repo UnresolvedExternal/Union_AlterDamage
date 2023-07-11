@@ -12,7 +12,7 @@ namespace NAMESPACE
 		CInvoke_zCWorld_VobRemovedFromWorld removeIvk;
 		Lift lift;
 		TDebugMode debugMode;
-		CTimer timer;
+		Timer timer;
 
 		void OnLoadEnd();
 		void OnGameLoop();

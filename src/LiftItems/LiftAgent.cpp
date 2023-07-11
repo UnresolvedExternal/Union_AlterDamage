@@ -16,11 +16,11 @@ namespace NAMESPACE
 			return;
 		}
 
-		timer.Attach();
+		timer[0u].Suspend(ogame->singleStep);
 
-		bool debugPressed = zinput->KeyPressed(KEY_U) && timer(0, 200, TM_PRIMARY);
-		bool teleportPressed = zinput->KeyPressed(KEY_I) && timer(1, 200, TM_PRIMARY);
-		bool togglePressed = zinput->GetMouseButtonPressedRight() && timer(2, 200, TM_PRIMARY);
+		bool debugPressed = zinput->KeyPressed(KEY_U) && timer[0u].Await(200, true);
+		bool teleportPressed = zinput->KeyPressed(KEY_I) && timer[0u].Await(200, true);
+		bool togglePressed = zinput->GetMouseButtonPressedRight() && timer[0u].Await(200, true);
 
 		if (debugPressed)
 		{
