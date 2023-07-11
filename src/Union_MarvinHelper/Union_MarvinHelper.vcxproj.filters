@@ -4819,4 +4819,9 @@
   <ItemGroup>
     <ResourceCompile Include="Union_MarvinHelper.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="Workspace\Assembly\MarvinHelper_Menu.d">
+      <Filter>Workspace\Assembly</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
 </Project>

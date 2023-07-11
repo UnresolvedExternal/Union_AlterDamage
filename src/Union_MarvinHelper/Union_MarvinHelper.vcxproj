@@ -1342,6 +1342,9 @@
   <ItemGroup>
     <None Include=".build_settings.inl" />
     <None Include="cpp.hint" />
+    <CopyFileToFolders Include="Workspace\Assembly\MarvinHelper_Menu.d">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
     <None Include="Workspace\Assembly\Union_ConsoleKeepHistoryCase.patch" />
     <None Include="Workspace\Assembly\Union_MarvinHelper.patch" />
     <None Include="Workspace\Assembly\zConsoleHistory.hiddenpatch" />
