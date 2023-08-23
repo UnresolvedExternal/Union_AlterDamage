@@ -1043,6 +1043,7 @@ namespace NAMESPACE
 		ASSERT(GetArgumentsCount() == (int)arguments.size());
 		
 		auto scope = AssignTemp(parser->datastack.sptr, parser->datastack.sptr);
+		auto curParserScope = AssignTemp(zCParser::cur_parser, this->symbol.GetParser());
 
 		for (int i = 0; i < GetArgumentsCount(); i++)
 			arguments[i]->PushAs(GetArgumentDescription(i + 1));
