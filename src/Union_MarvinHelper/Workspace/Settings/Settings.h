@@ -8,6 +8,7 @@ namespace NAMESPACE
 		ZOPTION(ConsoleShowHints, true);
 		ZOPTION(ConsoleEditItemAmount, true);
 		ZOPTION(ConsoleKeepHistoryCase, true);
+		ZOPTION(ActivateParserExtenderExternals, true);
 
 		ZOPTION(KeySelectionPrev, CKeyCombo({ {KEY_UP}, {MOUSE_WHEELUP} }));
 		ZOPTION(KeySelectionNext, CKeyCombo({ {KEY_DOWN}, {MOUSE_WHEELDOWN} }));

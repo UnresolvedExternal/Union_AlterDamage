@@ -36,3 +36,4 @@
 #include "Workspace\Entry\ToggleConsole.h"
 #include "Workspace\Entry\KeepConsoleHistoryCase.h"
 #include "Workspace\Entry\DrawWaypoints.h"
+#include "Workspace\Entry\EnableExternals.h"

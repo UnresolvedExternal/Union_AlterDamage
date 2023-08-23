@@ -1,6 +1,6 @@
 namespace NAMESPACE
 {
-	CSubscription loadSettings(ZSUB(Init), []()
+	CSubscription loadSettings(ZSUB(DefineExternals), []()
 		{
 			Settings::Load();
 		});

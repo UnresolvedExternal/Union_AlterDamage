@@ -209,6 +209,24 @@ instance MenuItem_ConsoleEditItemAmount_Choice(C_MENU_ITEM_CHOICE)
 	onchgsetoption = "ConsoleEditItemAmount";
 };
 
+instance MenuItem_ActivateParserExtenderExternals_Text(C_MENU_ITEM_TEXT)
+{
+	posy += 5 * DY;
+
+	text[0] = Str_GetLocalizedString(
+		"Активировать функции zParserExtender", 
+		"Activate zParserExtender functions", 
+		"Activate zParserExtender functions", 
+		"Activate zParserExtender functions"
+	);
+};
+
+instance MenuItem_ActivateParserExtenderExternals_Choice(C_MENU_ITEM_CHOICE)
+{
+	posy += 5 * DY;
+	onchgsetoption = "ActivateParserExtenderExternals";
+};
+
 instance MenuItem_Back(C_MENU_ITEM_DEF)
 {
 	Union_MenuItem_Back();
