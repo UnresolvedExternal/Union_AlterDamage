@@ -4,9 +4,6 @@ namespace NAMESPACE
 
 	int ConsoleEvalFunc(const zSTRING& inpstr, zSTRING& msg)
 	{
-		if (innerEvalFunc && innerEvalFunc(inpstr, msg))
-			return true;
-
 		string output;
 		
 		if (CConsoleContext::GetInstance().TryExecute(output))
@@ -15,19 +12,16 @@ namespace NAMESPACE
 			return true;
 		}
 
+		if (innerEvalFunc && innerEvalFunc(inpstr, msg))
+			return true;
+
 		return false;
 	}
 
 	void RegisterEvalFunc()
 	{
-		int evalNum = 0;
-
-		for (int i = 1; i < zCON_MAX_EVAL; i++)
-			if (zcon->evalfunc[i])
-				evalNum = i;
-
-		innerEvalFunc = zcon->evalfunc[evalNum];
-		zcon->evalfunc[evalNum] = &ConsoleEvalFunc;
+		innerEvalFunc = zcon->evalfunc[0];
+		zcon->evalfunc[0] = &ConsoleEvalFunc;
 	}
 
 	void RegisterCommands()

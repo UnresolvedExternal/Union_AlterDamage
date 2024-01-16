@@ -117,7 +117,7 @@ namespace NAMESPACE
 
 		bool TryShowList()
 		{
-			if (IsInConsole() || ogame->singleStep)
+			if (IsInConsole())
 				return false;
 
 			size_t i = 0;
@@ -149,7 +149,7 @@ namespace NAMESPACE
 		{
 			const bool outdated = commandParsed || state != TState::MainConsoleShowHints;
 
-			if (!IsInMainConsole() || !Settings::ConsoleShowHints || ogame->singleStep)
+			if (!IsInMainConsole() || !Settings::ConsoleShowHints)
 				return false;
 
 			gridView->SetPos(0, zcon->conview->vposy + zcon->conview->vsizey);

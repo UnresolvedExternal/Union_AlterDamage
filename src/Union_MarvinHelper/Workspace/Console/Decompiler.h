@@ -885,6 +885,7 @@ namespace NAMESPACE
 				break;
 
 			case TInstructionType::PushInt:
+			{
 				if (node->parent->type == TNodeType::Instruction && node->parent->instruction.token == TInstructionType::AssignFloat)
 				{
 					out << std::fixed << reinterpret_cast<const float&>(node->instruction.argument);
@@ -898,7 +899,20 @@ namespace NAMESPACE
 				}
 
 				out << node->instruction.argument;
+
+				CSymbol symbol{ func.GetParser(), node->instruction.argument };
+
+				if 
+				(
+					symbol.GetType() == CSymbol::Type::Prototype || symbol.GetType() == CSymbol::Type::Instance ||
+					symbol.GetType() == CSymbol::Type::Func
+				)
+				{
+					out << "/*" << symbol.GetSymbol()->name << "*/";
+				}
+
 				break;
+			}
 
 			case TInstructionType::PushInst:
 			case TInstructionType::PushVar:
@@ -932,7 +946,41 @@ namespace NAMESPACE
 				if (var.GetSymbol()->HasFlag(zPAR_FLAG_CLASSVAR) && inst.GetIndex() != func.GetIndex())
 					out << GetShortName(inst) << ".";
 
-				out << GetShortName(var) << "[" << (int)node->instruction.index << "]";
+				static std::unordered_map<int, zCPar_Symbol*> aivars = [&var]()
+				{
+					std::unordered_map<int, zCPar_Symbol*> aivars;
+
+					for (int i = 0; i < var.GetParser()->symtab.GetNumInList(); i++)
+					{
+						const int index = var.GetParser()->symtab.tablesort[i];
+						CSymbol symbol{ var.GetParser(), index };
+
+						if (symbol.GetType() != CSymbol::Type::VarInt)
+							continue;
+
+						if (!aivars.empty() && !string{ symbol.GetSymbol()->name }.StartWith("AIV_"))
+							break;
+
+						if (string{ symbol.GetSymbol()->name }.StartWith("AIV_"))
+							aivars[symbol.GetValue<int>(0)] = symbol.GetSymbol();
+					}
+
+					return aivars;
+				}();
+
+				out << GetShortName(var) << "[" << (int)node->instruction.index;
+				static const auto* c_npc = inst.GetParser()->GetSymbol(oCNpc::classDef->scriptClassName);
+
+
+				if (inst.GetSymbol()->GetParent() && (inst.GetSymbol()->GetParent() == c_npc || inst.GetSymbol()->GetParent()->GetParent() == c_npc) && GetShortName(var) == "AIVAR")
+				{
+					auto it = aivars.find((int)node->instruction.index);
+
+					if (it != aivars.end())
+						out << "/*" << it->second->name << "*/";
+				}
+
+				out << "]";
 				break;
 			}
 

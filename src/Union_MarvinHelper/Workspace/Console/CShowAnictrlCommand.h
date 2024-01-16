@@ -6,6 +6,8 @@ namespace NAMESPACE
 	{
 	protected:
 		CSubscription onLoop;
+		CSubscription onLoadBegin;
+		oCNpc* nonPlayer;
 		bool enabled;
 
 		struct AniInfo
@@ -301,7 +303,7 @@ namespace NAMESPACE
 			return anis;
 		}
 
-		std::string GetWeightString(zCModelAniActive* ani)
+		std::string GetWeightString(oCNpc* npc, zCModelAniActive* ani)
 		{
 			if (!ani->protoAni)
 				return "";
@@ -311,7 +313,7 @@ namespace NAMESPACE
 
 			for (int index : ani->protoAni->nodeIndexList)
 			{
-				zCModelNodeInst* const node = player->GetModel()->nodeList[index];
+				zCModelNodeInst* const node = npc->GetModel()->nodeList[index];
 				
 				for (int i = 0; i < node->numNodeAnis; i++)
 					if (node->nodeAniList[i].modelAni == ani)
@@ -386,10 +388,12 @@ namespace NAMESPACE
 
 		void OnLoop()
 		{
-			if (!player)
+			oCNpc* const npc = nonPlayer ? nonPlayer : player;
+
+			if (!npc)
 				return;
 
-			std::vector<AniInfo> anis = GetAnis(player);
+			std::vector<AniInfo> anis = GetAnis(npc);
 
 			std::vector<std::vector<std::string>> table;
 			table.emplace_back();
@@ -411,10 +415,10 @@ namespace NAMESPACE
 			for (int wmode = 0; wmode <= 0; wmode++)
 			{
 				for (const AniInfo& info : anis)
-					if (info.IsActive(player) && info.IsStatic() != static_cast<bool>(wmode))
+					if (info.IsActive(npc) && info.IsStatic() != static_cast<bool>(wmode))
 					{
-						zCModelAni* const ani = player->GetModel()->GetAniFromAniID(info.value);
-						zCModelAniActive* const activeAni = player->GetModel()->GetActiveAni(ani);
+						zCModelAni* const ani = npc->GetModel()->GetAniFromAniID(info.value);
+						zCModelAniActive* const activeAni = npc->GetModel()->GetActiveAni(ani);
 						visitedAnis.insert(activeAni);
 
 						table.emplace_back();
@@ -450,14 +454,14 @@ namespace NAMESPACE
 						else
 							row.emplace_back(activeAni->nextAni ? activeAni->nextAni->aniName : "");
 
-						row.emplace_back(GetWeightString(activeAni));
+						row.emplace_back(GetWeightString(npc, activeAni));
 					}
 			}
 
 			table.push_back(std::vector<std::string>(table.front().size()));
 
-			for (int i = 0; i < player->GetModel()->numActiveAnis; i++)
-				if (zCModelAniActive* const activeAni = player->GetModel()->aniChannels[i])
+			for (int i = 0; i < npc->GetModel()->numActiveAnis; i++)
+				if (zCModelAniActive* const activeAni = npc->GetModel()->aniChannels[i])
 					if (activeAni && activeAni->protoAni && visitedAnis.find(activeAni) == visitedAnis.end())
 					{
 						zCModelAni* const ani = activeAni->protoAni;
@@ -495,20 +499,51 @@ namespace NAMESPACE
 						else
 							row.emplace_back(activeAni->nextAni ? activeAni->nextAni->aniName : "");
 
-						row.emplace_back(GetWeightString(activeAni));
+						row.emplace_back(GetWeightString(npc, activeAni));
 					}
 
 			DrawTable(table, 64, 4000);
+		}
+
+		void OnLoadBegin()
+		{
+			if (nonPlayer)
+			{
+				nonPlayer = nullptr;
+				enabled = false;
+				onLoop.Reset();
+				onLoadBegin.Reset();
+			}
+		}
+
+		virtual void AddHints(std::vector<string>& hints) override
+		{
+			if (args.size() != 1 || !HasWordI("focus", args.front()))
+				return;
+
+			hints.emplace_back("focus");
 		}
 
 		virtual string Execute() override
 		{
 			enabled = !enabled;
 
-			if (enabled)
-				onLoop.Reset(TGameEvent::Loop, std::bind(&CShowAnictrlCommand::OnLoop, this));
+			if (args.size() > 0 && args.front().CompareI("focus"))
+				nonPlayer = player->GetFocusNpc();
 			else
+				nonPlayer = nullptr;
+
+			if (enabled)
+			{
+				onLoop.Reset(TGameEvent::Loop, std::bind(&CShowAnictrlCommand::OnLoop, this));
+				onLoadBegin.Reset(TGameEvent::LoadBegin, std::bind(&CShowAnictrlCommand::OnLoadBegin, this));
+			}
+			else
+			{
+				nonPlayer = nullptr;
 				onLoop.Reset();
+				onLoadBegin.Reset();
+			}
 
 			return enabled ? "Show!" : "Hide!";
 		}
@@ -516,7 +551,8 @@ namespace NAMESPACE
 	public:
 		CShowAnictrlCommand() :
 			CConsoleCommand("show anictrl", "Shows the player's active animations listed in the animation controller fields"),
-			enabled{ false }
+			enabled{ false },
+			nonPlayer{ nullptr }
 		{
 
 		}
