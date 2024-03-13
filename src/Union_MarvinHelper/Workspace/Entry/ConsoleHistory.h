@@ -59,7 +59,8 @@ namespace NAMESPACE
 	CPatchInteger name##_var; \
 	name##_var.Init(); \
 	name##_var.SetObjectName(#name); \
-	name##_var.SetValue(reinterpret_cast<int>(&name))
+	name##_var.SetValue(reinterpret_cast<int>(&name)); \
+	name##_var.DontRemove();
 
 	CSubscription executePatch(ZSUB(Entry), []
 		{
