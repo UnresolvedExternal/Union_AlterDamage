@@ -47,7 +47,7 @@ namespace NAMESPACE
 			width(screen->FontSize(text)),
 			color(Settings::textColor)
 		{
-			
+
 		}
 
 		TLootInfo(const TLootInfo& right) = default;
@@ -343,15 +343,21 @@ namespace NAMESPACE
 	{
 		Array<oCItem*> drop;
 
-		if (npc && (npc->IsUnconscious() || npc->attribute[NPC_ATR_HITPOINTS] <= 0))
-		{
-			for (oCItem& item : npc->inventory2)
-				if ((!item.HasFlag(ITM_FLAG_ACTIVE) || Union.GetEngineVersion() <= Engine_G1A) && (!item.HasFlag(ITM_CAT_ARMOR) || Settings::DropArmor))
-					drop.InsertEnd(&item);
+		if (!npc)
+			return drop;
 
-			for (oCItem*& item : drop)
-				item = npc->RemoveFromInv(item, item->amount);
-		}
+		if (Settings::LootNpcSafe)
+			if (!npc->state.curState.valid)
+				return drop;
+			else if (npc->state.curState.prgIndex != NPC_AISTATE_DEAD && npc->state.curState.prgIndex != NPC_AISTATE_UNCONSCIOUS)
+				return drop;
+
+		for (oCItem& item : npc->inventory2)
+			if ((!item.HasFlag(ITM_FLAG_ACTIVE) || Union.GetEngineVersion() <= Engine_G1A) && (!item.HasFlag(ITM_CAT_ARMOR) || Settings::DropArmor))
+				drop.InsertEnd(&item);
+
+		for (oCItem*& item : drop)
+			item = npc->RemoveFromInv(item, item->amount);
 
 		return drop;
 	}
@@ -416,7 +422,7 @@ namespace NAMESPACE
 	{
 	public:
 		bool toggle;
-		
+
 		TKeyToggler() :
 			toggle(true)
 		{

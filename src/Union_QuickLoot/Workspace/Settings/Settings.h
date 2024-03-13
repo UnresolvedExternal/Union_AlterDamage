@@ -12,6 +12,7 @@ namespace NAMESPACE
 		ZOPTION(LootNpcs, true);
 		ZOPTION(LootContainers, true);
 		ZOPTION(LootInDanger, true);
+		ZOPTION(LootNpcSafe, ZENDEF(false, false, false, true));
 
 #if ENGINE == Engine_G1
 		ZOPTION(Key, CKeyCombo({ { KEY_V } }));
