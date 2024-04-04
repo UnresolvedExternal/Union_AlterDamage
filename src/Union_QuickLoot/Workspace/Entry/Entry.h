@@ -346,6 +346,9 @@ namespace NAMESPACE
 		if (!npc)
 			return drop;
 
+		if (!npc->IsUnconscious() && npc->GetAttribute(NPC_ATR_HITPOINTS) > 0)
+			return drop;
+
 		if (Settings::LootNpcSafe)
 			if (!npc->state.curState.valid)
 				return drop;
